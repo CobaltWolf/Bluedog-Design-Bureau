@@ -1,5 +1,5 @@
-Version 0.11
-	KSP V 1.0.5
+Version 0.12
+	KSP V 1.1
 
 Installation:
 
