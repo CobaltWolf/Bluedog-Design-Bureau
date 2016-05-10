@@ -23,4 +23,5 @@ Currently, the mod includes (but is not limited to) parts to make:
 - New probe cores
 - New antennas and dishes
 - New science experiments
+
 Planned content includes massive Saturn rockets including unflown variants, launchers based on Atlas and Titan that never left the drawing board, and parts based on proposed projects for Gemini and Apollo.
