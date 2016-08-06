@@ -8,7 +8,7 @@ Extreme care has been taken to leave the mod with as small a footprint as possib
 For those familiar with KSP mods, BDB can be considered a stockalike equivalent of FASA, and a US counterpart to Tantares' soviet rockets.
 
 Currently, the mod includes (but is not limited to) parts to make:
-- Mercury capsule
+- Mercury and Gemini capsules
 - Vanguard rocket with Able and Ablestar upper stages
 - Redstone rocket
 - Juno II, IV rockets
@@ -20,6 +20,7 @@ Currently, the mod includes (but is not limited to) parts to make:
 - Centaur upper stage
 - Atlas V rocket
 - Titan I, II, III, IV rockets, with SRMs and Transtage
+- Saturn 1 with S-IV stage
 - New probe cores
 - New antennas and dishes
 - New science experiments
