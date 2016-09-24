@@ -9,6 +9,26 @@ using UnityEngine;
 
 namespace BDB
 {
+    public class ModuleBdbPebkacLiftingSurface : ModuleLiftingSurface
+    {
+        [KSPField]
+        public string transformName;
+
+        public override void OnStart(StartState state)
+        {
+            base.OnStart(state);
+
+            if (!string.IsNullOrEmpty(transformName))
+            {
+                Transform testTransform = part.FindModelTransform(transformName);
+                if (testTransform != null)
+                    baseTransform = testTransform;
+                else
+                    Debug.LogError($"[{moduleName}] could not find transform named '{transformName}'");
+            }
+        }
+    }
+
     public class ModuleBdbLesController : PartModule
     {
 
@@ -132,10 +152,12 @@ namespace BDB
         {
 
             // hook up to the part attach callback
+            /*
             if (state == StartState.Editor)
             {
                 part.OnEditorAttach += OnEditorAttach;
             }
+            */
 
             List<ModuleEngines> engines = part.FindModulesImplementing<ModuleEngines>();
             foreach (ModuleEngines e in engines)
@@ -181,12 +203,14 @@ namespace BDB
             _liftingSurface = GetLiftingSurface();
 
         }
-        
+       
+        /* 
         private void OnEditorAttach()
         {
             Debug.Log(string.Format("{0} LES OnEditorAttach", _myModTag));
             part.transform.Rotate(0, -90, 0);
         }
+        */
 
         public void FixedUpdate()
         {
