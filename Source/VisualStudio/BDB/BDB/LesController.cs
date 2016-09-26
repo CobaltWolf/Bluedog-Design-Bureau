@@ -46,8 +46,8 @@ namespace BDB
         public string pitchEngineID = "LES_PitchControl";
 
         // GUI enabled for tuning purposes
-        [KSPField(isPersistant = true, guiActiveEditor = true, guiName = "Pitch Motor Run Time")]
-        [UI_FloatRange(minValue = 0, stepIncrement = 0.1f, maxValue = 10)]
+        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "Pitch Motor Run Time")]
+//        [UI_FloatRange(minValue = 0, stepIncrement = 0.1f, maxValue = 10)]
         public float pitchEngineRunTime = 1.0f;
         
         private double pitchEngineStartTime = 0;
@@ -81,13 +81,13 @@ namespace BDB
         private Vector3 _origColOffset;
 
         // GUI enabled for tuning purposes
-        [KSPField(isPersistant = true, guiActive = true, guiActiveEditor = true, guiName = "CoM multiplier")]
-        [UI_FloatRange(minValue = 1, stepIncrement = 1.0f, maxValue = 100)]
+        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "CoM multiplier")]
+//        [UI_FloatRange(minValue = 1, stepIncrement = 1.0f, maxValue = 100)]
         public float comMult = 90.0f;
 
         // GUI enabled for tuning purposes
-        [KSPField(isPersistant = true, guiActive = true, guiActiveEditor = true, guiName = "CoP multiplier")]
-        [UI_FloatRange(minValue = 1, stepIncrement = 1.0f, maxValue = 100)]
+        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "CoP multiplier")]
+//        [UI_FloatRange(minValue = 1, stepIncrement = 1.0f, maxValue = 100)]
         public float copMult = 90.0f;
 
         // time when the canards will deploy
@@ -241,7 +241,7 @@ namespace BDB
                 var newCopY = _origCopOffset.y + (float)copFactor;
 
                 part.CoMOffset.Set(_origComOffset.x, newComY, _origComOffset.z);
-                part.CoPOffset.Set(_origCopOffset.x, -newCopY, _origCopOffset.z);
+                //part.CoPOffset.Set(_origCopOffset.x, -newCopY, _origCopOffset.z);
 
                 //Debug.Log(string.Format("CoMOffset updated to {0}", newY.ToString()));
 
