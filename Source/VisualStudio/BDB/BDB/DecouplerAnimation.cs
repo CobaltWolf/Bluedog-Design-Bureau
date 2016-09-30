@@ -42,7 +42,7 @@ namespace BDB
 
         private AnimationState[] animationStates;
 
-        [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "Toggle Payload Bay Doors")]
+        [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "Toggle Animation")]
         public void ToggleAnimationEditor()
         {
             float x = 0;
@@ -62,7 +62,6 @@ namespace BDB
 
         public void Start()
         {
-
             animationStates = SetUpAnimation(animationName, this.part);
             //if (part.stagingIcon == "")
             //    part.stagingIcon = "DECOUPLER_HOR";
