@@ -54,7 +54,7 @@ namespace BDB
                 x = 1;
             } else
             {
-                x = x * -1;
+                x = animSpeed * -1;
             }
             PlayAnimation(x);
         }

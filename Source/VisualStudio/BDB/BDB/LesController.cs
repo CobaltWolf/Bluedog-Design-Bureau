@@ -12,7 +12,7 @@ namespace BDB
     public class ModuleBdbPebkacLiftingSurface : ModuleLiftingSurface
     {
         [KSPField]
-        public string transformName;
+        new public string transformName;
 
         public override void OnStart(StartState state)
         {
