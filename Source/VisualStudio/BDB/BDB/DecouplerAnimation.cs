@@ -42,6 +42,9 @@ namespace BDB
 
         private AnimationState[] animationStates;
 
+        [KSPField(isPersistant = false)]
+        public string editorGUIName = "Toggle Animation";
+
         [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "Toggle Animation")]
         public void ToggleAnimationEditor()
         {
@@ -59,6 +62,26 @@ namespace BDB
             PlayAnimation(x);
         }
 
+        [KSPEvent(guiName = "Decouple", guiActive = true)]
+        public void Decouple()
+        {
+            Events["Decouple"].active = false;
+            if (animPosition == 0)
+            {
+                PlayAnimation(1);
+            }
+        }
+
+        [KSPAction("Decouple")]
+        public void DecoupleAction(KSPActionParam param)
+        {
+            Decouple();
+        }
+
+        public override void OnActive()
+        {
+            Decouple();
+        }
 
         public void Start()
         {
@@ -71,9 +94,18 @@ namespace BDB
             foreach (ModuleDecouple d in decouplers)
             {
                 if (d.explosiveNodeID == decouplerNodeID)
+                {
                     decoupler = d;
+                    decoupler.Actions["DecoupleAction"].active = false;
+                    decoupler.Events["Decouple"].active = false;
+                    decoupler.Events["ToggleStaging"].active = false;
+                }
                 else if (payloadDecouplerNodeID != "" && d.explosiveNodeID == payloadDecouplerNodeID)
+                {
                     payloadDecoupler = d;
+                    payloadDecoupler.Actions["DecoupleAction"].guiName = "Decouple Payload";
+                    payloadDecoupler.Fields["ejectionForcePercent"].guiName = "Force Percent (Payload)";
+                }
             }
             if (decoupler == null)
                 Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, decouplerNodeID);
@@ -99,7 +131,7 @@ namespace BDB
                     anim.normalizedTime = 0f;
                 }
             }
-
+            Events["ToggleAnimationEditor"].guiName = editorGUIName;
         }
 
 
@@ -145,11 +177,6 @@ namespace BDB
                 playing = false;
                 OnStop.Fire(animPosition);
             }
-        }
-
-        public override void OnActive()
-        {
-            PlayAnimation(1);
         }
 
         public void SetAninmation(float position, float speed = 0.0f)
