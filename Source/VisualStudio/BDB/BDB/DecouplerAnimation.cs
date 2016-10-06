@@ -75,7 +75,14 @@ namespace BDB
         [KSPAction("Decouple")]
         public void DecoupleAction(KSPActionParam param)
         {
-            Decouple();
+            if (param.group == KSPActionGroup.Abort)
+            {
+                decoupler.Decouple();
+            }
+            else
+            {
+                Decouple();
+            }
         }
 
         public override void OnActive()

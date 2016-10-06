@@ -20,7 +20,7 @@ namespace BDB
         public string actionName;
 
         [KSPField(isPersistant = true)]
-        public int actionDefaultActionGroup;
+        public KSPActionGroup actionDefaultActionGroup;
 
         [KSPField(isPersistant = true)]
         public bool saveFlag = false;
@@ -46,7 +46,7 @@ namespace BDB
                             BaseAction a = p.Actions[actionName];
                             if (a != null)
                             {
-                                a.actionGroup = (KSPActionGroup)actionDefaultActionGroup;
+                                a.actionGroup = actionDefaultActionGroup;
                             }
                             else
                             {
