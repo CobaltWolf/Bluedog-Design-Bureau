@@ -93,7 +93,7 @@ namespace BDB
 
         public void Update()
         {
-            if (HighLogic.LoadedSceneIsFlight && hasCryoResource)
+            if (HighLogic.LoadedSceneIsFlight && hasCryoResource && HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled)
             {
                 double currentTime = Planetarium.GetUniversalTime();
                 if (lastUpdateTime < 0)
@@ -122,6 +122,11 @@ namespace BDB
                     boiloffDisplay = s;
                     lastUpdateTime = currentTime;
                 }
+            }
+            else
+            {
+                boiloffDisplay = "Disabled";
+                lastUpdateTime = -1;
             }
         }
     }
