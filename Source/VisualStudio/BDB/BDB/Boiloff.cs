@@ -16,7 +16,8 @@ namespace BDB
         public string boiloffDisplay = "";
 
         private List<CryoResourceItem> cryoResources;
-        private double dayLength;
+        private bool boiloffEnabled;
+        private double boiloffMultiplier;
         private bool hasCryoResource = false;
 
         public override void OnAwake()
@@ -73,12 +74,9 @@ namespace BDB
         {
             if (HighLogic.LoadedSceneIsFlight)
             {
-                CelestialBody homeBody = FlightGlobals.GetHomeBody();
-                double period = homeBody.orbit.period;
-                dayLength = homeBody.solarDayLength; // can this be zero?
-                double periodDays = period / dayLength;
-                Debug.LogFormat("Home body {0} year length: {1}, {2}", homeBody.bodyName, periodDays.ToString("0.0"), dayLength.ToString("0.00"));
-
+                boiloffEnabled = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled;
+                boiloffMultiplier = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
+                
                 foreach (CryoResourceItem item in cryoResources)
                 {
                     if (part.Resources.Contains(item.name))
@@ -93,7 +91,7 @@ namespace BDB
 
         public void Update()
         {
-            if (HighLogic.LoadedSceneIsFlight && hasCryoResource && HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled)
+            if (HighLogic.LoadedSceneIsFlight && hasCryoResource && boiloffEnabled)
             {
                 double currentTime = Planetarium.GetUniversalTime();
                 if (lastUpdateTime < 0)
@@ -106,18 +104,32 @@ namespace BDB
                     string s = "";
                     foreach (CryoResourceItem item in cryoResources)
                     {
-                        double halfLife = item.boiloffRate * dayLength;
-
-                        if (halfLife > 0 && part.Resources.Contains(item.name) && part.Resources[item.name].amount > 0)
+                        double halfLife = item.boiloffRate / boiloffMultiplier * 60 * 60;
+                        if (part.ShieldedFromAirstream)
                         {
-                            double amt0 = part.Resources[item.name].amount;
+                            halfLife *= 10; // We'll pretend shielding acts as insulation.
+                        }
+                        double resourceAmount = part.Resources[item.name].amount;
+                        if (halfLife > 0 && resourceAmount > 0)
+                        {
+                            double amt0 = resourceAmount;
                             double amtT = amt0 * Math.Pow(0.5, deltaTime / halfLife);
                             double deltaAmount = amt0 - amtT;
-                            part.RequestResource(item.name, deltaAmount, ResourceFlowMode.NO_FLOW);
+
+                            double resourceConsumed = Math.Max(item.lastAmount - resourceAmount, 0); // Amount being drawn from tank, i.e. engine running.
+                            deltaAmount = Math.Max(deltaAmount - resourceConsumed, 0);
+
+                            if (deltaAmount > 0)
+                            {
+                                part.RequestResource(item.name, deltaAmount, ResourceFlowMode.NO_FLOW);
+                            }
                             if (s != "")
+                            {
                                 s += ", ";
-                            s += item.name + " " + (deltaAmount * (1 / deltaTime) * 60 * 60).ToString("0") + "/hr";
+                            }
+                            s += item.name + " " + (deltaAmount * (1 / deltaTime) * 60 * 60).ToString("0.0") + "/hr";
                         }
+                        item.lastAmount = part.Resources[item.name].amount;
                     }
                     boiloffDisplay = s;
                     lastUpdateTime = currentTime;
@@ -135,7 +147,8 @@ namespace BDB
     {
         public static string itemName = "CRYOGENICRESOURCE";
         public string name = "";
-        public double boiloffRate = -1.0f;
+        public double boiloffRate = -1.0;
+        public double lastAmount = -1.0;
 
         public CryoResourceItem()
         {

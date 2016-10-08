@@ -17,6 +17,8 @@ namespace BDB
         public override bool HasPresets { get { return true; } }
         [GameParameters.CustomParameterUI("Cryogenic Boiloff Enabled?", toolTip = "Set to enable boiloff of cryogenic fuel (liquid hydrogen).")]
         public bool boiloffEnabled = true;
+        [GameParameters.CustomFloatParameterUI("Boiloff Rate", asPercentage = true)]
+        public double boiloffMultiplier = 0.5;
 
         public override void SetDifficultyPreset(GameParameters.Preset preset)
         {
@@ -24,19 +26,23 @@ namespace BDB
             switch (preset)
             {
                 case GameParameters.Preset.Easy:
-                    boiloffEnabled = false;
+                    boiloffEnabled = true;
+                    boiloffMultiplier = 0.25;
                     break;
 
                 case GameParameters.Preset.Normal:
                     boiloffEnabled = true;
+                    boiloffMultiplier = 0.5;
                     break;
 
                 case GameParameters.Preset.Moderate:
                     boiloffEnabled = true;
+                    boiloffMultiplier = 0.75;
                     break;
 
                 case GameParameters.Preset.Hard:
                     boiloffEnabled = true;
+                    boiloffMultiplier = 1.0;
                     break;
             }
         }
@@ -48,7 +54,14 @@ namespace BDB
 
         public override bool Interactible(MemberInfo member, GameParameters parameters)
         {
-            return true;
+            if (HighLogic.fetch != null)
+            {
+                if (HighLogic.LoadedScene == GameScenes.MAINMENU || HighLogic.LoadedScene == GameScenes.SETTINGS || HighLogic.LoadedScene == GameScenes.SPACECENTER)
+                {
+                    return (member.Name == "boiloffEnabled" || boiloffEnabled);
+                }
+            }
+            return false;
         }
 
         public override IList ValidValues(MemberInfo member)

@@ -186,7 +186,7 @@ namespace BDB
             }
         }
 
-        public void SetAninmation(float position, float speed = 0.0f)
+        public void SetAnimation(float position, float speed = 0.0f)
         {
             animPosition = position;
             animSpeed = speed;
@@ -334,7 +334,7 @@ namespace BDB
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
