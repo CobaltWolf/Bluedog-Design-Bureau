@@ -1,0 +1,43 @@
+PART
+{
+	name = WBI_ExternalCamera
+	module = Part
+	author = Angel-125
+
+	MODEL
+	{
+		model = WildBlueIndustries/000WildBlueTools/Assets/ExternalCamera
+	}
+	rescaleFactor = 1
+	node_attach = 0, 0, 0, 0, -1, 0, 1
+
+	TechRequired = generalConstruction
+	entryCost = 800
+	cost = 200
+	category = Science
+	subcategory = 0
+	title = External Camera
+	manufacturer = Wild Blue Industries
+	description = This external camera works best when paired with a plasma TV.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 0,1,0,1,1
+
+	// --- standard part parameters ---
+	mass = 0.001
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.2
+	angularDrag = 2
+	crashTolerance = 7
+	maxTemp = 2000
+	breakingForce = 50
+	breakingTorque = 50
+	bulkheadProfiles = srf
+
+	MODULE
+	{
+		name = WBICamera
+		cameraTransform = viewTransform
+	}
+}
