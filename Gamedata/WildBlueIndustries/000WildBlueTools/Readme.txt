@@ -6,6 +6,37 @@ A KSP mod that provides common functionality for mods by Wild Blue Industries.
 
 Copy the contents of the mod's GameData directory into your GameData folder.
 
+1.9.0
+- Added WBINameTag, WBIGroundStabilizer, and WBIGeoLab.
+- Added the Buckboard 6000
+
+1.8.10
+- KSP 1.2.2 update.
+
+1.8.9
+- Greenhouse fixes.
+
+1.8.8
+- Bug fixes & enhancements.
+
+1.8.7
+- Disabled angle snap.
+
+1.8.6
+- If the target docking port supports angle snap that you can turn on/off (all WBI docking ports do), and it's turned off, then it will be turned on if the active port's angle snap is turned on.
+
+1.8.5
+
+WBIDockingNodeHelper
+- Added ability to enable/disable angle snap, and the ability to set the snap angle.
+
+Other
+- Cleaned up some logging issues related to missing part modules and textures when supported mods aren't installed.
+
+1.8.4
+- Updated to KSP 1.2.1
+- Minor bug fixes with WBILight
+
 1.8.3
 - Fixed some welding issues.
 - Greenhouses won't harvest crops if you run out of resources.
