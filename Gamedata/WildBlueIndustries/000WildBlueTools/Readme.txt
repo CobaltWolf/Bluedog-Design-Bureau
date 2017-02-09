@@ -6,6 +6,19 @@ A KSP mod that provides common functionality for mods by Wild Blue Industries.
 
 Copy the contents of the mod's GameData directory into your GameData folder.
 
+1.10.0
+New Props
+- Holoscreen: This prop works the same way as the internal plasma screen, but you can toggle the screen on and off.
+
+Bug Fixes & Enhancements
+- WBIGeoLab now integrates into the Operations Manager.
+- You can properly configure a part to be a battery by using the ConverterSkill.
+- Fixed an issue with WBIHeatRadiator not showing up in the Operations Manager.
+- Fixed an issue with IVAs spawning in the editor when inflating parts.
+- You can now select the default image for the Plasma Screen in addition to screens in the Screenshots folder.
+- Moved the kPad and plasma screens to the Utility tab.
+- The experiment lab now accounts for the science multiplier difficulty setting when generating bonus science.
+
 1.9.0
 - Added WBINameTag, WBIGroundStabilizer, and WBIGeoLab.
 - Added the Buckboard 6000
