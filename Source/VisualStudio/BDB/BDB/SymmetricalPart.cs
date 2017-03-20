@@ -43,10 +43,16 @@ namespace BDB
             transformsB = part.FindModelTransforms(transformNameB);
             raycastTransformA = part.FindModelTransforms(raycastTransformNameA).FirstOrDefault();
             raycastTransformB = part.FindModelTransforms(raycastTransformNameB).FirstOrDefault();
+            if (raycastTransformA == null)
+                Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() raycastTransformA is null");
+            if (raycastTransformB == null)
+                Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() raycastTransformB is null");
             if (raycastTransformA != null && raycastTransformB != null)
             {
                 solarPanel = this.GetComponents<ModuleDeployableSolarPanel>().FirstOrDefault<ModuleDeployableSolarPanel>();
                 updateSolar = solarPanel != null;
+                if (solarPanel == null)
+                    Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() solarPanel is null");
             }
 
             UpdateTransforms();
@@ -100,15 +106,13 @@ namespace BDB
             {
                 if (isSideA)
                 {
-                    solarPanel.panelRotationTransform = raycastTransformA;
-                    if (solarPanel.useRaycastForTrackingDot) // check sunTracking?
-                        solarPanel.trackingDotTransform = raycastTransformA;
+                    solarPanel.panelRotationTransform = raycastTransformA; 
+                    solarPanel.trackingDotTransform = raycastTransformA;   // which side gets the sun
                 }
                 else
                 {
                     solarPanel.panelRotationTransform = raycastTransformB;
-                    if (solarPanel.useRaycastForTrackingDot)
-                        solarPanel.trackingDotTransform = raycastTransformB;
+                    solarPanel.trackingDotTransform = raycastTransformB;
                 }
             }
         }
