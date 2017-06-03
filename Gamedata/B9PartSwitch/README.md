@@ -10,7 +10,7 @@ http://forum.kerbalspaceprogram.com/index.php?showtopic=140541
 
 ## Requirements
 
-* KSP version 1.2.2 (build 1622) is the only supported KSP version
+* KSP version 1.3 (build 1804) is the only supported KSP version
 * [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?showtopic=50533) is required.
 
 ## Installation
@@ -34,6 +34,11 @@ This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.
 
 ## Changelog
 
+
+### v1.8.0
+
+* Recompile for KSP 1.3
+* Drag cube re-rendering now supports IMultipleDragCubes
 
 ### v1.7.1
 

@@ -32,7 +32,7 @@ namespace BDB
             {
                 cryoResources.Clear();
                 ConfigNode[] cryoResourceNodes = node.GetNodes(CryoResourceItem.itemName);
-                Debug.Log("[ModuleBdbBoiloff] Found " + cryoResourceNodes.Count() + " " + CryoResourceItem.itemName + " nodes");
+                //Debug.Log("[ModuleBdbBoiloff] Found " + cryoResourceNodes.Count() + " " + CryoResourceItem.itemName + " nodes");
                 foreach (ConfigNode cryoResourceNode in cryoResourceNodes)
                 {
                     CryoResourceItem newItem = new CryoResourceItem(cryoResourceNode);
@@ -53,7 +53,7 @@ namespace BDB
                 if (part.partInfo.partPrefab.Modules.Contains("ModuleBdbBoiloff"))
                 {
                     ModuleBdbBoiloff prefab = (ModuleBdbBoiloff)part.partInfo.partPrefab.Modules["ModuleBdbBoiloff"];
-                    Debug.Log("[ModuleBdbBoiloff] Loading " + prefab.cryoResources.Count() + " resources from prefab part.");
+                    //Debug.Log("[ModuleBdbBoiloff] Loading " + prefab.cryoResources.Count() + " resources from prefab part.");
                     foreach (CryoResourceItem item in prefab.cryoResources)
                     {
                         CryoResourceItem newItem = new CryoResourceItem(item);

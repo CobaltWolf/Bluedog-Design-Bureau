@@ -13,12 +13,13 @@ namespace BDB
         public override string Title { get { return "Bluedog Design Bureau Options"; } }
         public override GameParameters.GameMode GameMode { get { return GameParameters.GameMode.ANY; } }
         public override string Section { get { return "Bluedog Design Bureau"; } }
+        public override string DisplaySection { get { return Section; } }
         public override int SectionOrder { get { return 1; } }
         public override bool HasPresets { get { return true; } }
         [GameParameters.CustomParameterUI("Cryogenic Boiloff Enabled?", toolTip = "Set to enable boiloff of cryogenic fuel (liquid hydrogen).")]
         public bool boiloffEnabled = true;
-        [GameParameters.CustomFloatParameterUI("Boiloff Rate", asPercentage = true)]
-        public double boiloffMultiplier = 0.5;
+        [GameParameters.CustomFloatParameterUI("Boiloff Rate", toolTip = "Boiloff Rate Percentage", asPercentage = true, displayFormat = "N1", minValue = 0.0f, maxValue = 1.0f)]
+        public float boiloffMultiplier = 0.5f;
 
         public override void SetDifficultyPreset(GameParameters.Preset preset)
         {
@@ -27,22 +28,22 @@ namespace BDB
             {
                 case GameParameters.Preset.Easy:
                     boiloffEnabled = true;
-                    boiloffMultiplier = 0.25;
+                    boiloffMultiplier = 0.25f;
                     break;
 
                 case GameParameters.Preset.Normal:
                     boiloffEnabled = true;
-                    boiloffMultiplier = 0.5;
+                    boiloffMultiplier = 0.5f;
                     break;
 
                 case GameParameters.Preset.Moderate:
                     boiloffEnabled = true;
-                    boiloffMultiplier = 0.75;
+                    boiloffMultiplier = 0.75f;
                     break;
 
                 case GameParameters.Preset.Hard:
                     boiloffEnabled = true;
-                    boiloffMultiplier = 1.0;
+                    boiloffMultiplier = 1.0f;
                     break;
             }
         }
