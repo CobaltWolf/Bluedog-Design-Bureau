@@ -17,6 +17,7 @@ namespace BDB
         private bool boiloffEnabled;
         private double boiloffMultiplier;
         private bool hasCryoResource = false;
+        private bool isPreLaunch = false;
 
         public override void OnAwake()
         {
@@ -85,52 +86,80 @@ namespace BDB
                 }
                 Fields["boiloffDisplay"].guiActive = hasCryoResource;
             }
+
+            GameEvents.onVesselWasModified.Add(OnVesselWasModified);
+            UpdatePreLaunch();
+        }
+
+        private void OnDestroy()
+        {
+            GameEvents.onVesselWasModified.Remove(OnVesselWasModified);
+        }
+
+        private void OnVesselWasModified(Vessel v)
+        {
+            UpdatePreLaunch();
+        }
+
+        private void UpdatePreLaunch()
+        {
+            var lc = vessel.FindPartModuleImplementing<LaunchClamp>();
+            isPreLaunch = (lc != null);
         }
 
         public void Update()
         {
             if (HighLogic.LoadedSceneIsFlight && hasCryoResource && boiloffEnabled)
             {
-                double currentTime = Planetarium.GetUniversalTime();
-                if (lastUpdateTime < 0)
+                if (!isPreLaunch)
                 {
-                    lastUpdateTime = currentTime;
-                }
-                double deltaTime = currentTime - lastUpdateTime;
-                if (deltaTime > 0)
-                {
-                    string s = "";
-                    foreach (CryoResourceItem item in cryoResources)
+                    double currentTime = Planetarium.GetUniversalTime();
+                    if (lastUpdateTime < 0)
                     {
-                        double halfLife = item.boiloffRate / boiloffMultiplier * 60 * 60;
-                        if (part.ShieldedFromAirstream)
-                        {
-                            halfLife *= 10; // We'll pretend shielding acts as insulation.
-                        }
-                        double resourceAmount = part.Resources[item.name].amount;
-                        if (halfLife > 0 && resourceAmount > 0)
-                        {
-                            double amt0 = resourceAmount;
-                            double amtT = amt0 * Math.Pow(0.5, deltaTime / halfLife);
-                            double deltaAmount = amt0 - amtT;
-
-                            double resourceConsumed = Math.Max(item.lastAmount - resourceAmount, 0); // Amount being drawn from tank, i.e. engine running.
-                            deltaAmount = Math.Max(deltaAmount - resourceConsumed, 0);
-
-                            if (deltaAmount > 0)
-                            {
-                                part.RequestResource(item.name, deltaAmount, ResourceFlowMode.NO_FLOW);
-                            }
-                            if (s != "")
-                            {
-                                s += ", ";
-                            }
-                            s += item.name + " " + (deltaAmount * (1 / deltaTime) * 60 * 60).ToString("0.0") + "/hr";
-                        }
-                        item.lastAmount = part.Resources[item.name].amount;
+                        lastUpdateTime = currentTime;
                     }
-                    boiloffDisplay = s;
-                    lastUpdateTime = currentTime;
+                    double deltaTime = currentTime - lastUpdateTime;
+                    if (deltaTime > 0)
+                    {
+                        string s = "";
+                        foreach (CryoResourceItem item in cryoResources)
+                        {
+                            double halfLife = item.boiloffRate / boiloffMultiplier * 60 * 60;
+                            if (part.ShieldedFromAirstream)
+                            {
+                                halfLife *= 10; // We'll pretend shielding acts as insulation.
+                            }
+                            double resourceAmount = part.Resources[item.name].amount;
+                            if (halfLife > 0 && resourceAmount > 0)
+                            {
+                                double amt0 = resourceAmount;
+                                double amtT = amt0 * Math.Pow(0.5, deltaTime / halfLife);
+                                double deltaAmount = amt0 - amtT;
+
+                                double resourceConsumed = Math.Max(item.lastAmount - resourceAmount, 0); // Amount being drawn from tank, i.e. engine running.
+                                deltaAmount = Math.Max(deltaAmount - resourceConsumed, 0);
+
+                                if (deltaAmount > 0)
+                                {
+                                    //part.RequestResource(item.name, deltaAmount, ResourceFlowMode.NO_FLOW);
+                                    part.Resources[item.name].amount = Math.Max(resourceAmount - deltaAmount, 0);
+                                }
+                                if (s != "")
+                                {
+                                    s += ", ";
+                                }
+                                s += item.name + " " + (deltaAmount * (1 / deltaTime) * 60 * 60).ToString("0.0") + "/hr";
+                            }
+                            item.lastAmount = part.Resources[item.name].amount;
+                        }
+                        boiloffDisplay = s;
+                        lastUpdateTime = currentTime;
+                    }
+                }
+                else
+                {
+                    boiloffDisplay = "Pre-Launch";
+                    lastUpdateTime = -1;
                 }
             }
             else
