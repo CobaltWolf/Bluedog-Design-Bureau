@@ -93,7 +93,7 @@ category = Propulsion
 subcategory = 0
 title = Saturn M1 engine
 manufacturer = Bluedog Design Bureau
-description = THydrolox engine derived from the powerful F1
+description = Hydrolox engine derived from the powerful F1
 
 // attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
 attachRules = 1,0,1,1,0
@@ -124,7 +124,7 @@ MODULE
 //	useEngineResponseTime = True
 //	engineAccelerationSpeed = 16.0
 	minThrust = 0
-	maxThrust = 1500
+	maxThrust = 2000
 	heatProduction = 120
 	fxOffset = 0, 0, 0.25
 	PROPELLANT
@@ -140,8 +140,8 @@ MODULE
 	}
 	atmosphereCurve
  	{
-   	 key = 0 385
-  	 key = 1 263
+   	 key = 0 428
+  	 key = 1 300
  	}
 	
 }
@@ -203,21 +203,5 @@ MODULE
 	
 }
 
-+PART[bluedog_F1]
-{
-	@name = bluedog_F1A
-	@title = Sarnus-LE1F-2214-A "Regor A" Liquid Engine
-	@entryCost *= 1.25
-	@cost *= 1.25
-	@TechRequired = advFuelSystems
 
-	@MODULE[ModuleEngines*]
-	{
-		@maxThrust *= 1.18
-		@atmosphereCurve
-		{
-			@key,0 = 0 312
-			@key,1 = 1 271
-		}
-	}
 }
