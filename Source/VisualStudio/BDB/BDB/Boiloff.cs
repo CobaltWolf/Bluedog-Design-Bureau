@@ -103,8 +103,11 @@ namespace BDB
 
         private void UpdatePreLaunch()
         {
-            var lc = vessel.FindPartModuleImplementing<LaunchClamp>();
-            isPreLaunch = (lc != null);
+            if (HighLogic.LoadedSceneIsFlight)
+            {
+                var lc = vessel.FindPartModuleImplementing<LaunchClamp>();
+                isPreLaunch = (lc != null);
+            }
         }
 
         public void Update()
