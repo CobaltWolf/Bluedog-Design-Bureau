@@ -9,20 +9,28 @@ For those familiar with KSP mods, BDB can be considered a stockalike equivalent 
 
 Currently, the mod includes (but is not limited to) parts to make:
 - Mercury and Gemini capsules
+- Apollo CSM with several upgrades
+- Apollo LEM
 - Vanguard rocket with Able and Ablestar upper stages
+- Scout rocket
 - Redstone rocket
 - Juno II, IV rockets
 - Diamant rocket
 - Thor-Delta rocket
 - Delta 2 rocket
 - Atlas rocket (Atlas A thru Atlas IIAS. Atlas III is not included at present)
-- Agena upper stage
-- Centaur upper stage
+- Agena A and D upper stages
+- Agena Target Vehicle
+- Vega upper stage
+- Centaur D, G, G' upper stages
 - Atlas V rocket
 - Titan I, II, III, IV rockets, with SRMs and Transtage
-- Saturn 1 with S-IV stage
+- Saturn 1, 1B, V, 1C rockets
+- Skylab space station
+- MOL space station
 - New probe cores
 - New antennas and dishes
 - New science experiments
+In total, over 350 parts!
 
 Planned content includes massive Saturn rockets including unflown variants, launchers based on Atlas and Titan that never left the drawing board, and parts based on proposed projects for Gemini and Apollo.
