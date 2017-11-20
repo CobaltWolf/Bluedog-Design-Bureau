@@ -10,7 +10,7 @@ http://forum.kerbalspaceprogram.com/index.php?showtopic=140541
 
 ## Requirements
 
-* KSP version 1.3 (build 1804) is the only supported KSP version
+* KSP version 1.3.1 (build 1891) is the only supported KSP version
 * [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?showtopic=50533) is required.
 
 ## Installation
@@ -33,6 +33,17 @@ The source can be found at [Github](https://github.com/blowfishpro/B9PartSwitch)
 This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.0.en.html)
 
 ## Changelog
+
+### v2.0.0
+
+* Only match on exact attach node id
+* When switching in flight, resources should always start empty
+* Allow individual subtypes to not allow switching in flight via `allowSwitchInFlight` field
+* Allow `ModuleB9PartSwitch` to have its GUI hidden if it has `advancedTweakablesOnly = true` and advanced tweakables are disabled
+* Better error handling if resource of tank type does not exist (show error dialog in game and force the user to quit)
+* Fix .version file not being able to be parsed by KSP-AVC
+* Move remote .avc file from bintray to s3
+* Add back assembly guid (accidentally removed a while ago)
 
 ### v1.10.0
 
