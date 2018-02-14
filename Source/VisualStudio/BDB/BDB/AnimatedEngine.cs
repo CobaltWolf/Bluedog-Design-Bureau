@@ -121,7 +121,7 @@ namespace BDB
                 animSpeed = anim.speed;
             }
             deployed = animPosition > 0 || animSpeed != 0;
-            Debug.Log("[ModuleBdbAnimatedEngine] Pos " + animPosition + " Speed " + animSpeed + " Engine " + wantEngineOn);
+            
             if (playing && animSpeed == 0)
             {
                 playing = false;
