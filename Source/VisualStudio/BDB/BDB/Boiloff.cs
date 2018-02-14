@@ -71,23 +71,8 @@ namespace BDB
 
         public void Start()
         {
-            if (HighLogic.LoadedSceneIsFlight)
-            {
-                boiloffEnabled = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled;
-                boiloffMultiplier = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
-                
-                foreach (CryoResourceItem item in cryoResources)
-                {
-                    if (part.Resources.Contains(item.name))
-                    {
-                        hasCryoResource = true;
-                        break;
-                    }
-                }
-                Fields["boiloffDisplay"].guiActive = hasCryoResource;
-            }
-
             GameEvents.onVesselWasModified.Add(OnVesselWasModified);
+            UpdateResources();
             UpdatePreLaunch();
         }
 
@@ -98,7 +83,28 @@ namespace BDB
 
         private void OnVesselWasModified(Vessel v)
         {
+            UpdateResources();
             UpdatePreLaunch();
+        }
+
+        private void UpdateResources()
+        {
+            if (HighLogic.LoadedSceneIsFlight)
+            {
+                boiloffEnabled = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled;
+                boiloffMultiplier = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
+
+                hasCryoResource = false;
+                foreach (CryoResourceItem item in cryoResources)
+                {
+                    if (part.Resources.Contains(item.name))
+                    {
+                        hasCryoResource = true;
+                        break;
+                    }
+                }
+                Fields["boiloffDisplay"].guiActive = hasCryoResource;
+            }
         }
 
         private void UpdatePreLaunch()
@@ -132,7 +138,7 @@ namespace BDB
                             {
                                 halfLife *= 10; // We'll pretend shielding acts as insulation.
                             }
-                            double resourceAmount = part.Resources[item.name].amount;
+                            double resourceAmount = part.Resources[item.name].amount; // will nullref if a resource is missing
                             if (halfLife > 0 && resourceAmount > 0)
                             {
                                 double amt0 = resourceAmount;
