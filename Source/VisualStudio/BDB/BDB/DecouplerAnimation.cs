@@ -23,9 +23,11 @@ namespace BDB
         [KSPField(isPersistant = false)]
         public bool isOneShot = true;
 
-        private float animPosition = 0f;
+        [KSPField(isPersistant = true)]
+        public float animPosition = 0f;
 
-        private float animSpeed = 0f;
+        [KSPField(isPersistant = true)]
+        public float animSpeed = 0f;
 
         private bool decoupled = false;
 
@@ -35,7 +37,7 @@ namespace BDB
         private ModuleDecouple payloadDecoupler;
 
         [KSPField(isPersistant = false)]
-        public string decouplerNodeID = "top";
+        public string decouplerNodeID = "";
 
         [KSPField(isPersistant = false)]
         public string payloadDecouplerNodeID = "";
@@ -44,6 +46,9 @@ namespace BDB
 
         [KSPField(isPersistant = false)]
         public string editorGUIName = "Toggle Animation";
+
+        [KSPField(isPersistant = false)]
+        public string flightGUIName = "Decouple";
 
         [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "Toggle Animation")]
         public void ToggleAnimationEditor()
@@ -77,7 +82,8 @@ namespace BDB
         {
             if (param.group == KSPActionGroup.Abort)
             {
-                decoupler.Decouple();
+                if (decoupler != null)
+                    decoupler.Decouple();
             }
             else
             {
@@ -106,38 +112,34 @@ namespace BDB
                     decoupler.Actions["DecoupleAction"].active = false;
                     decoupler.Events["Decouple"].active = false;
                     decoupler.Events["ToggleStaging"].active = false;
+                    if (HighLogic.LoadedSceneIsFlight && decoupler.ExplosiveNode.attachedPart != null)
+                    {
+                        animPosition = 0;
+                        animSpeed = 0;
+                    }
                 }
                 else if (payloadDecouplerNodeID != "" && d.explosiveNodeID == payloadDecouplerNodeID)
                 {
                     payloadDecoupler = d;
+                    payloadDecoupler.Events["Decouple"].guiName = "Decouple Payload";
                     payloadDecoupler.Actions["DecoupleAction"].guiName = "Decouple Payload";
                     payloadDecoupler.Fields["ejectionForcePercent"].guiName = "Force Percent (Payload)";
+                    if (HighLogic.LoadedSceneIsFlight)
+                        payloadDecoupler.isEnabled = animPosition >= waitForAnimation;
                 }
             }
-            if (decoupler == null)
-                Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, decouplerNodeID);
-            if (payloadDecouplerNodeID != "" && payloadDecoupler == null)
-                Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, payloadDecouplerNodeID);
+            //if (decoupler == null)
+            //    Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, decouplerNodeID);
+            //if (payloadDecouplerNodeID != "" && payloadDecoupler == null)
+            //    Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, payloadDecouplerNodeID);
 
-            if (HighLogic.LoadedSceneIsFlight)
-            {
-                decoupled = decoupler != null && decoupler.isDecoupled;
-                if (payloadDecoupler != null)
-                    payloadDecoupler.isEnabled = decoupled;
-            }
+            SetAnimation(animPosition, 0);
+            if (animSpeed != 0)
+                PlayAnimation(animSpeed);
 
-
-            foreach (AnimationState anim in animationStates)
-            {
-                if (decoupled)
-                {
-                    anim.normalizedTime = 1f;
-                }
-                else
-                {
-                    anim.normalizedTime = 0f;
-                }
-            }
+            Events["Decouple"].active = animPosition == 0;
+            Events["Decouple"].guiName = flightGUIName;
+            Actions["DecoupleAction"].guiName = flightGUIName;
             Events["ToggleAnimationEditor"].guiName = editorGUIName;
         }
 
@@ -182,7 +184,7 @@ namespace BDB
             if (playing && animSpeed == 0f)
             {
                 playing = false;
-                OnStop.Fire(animPosition);
+                DoStopAnimation(animPosition);
             }
         }
 
@@ -206,7 +208,8 @@ namespace BDB
             else if (speed > 0)
                 moveTo = 1f;
 
-            OnMoving.Fire(animPosition, moveTo);
+            if (speed != 0)
+                DoStartAnimation(animPosition, moveTo);
 
             foreach (var anim in animationStates)
             {
@@ -214,6 +217,19 @@ namespace BDB
             }
 
             playing = speed != 0f;
+        }
+
+        private void DoStartAnimation(float pos, float moveto)
+        {
+            OnMoving.Fire(animPosition, moveto);
+            part.Effect("deploy");
+        }
+
+        private void DoStopAnimation(float pos)
+        {
+            OnStop.Fire(animPosition);
+            part.Effect("deploy", 0f);
+            part.Effect("deployed");
         }
 
         public AnimationState[] SetUpAnimation(string animationName, Part part)
