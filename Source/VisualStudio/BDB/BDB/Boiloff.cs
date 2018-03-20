@@ -203,14 +203,14 @@ namespace BDB
                     boiloffDisplay = "Pre-Launch";
                     lastUpdateTime = -1;
                 }
+                exposureDisplay = (sunExposure()).ToString(); //(part.ptd.bodyFlux * part.ptd.bodyAreaMultiplier).ToString();
+                //sunFluxDisplay = (part.ptd.sunAreaMultiplier).ToString(); //(part.ptd.sunFlux * part.ptd.sunAreaMultiplier).ToString();
             }
             else
             {
                 boiloffDisplay = "Disabled";
                 lastUpdateTime = -1;
             }
-            exposureDisplay = (sunExposure()).ToString(); //(part.ptd.bodyFlux * part.ptd.bodyAreaMultiplier).ToString();
-            //sunFluxDisplay = (part.ptd.sunAreaMultiplier).ToString(); //(part.ptd.sunFlux * part.ptd.sunAreaMultiplier).ToString();
         }
 
         private double sunExposure()

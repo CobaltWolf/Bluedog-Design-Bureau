@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BDB
 {
-    public class ModuleBdbSLAHelper : PartModule
+    public class ModuleBdbSLAHelper : PartModule, IScalarModule
     {
         [KSPField]
         public string moduleID = "bdbSLAHelper";
@@ -32,6 +32,7 @@ namespace BDB
         [KSPEvent(guiName = "Decouple", guiActive = true)]
         public void Decouple()
         {
+            OnMoving.Fire(0, 1);
             if (decoupler != null && !decoupler.isDecoupled)
                 decoupler.Decouple();
             foreach (ModuleDecouple d in panels)
@@ -39,6 +40,7 @@ namespace BDB
                 if (!d.isDecoupled)
                     d.Decouple();
             }
+            OnStop.Fire(1);
         }
 
         [KSPAction("Decouple")]
@@ -98,7 +100,13 @@ namespace BDB
 
         private void OnVesselWasModified(Vessel v)
         {
+            bool wasDecoupled = decoupled;
             CheckDecoupled();
+            if (!wasDecoupled && decoupled)
+            {
+                OnMoving.Fire(0, 1);
+                OnStop.Fire(1);
+            }
         }
 
         private void CheckDecoupled()
@@ -120,6 +128,87 @@ namespace BDB
                 Events["Decouple"].active = !decoupled;
             }
         }
+
+        #region IScalarModule Interface
+
+        public override void OnAwake()
+        {
+            OnMovingEvent = new EventData<float, float>("ModuleBdbSLAHelper.OnMovingEvent");
+            OnStopEvent = new EventData<float>("ModuleBdbSLAHelper.OnStopEvent");
+            base.OnAwake();
+        }
+
+        private EventData<float, float> OnMovingEvent;
+
+        private EventData<float> OnStopEvent;
+
+
+
+        public bool IsMoving()
+        {
+            return false;
+        }
+
+        public void SetScalar(float t)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void SetUIRead(bool state)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void SetUIWrite(bool state)
+        {
+            //throw new NotImplementedException();
+        }
+
+
+        public string ScalarModuleID
+        {
+            get
+            {
+                return moduleID;
+            }
+        }
+
+        public float GetScalar
+        {
+            get
+            {
+                if (decoupled)
+                    return 1;
+                else
+                    return 0;
+            }
+        }
+
+        public bool CanMove
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public EventData<float, float> OnMoving
+        {
+            get
+            {
+                return OnMovingEvent;
+            }
+        }
+
+        public EventData<float> OnStop
+        {
+            get
+            {
+                return OnStopEvent;
+            }
+        }
+
+        #endregion
     }
 
 }
