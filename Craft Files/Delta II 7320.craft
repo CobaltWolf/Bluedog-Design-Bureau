@@ -1,15 +1,20 @@
 ship = Delta II 7320
-version = 1.3.1
+version = 1.4.3
 description = 
 type = VAB
-size = 2.84224939,24.0024643,2.48789358
+size = 2.96085739,23.3163719,2.56958389
+persistentId = 1753839824
+rot = 0,0,0,0
+missionFlag = Bluedog_DB/Flags/BDB
+vesselType = Debris
 PART
 {
-	part = HECS2.ProbeCore_4293606430
+	part = bluedog.DeltaK.ShortTank_4294000952
 	partName = Part
-	pos = -0.121061817,21.8588333,-0.000533561339
+	persistentId = 2525749244
+	pos = 0.0403887369,21.3584671,0.00233110576
 	attPos = 0,0,0
-	attPos0 = -0.121061817,21.8588333,-0.000533561339
+	attPos0 = 0.0403887369,21.3584671,0.00233110576
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -27,1078 +32,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = radialRCSTank_4293558204
-	link = radialRCSTank_4293517376
-	link = adapterSmallMiniTall_4293477780
-	link = batteryBank_4293469776
-	link = RCSBlock_4293541888
-	link = RCSBlock_4293468176
-	link = solarPanels4_4293597640
-	link = solarPanels4_4293467816
-	link = solarPanels4_4293550668
-	link = solarPanels4_4293467466
-	attN = top,batteryBank_4293469776
-	attN = bottom,adapterSmallMiniTall_4293477780
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleCommand
-		isEnabled = True
-		hibernation = False
-		hibernateOnWarp = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MakeReferenceToggle
-			{
-				actionGroup = None
-			}
-			HibernateToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleReactionWheel
-		isEnabled = True
-		actuatorModeCycle = 0
-		authorityLimiter = 100
-		stateString = Active
-		stagingEnabled = True
-		WheelState = Active
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			CycleAction
-			{
-				actionGroup = None
-			}
-			Activate
-			{
-				actionGroup = None
-			}
-			Deactivate
-			{
-				actionGroup = None
-			}
-			Toggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSAS
-		isEnabled = True
-		standaloneToggle = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleKerbNetAccess
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OpenKerbNetAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceContainer
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			CollectAllAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTripLogger
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		Log
-		{
-			flight = 0
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 1000
-		maxAmount = 1000
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = radialRCSTank_4293558204
-	partName = Part
-	pos = -0.659035504,21.2388344,-0.000533424376
-	attPos = 0,0,0
-	attPos0 = -0.537973702,-0.619998932,1.36962626E-07
-	rot = 0,0.707106948,0.70710659,0
-	attRot = 0,0,0,1
-	attRot0 = 0,0.707106948,0.70710659,0
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = radialRCSTank_4293517376
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = MonoPropellant
-		amount = 60
-		maxAmount = 60
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = radialRCSTank_4293517376
-	partName = Part
-	pos = 0.4169119,21.2388344,-0.000533745333
-	attPos = 0,0,0
-	attPos0 = 0.537973702,-0.619998932,-1.83994416E-07
-	rot = 0.70710659,-3.09086268E-08,-3.0908609E-08,-0.707106948
-	attRot = 0,0,0,1
-	attRot0 = 0.70710659,-3.09086268E-08,-3.0908609E-08,-0.707106948
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = radialRCSTank_4293558204
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = MonoPropellant
-		amount = 60
-		maxAmount = 60
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = adapterSmallMiniTall_4293477780
-	partName = Part
-	pos = -0.121061817,20.9838333,-0.000533561339
-	attPos = 0,0,0
-	attPos0 = 0,-0.875,0
-	rot = 0,0,-1,0
-	attRot = 0,0,-0.99999994,0
-	attRot0 = 0,0,-1,0
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = bluedog.9375mDecoupler_4292770744
-	attN = top,bluedog.9375mDecoupler_4292770744
-	attN = bottom,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-}
-PART
-{
-	part = batteryBank_4293469776
-	partName = Part
-	pos = -0.121061817,22.4696884,-0.000533561339
-	attPos = 0,0,0
-	attPos0 = 0,0.610855103,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = science.module_4293318622
-	attN = top,science.module_4293318622
-	attN = bottom,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 1000
-		maxAmount = 1000
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = RCSBlock_4293541888
-	partName = Part
-	pos = -0.120319538,21.6850605,0.783438921
-	attPos = 0,0,0
-	attPos0 = 0.000742278993,-0.173772812,0.783972502
-	rot = -1.68587405E-07,0.707106829,-1.68587405E-07,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = -1.68587405E-07,0.707106829,-1.68587405E-07,0.707106829
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = RCSBlock_4293468176
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RCSBlock_4293468176
-	partName = Part
-	pos = -0.121804163,21.6850605,-0.784506083
-	attPos = 0,0,0
-	attPos0 = -0.000742346048,-0.173772812,-0.783972502
-	rot = -1.68587391E-07,0.707106769,1.6858742E-07,-0.707106888
-	attRot = 0,0,0,1
-	attRot0 = -1.68587391E-07,0.707106769,1.6858742E-07,-0.707106888
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = RCSBlock_4293541888
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = solarPanels4_4293597640
-	partName = Part
-	pos = -0.751111686,22.0784492,0.363225937
-	attPos = 0,0,0
-	attPos0 = -0.630049884,0.219615936,0.363759488
-	rot = -3.08536059E-08,0.258818924,-1.15147294E-07,0.965925932
-	attRot = 0,0,0,1
-	attRot0 = -3.08536059E-08,0.258818924,-1.15147294E-07,0.965925932
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = solarPanels4_4293467816
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (-0.5, -0.5, -0.5, 0.5)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = solarPanels4_4293467816
-	partName = Part
-	pos = 0.508988023,22.0784492,-0.364293098
-	attPos = 0,0,0
-	attPos0 = 0.630049825,0.219615936,-0.363759547
-	rot = -1.15147294E-07,0.965925932,3.08536094E-08,-0.258818954
-	attRot = 0,0,0,1
-	attRot0 = -1.15147294E-07,0.965925932,3.08536094E-08,-0.258818954
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = solarPanels4_4293597640
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (-0.5, -0.5, -0.5, 0.5)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = solarPanels4_4293550668
-	partName = Part
-	pos = -0.751663685,22.0790367,-0.364611804
-	attPos = 0,0,0
-	attPos0 = -0.630601883,0.2202034,-0.364078254
-	rot = -3.08536094E-08,-0.258818924,1.15147294E-07,0.965925932
-	attRot = 0,0,0,1
-	attRot0 = -3.08536094E-08,-0.258818924,1.15147294E-07,0.965925932
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = solarPanels4_4293467466
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (-0.5, -0.5, -0.5, 0.5)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = solarPanels4_4293467466
-	partName = Part
-	pos = 0.509540141,22.0790367,0.363544643
-	attPos = 0,0,0
-	attPos0 = 0.630601943,0.2202034,0.364078194
-	rot = 1.15147294E-07,0.965925932,3.08536059E-08,0.258818895
-	attRot = 0,0,0,1
-	attRot0 = 1.15147294E-07,0.965925932,3.08536059E-08,0.258818895
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = solarPanels4_4293550668
-	srfN = srfAttach,HECS2.ProbeCore_4293606430
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (-0.5, -0.5, -0.5, 0.5)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = science.module_4293318622
-	partName = Part
-	pos = -0.121061817,23.0930443,-0.000533561339
-	attPos = 0,0,0
-	attPos0 = 0,0.623355865,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = RelayAntenna5_4293353160
-	attN = top,RelayAntenna5_4293353160
-	attN = bottom,batteryBank_4293469776
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleAnimateGeneric
-		isEnabled = True
-		aniState = LOCKED
-		animSwitch = True
-		animTime = 0
-		animSpeed = 1
-		deployPercent = 100
-		animationIsDisabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-			}
-			ResetAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RelayAntenna5_4293353160
-	partName = Part
-	pos = -0.121061817,23.7055435,-0.000533561339
-	attPos = 0,0,0
-	attPos0 = 0,0.612499237,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	attN = bottom,science.module_4293318622
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTripLogger
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		Log
-		{
-			flight = 0
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.9375mDecoupler_4292770744
-	partName = Part
-	pos = -0.121061817,20.5884514,-0.000533561339
-	attPos = 0,0,0
-	attPos0 = 0,0.395381927,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,1,0
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 0
-	sepI = 0
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = bluedog.DeltaK.ShortTank_4292774542
-	attN = bottom,bluedog.DeltaK.ShortTank_4292774542
-	attN = top,adapterSmallMiniTall_4293477780
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleToggleCrossfeed
-		isEnabled = True
-		crossfeedStatus = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-			EnableAction
-			{
-				actionGroup = None
-			}
-			DisableAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.DeltaK.ShortTank_4292774542
-	partName = Part
-	pos = -0.121061817,20.3555698,-0.000533561339
-	attPos = 0,0,0
-	attPos0 = 0,-0.232881546,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = 0
-	attm = 0
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = bluedog.DeltaK.FairingTank_4292766454
-	attN = top,bluedog.9375mDecoupler_4292770744
-	attN = bottom,bluedog.DeltaK.FairingTank_4292766454
+	link = bluedog.DeltaK.FairingTank_4293995732
+	link = bluedog.thor625mAdapter_4294012476
+	attN = top,bluedog.thor625mAdapter_4294012476_0|0.15|0
+	attN = bottom,bluedog.DeltaK.FairingTank_4293995732_0|-0.15|0
 	EVENTS
 	{
 	}
@@ -1182,6 +119,10 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
+			upgrade = bluedog_SAS0
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -1199,6 +140,559 @@ PART
 			{
 				actionGroup = None
 				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = MechJebCore
+		isEnabled = True
+		running = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnOrbitProgradeAction
+			{
+				actionGroup = None
+			}
+			OnOrbitRetrogradeAction
+			{
+				actionGroup = None
+			}
+			OnOrbitNormalAction
+			{
+				actionGroup = None
+			}
+			OnOrbitAntinormalAction
+			{
+				actionGroup = None
+			}
+			OnOrbitRadialInAction
+			{
+				actionGroup = None
+			}
+			OnOrbitRadialOutAction
+			{
+				actionGroup = None
+			}
+			OnKillRotationAction
+			{
+				actionGroup = None
+			}
+			OnDeactivateSmartASSAction
+			{
+				actionGroup = None
+			}
+			OnPanicAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronOffAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronKeepVertAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronZeroSpeedAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronPlusOneSpeedAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronMinusOneSpeedAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronToggleHSAction
+			{
+				actionGroup = None
+			}
+			OnAscentAPToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		MechJebLocalSettings
+		{
+			MechJebModuleMenu
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAirplaneAutopilot
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAirplaneGuidance
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentAutopilot
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentClassic
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentClassicMenu
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentGT
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentGTMenu
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentGuidance
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentNavBall
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentPEG
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAscentPEGMenu
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAttitudeAdjustment
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleCustomWindowEditor
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleDebugArrows
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleDockingAutopilot
+			{
+				forceRol = False
+				overrideSafeDistance = False
+				overrideTargetSize = False
+				unlockParts = 
+				unlockTechs = 
+				rol
+				{
+					_val = 0
+					_text = 0
+				}
+			}
+			MechJebModuleDockingGuidance
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleInfoItems
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleLandingAutopilot
+			{
+				deployGears = True
+				deployChutes = True
+				rcsAdjustment = True
+				unlockParts = 
+				unlockTechs = 
+				touchdownSpeed
+				{
+					_val = 0.5
+					_text = 0.5
+				}
+				limitGearsStage
+				{
+					val = 0
+					_text = 0
+				}
+				limitChutesStage
+				{
+					val = 0
+					_text = 0
+				}
+			}
+			MechJebModuleLandingGuidance
+			{
+				landingSiteIdx = 0
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleLandingPredictions
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleManeuverPlanner
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleNodeEditor
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleNodeExecutor
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleRCSBalancerWindow
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleRendezvousAutopilot
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleRendezvousAutopilotWindow
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleRendezvousGuidance
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleRoverController
+			{
+				ControlHeading = False
+				ControlSpeed = False
+				BrakeOnEject = False
+				BrakeOnEnergyDepletion = False
+				WarpToDaylight = False
+				StabilityControl = False
+				LimitAcceleration = False
+				unlockParts = 
+				unlockTechs = 
+				heading
+				{
+					_val = 0
+					_text = 0
+				}
+				speed
+				{
+					_val = 10
+					_text = 10
+				}
+			}
+			MechJebModuleRoverWindow
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleScript
+			{
+				minifiedGUI = False
+				selectedSlot = 0
+				selectedMemorySlotType = 0
+				activeSavepoint = -1
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleSettings
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleSmartASS
+			{
+				mode = ORBITAL
+				target = OFF
+				advReference = INERTIAL
+				advDirection = FORWARD
+				forceRol = False
+				forcePitch = True
+				forceYaw = True
+				unlockParts = 
+				unlockTechs = 
+				srfHdg
+				{
+					_val = 90
+					_text = 90
+				}
+				srfPit
+				{
+					_val = 90
+					_text = 90
+				}
+				srfRol
+				{
+					_val = 0
+					_text = 0
+				}
+				srfVelYaw
+				{
+					_val = 0
+					_text = 0
+				}
+				srfVelPit
+				{
+					_val = 0
+					_text = 0
+				}
+				srfVelRol
+				{
+					_val = 0
+					_text = 0
+				}
+				rol
+				{
+					_val = 0
+					_text = 0
+				}
+			}
+			MechJebModuleSmartRcs
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleSpaceplaneAutopilot
+			{
+				bBreakAsSoonAsLanded = False
+				unlockParts = 
+				unlockTechs = 
+				glideslope
+				{
+					_val = 3
+					_text = 3
+				}
+				approachSpeed
+				{
+					_val = 80
+					_text = 80
+				}
+				touchdownSpeed
+				{
+					_val = 60
+					_text = 60
+				}
+				maximumSafeBankAngle
+				{
+					_val = 25
+					_text = 25
+				}
+			}
+			MechJebModuleSpaceplaneGuidance
+			{
+				runwayIndex = 0
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleStageStats
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleTargetController
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleThrustWindow
+			{
+				autostageSavedState = False
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleTranslatron
+			{
+				unlockParts = 
+				unlockTechs = 
+				trans_spd
+				{
+					_val = 0
+					_text = 0
+				}
+			}
+			MechJebModuleWarpHelper
+			{
+				unlockParts = 
+				unlockTechs = 
+				phaseAngle
+				{
+					_val = 0
+					_text = 0
+				}
+			}
+			MechJebModuleWaypointWindow
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleWaypointHelpWindow
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			ModExtensionDemo
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
+			MechJebModuleWarpController
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleDeployableAntennaController
+			{
+				prev_shouldDeploy = False
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleSolarPanelController
+			{
+				prev_shouldDeploy = False
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleThrustController
+			{
+				limitThrottle = False
+				limiterMinThrottle = False
+				electricThrottle = False
+				unlockParts = 
+				unlockTechs = 
+				maxThrottle
+				{
+					_val = 1
+					_text = 100
+				}
+				minThrottle
+				{
+					_val = 0.050000000000000003
+					_text = 5
+				}
+				electricThrottleLo
+				{
+					_val = 0.050000000000000003
+					_text = 5
+				}
+				electricThrottleHi
+				{
+					_val = 0.14999999999999999
+					_text = 15
+				}
+			}
+			MechJebModuleRCSController
+			{
+				unlockParts = 
+				unlockTechs = 
+				Tf
+				{
+					_val = 1
+					_text = 1
+				}
+				Kp
+				{
+					_val = 0.125
+					_text = 0.125
+				}
+				Ki
+				{
+					_val = 0.070000000000000007
+					_text = 0.07
+				}
+				Kd
+				{
+					_val = 0.53000000000000003
+					_text = 0.53
+				}
+			}
+			MechJebModuleRCSBalancer
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleAttitudeController
+			{
+				unlockParts = 
+				unlockTechs = 
+				MJAttitudeController
+				{
+				}
+				KosAttitudeController
+				{
+				}
+				HybridController
+				{
+				}
+			}
+			MechJebModuleStagingController
+			{
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleFlightRecorder
+			{
+				markUT = 0
+				deltaVExpended = 0
+				dragLosses = 0
+				gravityLosses = 0
+				steeringLosses = 0
+				markLAN = 0
+				markLatitude = 0
+				markLongitude = 0
+				markAltitude = 0
+				markBodyIndex = 1
+				maxDragGees = 0
+				unlockParts = 
+				unlockTechs = 
+			}
+			MechJebModuleFlightRecorderGraph
+			{
+				unlockParts = 
+				unlockTechs = 
 			}
 		}
 		UPGRADESAPPLIED
@@ -1238,9 +732,10 @@ PART
 }
 PART
 {
-	part = bluedog.DeltaK.FairingTank_4292766454
+	part = bluedog.DeltaK.FairingTank_4293995732
 	partName = Part
-	pos = -0.121061817,19.6639328,-0.000533561339
+	persistentId = 3634142913
+	pos = 0.0403887369,20.6668301,0.00233110576
 	attPos = 0,0,0
 	attPos0 = 0,-0.691637039,0
 	rot = 0,0,0,1
@@ -1250,21 +745,21 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
-	dstg = 2
+	dstg = 0
 	sidx = 0
-	sqor = 1
-	sepI = 0
+	sqor = 2
+	sepI = -1
 	attm = 0
-	modCost = 239.507782
-	modMass = 0.332649708
+	modCost = 162.979736
+	modMass = 0.226360768
 	modSize = 0,0,0
-	link = bluedog.DeltaK.LongTank_4292760004
-	link = bluedog.DeltaK.Interstage_4292750054
-	attN = top,bluedog.DeltaK.ShortTank_4292774542
-	attN = bottom,bluedog.DeltaK.LongTank_4292760004
-	attN = bottom2,bluedog.DeltaK.Interstage_4292750054
+	link = bluedog.DeltaK.LongTank_4294149240
+	link = bluedog.DeltaK.Interstage_4294148420
+	attN = top,bluedog.DeltaK.ShortTank_4294000952_0|0.541637|0
+	attN = bottom,bluedog.DeltaK.LongTank_4294149240_0|-0.072054|0
+	attN = bottom2,bluedog.DeltaK.Interstage_4294148420_0|0|0
 	EVENTS
 	{
 	}
@@ -1301,22 +796,37 @@ PART
 		}
 		XSECTION
 		{
-			h = 1.24468231
-			r = 1.02734244
+			h = 1.05037689
+			r = 0.75
 		}
 		XSECTION
 		{
-			h = 3.71826553
-			r = 1.02734244
+			h = 1.25037694
+			r = 0.955133021
 		}
 		XSECTION
 		{
-			h = 5.02641869
-			r = 0.711339653
+			h = 1.85897446
+			r = 0.955133021
 		}
 		XSECTION
 		{
-			h = 5.86231422
+			h = 2.49803352
+			r = 0.955133021
+		}
+		XSECTION
+		{
+			h = 3.94615936
+			r = 0.575502098
+		}
+		XSECTION
+		{
+			h = 4.14615917
+			r = 0.413410068
+		}
+		XSECTION
+		{
+			h = 4.34615898
 			r = 0.150000006
 		}
 		UPGRADESAPPLIED
@@ -1633,11 +1143,12 @@ PART
 }
 PART
 {
-	part = bluedog.DeltaK.LongTank_4292760004
+	part = bluedog.DeltaK.LongTank_4294149240
 	partName = Part
-	pos = -0.121061817,19.2560444,-0.000533561339
+	persistentId = 265318040
+	pos = 0.0403887369,20.2589397,0.00233110576
 	attPos = 0,0,0
-	attPos0 = 0,-0.407888412,0
+	attPos0 = 0,-0.407889366,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1645,19 +1156,19 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
-	dstg = 2
+	dstg = 0
 	sidx = -1
 	sqor = -1
-	sepI = 0
+	sepI = -1
 	attm = 0
 	modCost = -9.53674316E-06
 	modMass = -1.39698386E-09
 	modSize = 0,0,0
-	link = bluedog.DeltaK.LowerTank_4292755972
-	attN = top,bluedog.DeltaK.FairingTank_4292766454
-	attN = bottom,bluedog.DeltaK.LowerTank_4292755972
+	link = bluedog.DeltaK.LowerTank_4294149116
+	attN = top,bluedog.DeltaK.FairingTank_4293995732_0|0.335835|0
+	attN = bottom,bluedog.DeltaK.LowerTank_4294149116_0|-0.409438|0
 	EVENTS
 	{
 	}
@@ -1741,11 +1252,12 @@ PART
 }
 PART
 {
-	part = bluedog.DeltaK.LowerTank_4292755972
+	part = bluedog.DeltaK.LowerTank_4294149116
 	partName = Part
-	pos = -0.121061817,18.7031498,-0.000533561339
+	persistentId = 2583142141
+	pos = 0.0403887369,19.7060452,0.00233110576
 	attPos = 0,0,0
-	attPos0 = 0,-0.552894592,0
+	attPos0 = 0,-0.552895546,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1753,19 +1265,19 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
-	dstg = 2
+	dstg = 0
 	sidx = -1
 	sqor = -1
-	sepI = 0
+	sepI = -1
 	attm = 0
 	modCost = 2.38418579E-06
 	modMass = -2.32830644E-09
 	modSize = 0,0,0
-	link = bluedog.DeltaK.AJ10_4292753690
-	attN = top,bluedog.DeltaK.LongTank_4292760004
-	attN = bottom,bluedog.DeltaK.AJ10_4292753690
+	link = bluedog.DeltaK.AJ10_4294148678
+	attN = top,bluedog.DeltaK.LongTank_4294149240_0|0.143457|0
+	attN = bottom,bluedog.DeltaK.AJ10_4294148678_0|-0.507462|0
 	EVENTS
 	{
 	}
@@ -1890,11 +1402,12 @@ PART
 }
 PART
 {
-	part = bluedog.DeltaK.AJ10_4292753690
+	part = bluedog.DeltaK.AJ10_4294148678
 	partName = Part
-	pos = -0.121061817,18.1833744,-0.000533561339
+	persistentId = 4276157725
+	pos = 0.0403887369,19.1862698,0.00233110576
 	attPos = 0,0,0
-	attPos0 = 0,-0.519775391,0
+	attPos0 = 0,-0.519774437,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1902,17 +1415,17 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 3
 	resPri = 0
-	dstg = 2
+	dstg = 0
 	sidx = 0
 	sqor = 3
-	sepI = 0
+	sepI = -1
 	attm = 0
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,bluedog.DeltaK.LowerTank_4292755972
+	attN = top,bluedog.DeltaK.LowerTank_4294149116_0|0.012313|0
 	EVENTS
 	{
 	}
@@ -2006,6 +1519,7 @@ PART
 	{
 		name = ModuleJettison
 		isEnabled = True
+		activejettisonName = fairing
 		isJettisoned = True
 		shroudHideOverride = False
 		stagingEnabled = True
@@ -2056,9 +1570,10 @@ PART
 }
 PART
 {
-	part = bluedog.DeltaK.Interstage_4292750054
+	part = bluedog.DeltaK.Interstage_4294148420
 	partName = Part
-	pos = -0.121061817,16.72896,-0.000533561339
+	persistentId = 1142483963
+	pos = 0.0403887369,17.7318573,0.00233110576
 	attPos = 0,0,0
 	attPos0 = 0,-2.93497276,0
 	rot = 0,0,0,1
@@ -2068,19 +1583,19 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 4
 	resPri = 0
-	dstg = 3
-	sidx = 1
-	sqor = 3
-	sepI = 2
+	dstg = 1
+	sidx = 0
+	sqor = 4
+	sepI = 4
 	attm = 0
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Delta2.UpperMainTank_4292743326
-	attN = top,bluedog.DeltaK.FairingTank_4292766454
-	attN = bottom,bluedog.Delta2.UpperMainTank_4292743326
+	link = bluedog.Delta2.UpperTank_4294243228
+	attN = top,bluedog.DeltaK.FairingTank_4293995732_0|2.934973|0
+	attN = bottom,bluedog.Delta2.UpperTank_4294243228_0|0|0
 	EVENTS
 	{
 	}
@@ -2114,11 +1629,12 @@ PART
 }
 PART
 {
-	part = bluedog.Delta2.UpperMainTank_4292743326
+	part = bluedog.Delta2.UpperTank_4294243228
 	partName = Part
-	pos = -0.121061817,14.27596,-0.000533561339
+	persistentId = 764317044
+	pos = 0.0403887369,14.9488573,0.00233110576
 	attPos = 0,0,0
-	attPos0 = 0,-2.45300007,0
+	attPos0 = 0,-2.78299999,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -2126,19 +1642,19 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 2
 	sidx = -1
 	sqor = -1
-	sepI = 2
+	sepI = 4
 	attm = 0
-	modCost = -0.000120162964
-	modMass = -2.09547579E-08
+	modCost = -0.000185012817
+	modMass = -2.37487257E-08
 	modSize = 0,0,0
-	link = bluedog.Delta2.LowerMainTank_4292737834
-	attN = top,bluedog.DeltaK.Interstage_4292750054
-	attN = bottom,bluedog.Delta2.LowerMainTank_4292737834
+	link = bluedog.Delta2.LowerTank_4294239772
+	attN = top,bluedog.DeltaK.Interstage_4294148420_0|2.783|0
+	attN = bottom,bluedog.Delta2.LowerTank_4294239772_0|-2.783|0
 	EVENTS
 	{
 	}
@@ -2200,8 +1716,8 @@ PART
 	RESOURCE
 	{
 		name = LiquidFuel
-		amount = 675
-		maxAmount = 675
+		amount = 765
+		maxAmount = 765
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -2211,8 +1727,8 @@ PART
 	RESOURCE
 	{
 		name = Oxidizer
-		amount = 825
-		maxAmount = 825
+		amount = 935
+		maxAmount = 935
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -2222,11 +1738,12 @@ PART
 }
 PART
 {
-	part = bluedog.Delta2.LowerMainTank_4292737834
+	part = bluedog.Delta2.LowerTank_4294239772
 	partName = Part
-	pos = -0.121061817,7.79496002,-0.000533561339
+	persistentId = 1550840279
+	pos = 0.0403887369,8.3174572,0.00233110576
 	attPos = 0,0,0
-	attPos0 = 0,-6.48099995,0
+	attPos0 = 0,-6.63140011,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -2234,22 +1751,22 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 2
 	sidx = -1
 	sqor = -1
-	sepI = 2
+	sepI = 4
 	attm = 0
-	modCost = -0.000225067139
-	modMass = -3.0733645E-08
+	modCost = -0.000135421753
+	modMass = -3.21306288E-08
 	modSize = 0,0,0
-	link = bluedog.Delta2.RS27_4292734232
-	link = bluedog.MiniRadialDecoupler_4292714908
-	link = bluedog.MiniRadialDecoupler_4292701874
-	link = bluedog.MiniRadialDecoupler_4292701634
-	attN = top,bluedog.Delta2.UpperMainTank_4292743326
-	attN = bottom,bluedog.Delta2.RS27_4292734232
+	link = bluedog.Delta2.RS27_4294231592
+	link = bluedog.MiniRadialDecoupler_4294224090
+	link = bluedog.MiniRadialDecoupler_4294207294
+	link = bluedog.MiniRadialDecoupler_4294207080
+	attN = top,bluedog.Delta2.UpperTank_4294243228_0|3.8484|0
+	attN = bottom,bluedog.Delta2.RS27_4294231592_0|-3.875|0
 	EVENTS
 	{
 	}
@@ -2311,8 +1828,8 @@ PART
 	RESOURCE
 	{
 		name = LiquidFuel
-		amount = 990
-		maxAmount = 990
+		amount = 1035
+		maxAmount = 1035
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -2322,8 +1839,8 @@ PART
 	RESOURCE
 	{
 		name = Oxidizer
-		amount = 1210
-		maxAmount = 1210
+		amount = 1265
+		maxAmount = 1265
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -2333,11 +1850,12 @@ PART
 }
 PART
 {
-	part = bluedog.Delta2.RS27_4292734232
+	part = bluedog.Delta2.RS27_4294231592
 	partName = Part
-	pos = -0.121061817,3.93095779,-0.000533561339
+	persistentId = 3502951832
+	pos = 0.0403887369,3.43245697,0.00233110576
 	attPos = 0,0,0
-	attPos0 = 0,-3.86400223,0
+	attPos0 = 0,-4.88500023,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -2345,19 +1863,19 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 5
+	istg = 7
 	resPri = 0
-	dstg = 4
+	dstg = 2
 	sidx = 0
 	sqor = 7
-	sepI = 2
+	sepI = 4
 	attm = 0
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = BDB.FASAlaunchClamp125_4292690826
-	attN = top,bluedog.Delta2.LowerMainTank_4292737834
-	attN = bottom,BDB.FASAlaunchClamp125_4292690826
+	link = BDB.FASAlaunchClamp125_4294196144
+	attN = top,bluedog.Delta2.LowerTank_4294239772_0|1.01|0
+	attN = bottom,BDB.FASAlaunchClamp125_4294196144_0|-1.584|0
 	EVENTS
 	{
 	}
@@ -2529,6 +2047,22 @@ PART
 	}
 	MODULE
 	{
+		name = FXModuleAnimateThrottle
+		isEnabled = True
+		animState = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleAlternator
 		isEnabled = True
 		stagingEnabled = True
@@ -2571,32 +2105,33 @@ PART
 }
 PART
 {
-	part = bluedog.MiniRadialDecoupler_4292714908
+	part = bluedog.MiniRadialDecoupler_4294224090
 	partName = Part
-	pos = -0.12106172,5.04218292,-0.819775999
-	attPos = 0,0,0
-	attPos0 = 9.68575478E-08,-2.7527771,-0.819242418
-	rot = 0,0.707106888,0,-0.707106769
+	persistentId = 3875606457
+	pos = 0.0403887443,6.4159956,0.814446926
+	attPos = 0,0.0354642868,0
+	attPos0 = 7.4505806E-09,-1.93692589,0.812115848
+	rot = 0,0.707106829,0,0.707106829
 	attRot = 0,0,0,1
-	attRot0 = 0,0.707106888,0,-0.707106769
+	attRot0 = 0,0.707106829,0,0.707106829
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 5
 	resPri = 0
-	dstg = 5
+	dstg = 3
 	sidx = 0
 	sqor = 5
-	sepI = 3
+	sepI = 5
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Delta.GEM40_4292707330
-	sym = bluedog.MiniRadialDecoupler_4292701874
-	sym = bluedog.MiniRadialDecoupler_4292701634
-	srfN = srfAttach,bluedog.Delta2.LowerMainTank_4292737834
+	link = bluedog.Delta.GEM40_4294211898
+	sym = bluedog.MiniRadialDecoupler_4294207294
+	sym = bluedog.MiniRadialDecoupler_4294207080
+	srfN = srfAttach,bluedog.Delta2.LowerTank_4294239772
 	EVENTS
 	{
 	}
@@ -2673,144 +2208,33 @@ PART
 }
 PART
 {
-	part = bluedog.Delta.GEM40_4292707330
+	part = bluedog.MiniRadialDecoupler_4294207294
 	partName = Part
-	pos = -0.12106178,5.03930283,-1.14858425
-	attPos = 0,0,0
-	attPos0 = -0.328807771,-0.00288009644,1.78813863E-07
-	rot = 0,0.707106709,0,-0.707106948
+	persistentId = 27310667
+	pos = 0.743701696,6.4159956,-0.403726906
+	attPos = 0,0.0354642868,0
+	attPos0 = 0.703312933,-1.93692589,-0.406058013
+	rot = 0,0.965925872,0,-0.258819103
 	attRot = 0,0,0,1
-	attRot0 = 0,2.38418551E-07,0,1
+	attRot0 = 0,0.965925872,0,-0.258819103
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 4
+	istg = 5
 	resPri = 0
-	dstg = 6
-	sidx = 1
-	sqor = 6
-	sepI = 3
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Delta.GEM40_4292701788
-	sym = bluedog.Delta.GEM40_4292701548
-	srfN = srfAttach,bluedog.MiniRadialDecoupler_4292714908
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEngines
-		isEnabled = True
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 296
-		maxAmount = 296
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.MiniRadialDecoupler_4292701874
-	partName = Part
-	pos = -0.830546558,5.04218292,0.409087658
-	attPos = 0,0,0
-	attPos0 = -0.709484756,-2.7527771,0.409621209
-	rot = 0,-0.258819044,0,-0.965925872
-	attRot = 0,0,0,1
-	attRot0 = 0,-0.258819044,0,-0.965925872
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 3
-	resPri = 0
-	dstg = 5
+	dstg = 3
 	sidx = 0
 	sqor = 5
-	sepI = 3
+	sepI = 5
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Delta.GEM40_4292701788
-	sym = bluedog.MiniRadialDecoupler_4292714908
-	sym = bluedog.MiniRadialDecoupler_4292701634
-	srfN = srfAttach,bluedog.Delta2.LowerMainTank_4292737834
+	link = bluedog.Delta.GEM40_4294205410
+	sym = bluedog.MiniRadialDecoupler_4294224090
+	sym = bluedog.MiniRadialDecoupler_4294207080
+	srfN = srfAttach,bluedog.Delta2.LowerTank_4294239772
 	EVENTS
 	{
 	}
@@ -2887,144 +2311,33 @@ PART
 }
 PART
 {
-	part = bluedog.Delta.GEM40_4292701788
+	part = bluedog.MiniRadialDecoupler_4294207080
 	partName = Part
-	pos = -1.11530268,5.03930283,0.573491812
-	attPos = 0,0,0
-	attPos0 = -0.328807771,-0.00288009644,1.78813863E-07
-	rot = 0,-0.258819282,0,-0.965925813
+	persistentId = 3786735016
+	pos = -0.66292429,6.4159956,-0.403726816
+	attPos = 0,0.0354642868,0
+	attPos0 = -0.703313053,-1.93692589,-0.406057924
+	rot = 0,0.258818984,0,-0.965925813
 	attRot = 0,0,0,1
-	attRot0 = 0,2.38418551E-07,0,1
+	attRot0 = 0,0.258819014,0,-0.965925872
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 4
+	istg = 5
 	resPri = 0
-	dstg = 6
-	sidx = 1
-	sqor = 6
-	sepI = 3
-	attm = 1
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Delta.GEM40_4292707330
-	sym = bluedog.Delta.GEM40_4292701548
-	srfN = srfAttach,bluedog.MiniRadialDecoupler_4292701874
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEngines
-		isEnabled = True
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 296
-		maxAmount = 296
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.MiniRadialDecoupler_4292701634
-	partName = Part
-	pos = 0.588422954,5.04218292,0.409087747
-	attPos = 0,0,0
-	attPos0 = 0.709484756,-2.7527771,0.409621298
-	rot = 0,-0.965925872,0,-0.258819103
-	attRot = 0,0,0,1
-	attRot0 = 0,-0.965925872,0,-0.258819103
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 3
-	resPri = 0
-	dstg = 5
+	dstg = 3
 	sidx = 0
 	sqor = 5
-	sepI = 3
+	sepI = 5
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Delta.GEM40_4292701548
-	sym = bluedog.MiniRadialDecoupler_4292714908
-	sym = bluedog.MiniRadialDecoupler_4292701874
-	srfN = srfAttach,bluedog.Delta2.LowerMainTank_4292737834
+	link = bluedog.Delta.GEM40_4294205282
+	sym = bluedog.MiniRadialDecoupler_4294224090
+	sym = bluedog.MiniRadialDecoupler_4294207294
+	srfN = srfAttach,bluedog.Delta2.LowerTank_4294239772
 	EVENTS
 	{
 	}
@@ -3101,31 +2414,32 @@ PART
 }
 PART
 {
-	part = bluedog.Delta.GEM40_4292701548
+	part = bluedog.Delta.GEM40_4294211898
 	partName = Part
-	pos = 0.873179495,5.03930283,0.573491812
-	attPos = 0,0,0
-	attPos0 = -0.328807771,-0.00288009644,1.78813863E-07
-	rot = 0,-0.965925932,0,-0.258818865
+	persistentId = 4198334223
+	pos = 0.0466306619,6.20590591,1.09924209
+	attPos = -0.0472375453,0,0
+	attPos0 = -0.284794629,-0.210089684,0.00624187943
+	rot = 0,1.1920929E-07,0,1.00000012
 	attRot = 0,0,0,1
-	attRot0 = 0,2.38418551E-07,0,1
+	attRot0 = 0,-0.707106769,0,0.707106888
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 4
+	istg = 7
 	resPri = 0
-	dstg = 6
+	dstg = 4
 	sidx = 1
-	sqor = 6
-	sepI = 3
+	sqor = 7
+	sepI = 5
 	attm = 1
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = bluedog.Delta.GEM40_4292707330
-	sym = bluedog.Delta.GEM40_4292701788
-	srfN = srfAttach,bluedog.MiniRadialDecoupler_4292701634
+	sym = bluedog.Delta.GEM40_4294205410
+	sym = bluedog.Delta.GEM40_4294205282
+	srfN = srfAttach,bluedog.MiniRadialDecoupler_4294224090
 	EVENTS
 	{
 	}
@@ -3164,6 +2478,22 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FXModuleAnimateThrottle
+		isEnabled = True
+		animState = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -3213,11 +2543,270 @@ PART
 }
 PART
 {
-	part = BDB.FASAlaunchClamp125_4292690826
+	part = bluedog.Delta.GEM40_4294205410
 	partName = Part
-	pos = -0.121061817,1.06595993,-0.000533561339
+	persistentId = 628322065
+	pos = 0.987220764,6.20590591,-0.551530242
+	attPos = -0.0472375453,0,0
+	attPos0 = -0.284794748,-0.210089684,0.00624187617
+	rot = 0,0.866025507,0,0.49999997
+	attRot = 0,0,0,1
+	attRot0 = 0,-0.707106769,0,0.707106829
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 7
+	resPri = 0
+	dstg = 4
+	sidx = 1
+	sqor = 7
+	sepI = 5
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Delta.GEM40_4294211898
+	sym = bluedog.Delta.GEM40_4294205282
+	srfN = srfAttach,bluedog.MiniRadialDecoupler_4294207294
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEngines
+		isEnabled = True
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+			}
+			ActivateAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FXModuleAnimateThrottle
+		isEnabled = True
+		animState = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSurfaceFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = SolidFuel
+		amount = 296
+		maxAmount = 296
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = bluedog.Delta.GEM40_4294205282
+	partName = Part
+	persistentId = 3996451303
+	pos = -0.912684858,6.20590591,-0.540718615
+	attPos = -0.0472375453,0,0
+	attPos0 = -0.284794599,-0.210089684,0.00624191575
+	rot = 0,0.866025269,0,-0.500000119
+	attRot = 0,0,0,1
+	attRot0 = 0,-0.707106709,0,0.707106888
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 7
+	resPri = 0
+	dstg = 4
+	sidx = 1
+	sqor = 7
+	sepI = 5
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Delta.GEM40_4294211898
+	sym = bluedog.Delta.GEM40_4294205410
+	srfN = srfAttach,bluedog.MiniRadialDecoupler_4294207080
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEngines
+		isEnabled = True
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+			}
+			ActivateAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FXModuleAnimateThrottle
+		isEnabled = True
+		animState = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSurfaceFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = SolidFuel
+		amount = 296
+		maxAmount = 296
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = BDB.FASAlaunchClamp125_4294196144
+	partName = Part
+	persistentId = 2552124999
+	pos = 0.0403887369,1.08345604,0.00233110576
 	attPos = 0,0,0
-	attPos0 = 0,-2.86499786,0
+	attPos0 = 0,-2.34900093,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -3225,17 +2814,17 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 4
+	istg = 6
 	resPri = 0
-	dstg = 4
+	dstg = 2
 	sidx = 0
-	sqor = 5
-	sepI = 4
+	sqor = 6
+	sepI = 6
 	attm = 0
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,bluedog.Delta2.RS27_4292734232
+	attN = top,bluedog.Delta2.RS27_4294231592_0|0.765|0
 	EVENTS
 	{
 	}
@@ -3249,8 +2838,8 @@ PART
 	{
 		name = LaunchClamp
 		isEnabled = True
-		scaleFactor = 3.13051891
-		height = 1.56628799
+		scaleFactor = 3.16549134
+		height = 1.5837841
 		stagingEnabled = True
 		towerRot = 0,0,0,1
 		EVENTS
@@ -3309,6 +2898,1496 @@ PART
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.thor625mAdapter_4294012476
+	partName = Part
+	persistentId = 1686193338
+	pos = 0.0403887369,21.8674297,0.00233110576
+	attPos = 0,0,0
+	attPos0 = 0,0.508962631,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 0
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.625mDecoupler_4294149842
+	attN = top,bluedog.625mDecoupler_4294149842_0|0.1222847|0
+	attN = bottom,bluedog.DeltaK.ShortTank_4294000952_0|-0.3589623|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+}
+PART
+{
+	part = bluedog.625mDecoupler_4294149842
+	partName = Part
+	persistentId = 555539360
+	pos = 0.0403887369,22.0129719,0.00233110576
+	attPos = 0,0,0
+	attPos0 = 0,0.1982584,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = -1,0,0,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 1
+	sepI = 1
+	attm = 0
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.LunarOrbiter.Core_4294151622
+	attN = bottom,bluedog.thor625mAdapter_4294012476_0|-0.02325848|0
+	attN = top,bluedog.LunarOrbiter.Core_4294151622_0|0.02325848|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleToggleCrossfeed
+		isEnabled = True
+		crossfeedStatus = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.LunarOrbiter.Core_4294151622
+	partName = Part
+	persistentId = 3288427120
+	pos = 0.0403887369,22.2112312,0.00233110576
+	attPos = 0,0,0
+	attPos0 = -0.000134859889,24.9532261,0.000713001646
+	rot = 1,0,0,0
+	attRot = 0.99999994,0,0,0
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 0
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.LOdish_4294151362
+	link = bluedog.LOantenna_4294151252
+	link = bluedog.LunarOrbiter.Solar_4294151180
+	link = bluedog.LunarOrbiter.Solar_4294151078
+	link = bluedog.LunarOrbiter.Solar_4294150976
+	link = bluedog.LunarOrbiter.Solar_4294150874
+	link = bluedog.cameraMidTech_4294150772
+	link = bluedog.loEngine_4294150590
+	link = bluedog.foldingMag_4294150092
+	attN = bottom,bluedog.loEngine_4294150590_0|-0.219|0
+	attN = top,bluedog.625mDecoupler_4294149842_0|0.175|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleCommand
+		isEnabled = True
+		hibernation = False
+		hibernateOnWarp = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MakeReferenceToggle
+			{
+				actionGroup = None
+			}
+			HibernateToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleReactionWheel
+		isEnabled = True
+		actuatorModeCycle = 0
+		authorityLimiter = 100
+		stateString = Active
+		stagingEnabled = True
+		WheelState = Active
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			CycleAction
+			{
+				actionGroup = None
+			}
+			Activate
+			{
+				actionGroup = None
+			}
+			Deactivate
+			{
+				actionGroup = None
+			}
+			Toggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSAS
+		isEnabled = True
+		standaloneToggle = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+			upgrade = bluedog_SAS0
+			upgrade = bluedog_SAS1
+		}
+	}
+	MODULE
+	{
+		name = ModuleKerbNetAccess
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OpenKerbNetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = MechJebCore
+		isEnabled = True
+		running = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnOrbitProgradeAction
+			{
+				actionGroup = None
+			}
+			OnOrbitRetrogradeAction
+			{
+				actionGroup = None
+			}
+			OnOrbitNormalAction
+			{
+				actionGroup = None
+			}
+			OnOrbitAntinormalAction
+			{
+				actionGroup = None
+			}
+			OnOrbitRadialInAction
+			{
+				actionGroup = None
+			}
+			OnOrbitRadialOutAction
+			{
+				actionGroup = None
+			}
+			OnKillRotationAction
+			{
+				actionGroup = None
+			}
+			OnDeactivateSmartASSAction
+			{
+				actionGroup = None
+			}
+			OnPanicAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronOffAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronKeepVertAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronZeroSpeedAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronPlusOneSpeedAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronMinusOneSpeedAction
+			{
+				actionGroup = None
+			}
+			OnTranslatronToggleHSAction
+			{
+				actionGroup = None
+			}
+			OnAscentAPToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTripLogger
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		Log
+		{
+			flight = 0
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = ElectricCharge
+		amount = 40
+		maxAmount = 40
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = bluedog.LOdish_4294151362
+	partName = Part
+	persistentId = 3837879550
+	pos = 0.0403887369,22.097271,-0.338365108
+	attPos = 0,0,0
+	attPos0 = 0,0.113959312,0.340696216
+	rot = 0,1,0,0
+	attRot = 0,0,-0.999999881,0
+	attRot0 = 0,0,-1,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.LOantenna_4294151252
+	partName = Part
+	persistentId = 518453970
+	pos = 0.0403887667,22.0689068,0.330842286
+	attPos = 0,0,0
+	attPos0 = 2.87193593E-08,0.142324448,-0.328511178
+	rot = 0,0,0,-1
+	attRot = 0,0,0.999999881,0
+	attRot0 = 1,0,0,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.LunarOrbiter.Solar_4294151180
+	partName = Part
+	persistentId = 1192359100
+	pos = 0.274045318,22.0560665,0.235987678
+	attPos = 0,0,0
+	attPos0 = 0.23365657,0.155164719,-0.23365657
+	rot = 0.923879445,0,0.382683694,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0.382683694,0,0.923879445
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.LunarOrbiter.Solar_4294151078
+	sym = bluedog.LunarOrbiter.Solar_4294150976
+	sym = bluedog.LunarOrbiter.Solar_4294150874
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDeployableSolarPanel
+		isEnabled = True
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, -0.707106829, 0, 0.707106709)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+			}
+			RetractAction
+			{
+				actionGroup = None
+				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.LunarOrbiter.Solar_4294151078
+	partName = Part
+	persistentId = 123196343
+	pos = -0.193267822,22.0560665,0.235987678
+	attPos = 0,0,0
+	attPos0 = -0.233656541,0.155164719,-0.23365657
+	rot = 0.382683218,0,0.923879683,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0.923879683,0,0.382683218
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.LunarOrbiter.Solar_4294151180
+	sym = bluedog.LunarOrbiter.Solar_4294150976
+	sym = bluedog.LunarOrbiter.Solar_4294150874
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDeployableSolarPanel
+		isEnabled = True
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, -0.707106829, 0, 0.707106709)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+			}
+			RetractAction
+			{
+				actionGroup = None
+				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.LunarOrbiter.Solar_4294150976
+	partName = Part
+	persistentId = 3784739663
+	pos = -0.193267822,22.0560665,-0.231325477
+	attPos = 0,0,0
+	attPos0 = -0.233656555,0.155164719,0.233656585
+	rot = -0.382683724,0,0.923879445,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0.923879445,0,-0.382683724
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.LunarOrbiter.Solar_4294151180
+	sym = bluedog.LunarOrbiter.Solar_4294151078
+	sym = bluedog.LunarOrbiter.Solar_4294150874
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDeployableSolarPanel
+		isEnabled = True
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, -0.707106829, 0, 0.707106709)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+			}
+			RetractAction
+			{
+				actionGroup = None
+				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.LunarOrbiter.Solar_4294150874
+	partName = Part
+	persistentId = 2149364350
+	pos = 0.274045318,22.0560665,-0.231325433
+	attPos = 0,0,0
+	attPos0 = 0.23365657,0.155164719,0.233656541
+	rot = -0.923879683,0,0.382683218,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0.382683218,0,-0.923879683
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.LunarOrbiter.Solar_4294151180
+	sym = bluedog.LunarOrbiter.Solar_4294151078
+	sym = bluedog.LunarOrbiter.Solar_4294150976
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDeployableSolarPanel
+		isEnabled = True
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, -0.707106829, 0, 0.707106709)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+			}
+			RetractAction
+			{
+				actionGroup = None
+				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.cameraMidTech_4294150772
+	partName = Part
+	persistentId = 93033012
+	pos = 0.0506453961,22.2092323,0.00553433318
+	attPos = 0,0,0
+	attPos0 = 0.0102566602,0.00199890137,-0.00320322742
+	rot = 0,0.707106829,0,-0.707106829
+	attRot = 0,-0.707106709,0,0.707106709
+	attRot0 = 0.707106829,0,-0.707106829,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = DMModuleScienceAnimateGeneric
+		isEnabled = True
+		IsDeployed = False
+		experimentsReturned = 0
+		experimentsNumber = 0
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			deployAction
+			{
+				actionGroup = None
+				active = False
+			}
+			retractAction
+			{
+				actionGroup = None
+				active = False
+			}
+			toggleAction
+			{
+				actionGroup = None
+			}
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.loEngine_4294150590
+	partName = Part
+	persistentId = 2545814346
+	pos = 0.0403887369,22.6512299,0.00233110576
+	attPos = 0,0,0
+	attPos0 = 0,-0.43999958,0
+	rot = 1,0,0,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = 0
+	sqor = 0
+	sepI = 1
+	attm = 0
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = Bluedog.Micrometeorite_4294150444
+	link = Bluedog.Micrometeorite_4294150268
+	link = Bluedog.Geiger_4294149934
+	attN = top,bluedog.LunarOrbiter.Core_4294151622_0|0.221|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleEngines
+		isEnabled = True
+		staged = False
+		flameout = False
+		EngineIgnited = False
+		engineShutdown = False
+		currentThrottle = 0
+		thrustPercentage = 100
+		manuallyOverridden = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			OnAction
+			{
+				actionGroup = None
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+			}
+			ActivateAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleGimbal
+		isEnabled = True
+		gimbalLock = False
+		gimbalLimiter = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		gimbalActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+			LockAction
+			{
+				actionGroup = None
+			}
+			FreeAction
+			{
+				actionGroup = None
+			}
+			TogglePitchAction
+			{
+				actionGroup = None
+			}
+			ToggleYawAction
+			{
+				actionGroup = None
+			}
+			ToggleRollAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleJettison
+		isEnabled = True
+		activejettisonName = fairing
+		isJettisoned = True
+		shroudHideOverride = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			JettisonAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = MonoPropellant
+		amount = 15
+		maxAmount = 15
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = Bluedog.Micrometeorite_4294150444
+	partName = Part
+	persistentId = 3127096383
+	pos = 0.154817507,22.5332756,0.116759837
+	attPos = 0,0,0
+	attPos0 = 0.114428766,0.117956161,-0.114428729
+	rot = -0.923879385,0,0.382683903,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0.382683903,0,-0.923879385
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = Bluedog.Micrometeorite_4294150268
+	srfN = srfAttach,bluedog.loEngine_4294150590
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = Bluedog.Micrometeorite_4294150268
+	partName = Part
+	persistentId = 1552890590
+	pos = -0.0740400255,22.5332756,-0.112097628
+	attPos = 0,0,0
+	attPos0 = -0.114428759,0.117956161,0.114428736
+	rot = -0.382683873,0,-0.923879385,0
+	attRot = 0,0,0,1
+	attRot0 = 0,-0.923879385,0,-0.382683873
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = Bluedog.Micrometeorite_4294150444
+	srfN = srfAttach,bluedog.loEngine_4294150590
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = Bluedog.Geiger_4294149934
+	partName = Part
+	persistentId = 1122663801
+	pos = 0.147958443,22.7116528,-0.105238587
+	attPos = 0,0,0
+	attPos0 = 0.107569709,-0.0604219437,0.107569695
+	rot = 0.653281569,0.653281569,-0.270597965,-0.270597965
+	attRot = 0,-0.707106769,0,0.707106769
+	attRot0 = 0.270597965,-0.270597965,-0.653281569,0.653281569
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.loEngine_4294150590
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleAnimateGeneric
+		isEnabled = True
+		aniState = LOCKED
+		animSwitch = True
+		animTime = 0
+		animSpeed = 1
+		deployPercent = 100
+		animationIsDisabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.foldingMag_4294150092
+	partName = Part
+	persistentId = 3784175582
+	pos = -0.343438238,22.1091099,0.00233109645
+	attPos = 0,0,0
+	attPos0 = -0.383826971,0.102121353,9.28378263E-09
+	rot = 0,0.70710665,0,-0.707106888
+	attRot = 0,0,-0.999999881,0
+	attRot0 = 0.707106888,0,-0.70710665,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.LunarOrbiter.Core_4294151622
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleResourceScanner
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = DMModuleScienceAnimateGeneric
+		isEnabled = True
+		IsDeployed = False
+		experimentsReturned = 0
+		experimentsNumber = 0
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			deployAction
+			{
+				actionGroup = None
+			}
+			retractAction
+			{
+				actionGroup = None
+			}
+			toggleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
