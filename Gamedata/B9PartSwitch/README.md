@@ -10,7 +10,7 @@ http://forum.kerbalspaceprogram.com/index.php?showtopic=140541
 
 ## Requirements
 
-* KSP version 1.3.1 (build 1891) is the only supported KSP version
+* KSP version 1.4.3 (build 2152) is the only supported KSP version
 * [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?showtopic=50533) is required.
 
 ## Installation
@@ -33,6 +33,32 @@ The source can be found at [Github](https://github.com/blowfishpro/B9PartSwitch)
 This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.0.en.html)
 
 ## Changelog
+
+### v2.3.1
+
+* Fix ModuleJettison shroud disappearing in flight if used with a ModuleB9PartSwitch that affects drag cubes
+* Don't destroy info module in flight since that messes with module order
+
+### v2.3.0
+
+* Recompile against KSP 1.4.3
+* Remove a couple of hacky workarounds as fixes/improvements were added in KSP 1.4.3
+* Use resource display names rather than identifiers in module description
+* Extract all hard-coded UI strings into localization table
+
+### v2.2.2
+
+* Fix texture replacements getting locked in when loading a craft in the editor if a part up the hierarchy renders procedural drag cubes
+
+### v2.2.1
+
+* Recompile against KSP 1.4.2
+* Fix transforms incorrectly being disabled in the part icon if subtypes are in a particular order
+* Fix `transform` in a `TEXTURE` node looking for renderers in child transforms too
+
+### v2.2.0
+
+* Recompile for KSP 1.4.1
 
 ### v2.1.1
 

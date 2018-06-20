@@ -128,7 +128,7 @@ namespace BDB
             }
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
             if (HighLogic.LoadedSceneIsFlight && hasCryoResource && boiloffEnabled)
             {
@@ -219,7 +219,7 @@ namespace BDB
             double solarPower = (homeAltAboveSun * homeAltAboveSun) / (altAboveSun * altAboveSun);
 
             double solarExposure = 0;
-            if (part.ptd.sunFlux > 0)
+            if (part.ptd != null && part.ptd.sunFlux > 0)
                 solarExposure = 1;//part.ptd.sunAreaMultiplier;
 
             return solarExposure * solarPower;
