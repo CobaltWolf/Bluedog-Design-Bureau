@@ -10,7 +10,7 @@ http://forum.kerbalspaceprogram.com/index.php?showtopic=140541
 
 ## Requirements
 
-* KSP version 1.4.3 (build 2152) is the only supported KSP version
+* KSP version 1.5.1 (build 2335) is the only supported KSP version
 * [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?showtopic=50533) is required.
 
 ## Installation
@@ -18,11 +18,6 @@ http://forum.kerbalspaceprogram.com/index.php?showtopic=140541
 * Remove any previous installation of B9PartSwitch
 * Make sure the latest version of ModuleManager is installed
 * Copy the B9PartSwitch directory to your KSP GameData directory
-
-## Contributors
-
-* [blowfish](http://forum.kerbalspaceprogram.com/index.php?/profile/119688-blowfish/) - primary developer
-* [bac9](http://forum.kerbalspaceprogram.com/index.php?/profile/57757-bac9/) - author of [PartSubtypeSwitcher](https://bitbucket.org/bac9/ksp_plugins), on which this plugin is heavily based
 
 ## Source
 
@@ -33,6 +28,42 @@ The source can be found at [Github](https://github.com/blowfishpro/B9PartSwitch)
 This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.0.en.html)
 
 ## Changelog
+
+### v2.4.4
+
+* Recompile against KSP 1.5.1
+* Downgrade certain fatal errors to warnings
+  * The user will still get an on-screen message but it can be dismissed without closing the game
+  * Duplicate subtype names is now only a serious warning
+  * Subtype without a name is now only a serious warning
+
+### v2.4.3
+
+* Fix .version file again again
+
+### v2.4.2
+
+* Fix .version file again
+
+### v2.4.1
+
+* Fix .version file still listing KSP 1.4.x
+
+### v2.4.0
+
+* Recompile against KSP 1.5
+* Provide better context for fatal exceptions
+* A few incompatibilities that previously silently disabled functionality are now fatal errors
+* Add Spanish translation of built-in strings
+* Fire onPartResourceListChange when changing resources
+
+### v2.3.3
+
+* Recompile against KSP 1.4.5
+
+### v2.3.2
+
+* Recompile against KSP 1.4.4
 
 ### v2.3.1
 
