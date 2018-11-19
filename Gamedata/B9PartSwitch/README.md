@@ -29,6 +29,19 @@ This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.
 
 ## Changelog
 
+### v2.5.0
+
+* Allow moving stack nodes
+  * Within a `SUBTYPE`, `NODE` nodes take a `name` (node ID) and a `position` (x, y, z position of the node)
+* Fix log message for duplicated subtype names
+* Fix texture switching behaving weirdly when copying a part in the editor
+
+### v2.4.5
+
+* Fix issues with resource switching and stock delta-v simulation code
+  * Exception when copying a part in the editor
+  * Delta-v simulation was probably off as well
+
 ### v2.4.4
 
 * Recompile against KSP 1.5.1
