@@ -206,7 +206,7 @@ namespace BDB
                     activeEngineName = multiController.mode;
                     foreach (ModuleEngines fx in engines)
                     {
-                        if (fx.engineID == activeEngineName)
+                        if (fx.engineID == activeEngineName && fx.EngineIgnited)
                             fx.Shutdown();
                     }
                 }
@@ -214,7 +214,8 @@ namespace BDB
                 {
                     foreach (ModuleEngines fx in engines)
                     {
-                        fx.Shutdown();
+                        if (fx.EngineIgnited)
+                            fx.Shutdown();
                     }
                 }
             }

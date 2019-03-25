@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -101,11 +102,9 @@ namespace BDB
 
         private void UpdateResources()
         {
+            RefreshSettings();
             if (HighLogic.LoadedSceneIsFlight)
             {
-                boiloffEnabled = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled;
-                boiloffMultiplier = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
-
                 hasCryoResource = false;
                 foreach (CryoResourceItem item in cryoResources)
                 {
@@ -126,6 +125,42 @@ namespace BDB
                 var lc = vessel.FindPartModuleImplementing<LaunchClamp>();
                 isPreLaunch = (lc != null);
             }
+        }
+
+        private void RefreshSettings()
+        {
+            boiloffEnabled = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled;
+            boiloffMultiplier = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
+        }
+
+        public override string GetModuleDisplayName()
+        {
+            return "Cryogenic Fuel";
+        }
+
+        public override string GetInfo()
+        {
+            string info = "Maximum boiloff rate in sunlight\n";
+
+            foreach (CryoResourceItem item in cryoResources)
+            {
+                double halfLife = item.boiloffRate / boiloffMultiplier;
+                double pctLoss = 1 - Math.Pow(0.5, 1 / halfLife);
+                info += "\n<B>" + item.name + ":</B>\n";
+                info += "    per hour: " + pctLoss.ToString("P1") + "\n";
+                info += "    half life: " + halfLife.ToString("F1") + " hrs\n";
+            }
+
+            if (!boiloffEnabled)
+                info += "\n<B>Boiloff is disabled</B>\n";
+
+            return info;
+        }
+
+        public string GetInfoEditor()
+        {
+            RefreshSettings();
+            return GetInfo();
         }
 
         public void FixedUpdate()
@@ -291,6 +326,37 @@ namespace BDB
             else
             {
                 return defaultValue;
+            }
+        }
+    }
+
+    [KSPAddon(KSPAddon.Startup.EditorAny, false)]
+    class BdbBoiloffPartInfo : MonoBehaviour
+    {
+        public void Start()
+        {
+            IEnumerable<AvailablePart> pl = PartLoader.LoadedPartsList.Where(part => part.partPrefab.Modules != null && part.partPrefab.Modules.Contains<ModuleBdbBoiloff>());
+            
+            foreach (AvailablePart p in pl)
+            {
+                for (int i = 0; i < p.moduleInfos.Count; i++)
+                {
+                    AvailablePart.ModuleInfo mi = p.moduleInfos[i];
+                    if (mi.moduleName == "Bdb Boiloff")
+                    {
+                        string s = "";
+                        ModuleBdbBoiloff pm = p.partPrefab.GetComponent<ModuleBdbBoiloff>();
+                        if (pm != null)
+                            s = pm.GetInfoEditor();
+
+                        if (s != "")
+                            mi.info = s;
+                        else
+                            p.moduleInfos.Remove(mi);
+
+                        break;
+                    }
+                }
             }
         }
     }
