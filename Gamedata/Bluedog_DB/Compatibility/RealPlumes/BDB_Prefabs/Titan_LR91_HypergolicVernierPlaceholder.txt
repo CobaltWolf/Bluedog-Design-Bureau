@@ -1,0 +1,106 @@
+//Could be replaced in the future with a new effect from Jade. Uses realplume FX for a white hypergolic vernier for LR91 and similar.
+@PART[*]:HAS[@PLUME[LR91HypergolicVernier]]:AFTER[zRealPlume]:NEEDS[SmokeScreen]
+{
+    %EFFECTS
+    {
+        %LR91HypergolicVernier
+        {
+            MODEL_MULTI_SHURIKEN_PERSIST
+            {
+                //Get the inputs from the other config.
+                transformName = #$../../../PLUME[LR91HypergolicVernier]/transformName$
+                localRotation = #$../../../PLUME[LR91HypergolicVernier]/localRotation[0]$,$../../../PLUME[LR91HypergolicVernier]/localRotation[1]$,$../../../PLUME[LR91HypergolicVernier]/localRotation[2]$
+                localPosition = #$../../../PLUME[LR91HypergolicVernier]/plumePosition[0]$,$../../../PLUME[LR91HypergolicVernier]/plumePosition[1]$,$../../../PLUME[LR91HypergolicVernier]/plumePosition[2]$
+                fixedScale    = #$../../../PLUME[LR91HypergolicVernier]/plumeScale$
+                energy        = #$../../../PLUME[LR91HypergolicVernier]/energy$
+                speed         = #$../../../PLUME[LR91HypergolicVernier]/speed$
+                emissionMult  = #$../../../PLUME[LR91HypergolicVernier]/emissionMult$
+                //
+                name = plume
+                modelName = RealPlume/MP_Nazari_FX/ssmeflame2
+                fixedEmissions = false
+                sizeClamp = 50
+                randomInitalVelocityOffsetMaxRadius = 0.2
+                randConeEmit
+                {
+                  density = 1 0
+                  density = 0.4 0.1
+                  density = 0.1 0.5
+                  density = 0.01 0.8
+                  density = 0.0 1
+                }
+                linGrow
+                {
+                density = 1.0 0
+                density = 0.0 4
+                }
+                emission
+                {
+                power = 1.0 1
+                power = 0.01 0.1
+                power = 0.0 0.0
+                }
+                speed
+                {
+                density = 1.0 1
+                density = 0.0 0.8
+                }
+                energy
+                {
+                density = 1.0 1
+                density = 0.0 0.8
+                }
+
+            }
+            AUDIO
+            {
+                channel = Ship
+                clip = sound_rocket_mini
+                volume = 0.0 0.0
+                volume = 0.1 0.03
+                volume = 1.0 0.3
+                pitch = 0.0 1.0
+                pitch = 1.0 1.0
+                loop = true
+            }
+        }
+    }
+}
+@PART[*]:HAS[@PLUME[LR91HypergolicVernier],@EFFECTS:HAS[!engage]]:AFTER[zRealPlume]:NEEDS[SmokeScreen]
+{
+    @EFFECTS
+    {
+        engage
+        {
+            AUDIO
+            {
+                channel = Ship
+                clip = RealPlume/KW_Sounds/sound_liq10
+                volume = 0.1
+                pitch = 1.0
+                loop = false
+            }
+        }
+        disengage
+        {
+            AUDIO
+            {
+                channel = Ship
+                clip = sound_vent_soft
+                volume = 1.0
+                pitch = 2.0
+                loop = false
+            }
+        }
+        flameout
+        {
+            AUDIO
+            {
+                channel = Ship
+                clip = sound_explosion_low
+                volume = 0.3
+                pitch = 2.0
+                loop = false
+            }
+        }
+    }
