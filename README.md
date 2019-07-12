@@ -38,3 +38,6 @@ Currently, the mod includes (but is not limited to) parts to make:
 In total, nearly 400 parts!
 
 Planned content includes massive Saturn rockets including unflown variants, launchers based on Atlas and Titan that never left the drawing board, and parts based on proposed projects for Gemini and Apollo.
+
+
+Bluedog Design Bureau by Matthew (CobaltWolf) Mlodzienski is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
