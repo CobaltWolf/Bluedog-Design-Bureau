@@ -10,7 +10,7 @@ http://forum.kerbalspaceprogram.com/index.php?showtopic=140541
 
 ## Requirements
 
-* KSP version 1.5.1 (build 2335) is the only supported KSP version
+* KSP version 1.7.3 (build 2594) is the only supported KSP version
 * [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?showtopic=50533) is required.
 
 ## Installation
@@ -28,6 +28,141 @@ The source can be found at [Github](https://github.com/blowfishpro/B9PartSwitch)
 This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.0.en.html)
 
 ## Changelog
+
+# v2.10.0
+
+* Use funds symbol for cost in tooltips
+* Fix vessel size including disabled objects
+* add new `upgradeRequired` field to `SUBTYPE`s
+  * References the name of a `PARTUPGRADE` require do unlock the subtype
+  * At least one subtype on every switcher must have no tech restriction (i.e. unlocks with the part), otherwise it will complain and remove the restriction from the first subtype
+  * All subtypes are unlocked in sandbox regardless of whether upgrades are applied
+  * Warning if the upgrade doesn't exist
+  * If you attempt to load a craft with a locked subtype you get a warning that it was replaced with the highest priority unlocked subtype
+* Add `defaultSubtypePriority` to `SUBTYPE`s
+  * Number (float) that determines a subtype's priority as the "default" subtype (i.e. the one that is chosen when you freshly add the part).
+  * The subtype with the highest priority that is also unlocked will be chosen
+  * If two subtypes have the same priority and both are unlocked, it will choose the first
+  * The default value is zero.
+* Add basic implementation of module switching
+  * HIGHLY EXPERIMENTAL
+  * Subtypes now accept a `MODULE` node
+    * inside is an `IDENTIFIER` node which is used to identify the module
+    * it must have a `name` which is the same as the module
+      * it can have any other fields that are used to identify the module
+        * e.g. `engineID` on `ModuleEngines`
+      * Identifying the module by nodes is not currently supported
+    * It accepts a `DATA` node which provides new data to be loaded into the module
+    * It accepts a `moduleActive = false` value which causes the module to be disabled
+  * Not everything will work initially, custom handling will have to be added for some modules
+  * Some modules are blacklisted for loading new data and disabling.  This list is subject to change.
+    * `ModulePartVariants`
+    * `ModuleB9PartSwitch`
+    * `ModuleB9PartInfo`
+    * `ModuleB9DisableTransform`
+    * `FSfuelSwitch`
+    * `FSmeshSwitch`
+    * `FStextureSwitch`
+    * `FStextureSwitch2`
+    * `InterstellarFuelSwitch`
+    * `IntersteallarMeshSwitch`
+    * `InterstellarTextureSwitch`
+
+# v2.9.0
+
+* Implement new switching UI based on the stock variant switcher
+* Have subtype switching buttons show some info about the subtype being switched to in a tooltip
+  * By default shows resources (including parent), mass, cost, max temperature, max skin temperature, crash tolerance
+  * Also shows `descriptionSummary` and `descriptionDetail` from subtype, before and after auto-generated info respectively, if present
+* 4 new fieds on `SUBTYPE`
+  * `descriptionSummary` - any info here will be put in the subtype switching tooltip before the auto-generated info - make it brief
+  * `descriptionDetail` - any info here will be put in the subtype switching tooltip after the auto-generated info - go nuts
+  * `primaryColor` - color to use in the left part of the switching button
+    * if not specified, use the tank type's primaryColor
+    * if that's not specified, use white
+  * `secondaryColor` - color to use in the right part of the switching button
+    * if not specified, use the tank's secondaryColor
+    * if that's not specified, use the subtype's primaryColor
+    * if that's not specified, use the tank's primaryColor
+    * if that's not specified, use gray
+* 2 new fields on `B9_TANK_TYPE`
+  * `primaryColor` - color to use in the left part of the switching button i they subtype does not specify one.  If not specified, common resource combinations will be used.
+  * `secondaryColor` - color to use in the right part of the switching button i they subtype does not specify one.  If not specified, common resource combinations will be used.
+* add default colors for common resources
+  * `ResourceColorLiquidFuel`
+  * `ResourceColorLqdHydrogen`
+  * `ResourceColorLqdMethane`
+  * `ResourceColorOxidizer`
+  * `ResourceColorMonoPropellant`
+  * `ResourceColorXenonGas`
+  * `ResourceColorElectricChargePrimary`
+  * `ResourceColorElectricChareSecondary`
+  * `ResourceColorOre`
+* Automatically apply resource colors to common resource combinations in tanks (if colors are not specified by the tank or subtype):
+  * LiquidFuel
+  * LiquidFuel/Oxidizer
+  * LqdHydrogen
+  * LqdHydrogen/Oxidizer
+  * LqdMethane
+  * LqdMethane/Oxidizer
+  * Oxidizer
+  * MonoPropellant
+  * XenonGas
+  * Ore
+  * ElectricCharge
+
+# v2.8.1
+
+* Recompile against KSP 1.7.3
+
+# v2.8.0
+
+* Recompile against KSP 1.7.1
+* Fix part action window showing removed resources in KSP 1.7.1
+* Add Russian localization
+
+### v2.7.1
+
+* Fix part into button being shown when there's no info to display
+* Provide more context for subtype initialization errors in the warning dialog
+
+### v2.7.0
+
+* Compile for KSP 1.7.0
+* Remove `ModuleB9PropagateCopyEvents` from parts since KSP handles this correctly now
+  * Leave empty class so that KSP doesn't complain when loading craft/vessels
+* All initialization errors now warn the user but allow the game to continue
+* Add fuzzy matching for attach node toggling
+  * `?` will match any one character, `*` will match anything (or nothing)
+  * All matching nodes will be switched
+* Allow moving and rotation of transforms
+  * Subtypes can now have `TRANSFORM` nodes
+    * Each one should nave a `name` which is the name of the transform
+    * Each one can have a `positionOffset = x, y, z` which is a local offset for that transform
+      * Any number of modules can modify a transform's position (it's additive)
+    * Each one can have a `rotationOffset = x, y, z` which is a local rotation offset
+      * Only one module can modify a transform's position
+* Remove KSP localization debug logging
+* Add Brazilian Portuguese localization
+* Localize switch subtype button
+* Fix texture switches incorrectly saying the current texture wasn't found when really the new texture wasn't found
+* Use more correct part names in some log messages
+* Allow subtypes to specify a mirror symmetry counterpart
+  * Subtypes now accept a `mirrorSymmetrySubtype` value which is the subtype name of the mirror symmetry subtype
+  * When placing the part in mirror symmetry, the symmetry counterpart will use this mirror symmetry subtype, otherwise it will use the normal subtype
+
+### v2.6.0
+
+* Recompile against KSP 1.6.1
+* Fix misspellings in fatal error and serious warning handlers
+
+### v2.5.1
+
+* Moved stack nodes now respect `scale`, `rescaleFactor`, and TweakScale
+* Moved surface attach node now respects `scale` and `rescaleFactor`
+* When only one subtype is present, disable switching GUI and display subtype title as non-interactable string
+* Downgrade incompatible resource switching module to a warning and disable B9 resource switching in that case
+* French localization
 
 ### v2.5.0
 
