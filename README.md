@@ -26,15 +26,15 @@ Currently, the mod includes (but is not limited to):
 - Redstone rocket, with Sergeant clusters and Explorer 1
 - Juno II, IV rockets
 - Thor-Delta rocket (Almost all variants can be made)
-- Delta 2 and 3 rockets (Including upper stage and a variety GEM SRBs)
-- 4 meter Delta Cryogenic Second Stage (5 meter
+- Delta 2 and 3 rockets (Including upper stage and a variety of GEM SRBs)
+- 4 meter Delta Cryogenic Second Stage, modeled by Blowfish. (5 meter available in ReDIRECT)
 - Atlas rocket (everything from Atlas A up through Atlas V 551)
 - Agena upper stage (All variants)
 - Vega (old Kerolox upper stage for Atlas)
 - Centaur D, G, G', T, V upper stages
 - Titan 1, 2, 3, 4 rockets, with SRMs and Transtage (No IUS yet!)
-- Config switching for LR87's, with alternate kerolox versions and plumes to match!
-- Config switching for H1, RS27, and many more! (All config switching provided courtesy of B9PS)
+- Config switching for the LR87s, with alternate kerolox versions and plumes to match!
+- Config switching for the H1, the RS27, and many more! (All config switching provided courtesy of B9PS)
 - LDC Titan
 - Peacekeeper/Minotaur SRB based launcher
 - Athena SRB based launcher
@@ -44,7 +44,7 @@ Currently, the mod includes (but is not limited to):
 - New antennas and dishes
 - New science experiments 
 - High quality realplumes built with Plume Party FX by Zorg!
-- Full engine ignitor configs by RocketMan
+- Full engine ignitor configs by _Rock3tMan
 In total, nearly 500 parts and many features for those parts!
 
 Planned content includes massive Saturn rockets including unflown variants, launchers based on Atlas and Titan that never left the drawing board, and parts based on proposed projects for Gemini and Apollo.
