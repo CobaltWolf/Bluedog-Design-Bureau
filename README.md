@@ -20,7 +20,7 @@ Currently, the mod includes (but is not limited to):
 - Modular 1.875m and 1.5m station parts for Gemini-era space stations
 - Skylab station parts
 - Spacelab (from Eyes) station parts
-- Parts for the Apollo-Venus mission
+- Parts for the Manned Venus Flyby mission
 - Vanguard rocket and probe
 - Scout rocket
 - Redstone rocket, with Sergeant clusters and Explorer 1
@@ -32,9 +32,9 @@ Currently, the mod includes (but is not limited to):
 - Agena upper stage (All variants)
 - Vega (old Kerolox upper stage for Atlas)
 - Centaur D, G, G', T, V upper stages
-- Titan 1, 2, 3, 4 rockets, with SRMs and Transtage (No IUS yet!)
+- Titan 1, 2, 3, 4 rockets, with SRMs and Transtage
 - Config switching for the LR87s, with alternate kerolox versions and plumes to match!
-- Config switching for the H1, the RS27, and many more! (All config switching provided courtesy of B9PS)
+- Config switching for the H1, the RS27, and many more! (All config switching provided courtesy of B9 Part Switch)
 - LDC Titan
 - Peacekeeper/Minotaur SRB based launcher
 - Athena SRB based launcher
