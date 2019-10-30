@@ -47,7 +47,7 @@ Currently, the mod includes (but is not limited to):
 - Full engine ignitor configs by _Rock3tMan
 In total, nearly 500 parts and many features for those parts!
 
-Planned content includes massive Saturn rockets including unflown variants, launchers based on Atlas and Titan that never left the drawing board, and parts based on proposed projects for Gemini and Apollo.
+Planned content includes massive Saturn rockets including unflown variants, and parts based on proposed projects for Gemini and Apollo.
 
 
 Bluedog Design Bureau by Matthew (CobaltWolf) Mlodzienski is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
