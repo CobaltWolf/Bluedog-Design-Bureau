@@ -3,11 +3,17 @@ Stockalike parts pack for Kerbal Space Program
 
 What is this mod?
 
-BDB adds parts. Lots of parts. Nearly 500 parts, including launchers, spacecraft, and probes, all in a ReStockalike style. The focus lies primarily on the US space program up through the Apollo program, though some modern parts exist. They are not perfect replicas, but rather take inspiration directly from existing designs. Care has been taken to research and include pieces for projects that were proposed but never happened, to increase the possibilities available to the player. Parts are made in a lego frame of mind, and screenshots of your unique franken creations are always appreciated! The mod is not recommended for new players, as the mod adds a good deal of clutter to the VAB lists. The mod also adds new standard sizes (such a 0.9375m, 1.5m and 1.875m diameter) of parts in order to more accurately scale to KSP.
+BDB adds parts. Lots of parts. Nearly 500 parts, including launchers, spacecraft, and probes, all in a ReStockalike style. The focus lies primarily on the US space program up through the Apollo program, though some modern parts exist. They are not perfect replicas, but rather take inspiration directly from existing designs. Care has been taken to research and include pieces for projects that were proposed but never happened, to increase the possibilities available to the player. Parts are made in a lego frame of mind, and screenshots of your unique franken creations are always appreciated! The mod is not recommended for new players, as the mod adds a good deal of clutter to the VAB lists. The mod also adds new standard sizes (such a 0.9375m, 1.5m, 1.875m, 3.125m and 5.625m diameter) of parts in order to more accurately scale to KSP.
 
 Now, 500 parts sounds like it would kill your PC. While the mod certainly is large, the memory overhead is likely lower than you would expect. Care has been taken to ensure the mod is efficient, with methods such as enforcing a strict texel density (a technique I have only used since mid-2017, so the older assets might not be as efficient) and texture atlasing to cram several parts onto each texture sheet.
 
-For those familiar with KSP mods, BDB can be considered a ReStockalike equivalent of FASA, and a US counterpart to Tantares' soviet rockets. 
+BDB makes heavy use of B9PartSwitch's advanced features including features such as
+- Texture and mesh switching
+- BDB's own custom fuel switcher to allow different fuel types in all tanks
+- Engine config switching which can include stats, model and plume switches
+- Part upgrade handling so that older configurations of engines can still be selected after unlocking the upgrade for accurate replicas
+
+For those familiar with KSP mods, BDB can be considered a ReStockalike equivalent of FASA, and a US counterpart to Tantares' soviet rockets.
 
 Currently, the mod includes (but is not limited to):
 - Mercury spacecraft (Courtesy of Bloeting Aerospace Corp)
@@ -42,12 +48,13 @@ Currently, the mod includes (but is not limited to):
 - Saturn 1C and Saturn Multibody from Eyes
 - New probe cores
 - New antennas and dishes
-- New science experiments 
-- High quality realplumes built with Plume Party FX by Zorg!
+- New science experiments
+- PlumeParty based rocket plume FX for the stock particle system including FX exclusive to BDB provided by Jade of Maar!
+- High quality realplumes built with Plume Party and custom FX by Zorg!
 - Full engine ignitor configs by _Rock3tMan
 In total, nearly 500 parts and many features for those parts!
 
-Planned content includes massive Saturn rockets including unflown variants, and parts based on proposed projects for Gemini and Apollo.
+Planned content includes massive Saturn rockets including unflown variants, and parts based on proposed projects for Gemini and Apollo. Most of the older parts such as Thor-Delta, Redstone, Agena etc are also being remade to the latest standards.
 
 
 Bluedog Design Bureau by Matthew (CobaltWolf) Mlodzienski is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
