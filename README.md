@@ -52,7 +52,7 @@ Currently, the mod includes (but is not limited to):
 - PlumeParty based rocket plume FX for the stock particle system including FX exclusive to BDB provided by Jade of Maar!
 - High quality realplumes built with Plume Party and custom FX by Zorg!
 - Full engine ignitor configs by _Rock3tMan
-In total, nearly 500 parts and many features for those parts!
+- In total, nearly 500 parts and many features for those parts!
 
 Planned content includes massive Saturn rockets including unflown variants, and parts based on proposed projects for Gemini and Apollo. Most of the older parts such as Thor-Delta, Redstone, Agena etc are also being remade to the latest standards.
 
