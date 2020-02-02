@@ -20,11 +20,17 @@ namespace BDB
         public string raycastTransformNameA;
         [KSPField(isPersistant = false)]
         public string raycastTransformNameB;
+        [KSPField(isPersistant = false)]
+        public string pivotNameA;
+        [KSPField(isPersistant = false)]
+        public string pivotNameB;
 
         public Transform[] transformsA;
         public Transform[] transformsB;
         public Transform raycastTransformA;
         public Transform raycastTransformB;
+        public Transform pivotA;
+        public Transform pivotB;
         public ModuleDeployableSolarPanel solarPanel = null;
 
         [KSPField(isPersistant = true)]
@@ -43,11 +49,17 @@ namespace BDB
             transformsB = part.FindModelTransforms(transformNameB);
             raycastTransformA = part.FindModelTransforms(raycastTransformNameA).FirstOrDefault();
             raycastTransformB = part.FindModelTransforms(raycastTransformNameB).FirstOrDefault();
+            pivotA = part.FindModelTransforms(pivotNameA).FirstOrDefault();
+            pivotB = part.FindModelTransforms(pivotNameB).FirstOrDefault();
             if (raycastTransformA == null)
                 Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() raycastTransformA is null");
             if (raycastTransformB == null)
                 Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() raycastTransformB is null");
-            if (raycastTransformA != null && raycastTransformB != null)
+            if (pivotA == null)
+                Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() pivotA is null");
+            if (pivotB == null)
+                Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() pivotB is null");
+            if (raycastTransformA != null && raycastTransformB != null && pivotA != null && pivotB != null)
             {
                 solarPanel = this.GetComponents<ModuleDeployableSolarPanel>().FirstOrDefault<ModuleDeployableSolarPanel>();
                 updateSolar = solarPanel != null;
@@ -106,12 +118,12 @@ namespace BDB
             {
                 if (isSideA)
                 {
-                    solarPanel.panelRotationTransform = raycastTransformA; 
+                    solarPanel.panelRotationTransform = pivotA; 
                     solarPanel.trackingDotTransform = raycastTransformA;   // which side gets the sun
                 }
                 else
                 {
-                    solarPanel.panelRotationTransform = raycastTransformB;
+                    solarPanel.panelRotationTransform = pivotB;
                     solarPanel.trackingDotTransform = raycastTransformB;
                 }
             }
