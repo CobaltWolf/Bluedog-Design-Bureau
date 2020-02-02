@@ -46,7 +46,7 @@ namespace BDB
         public string pitchEngineID = "LES_PitchControl";
 
         // GUI enabled for tuning purposes
-        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "Pitch Motor Run Time")]
+        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "#BDB_Fileds_pitchEngineRunTime")]//Pitch Motor Run Time
 //        [UI_FloatRange(minValue = 0, stepIncrement = 0.1f, maxValue = 10)]
         public float pitchEngineRunTime = 1.0f;
         
@@ -81,12 +81,12 @@ namespace BDB
         private Vector3 _origColOffset;
 
         // GUI enabled for tuning purposes
-        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "CoM multiplier")]
+        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "#BDB_Fileds_comMult")]//CoM multiplier
 //        [UI_FloatRange(minValue = 1, stepIncrement = 1.0f, maxValue = 100)]
         public float comMult = 90.0f;
 
         // GUI enabled for tuning purposes
-        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "CoP multiplier")]
+        [KSPField(isPersistant = true, guiActiveEditor = false, guiName = "#BDB_Fileds_copMult")]//CoP multiplier
 //        [UI_FloatRange(minValue = 1, stepIncrement = 1.0f, maxValue = 100)]
         public float copMult = 90.0f;
 
@@ -377,7 +377,7 @@ namespace BDB
             DoJettison();
         }
 
-        [KSPEvent(guiName = "Jettison Tower", guiActive = true)]
+        [KSPEvent(guiName = "#BDB_Fileds_DoJettison", guiActive = true)]//Jettison Tower
         public void DoJettison()
         {
             Debug.Log("Jettison Tower Activated");

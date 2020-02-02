@@ -5,20 +5,21 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
+using KSP.Localization;
 
 namespace BDB
 {
     public class BdbCustomParams : GameParameters.CustomParameterNode
     {
-        public override string Title { get { return "Bluedog Design Bureau Options"; } }
+        public override string Title { get { return Localizer.Format("#BDB_Fileds_Setting_Title"); } }//"Bluedog Design Bureau Options"
         public override GameParameters.GameMode GameMode { get { return GameParameters.GameMode.ANY; } }
-        public override string Section { get { return "Bluedog Design Bureau"; } }
+        public override string Section { get { return Localizer.Format("#BDB_Fileds_Setting_SectionName"); } }//"Bluedog Design Bureau"
         public override string DisplaySection { get { return Section; } }
         public override int SectionOrder { get { return 1; } }
         public override bool HasPresets { get { return true; } }
-        [GameParameters.CustomParameterUI("Cryogenic Boiloff Enabled?", toolTip = "Set to enable boiloff of cryogenic fuel (liquid hydrogen).")]
+        [GameParameters.CustomParameterUI("#BDB_Fileds_Setting_boiloffEnabled", toolTip = "#BDB_Fileds_Setting_boiloffEnabled_toolTip")]//Cryogenic Boiloff Enabled?__Set to enable boiloff of cryogenic fuel (liquid hydrogen).
         public bool boiloffEnabled = true;
-        [GameParameters.CustomFloatParameterUI("Boiloff Rate", toolTip = "Boiloff Rate Percentage", asPercentage = true, displayFormat = "N1", minValue = 0.0f, maxValue = 1.0f)]
+        [GameParameters.CustomFloatParameterUI("#BDB_Fileds_Setting_boiloffMultiplier", toolTip = "#BDB_Fileds_Setting_boiloffMultiplier_toolTip", asPercentage = true, displayFormat = "N1", minValue = 0.0f, maxValue = 1.0f)]//Boiloff Rate__Boiloff Rate Percentage
         public float boiloffMultiplier = 0.5f;
 
         public override void SetDifficultyPreset(GameParameters.Preset preset)

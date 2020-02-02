@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using KSP.Localization;
 
 namespace BDB
 {
@@ -45,12 +46,12 @@ namespace BDB
         private AnimationState[] animationStates;
 
         [KSPField(isPersistant = false)]
-        public string editorGUIName = "Toggle Animation";
+        public string editorGUIName = Localizer.Format("#BDB_Fileds_ToggleAnimation");//"Toggle Animation"
 
         [KSPField(isPersistant = false)]
-        public string flightGUIName = "Decouple";
+        public string flightGUIName = Localizer.Format("#BDB_Fileds_Decouple");//"Decouple"
 
-        [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "Toggle Animation")]
+        [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "#BDB_Fileds_ToggleAnimation")]//Toggle Animation
         public void ToggleAnimationEditor()
         {
             float x = 0;
@@ -67,7 +68,7 @@ namespace BDB
             PlayAnimation(x);
         }
 
-        [KSPEvent(guiName = "Decouple", guiActive = true)]
+        [KSPEvent(guiName = "#BDB_Fileds_Decouple", guiActive = true)]//Decouple
         public void Decouple()
         {
             Events["Decouple"].active = false;
@@ -121,9 +122,9 @@ namespace BDB
                 else if (payloadDecouplerNodeID != "" && d.explosiveNodeID == payloadDecouplerNodeID)
                 {
                     payloadDecoupler = d;
-                    payloadDecoupler.Events["Decouple"].guiName = "Decouple Payload";
-                    payloadDecoupler.Actions["DecoupleAction"].guiName = "Decouple Payload";
-                    payloadDecoupler.Fields["ejectionForcePercent"].guiName = "Force Percent (Payload)";
+                    payloadDecoupler.Events["Decouple"].guiName = Localizer.Format("#BDB_Fileds_DecouplePayload");//"Decouple Payload"
+                    payloadDecoupler.Actions["DecoupleAction"].guiName = Localizer.Format("#BDB_Fileds_DecouplePayload");//"Decouple Payload"
+                    payloadDecoupler.Fields["ejectionForcePercent"].guiName = Localizer.Format("#BDB_Fileds_ForcePercent");//"Force Percent (Payload)"
                     if (HighLogic.LoadedSceneIsFlight)
                         payloadDecoupler.isEnabled = animPosition >= waitForAnimation;
                 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using KSP;
+using KSP.Localization;
 
 namespace BDB
 {
@@ -38,10 +39,10 @@ namespace BDB
         [KSPField(isPersistant = true)]
         public float timeActive = 0.0f;
 
-        [KSPField(guiActive = true, isPersistant = false, guiName = "Engine Time")]
+        [KSPField(guiActive = true, isPersistant = false, guiName = "#BDB_Fileds_EngineTime")]//Engine Time
         public string runTimeDisplay = "";
 
-        [KSPField(guiActive = true, isPersistant = false, guiName = "Engine Status")]
+        [KSPField(guiActive = true, isPersistant = false, guiName = "#BDB_Fileds_EngineStatus")]//Engine Status
         public string engineStatusDisplay = "Ok";
 
         private ModuleEngines engine;
@@ -117,7 +118,7 @@ namespace BDB
                 }
                 if (failTime > 0.0f && timeActive > failTime)
                 {
-                    engineStatusDisplay = "Internal Failure";
+                    engineStatusDisplay = Localizer.Format("#BDB_Fileds_EngineStatusDisplay");//"Internal Failure"
                     engine.heatProduction = Math.Min(maxHeatProduction, baseHeatProduction * Math.Max(1, (timeActive - runTime) * failSeverity));
                 }
             }
@@ -126,7 +127,7 @@ namespace BDB
 
         public override string GetInfo()
         {
-            String info = "Rated run time: " + runTime.ToString("0");
+            String info = Localizer.Format("#BDB_Fileds_EngineLife_Info") + ": " + runTime.ToString("0");//Rated run time
             if (runTimeEnd > runTime)
                 info += "-" + runTimeEnd.ToString("0");
             info += "s";

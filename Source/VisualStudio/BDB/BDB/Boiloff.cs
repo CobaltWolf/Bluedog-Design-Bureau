@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using KSP.Localization;
 
 namespace BDB
 {
@@ -14,10 +15,10 @@ namespace BDB
         [KSPField(isPersistant = true)]
         public double lastDeltaAmount = 0.0;
 
-        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Boiloff")]
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "#BDB_Fileds_boiloffDisplay")]//Boiloff
         public string boiloffDisplay = "";
 
-        [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "Exposure")]
+        [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "#BDB_Fileds_exposureDisplay")]//Exposure
         public string exposureDisplay = "";
 
         [KSPField(isPersistant = false)]
@@ -135,24 +136,24 @@ namespace BDB
 
         public override string GetModuleDisplayName()
         {
-            return "Cryogenic Fuel";
+            return Localizer.Format("#BDB_Fileds_CryoModuleDisplayName");//"Cryogenic Fuel"
         }
 
         public override string GetInfo()
         {
-            string info = "Maximum boiloff rate in sunlight\n";
+            string info = Localizer.Format("#BDB_Fileds_Cryoinfo1") + "\n";//"Maximum boiloff rate in sunlight"
 
             foreach (CryoResourceItem item in cryoResources)
             {
                 double halfLife = item.boiloffRate / boiloffMultiplier;
                 double pctLoss = 1 - Math.Pow(0.5, 1 / halfLife);
                 info += "\n<B>" + item.name + ":</B>\n";
-                info += "    per hour: " + pctLoss.ToString("P1") + "\n";
-                info += "    half life: " + halfLife.ToString("F1") + " hrs\n";
+                info += "    " + Localizer.Format("#BDB_Fileds_Cryoinfo2") + ": " + pctLoss.ToString("P1") + "\n";//per hour
+                info += "    " + Localizer.Format("#BDB_Fileds_Cryoinfo3") + ": " + halfLife.ToString("F1") + " " + Localizer.Format("#BDB_Fileds_Time_Hours") + "\n";//"half life""hrs"
             }
 
             if (!boiloffEnabled)
-                info += "\n<B>Boiloff is disabled</B>\n";
+                info += "\n<B>" + Localizer.Format("#BDB_Fileds_Cryoinfo4") + "</B>\n";//Boiloff is disabled
 
             return info;
         }
@@ -224,7 +225,7 @@ namespace BDB
                                 {
                                     s += ", ";
                                 }
-                                s += item.name + " " + (deltaAmount * (1 / deltaTime) * 60 * 60).ToString("0.0") + "/hr";
+                                s += item.name + " " + (deltaAmount * (1 / deltaTime) * 60 * 60).ToString("0.0") + "/" + Localizer.Format("#BDB_Fileds_Time_Hour");//hr
                                 lastDeltaAmount = deltaAmount / deltaTime; // per sec
                             }
                             item.lastAmount = part.Resources[item.name].amount;
@@ -235,7 +236,7 @@ namespace BDB
                 }
                 else
                 {
-                    boiloffDisplay = "Pre-Launch";
+                    boiloffDisplay = Localizer.Format("#BDB_Fileds_boiloffDisplayText1");//"Pre-Launch"
                     lastUpdateTime = -1;
                 }
                 exposureDisplay = (sunExposure()).ToString(); //(part.ptd.bodyFlux * part.ptd.bodyAreaMultiplier).ToString();
@@ -243,7 +244,7 @@ namespace BDB
             }
             else
             {
-                boiloffDisplay = "Disabled";
+                boiloffDisplay = Localizer.Format("#BDB_Fileds_boiloffDisplayText2");//"Disabled"
                 lastUpdateTime = -1;
             }
         }

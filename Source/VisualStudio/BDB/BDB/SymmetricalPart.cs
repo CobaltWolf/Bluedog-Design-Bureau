@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using KSP;
+using KSP.Localization;
 
 namespace BDB
 {
@@ -31,9 +32,9 @@ namespace BDB
         public bool isSideA = true;
 
         [KSPField(isPersistant = false)]
-        public string toggleSideEventGUINameA = "Side A";
+        public string toggleSideEventGUINameA = Localizer.Format("#BDB_Fileds_toggleSideEventGUINameA");//"Side A"
         [KSPField(isPersistant = false)]
-        public string toggleSideEventGUINameB = "Side B";
+        public string toggleSideEventGUINameB = Localizer.Format("#BDB_Fileds_toggleSideEventGUINameB");//"Side B"
 
         public override void OnStart(PartModule.StartState state)
         {
@@ -71,7 +72,7 @@ namespace BDB
             }
         }
 
-        [KSPEvent(guiActiveEditor = true, guiName = "Toggle Side")]
+        [KSPEvent(guiActiveEditor = true, guiName = "#BDB_Fileds_toggleSide")]//Toggle Side
         public void ToggleSideEvent()
         {
             ToggleSide();

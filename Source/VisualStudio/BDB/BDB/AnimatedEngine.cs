@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using KSP.Localization;
 
 // Taken from Nertea's ModuleDeployableEngines
 // https://github.com/ChrisAdderley/DeployableEngines
@@ -41,7 +42,7 @@ namespace BDB
         private string activeEngineName = "";
 		private AnimationState[]  animationStates;
 
-		[KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "Toggle Nozzle")]
+		[KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "#BDB_Fileds_ToggleNozzle")]//Toggle Nozzle
 		public void ToggleAnimationEditor()
 		{
             float x = 0;
@@ -151,16 +152,16 @@ namespace BDB
             if (!playing)
             {
                 if (animPosition == 0)
-                    Events["ToggleAnimationEditor"].guiName = "Extend Nozzle";
+                    Events["ToggleAnimationEditor"].guiName = Localizer.Format("#BDB_Fileds_ExtendNozzle");//"Extend Nozzle"
                 else
-                    Events["ToggleAnimationEditor"].guiName = "Retract Nozzle";
+                    Events["ToggleAnimationEditor"].guiName = Localizer.Format("#BDB_Fileds_RetractNozzle");//"Retract Nozzle"
             }
             else
             {
                 if (animSpeed < 0)
-                    Events["ToggleAnimationEditor"].guiName = "Extend Nozzle";
+                    Events["ToggleAnimationEditor"].guiName = Localizer.Format("#BDB_Fileds_ExtendNozzle");//"Extend Nozzle"
                 else
-                    Events["ToggleAnimationEditor"].guiName = "Retract Nozzle";
+                    Events["ToggleAnimationEditor"].guiName = Localizer.Format("#BDB_Fileds_RetractNozzle");//"Retract Nozzle"
             }
         }
 

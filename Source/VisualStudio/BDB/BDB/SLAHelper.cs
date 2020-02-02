@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using KSP.Localization;
 
 namespace BDB
 {
@@ -29,7 +30,7 @@ namespace BDB
         [KSPField(isPersistant = false)]
         public bool showPanelForcePercent = false;
 
-        [KSPEvent(guiName = "Decouple", guiActive = true)]
+        [KSPEvent(guiName = "#BDB_Fileds_Decouple", guiActive = true)]//Decouple
         public void Decouple()
         {
             OnMoving.Fire(0, 1);
@@ -69,15 +70,15 @@ namespace BDB
                     decoupler.Actions["DecoupleAction"].active = false;
                     decoupler.Events["Decouple"].active = false;
                     decoupler.Events["ToggleStaging"].active = false;
-                    decoupler.Actions["DecoupleAction"].guiName = "Decouple Top";
-                    decoupler.Fields["ejectionForcePercent"].guiName = "Force Percent (Top)";
+                    decoupler.Actions["DecoupleAction"].guiName = Localizer.Format("#BDB_Fileds_DecoupleTop");//"Decouple Top"
+                    decoupler.Fields["ejectionForcePercent"].guiName = Localizer.Format("#BDB_Fileds_ForcePercent_Top");//"Force Percent (Top)"
                 }
                 else if (payloadDecouplerNodeID != "" && d.explosiveNodeID == payloadDecouplerNodeID)
                 {
                     payloadDecoupler = d;
-                    payloadDecoupler.Events["Decouple"].guiName = "Decouple Payload";
-                    payloadDecoupler.Actions["DecoupleAction"].guiName = "Decouple Payload";
-                    payloadDecoupler.Fields["ejectionForcePercent"].guiName = "Force Percent (Payload)";
+                    payloadDecoupler.Events["Decouple"].guiName = Localizer.Format("#BDB_Fileds_DecouplePayload");//"Decouple Payload"
+                    payloadDecoupler.Actions["DecoupleAction"].guiName = Localizer.Format("#BDB_Fileds_DecouplePayload");//"Decouple Payload"
+                    payloadDecoupler.Fields["ejectionForcePercent"].guiName = Localizer.Format("#BDB_Fileds_ForcePercent");//"Force Percent (Payload)"
                 }
                 else if (panelDecouplerNodeID != "" && d.explosiveNodeID.StartsWith(panelDecouplerNodeID))
                 {
@@ -85,8 +86,8 @@ namespace BDB
                     d.Actions["DecoupleAction"].active = false;
                     d.Events["Decouple"].active = false;
                     d.Events["ToggleStaging"].active = false;
-                    d.Actions["DecoupleAction"].guiName = "Decouple Panel";
-                    d.Fields["ejectionForcePercent"].guiName = "Force Percent (Panel)";
+                    d.Actions["DecoupleAction"].guiName = Localizer.Format("#BDB_Fileds_DecouplePanel");//"Decouple Panel"
+                    d.Fields["ejectionForcePercent"].guiName = Localizer.Format("#BDB_Fileds_ForcePercent_Panel");//"Force Percent (Panel)"
                     d.Fields["ejectionForcePercent"].guiActiveEditor = showPanelForcePercent;
                 }
             }
