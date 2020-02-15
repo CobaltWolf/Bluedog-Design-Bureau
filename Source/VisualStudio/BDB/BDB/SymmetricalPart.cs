@@ -62,7 +62,10 @@ namespace BDB
             if (raycastTransformA != null && raycastTransformB != null && pivotA != null && pivotB != null)
             {
                 solarPanel = this.GetComponents<ModuleDeployableSolarPanel>().FirstOrDefault<ModuleDeployableSolarPanel>();
-                updateSolar = solarPanel != null;
+
+                // Don't update ModuleDeployableSolarPanel in VAB. https://github.com/CobaltWolf/Bluedog-Design-Bureau/issues/821
+                updateSolar = (solarPanel != null) && (state != StartState.Editor);
+
                 if (solarPanel == null)
                     Debug.Log("[ModuleBdbSymmetricalPart]: OnStart() solarPanel is null");
             }
