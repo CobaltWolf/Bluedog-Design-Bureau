@@ -10,7 +10,7 @@ http://forum.kerbalspaceprogram.com/index.php?showtopic=140541
 
 ## Requirements
 
-* KSP version 1.7.3 (build 2594) is the only supported KSP version
+* KSP version 1.8.1 (build 2694) is the only supported KSP version
 * [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?showtopic=50533) is required.
 
 ## Installation
@@ -28,6 +28,23 @@ The source can be found at [Github](https://github.com/blowfishpro/B9PartSwitch)
 This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.0.en.html)
 
 ## Changelog
+
+# v2.13.0
+
+* Support changing `ModuleDeployableSolarpanel` `chargeRate`
+* Get rid of some useless debug messages related to UI prefabs
+* Fix UI breaking on switchers with tech restrictions if subtypes are unlocked out of order
+* Fix texture switches breaking on inactive subtypes when a part is duplicated
+
+# v2.12.1
+
+* Recompile against KSP 1.8.1
+
+# v2.12.0
+
+* Recompile against KSP 1.8.0
+* Stop moving the switcher to the end of the part action window
+* Remove `bottomOfWindow` paramter
 
 # v2.11.1
 
