@@ -20,6 +20,14 @@ Code and plugin are distributed under the [GNU Lesser General Public License](ht
 
 ## Changelog
 
+### v1.7.0
+
+* Wall now optional (but it won't be adjustable if not present)
+* Add wall base that there will only ever be one of and will stay at the bottom of the fairing
+  * `WALL_BASE` in the config
+* Add cap which will only be attached to the first segment (and move with the nose)
+  * `CAP` in the config
+
 ### v1.6.0
 
 * Recompile against KSP 1.8.1
