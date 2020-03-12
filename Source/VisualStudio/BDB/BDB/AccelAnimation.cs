@@ -6,8 +6,11 @@ using UnityEngine;
 
 namespace BDB
 {
-    class ModuleBdbAccelAnimation : PartModule
+    class ModuleBdbAccelAnimation : PartModule, IScalarModule  //, IMultipleDragCube
     {
+        [KSPField]
+        public string moduleID = "bdbAccelAnimation";
+
         [KSPField(isPersistant = false)]
         public string animationName = "";
 
@@ -23,19 +26,45 @@ namespace BDB
         [KSPField(isPersistant = false, guiActive = true, guiActiveEditor = true, guiName = "Spring Damping"), UI_FloatRange(minValue = 0, maxValue = 10, stepIncrement = 0.1f)]
         public float springDamping = 1;
 
-        [KSPField(isPersistant = false, guiActive = true, guiActiveEditor = true, guiName = "Spring Anchor"), UI_FloatRange(minValue = 0, maxValue = 1, stepIncrement = 0.01f)]
-        public float springAnchor = 0.5f;
+        [KSPField(isPersistant = false, guiActive = true, guiActiveEditor = true, guiName = "Deployed Anchor"), UI_FloatRange(minValue = 0, maxValue = 1, stepIncrement = 0.01f)]
+        public float deployedAnchor = 0.5f;
 
-        double animPosition = 0.5;
-        double animSpeed = 0;
+        [KSPField(isPersistant = false, guiActive = true, guiActiveEditor = true, guiName = "Stowed Anchor"), UI_FloatRange(minValue = 0, maxValue = 1, stepIncrement = 0.01f)]
+        public float stowedAnchor = 0.0f;
+
+        [KSPField(isPersistant = true)]
+        public bool deployed = true;
+
+        [KSPField(isPersistant = true)]
+        public bool bounce = true;
+
+        float animPosition = 0.5f;
+        float animSpeed = 0.0f;
 
         private AnimationState[] animationStates;
 
+        [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "Toggle Animation")]
+        public void ToggleAnimationEditor()
+        {
+            SetDeployed(!deployed);
+        }
+
+        [KSPEvent(guiName = "Deploy", guiActive = true)]
+        public void Deploy()
+        {
+            SetDeployed(true);
+        }
+
+        [KSPAction("Deploy")]
+        public void DeployAction(KSPActionParam param)
+        {
+            Deploy();
+        }
 
         public void Start()
         {
             animationStates = SetUpAnimation(animationName, this.part);
-            animPosition = springAnchor;
+            animPosition = SpringAnchor();
             SetAnimation((float)animPosition);
             Fields["springK"].guiActive = showEditor;
             Fields["springK"].guiActiveEditor = showEditor;
@@ -43,6 +72,34 @@ namespace BDB
             Fields["springDamping"].guiActiveEditor = showEditor;
             Fields["springAnchor"].guiActive = showEditor;
             Fields["springAnchor"].guiActiveEditor = showEditor;
+        }
+
+        public void SetDeployed(bool newState)
+        {
+            if (deployed != newState)
+            {
+                if (newState)
+                    OnMoving.Fire(stowedAnchor, deployedAnchor);
+                else
+                    OnMoving.Fire(deployedAnchor, stowedAnchor);
+                OnStop.Fire(SpringAnchor());
+            }
+            deployed = newState;
+            Events["Deploy"].active = !deployed;
+            Actions["Deploy"].active = !deployed;
+        }
+
+        public bool CanDeploy()
+        {
+            return true;
+        }
+
+        public float SpringAnchor()
+        {
+            if (deployed)
+                return deployedAnchor;
+            else
+                return stowedAnchor;
         }
 
         public void FixedUpdate()
@@ -54,21 +111,26 @@ namespace BDB
 
             Vector3d accelFelt = accelTotal - accelG;
 
-            double a = Vector3.Angle(this.part.transform.up, accelFelt);
+            float a = Vector3.Angle(this.part.transform.up, accelFelt);
             //double a = Vector3.Angle(vessel.transform.up, accelFelt);
-            double feltForward = Math.Cos(a * Math.PI / 180) * accelFelt.magnitude;
-            
-            double springForce = -springK * (animPosition - springAnchor);
-            double dampingForce = springDamping * animSpeed;
-            double acceleration = springForce + feltForward - dampingForce;
+            float feltForward = (float)(Math.Cos(a * Math.PI / 180) * accelFelt.magnitude);
+
+            float springForce = -springK * (animPosition - SpringAnchor());
+            float dampingForce = springDamping * animSpeed;
+            float acceleration = springForce + feltForward - dampingForce;
 
             animSpeed += acceleration * TimeWarp.fixedDeltaTime;
 
-            double newPosition = animPosition + animSpeed * TimeWarp.fixedDeltaTime;
+            float newPosition = animPosition + animSpeed * TimeWarp.fixedDeltaTime;
 
             if (newPosition <= 0 || newPosition >= 1)
-                animSpeed = -animSpeed; // 0;
-            SetAnimation((float)newPosition);
+            {
+                if (bounce)
+                    animSpeed = -animSpeed;
+                else
+                    animSpeed = 0;
+            }
+            SetAnimation(newPosition);
         }
 
         public void SetAnimation(float position, float speed = 0.0f)
@@ -98,5 +160,85 @@ namespace BDB
             }
             return states.ToArray();
         }
+
+        #region IScalarModule Interface
+
+        // From Starwaster's Animated Decoupler
+
+        public override void OnAwake()
+        {
+            OnMovingEvent = new EventData<float, float>("ModuleBdbDecouplerAnimation.OnMovingEvent");
+            OnStopEvent = new EventData<float>("ModuleBdbDecouplerAnimation.OnStopEvent");
+            base.OnAwake();
+        }
+
+        private EventData<float, float> OnMovingEvent;
+
+        private EventData<float> OnStopEvent;
+
+
+
+        public bool IsMoving()
+        {
+            return false;
+        }
+
+        public void SetScalar(float t)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void SetUIRead(bool state)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void SetUIWrite(bool state)
+        {
+            //throw new NotImplementedException();
+        }
+
+
+        public string ScalarModuleID
+        {
+            get
+            {
+                return moduleID;
+            }
+        }
+
+        public float GetScalar
+        {
+            get
+            {
+                return SpringAnchor();
+            }
+        }
+
+        public bool CanMove
+        {
+            get
+            {
+                return CanDeploy();
+            }
+        }
+
+        public EventData<float, float> OnMoving
+        {
+            get
+            {
+                return OnMovingEvent;
+            }
+        }
+
+        public EventData<float> OnStop
+        {
+            get
+            {
+                return OnStopEvent;
+            }
+        }
+
+        #endregion
     }
 }

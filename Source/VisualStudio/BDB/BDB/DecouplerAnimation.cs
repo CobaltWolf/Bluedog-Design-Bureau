@@ -18,6 +18,9 @@ namespace BDB
         public float waitForAnimation = 0.1f;
 
         [KSPField(isPersistant = false)]
+        public bool waitDuringAbort = false;
+
+        [KSPField(isPersistant = false)]
         public int layer = 1;
 
         [KSPField(isPersistant = false)]
@@ -80,7 +83,7 @@ namespace BDB
         [KSPAction("Decouple")]
         public void DecoupleAction(KSPActionParam param)
         {
-            if (param.group == KSPActionGroup.Abort)
+            if (!waitDuringAbort && param.group == KSPActionGroup.Abort)
             {
                 if (decoupler != null)
                     decoupler.Decouple();
