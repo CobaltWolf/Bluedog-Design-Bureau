@@ -6,6 +6,69 @@ using UnityEngine;
 
 namespace BDB
 {
+    class ModuleBdbSequentialFire : PartModule
+    {
+        [KSPField(guiActive = false, isPersistant = true, guiActiveEditor = true, guiName = "Sequential Fire"), UI_Toggle()]
+        public bool sequentialFire = false;
+
+        [KSPField(guiActive = false, isPersistant = true, guiActiveEditor = true, guiName = "Overlap", guiFormat = "P1"), UI_FloatRange(minValue = 0.0f, maxValue = 1.0f)]
+        public float overlap = 0.0f;
+
+        public int sequence = 0;
+        public bool running = false;
+        public ModuleEngines engine;
+
+        public override void OnStart(StartState state)
+        {
+            if (!HighLogic.LoadedSceneIsFlight)
+                return;
+
+            if (sequentialFire && this.part.symmetryCounterparts.Count > 0)
+            {
+                foreach (Part counterpart in this.part.symmetryCounterparts)
+                {
+                    int x = counterpart.Modules.OfType<ModuleBdbSequentialFire>().FirstOrDefault().sequence;
+                    sequence = Math.Max(x, sequence);
+                }
+                sequence++;
+
+                engine = part.FindModulesImplementing<ModuleEngines>().FirstOrDefault();
+                if (engine != null)
+                {
+                    stagingEnabled = engine.stagingEnabled;
+                    engine.stagingEnabled = false;
+                }
+            }
+        }
+
+        public override void OnActive()
+        {
+            if (engine != null && part.Resources["SolidFuel"] != null)
+            running = true;
+        }
+
+        public void FixedUpdate()
+        {
+            if (!HighLogic.LoadedSceneIsFlight)
+                return;
+            if (running && sequence == 1)
+            {
+                if (!engine.EngineIgnited)
+                    engine.Activate();
+
+                double r = part.Resources["SolidFuel"].amount / part.Resources["SolidFuel"].maxAmount;
+                if (r <= overlap)
+                {
+                    sequence--;
+                    foreach (Part counterpart in this.part.symmetryCounterparts)
+                    {
+                        counterpart.Modules.OfType<ModuleBdbSequentialFire>().FirstOrDefault().sequence--;
+                    }
+                }
+            }
+        }
+    }
+
     class ModuleBdbMercuryLES : PartModule
     {
         public bool aborting = false;
