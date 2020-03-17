@@ -70,8 +70,12 @@ namespace BDB
             Fields["springK"].guiActiveEditor = showEditor;
             Fields["springDamping"].guiActive = showEditor;
             Fields["springDamping"].guiActiveEditor = showEditor;
-            Fields["springAnchor"].guiActive = showEditor;
-            Fields["springAnchor"].guiActiveEditor = showEditor;
+            Fields["deployedAnchor"].guiActive = showEditor;
+            Fields["deployedAnchor"].guiActiveEditor = showEditor;
+            Fields["stowedAnchor"].guiActive = showEditor;
+            Fields["stowedAnchor"].guiActiveEditor = showEditor;
+            Events["Deploy"].active = !deployed;
+            Actions["Deploy"].active = !deployed;
         }
 
         public void SetDeployed(bool newState)
