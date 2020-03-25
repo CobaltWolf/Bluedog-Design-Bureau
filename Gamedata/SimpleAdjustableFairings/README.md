@@ -20,6 +20,16 @@ Code and plugin are distributed under the [GNU Lesser General Public License](ht
 
 ## Changelog
 
+### v1.8.0
+
+* Add `enabled` attribute to model data (default `true`)
+  * Used for part switching to disable a particular piece of the fairing (since eliminating the node wouldn't do anything)
+* Send `OnPartModelChanged` event so other modules can respond to changes in the model
+* Listen for `ModuleDataChanged` to rebuild fairing
+  * Use `requestNotifyFARToRevoxelize` and `requestRecalculateDragCubes` attributes of event details if present rather than recalculating aero properties ourself, that ensures it's only done once per cycle
+* Use better method of recalculating drag cubes
+* Send/listen for `DragCubesWereRecalculated` and `FarWasNotifiedToRevoxelize` to make sure actions are only done once per cycle
+
 ### v1.7.2
 
 * Fix invisible prefabs counting for cargo bay occlusion tests
