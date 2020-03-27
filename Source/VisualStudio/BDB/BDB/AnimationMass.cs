@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BDB
 {
-    class ModuleBdbAnimationMass : PartModule
+    class ModuleBdbAnimationMass : PartModule, IPartMassModifier
     {
         [KSPField(isPersistant = false)]
         public string actionModuleName = "";
@@ -87,14 +87,18 @@ namespace BDB
         private void OnMoving(float from, float to)
         {
             listen = true;
+            Debug.LogFormat("ModuleBdbAnimationMass: OnMoving position [{0}]", anim.GetScalar);
+            Debug.LogFormat("ModuleBdbAnimationMass: OnMoving CoM [{0}]", part.CoMOffset.ToString());
         }
 
         private void OnStop(float pos)
         {
             listen = false;
+            Debug.LogFormat("ModuleBdbAnimationMass: OnStop position [{0}]", anim.GetScalar);
+            Debug.LogFormat("ModuleBdbAnimationMass: OnStop CoM [{0}]", part.CoMOffset.ToString());
         }
 
-        public void FixedUpdate()
+        public override void OnUpdate() //void FixedUpdate()
         {
             if (!HighLogic.LoadedSceneIsFlight || vessel.HoldPhysics || anim == null)
                 return;
@@ -103,11 +107,21 @@ namespace BDB
             {
                 wasListening = listen;
                 float animPos = anim.GetScalar;
-                Debug.LogFormat("ModuleBdbAnimationMass: Moving position [{0}]", animPos);
+                //Debug.LogFormat("ModuleBdbAnimationMass: Moving position [{0}]", animPos);
                 part.CoMOffset.Set(_origComOffset.x + animPos * extentV.x, _origComOffset.y + animPos * extentV.y, _origComOffset.z + animPos * extentV.z);
-                GameEvents.onVesselWasModified.Fire(vessel);
-                Debug.LogFormat("ModuleBdbAnimationMass: CoM [{0}]", part.CoMOffset.ToString());
+                //GameEvents.onVesselWasModified.Fire(vessel);
+                //Debug.LogFormat("ModuleBdbAnimationMass: CoM [{0}]", part.CoMOffset.ToString());
             }
+        }
+
+        public float GetModuleMass(float defaultMass, ModifierStagingSituation sit)
+        {
+            return 0.0f;
+        }
+
+        public ModifierChangeWhen GetModuleMassChangeWhen()
+        {
+            return ModifierChangeWhen.CONSTANTLY;
         }
     }
 
