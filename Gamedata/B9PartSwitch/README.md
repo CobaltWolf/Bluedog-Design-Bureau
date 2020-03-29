@@ -29,30 +29,9 @@ This plugin is distributed under [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.
 
 ## Changelog
 
-# v2.14.0
-
-* Fix non-unique aspects complaining when present on more than one module
-* Generic material modifiers
-  * * `MATERIAL` nodes on subtypes
-    * `transform` defines GameObjects on which to use renderers
-    * `baseTransform` defines GameObjects and children on which to use renderers
-    * `FLOAT` - modifies a float property
-      * `shaderProperty` - name of the shader property to modify
-      * `value` - float to set the value to
-    * `COLOR` - modifies a color property
-      * `shaderProperty` - name of the shader property to modify (default `_Color`)
-      * `color` - color to set the property to, can be specified in any of the regular formats (name, hex, RGB(A) list)
-    * `TEXTURE` modifies a texture property (same functionality as `TEXTURE` nodes directly on the subtype)
-      * `currentTexture` - name of current texture to match when building (not full path)
-      * `texture` - path to new texture to switch to
-      * `isNormalMap` - whether to access the texture as a normal map or not
-      * `shaderProperty` - shader property to modify the color on
-        * Default `_MainTex` if `isNormalMap = false`
-        * Default `_BumpMap` is `isNormalMap = true`
-
 # v2.13.0
 
-* Support changing `ModuleDeployableSolarPanel` `chargeRate`
+* Support changing `ModuleDeployableSolarpanel` `chargeRate`
 * Get rid of some useless debug messages related to UI prefabs
 * Fix UI breaking on switchers with tech restrictions if subtypes are unlocked out of order
 * Fix texture switches breaking on inactive subtypes when a part is duplicated

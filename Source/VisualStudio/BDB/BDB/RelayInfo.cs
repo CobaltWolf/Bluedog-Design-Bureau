@@ -147,7 +147,7 @@ namespace BDB
                     //info += "\n";
                     info += GetNetworkInfoLine(i, commPower, basicPower) + "\n";
                 }
-                info += "<i>*Best alt is the altitude where a constellation member can connect to any other member that is over the horizon.</i>";
+                info += "\n<i>*Best alt is the altitude where a constellation member can connect to any other member that is over the horizon.</i>";
             }
             else
             {
