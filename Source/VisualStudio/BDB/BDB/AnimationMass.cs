@@ -29,6 +29,17 @@ namespace BDB
         private Vector3 _origCopOffset;
         private Vector3 _origColOffset;
 
+        [KSPField(guiActive = true, isPersistant = false, guiName = "Info0")]
+        public string infoDisplay0 = "";
+        [KSPField(guiActive = true, isPersistant = false, guiName = "Info1")]
+        public string infoDisplay1 = "";
+        [KSPField(guiActive = true, isPersistant = false, guiName = "Info2")]
+        public string infoDisplay2 = "";
+        [KSPField(guiActive = true, isPersistant = false, guiName = "Info3")]
+        public string infoDisplay3 = "";
+        [KSPField(guiActive = true, isPersistant = false, guiName = "Info4")]
+        public string infoDisplay4 = "";
+
         public void Start()
         {
             int moduleCount = actionModuleIndex;
@@ -103,6 +114,23 @@ namespace BDB
             if (!HighLogic.LoadedSceneIsFlight || vessel.HoldPhysics || anim == null)
                 return;
 
+            Vector3 vesselCoM = vessel.localCoM;
+            Vector3 partPos = Part.PartToVesselSpacePos(Vector3.zero, part, vessel, PartSpaceMode.Pristine);
+            partPos -= vesselCoM;
+            Vector3 vesselAngVel = vessel.angularVelocity;
+            Vector3 partAngSpeed;
+            partAngSpeed.x = new Vector2(partPos.y, partPos.z).magnitude * vesselAngVel.x;
+            partAngSpeed.y = new Vector2(partPos.x, partPos.z).magnitude * vesselAngVel.y;
+            partAngSpeed.z = new Vector2(partPos.x, partPos.y).magnitude * vesselAngVel.z;
+            Vector3 partAccel;
+            partAccel.x = (float)Math.Pow(partAngSpeed.x, 2) / new Vector2(partPos.y, partPos.z).magnitude;
+            partAccel.y = (float)Math.Pow(partAngSpeed.y, 2) / new Vector2(partPos.x, partPos.z).magnitude;
+            partAccel.z = (float)Math.Pow(partAngSpeed.z, 2) / new Vector2(partPos.x, partPos.y).magnitude;
+            infoDisplay0 = "CoM: " + vesselCoM.ToString();
+            infoDisplay1 = "Pos: " + partPos.ToString();
+            infoDisplay2 = "AngV (rad/s): " + vesselAngVel.ToString();
+            infoDisplay3 = "AngS (m/s): " + partAngSpeed.ToString();
+            infoDisplay4 = "Accel (m/s): " + partAccel.ToString() + " (" + partAccel.magnitude + ")";
             if (listen || wasListening) // null ref in editor and flight init
             {
                 wasListening = listen;
