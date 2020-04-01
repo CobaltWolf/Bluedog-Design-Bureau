@@ -20,6 +20,11 @@ Code and plugin are distributed under the [GNU Lesser General Public License](ht
 
 ## Changelog
 
+### v1.10.1
+
+* Fix transparency not being set correctly on disabled objects (which might become enabled by switching)
+* Fix fairing parts not re-initializing when new data is pushed by another module before the fairing is built
+
 ### v1.10.0
 
 * Don't modify drag cubes/FAR/colliders if deployed (fixes an exception when loading a craft with a deployed fairing)
