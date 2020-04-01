@@ -8,7 +8,7 @@ This plugin adds no parts by itself, it is designed to be used with a specific p
 
 This plugin is designed to work with a specific version of KSP, any others may not work:
 
-* KSP Version: 1.8.1
+* KSP Version: 1.9.1
 
 ## License
 
@@ -19,6 +19,33 @@ Code and plugin are distributed under the [GNU Lesser General Public License](ht
 [Available on Github](https://github.com/blowfishpro/SimpleAdjustableFairings/)
 
 ## Changelog
+
+### v1.10.0
+
+* Don't modify drag cubes/FAR/colliders if deployed (fixes an exception when loading a craft with a deployed fairing)
+* Group all of the fairing's fields and events in the part action window:
+  * Adds two new fields to `ModuleSimpleAdjustableFairing`:
+    * `uiGroupName` - unique identifier for the group, defaults to `fairing`
+    * `uiGroupDisplayName` - name of the group to display in the UI, defaults to `Fairing`
+
+### v1.9.1
+
+* Pre-render both drag cubes rather than re-rendering at deployment
+  * Fix exceptions and potential physics weirdness at deployment
+
+### v1.9.0
+
+* Recompile against KSP 1.9.1
+
+### v1.8.0
+
+* Add `enabled` attribute to model data (default `true`)
+  * Used for part switching to disable a particular piece of the fairing (since eliminating the node wouldn't do anything)
+* Send `OnPartModelChanged` event so other modules can respond to changes in the model
+* Listen for `ModuleDataChanged` to rebuild fairing
+  * Use `requestNotifyFARToRevoxelize` and `requestRecalculateDragCubes` attributes of event details if present rather than recalculating aero properties ourself, that ensures it's only done once per cycle
+* Use better method of recalculating drag cubes
+* Send/listen for `DragCubesWereRecalculated` and `FarWasNotifiedToRevoxelize` to make sure actions are only done once per cycle
 
 ### v1.7.2
 

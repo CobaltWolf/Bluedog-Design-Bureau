@@ -17,6 +17,7 @@ namespace BDB
         public int sequence = 0;
         public bool running = false;
         public ModuleEngines engine;
+        public ModuleJettison jettison;
 
         public override void OnStart(StartState state)
         {
@@ -38,6 +39,11 @@ namespace BDB
                     stagingEnabled = engine.stagingEnabled;
                     engine.stagingEnabled = false;
                 }
+                jettison = part.FindModulesImplementing<ModuleJettison>().FirstOrDefault();
+                if (jettison != null)
+                {
+                    jettison.stagingEnabled = false;
+                }
             }
         }
 
@@ -47,14 +53,14 @@ namespace BDB
             running = true;
         }
 
-        public void FixedUpdate()
+        public override void OnUpdate()
         {
-            if (!HighLogic.LoadedSceneIsFlight)
-                return;
             if (running && sequence == 1)
             {
                 if (!engine.EngineIgnited)
                     engine.Activate();
+                if (jettison != null && !jettison.isJettisoned)
+                    jettison.Jettison();
 
                 double r = part.Resources["SolidFuel"].amount / part.Resources["SolidFuel"].maxAmount;
                 if (r <= overlap)

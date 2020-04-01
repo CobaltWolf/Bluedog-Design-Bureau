@@ -173,7 +173,7 @@ namespace BDB
                 animSpeed = anim.speed;
             }
 
-            if (HighLogic.LoadedSceneIsFlight && animPosition >= waitForAnimation && animSpeed > 0)
+            if (HighLogic.LoadedSceneIsFlight && animPosition >= waitForAnimation && playing)
             {
                 if (decoupler != null && !decoupler.isDecoupled)
                 {
