@@ -40,6 +40,9 @@ namespace BDB
         [KSPField(guiActive = true, isPersistant = false, guiName = "Info4")]
         public string infoDisplay4 = "";
 
+        GameObject lineObj;
+        LineRenderer line;
+
         public void Start()
         {
             int moduleCount = actionModuleIndex;
@@ -131,6 +134,25 @@ namespace BDB
             infoDisplay2 = "AngV (rad/s): " + vesselAngVel.ToString();
             infoDisplay3 = "AngS (m/s): " + partAngSpeed.ToString();
             infoDisplay4 = "Accel (m/s): " + partAccel.ToString() + " (" + partAccel.magnitude + ")";
+
+            if (line == null)
+                InitLine();
+            //Vector3 lineVector = Part.VesselToPartSpacePos(partAccel, part, vessel, PartSpaceMode.Pristine);
+            //line.transform.rotation = Quaternion.LookRotation(lineVector.normalized);
+            //Vector3 lookDir = new Vector3(partPos.x, 0, 0);
+            //Vector3 upDir = new Vector3(partPos.x, 0, partPos.z);
+            //line.transform.rotation = Quaternion.LookRotation(vessel.up, upDir);
+            Vector3 lineVector = partAccel;
+            if (partPos.x < 0)
+                lineVector.x *= -1;
+            if (partPos.y < 0)
+                lineVector.y *= -1;
+            if (partPos.z < 0)
+                lineVector.z *= -1;
+            lineVector += partPos;
+            lineVector = Part.VesselToPartSpacePos(lineVector, part, vessel, PartSpaceMode.Pristine);
+            line.SetPosition(1, lineVector);
+
             if (listen || wasListening) // null ref in editor and flight init
             {
                 wasListening = listen;
@@ -140,6 +162,35 @@ namespace BDB
                 //GameEvents.onVesselWasModified.Fire(vessel);
                 //Debug.LogFormat("ModuleBdbAnimationMass: CoM [{0}]", part.CoMOffset.ToString());
             }
+        }
+
+        public void InitLine()
+        {
+            // First of all, create a GameObject to which LineRenderer will be attached.
+            lineObj = new GameObject("Line");
+
+            // Then create renderer itself...
+            line = lineObj.AddComponent<LineRenderer>();
+            line.transform.parent = part.transform; // ...child to our part...
+            line.useWorldSpace = false; // ...and moving along with it (rather 
+                                        // than staying in fixed world coordinates)
+            line.transform.localPosition = Vector3.zero;
+            line.transform.localEulerAngles = Vector3.zero;
+            line.transform.rotation = Quaternion.LookRotation(vessel.transform.forward, vessel.transform.up);
+
+            // Make it render a red to yellow triangle, 1 meter wide and 2 meters long
+            line.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended"));
+            //line.SetColors(Color.red, Color.yellow);
+            line.startColor = Color.red;
+            line.endColor = Color.yellow;
+            //line.SetWidth(1, 0);
+            line.startWidth = 0.05f;
+            line.endWidth = 0.01f;
+            //line.SetVertexCount(2);
+            line.positionCount = 2;
+            line.SetPosition(0, Vector3.zero);
+            line.SetPosition(1, Vector3.forward * 2);
+            line.enabled = true;
         }
 
         public float GetModuleMass(float defaultMass, ModifierStagingSituation sit)

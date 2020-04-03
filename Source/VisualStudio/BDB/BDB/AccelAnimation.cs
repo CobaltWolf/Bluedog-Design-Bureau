@@ -61,11 +61,11 @@ namespace BDB
             Deploy();
         }
 
-        public void Start()
+        public override void OnStart(StartState state)
         {
             animationStates = SetUpAnimation(animationName, this.part);
             animPosition = SpringAnchor();
-            SetAnimation((float)animPosition);
+            SetAnimation(animPosition);
             Fields["springK"].guiActive = showEditor;
             Fields["springK"].guiActiveEditor = showEditor;
             Fields["springDamping"].guiActive = showEditor;
@@ -74,8 +74,8 @@ namespace BDB
             Fields["deployedAnchor"].guiActiveEditor = showEditor;
             Fields["stowedAnchor"].guiActive = showEditor;
             Fields["stowedAnchor"].guiActiveEditor = showEditor;
-            Events["Deploy"].active = !deployed;
-            Actions["Deploy"].active = !deployed;
+            Events["Deploy"].guiActive = !deployed;
+            Actions["DeployAction"].active = !deployed;
         }
 
         public void SetDeployed(bool newState)
@@ -89,8 +89,8 @@ namespace BDB
                 OnStop.Fire(SpringAnchor());
             }
             deployed = newState;
-            Events["Deploy"].active = !deployed;
-            Actions["Deploy"].active = !deployed;
+            Events["Deploy"].guiActive = !deployed;
+            Actions["DeployAction"].active = !deployed;
         }
 
         public bool CanDeploy()
@@ -110,21 +110,24 @@ namespace BDB
         {
             // Adapted from EngineIgnitor, ModuleEngineIgnitor.CheckUllageState()
 
-            Vector3d accelTotal = this.part.vessel.acceleration_immediate;
-            Vector3d accelG = this.part.vessel.graviticAcceleration;
+            float feltForward = 9.80665f;
+            if (HighLogic.LoadedSceneIsFlight)
+            {
+                Vector3d accelTotal = this.part.vessel.acceleration_immediate;
+                Vector3d accelG = this.part.vessel.graviticAcceleration;
 
-            Vector3d accelFelt = accelTotal - accelG;
+                Vector3d accelFelt = accelTotal - accelG;
 
-            float a = Vector3.Angle(this.part.transform.up, accelFelt);
-            //double a = Vector3.Angle(vessel.transform.up, accelFelt);
-            float feltForward = (float)(Math.Cos(a * Math.PI / 180) * accelFelt.magnitude);
+                float a = Vector3.Angle(this.part.transform.up, accelFelt);
+                //double a = Vector3.Angle(vessel.transform.up, accelFelt);
+                feltForward = (float)(Math.Cos(a * Math.PI / 180) * accelFelt.magnitude);
+            }
 
             float springForce = -springK * (animPosition - SpringAnchor());
             float dampingForce = springDamping * animSpeed;
             float acceleration = springForce + feltForward - dampingForce;
 
             animSpeed += acceleration * TimeWarp.fixedDeltaTime;
-
             float newPosition = animPosition + animSpeed * TimeWarp.fixedDeltaTime;
 
             if (newPosition <= 0 || newPosition >= 1)
