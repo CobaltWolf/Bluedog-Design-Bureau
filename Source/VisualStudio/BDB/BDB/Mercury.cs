@@ -8,53 +8,86 @@ namespace BDB
 {
     class ModuleBdbSequentialFire : PartModule
     {
-        [KSPField(guiActive = false, isPersistant = true, guiActiveEditor = true, guiName = "Sequential Fire"), UI_Toggle()]
+        [KSPField(guiActive = true, isPersistant = true, guiActiveEditor = true, guiName = "Sequential Fire"), UI_Toggle(affectSymCounterparts = UI_Scene.All)]
         public bool sequentialFire = false;
 
-        [KSPField(guiActive = false, isPersistant = true, guiActiveEditor = true, guiName = "Overlap", guiFormat = "P1"), UI_FloatRange(minValue = 0.0f, maxValue = 1.0f)]
+        [KSPField(guiActive = true, isPersistant = true, guiActiveEditor = true, guiName = "Overlap", guiFormat = "P1"), UI_FloatRange(minValue = 0.0f, maxValue = 1.0f, affectSymCounterparts = UI_Scene.All)]
         public float overlap = 0.0f;
 
+        private bool saveSequentialFire = false;
         public int sequence = 0;
         public bool running = false;
         public ModuleEngines engine;
         public ModuleJettison jettison;
+
+        private void UpdateSequences()
+        {
+            sequence = 1;
+
+            int symCount = part.symmetryCounterparts.Count;
+            int mid = (int)Math.Floor(symCount / 2d);
+            int i;
+            int s = 3;
+            for (i = 0; i < mid; i++)
+            {
+                part.symmetryCounterparts[i].Modules.OfType<ModuleBdbSequentialFire>().FirstOrDefault().sequence = s;
+                s += 2;
+            }
+            s = 2;
+            for (i = mid; i < symCount; i++)
+            {
+                part.symmetryCounterparts[i].Modules.OfType<ModuleBdbSequentialFire>().FirstOrDefault().sequence = s;
+                s += 2;
+            }
+        }
+
+        private void UpdateSequentialFire()
+        {
+            saveSequentialFire = sequentialFire;
+            engine = part.FindModulesImplementing<ModuleEngines>().FirstOrDefault();
+            if (engine != null)
+            {
+                //stagingEnabled = engine.stagingEnabled && sequentialFire;
+                engine.stagingEnabled = !sequentialFire;
+            }
+            jettison = part.FindModulesImplementing<ModuleJettison>().FirstOrDefault();
+            if (jettison != null)
+            {
+                jettison.stagingEnabled = !sequentialFire;
+            }
+        }
 
         public override void OnStart(StartState state)
         {
             if (!HighLogic.LoadedSceneIsFlight)
                 return;
 
-            if (sequentialFire && this.part.symmetryCounterparts.Count > 0)
-            {
-                foreach (Part counterpart in this.part.symmetryCounterparts)
-                {
-                    int x = counterpart.Modules.OfType<ModuleBdbSequentialFire>().FirstOrDefault().sequence;
-                    sequence = Math.Max(x, sequence);
-                }
-                sequence++;
-
-                engine = part.FindModulesImplementing<ModuleEngines>().FirstOrDefault();
-                if (engine != null)
-                {
-                    stagingEnabled = engine.stagingEnabled;
-                    engine.stagingEnabled = false;
-                }
-                jettison = part.FindModulesImplementing<ModuleJettison>().FirstOrDefault();
-                if (jettison != null)
-                {
-                    jettison.stagingEnabled = false;
-                }
-            }
+            UpdateSequentialFire();
         }
 
         public override void OnActive()
         {
+            Fields["sequentialFire"].guiActive = false;
+            Fields["overlap"].guiActive = false;
+            if (!sequentialFire)
+                return;
+
             if (engine != null && part.Resources["SolidFuel"] != null)
             running = true;
+            if (sequence == 0)
+            {
+                UpdateSequences();
+            }
         }
 
         public override void OnUpdate()
         {
+            if (sequentialFire != saveSequentialFire)
+                UpdateSequentialFire();
+
+            if (!sequentialFire)
+                return;
+
             if (running && sequence == 1)
             {
                 if (!engine.EngineIgnited)
