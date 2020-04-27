@@ -17,18 +17,34 @@ namespace BDB
         [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Boiloff")]
         public string boiloffDisplay = "";
 
-        [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "Exposure")]
-        public string exposureDisplay = "";
+        [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "Flux", guiFormat = "0.000", guiUnits = " kW")]
+        public double exposureDisplay = 0.0;
+
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Solar Flux", guiFormat = "0.000", guiUnits = " kW/m^2")]
+        public double sunFluxDisplay = 0.0;
+
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Body Flux", guiFormat = "0.000", guiUnits = " kW/m^2")]
+        public double bodyFluxDisplay = 0.0;
+
+        //[KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "X")]
+        //public double xDisplay = 0.0;
 
         [KSPField(isPersistant = false)]
-        public bool debug = false;
+        public bool debug = true;
+
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Insulation", guiFormat = "P0")]
+        public float insulation = 0.0f;
+
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Reflectivity", guiFormat = "P0")]
+        public float reflectivity = 0.0f;
 
         private List<CryoResourceItem> cryoResources;
         private bool boiloffEnabled;
-        private double boiloffMultiplier;
+        private double boiloffDifficulty;
+        private double boiloffFactor = 4.0;
         private bool hasCryoResource = false;
         private bool isPreLaunch = false;
-        private double homeAltAboveSun = 13599840256; // Stock Kerbin
+        //private double homeAltAboveSun = 13599840256; // Stock Kerbin
 
         public override void OnAwake()
         {
@@ -48,14 +64,14 @@ namespace BDB
                 foreach (ConfigNode cryoResourceNode in cryoResourceNodes)
                 {
                     CryoResourceItem newItem = new CryoResourceItem(cryoResourceNode);
-                    Debug.Log("[ModuleBdbBoiloff] Adding " + newItem.name + ", " + newItem.boiloffRate);
+                    //Debug.Log("[ModuleBdbBoiloff] Adding " + newItem.name + ", " + newItem.boiloffRate);
                     if (PartResourceLibrary.Instance.GetDefinition(newItem.name) != null)
                     {
                         cryoResources.Add(newItem);
                     }
                     else
                     {
-                        Debug.Log("[ModuleBdbBoiloff] Resource " + newItem.name + " not found");
+                        Debug.LogError("[ModuleBdbBoiloff] Resource " + newItem.name + " not found");
                     }
 
                 }
@@ -74,17 +90,18 @@ namespace BDB
                 }
                 else
                 {
-                    Debug.Log("[ModuleBdbBoiloff] ModuleCryoResource not found on prefab part.");
+                    Debug.LogError("[ModuleBdbBoiloff] ModuleCryoResource not found on prefab part.");
                 }
 
             }
         }
 
-        public void Start()
+        public override void OnStart(StartState state)
         {
             GameEvents.onVesselWasModified.Add(OnVesselWasModified);
-            homeAltAboveSun = FlightGlobals.getAltitudeAtPos(FlightGlobals.GetHomeBody().position, FlightGlobals.Bodies[0]);
             Fields["exposureDisplay"].guiActive = debug;
+            Fields["sunFluxDisplay"].guiActive = debug;
+            Fields["bodyFluxDisplay"].guiActive = debug;
             UpdateResources();
             UpdatePreLaunch();
         }
@@ -108,10 +125,10 @@ namespace BDB
                 hasCryoResource = false;
                 foreach (CryoResourceItem item in cryoResources)
                 {
+                    //item.loadDatabaseValues();
                     if (part.Resources.Contains(item.name))
                     {
                         hasCryoResource = true;
-                        break;
                     }
                 }
                 Fields["boiloffDisplay"].guiActive = hasCryoResource;
@@ -130,7 +147,7 @@ namespace BDB
         private void RefreshSettings()
         {
             boiloffEnabled = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled;
-            boiloffMultiplier = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
+            boiloffDifficulty = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
         }
 
         public override string GetModuleDisplayName()
@@ -140,15 +157,16 @@ namespace BDB
 
         public override string GetInfo()
         {
-            string info = "Maximum boiloff rate in sunlight\n";
+            string info = "Insulation effectivness: " + insulation.ToString("P0") + "\n";
+            info += "Reflectivity: " + reflectivity.ToString("P0") + "\n";
 
             foreach (CryoResourceItem item in cryoResources)
             {
-                double halfLife = item.boiloffRate / boiloffMultiplier;
+                double halfLife = item.boiloffRate / boiloffDifficulty;
                 double pctLoss = 1 - Math.Pow(0.5, 1 / halfLife);
                 info += "\n<B>" + item.name + ":</B>\n";
-                info += "    per hour: " + pctLoss.ToString("P1") + "\n";
-                info += "    half life: " + halfLife.ToString("F1") + " hrs\n";
+                //info += "    per hour: " + pctLoss.ToString("P1") + "\n";
+                //info += "    half life: " + halfLife.ToString("F1") + " hrs\n";
             }
 
             if (!boiloffEnabled)
@@ -180,34 +198,33 @@ namespace BDB
                         string s = "";
                         foreach (CryoResourceItem item in cryoResources)
                         {
-                            double halfLife = item.boiloffRate / boiloffMultiplier * 60 * 60;
-                            if (part.ShieldedFromAirstream)
-                            {
-                                halfLife *= 10; // We'll pretend shielding acts as insulation.
-                            }
-
-                            halfLife = halfLife / Math.Max(0.01, sunExposure());
-
                             double resourceAmount = part.Resources[item.name].amount; // will nullref if a resource is missing
-                            if (halfLife > 0 && resourceAmount > 0)
+                            double resourceMass = resourceAmount * item.density;
+                            double Q = radExposure() * boiloffFactor * boiloffDifficulty * (1 - insulation) * (1 - reflectivity);
+                            double lossRate = 0.0;
+                            
+                            if (resourceMass > 0)
+                                lossRate = Q / (item.vsp * resourceMass); // T per second
+                            
+                            if (lossRate > 0)
                             {
-                                double amt0 = resourceAmount;
-                                double amtT = amt0 * Math.Pow(0.5, deltaTime / halfLife);
-                                double deltaAmountTgt = amt0 - amtT;
+                                if (item.lastLossRate < 0)
+                                    item.lastLossRate = lossRate;
 
-                                deltaAmountTgt = deltaAmountTgt / deltaTime; // per sec for smoothing calc
-                                double maxRateChange = 1.0 / 60 / 60; // X/hr/sec
-                                double deltaAmount = lastDeltaAmount + Math.Min(maxRateChange, Math.Max(-maxRateChange, (deltaAmountTgt - lastDeltaAmount))) * deltaTime; // smooth the rate change
-                                deltaAmount = deltaAmount * deltaTime; // back from per sec
+                                double smoothTime = 5; // number of seconds to it takes to move halfway from old loss rate to new loss rate
+                                double smoothDelta = lossRate - item.lastLossRate;
+                                double smoothChange = (1 - Math.Pow(0.5, deltaTime / smoothTime)) * smoothDelta;
+                                lossRate = item.lastLossRate + smoothChange;
 
-                                double resourceConsumed = item.lastAmount - resourceAmount; 
+                                double deltaAmount = lossRate / item.density * deltaTime; // Resource units boiled this tick
+
+                                double resourceConsumed = item.lastAmount - resourceAmount; // Amount being drawn from tank, i.e. engine running.
                                 if (resourceConsumed > 0)
                                 {
-                                    // Amount being drawn from tank, i.e. engine running.
                                     deltaAmount = Math.Max(deltaAmount - resourceConsumed, 0);
                                     deltaAmount = Math.Min(deltaAmount, resourceAmount);
                                 }
-                                
+
 
                                 if (deltaAmount > 0)
                                 {
@@ -224,10 +241,11 @@ namespace BDB
                                 {
                                     s += ", ";
                                 }
-                                s += item.name + " " + (deltaAmount * (1 / deltaTime) * 60 * 60).ToString("0.0") + "/hr";
+                                s += item.name + " " + ((deltaAmount * (1 / deltaTime) * 60 * 60) / part.Resources[item.name].maxAmount).ToString("P1") + "/hr";
                                 lastDeltaAmount = deltaAmount / deltaTime; // per sec
                             }
                             item.lastAmount = part.Resources[item.name].amount;
+                            item.lastLossRate = lossRate;
                         }
                         boiloffDisplay = s;
                         lastUpdateTime = currentTime;
@@ -238,8 +256,6 @@ namespace BDB
                     boiloffDisplay = "Pre-Launch";
                     lastUpdateTime = -1;
                 }
-                exposureDisplay = (sunExposure()).ToString(); //(part.ptd.bodyFlux * part.ptd.bodyAreaMultiplier).ToString();
-                //sunFluxDisplay = (part.ptd.sunAreaMultiplier).ToString(); //(part.ptd.sunFlux * part.ptd.sunAreaMultiplier).ToString();
             }
             else
             {
@@ -248,16 +264,19 @@ namespace BDB
             }
         }
 
-        private double sunExposure()
+        private double radExposure()
         {
-            double altAboveSun = FlightGlobals.getAltitudeAtPos(vessel.GetWorldPos3D(), FlightGlobals.Bodies[0]);
-            double solarPower = (homeAltAboveSun * homeAltAboveSun) / (altAboveSun * altAboveSun);
-
-            double solarExposure = 0;
-            if (part.ptd != null && part.ptd.sunFlux > 0)
-                solarExposure = 1;//part.ptd.sunAreaMultiplier;
-
-            return solarExposure * solarPower;
+            double exposure = 0;
+            if (part.ptd != null)
+            {
+                sunFluxDisplay = part.ptd.sunFlux * part.ptd.sunAreaMultiplier;
+                bodyFluxDisplay = part.ptd.bodyFlux * part.ptd.bodyAreaMultiplier;
+                
+                exposure = part.ptd.sunFlux * part.radiativeArea * part.ptd.sunAreaMultiplier / 2;
+                exposure += part.ptd.bodyFlux * part.radiativeArea * part.ptd.bodyAreaMultiplier / 2;
+            }
+            exposureDisplay = exposure;
+            return exposure;
         }
     }
 
@@ -267,10 +286,13 @@ namespace BDB
         public string name = "";
         public double boiloffRate = -1.0;
         public double lastAmount = -1.0;
+        public double lastLossRate = -1.0;
         public string outputResource = "";
         public double outputRate = 1.0; // leakage. multiplier for output 0..1
         public double outputRatio = 0.0; // X Parts Gas to 1 Part Liquid = liquid density / output gas density
         public bool hasOutput = false;
+        public double density = 0.0;
+        public double vsp = 0.0;
 
         public CryoResourceItem()
         {
@@ -281,7 +303,10 @@ namespace BDB
             boiloffRate = source.boiloffRate;
             outputResource = source.outputResource;
             outputRate = source.outputRate;
-            setupOutput();
+            outputRatio = source.outputRatio;
+            hasOutput = source.hasOutput;
+            density = source.density;
+            vsp = source.vsp;
         }
         public CryoResourceItem(ConfigNode node)
         {
@@ -289,15 +314,26 @@ namespace BDB
             boiloffRate = GetDoubleValue(node, "boiloffRate", boiloffRate);
             outputResource = GetStringValue(node, "outputResource", outputResource);
             outputRate = GetDoubleValue(node, "outputRate", outputRate);
-            setupOutput();
+
+            loadDatabaseValues();
         }
 
-        private void setupOutput()
+        public void loadDatabaseValues()
         {
+            density = PartResourceLibrary.Instance.GetDefinition(name).density;
+
+            foreach (ConfigNode resDef in GameDatabase.Instance.GetConfigNodes("RESOURCE_DEFINITION"))
+            {
+                if (resDef.GetValue("name") == name)
+                {
+                    vsp = GetDoubleValue(resDef, "vsp", vsp);
+                    break;
+                }
+            }
+
             hasOutput = outputResource != "";
             if (hasOutput)
             {
-                double density = PartResourceLibrary.Instance.GetDefinition(name).density;
                 double outputDensity = PartResourceLibrary.Instance.GetDefinition(outputResource).density;
                 outputRatio = density / outputDensity;
                 outputRate = Math.Min(Math.Max(outputRate, 0), 1.0); // Clamp
