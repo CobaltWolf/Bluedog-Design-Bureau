@@ -11,9 +11,6 @@ namespace BDB
         [KSPField(isPersistant = true)]
         public double lastUpdateTime = -1.0;
 
-        [KSPField(isPersistant = true)]
-        public double lastDeltaAmount = 0.0;
-
         [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Boiloff")]
         public string boiloffDisplay = "";
 
@@ -56,9 +53,9 @@ namespace BDB
 
         public override void OnLoad(ConfigNode node)
         {
+            cryoResources.Clear();
             if (part.partInfo == null || part.partInfo.partPrefab == null)
             {
-                cryoResources.Clear();
                 ConfigNode[] cryoResourceNodes = node.GetNodes(CryoResourceItem.itemName);
                 //Debug.Log("[ModuleBdbBoiloff] Found " + cryoResourceNodes.Count() + " " + CryoResourceItem.itemName + " nodes");
                 foreach (ConfigNode cryoResourceNode in cryoResourceNodes)
@@ -242,7 +239,6 @@ namespace BDB
                                     s += ", ";
                                 }
                                 s += item.name + " " + ((deltaAmount * (1 / deltaTime) * 60 * 60) / part.Resources[item.name].maxAmount).ToString("P1") + "/hr";
-                                lastDeltaAmount = deltaAmount / deltaTime; // per sec
                             }
                             item.lastAmount = part.Resources[item.name].amount;
                             item.lastLossRate = lossRate;
