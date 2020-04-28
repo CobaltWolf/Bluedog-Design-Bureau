@@ -71,12 +71,12 @@ eg:
 
 logGrow
 {
-density = #$@BDBPlume/atmosphereKeys/key0$ 0
-density = #$@BDBPlume/atmosphereKeys/key1$ 3
-density = #$@BDBPlume/atmosphereKeys/key2$ 3
-density = #$@BDBPlume/atmosphereKeys/key3$ 3
-density = #$@BDBPlume/atmosphereKeys/key4$ 3
-density = #$@BDBPlume/atmosphereKeys/key5$ 4
+density = 0.7 0
+density = 0.52 3
+density = 0.19 3
+density = 0.07 3
+density = 0.045 3
+density = 0.02 4
 }
 
 Please refer to BDB_PLume_Keys.cfg for additional documentation.
