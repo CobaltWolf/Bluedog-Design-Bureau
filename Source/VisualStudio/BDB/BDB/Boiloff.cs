@@ -11,28 +11,28 @@ namespace BDB
         [KSPField(isPersistant = true)]
         public double lastUpdateTime = -1.0;
 
-        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Boiloff")]
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Status", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public string boiloffDisplay = "";
 
-        [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "Flux", guiFormat = "0.000", guiUnits = " kW")]
+        [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "Flux", guiFormat = "0.000", guiUnits = " kW", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public double exposureDisplay = 0.0;
 
-        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Solar Flux", guiFormat = "0.000", guiUnits = " kW/m^2")]
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Solar Flux", guiFormat = "0.000", guiUnits = " kW/m^2", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public double sunFluxDisplay = 0.0;
 
-        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Body Flux", guiFormat = "0.000", guiUnits = " kW/m^2")]
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Body Flux", guiFormat = "0.000", guiUnits = " kW/m^2", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public double bodyFluxDisplay = 0.0;
 
-        //[KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "X")]
-        //public double xDisplay = 0.0;
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "X", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
+        public string xDisplay = "";
 
         [KSPField(isPersistant = false)]
         public bool debug = true;
 
-        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Insulation", guiFormat = "P0")]
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = true, guiName = "Insulation", guiFormat = "P0", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public float insulation = 0.0f;
 
-        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Reflectivity", guiFormat = "P0")]
+        [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = true, guiName = "Reflectivity", guiFormat = "P0", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public float reflectivity = 0.0f;
 
         private List<CryoResourceItem> cryoResources;
@@ -193,11 +193,16 @@ namespace BDB
                     if (deltaTime > 0)
                     {
                         string s = "";
+                        if (part.ShieldedFromAirstream)
+                            s = "Shielded from airstream";
+
+                        double Q = radExposure() * boiloffFactor * boiloffDifficulty * (1 - insulation) * (1 - reflectivity / 2);
+
                         foreach (CryoResourceItem item in cryoResources)
                         {
                             double resourceAmount = part.Resources[item.name].amount; // will nullref if a resource is missing
                             double resourceMass = resourceAmount * item.density;
-                            double Q = radExposure() * boiloffFactor * boiloffDifficulty * (1 - insulation) * (1 - reflectivity);
+                            
                             double lossRate = 0.0;
                             
                             if (resourceMass > 0)
@@ -263,14 +268,18 @@ namespace BDB
         private double radExposure()
         {
             double exposure = 0;
+            xDisplay = "PTD";
             if (part.ptd != null)
             {
                 sunFluxDisplay = part.ptd.sunFlux * part.ptd.sunAreaMultiplier;
                 bodyFluxDisplay = part.ptd.bodyFlux * part.ptd.bodyAreaMultiplier;
-                
+
                 exposure = part.ptd.sunFlux * part.radiativeArea * part.ptd.sunAreaMultiplier / 2;
                 exposure += part.ptd.bodyFlux * part.radiativeArea * part.ptd.bodyAreaMultiplier / 2;
+
+                xDisplay = "convectionFlux: " + part.ptd.convectionFlux.ToString("0.00");
             }
+            else xDisplay = "PTD is null";
             exposureDisplay = exposure;
             return exposure;
         }
