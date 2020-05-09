@@ -19,6 +19,8 @@ namespace BDB
                 base.OnActive();
             else
                 stageTime = Planetarium.GetUniversalTime() + stageDelay;
+
+            staged = true;
         }
 
         public override void OnUpdate()
@@ -47,6 +49,7 @@ namespace BDB
         public override void OnActive()
         {
             //base.OnActive();
+            staged = true;
         }
 
         public override void OnUpdate()
