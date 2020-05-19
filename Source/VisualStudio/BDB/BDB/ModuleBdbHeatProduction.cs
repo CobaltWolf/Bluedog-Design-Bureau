@@ -8,9 +8,9 @@ namespace BDB
 {
     class ModuleBdbHeatProduction : PartModule
     {
-        [KSPField(guiActive = true, isPersistant = true, guiActiveEditor = true, guiName = "Heat Production", guiFormat = "N1", guiUnits = " kW", groupDisplayName = "Environment", groupName = "bdbEnvironment"),
-            UI_FloatRange(minValue = 0.0f, maxValue = 10f, stepIncrement = 0.1f, affectSymCounterparts = UI_Scene.All)]
-        public float heatProduction = 10.0f;
+        [KSPField(guiActive = true, isPersistant = true, guiActiveEditor = true, guiName = "Heat Production", guiFormat = "N2", guiUnits = " kW", groupDisplayName = "Environment", groupName = "bdbEnvironment"),
+            UI_FloatRange(minValue = 0.0f, maxValue = 1.0f, stepIncrement = 0.01f, affectSymCounterparts = UI_Scene.All)]
+        public float heatProduction = 0.0f;
 
         [KSPField(guiActive = true, guiName = "Cabin Temperature", guiFormat = "N1", guiUnits = " F", groupDisplayName = "Environment", groupName = "bdbEnvironment")]
         public double temperature = 0.0f;
@@ -52,7 +52,9 @@ namespace BDB
             if (!HighLogic.LoadedSceneIsFlight)
                 return;
 
-            part.AddThermalFlux(heatProduction);
+            double heatFlux = heatProduction;
+            heatFlux += part.protoModuleCrew.Count * 0.1;
+            part.AddThermalFlux(heatFlux);
         }
 
         public void Update()
@@ -71,7 +73,7 @@ namespace BDB
             skinTemperature = KtoF(part.skinTemperature);
 
             if (vented)
-                part.skinInternalConductionMult = 1.0;
+                part.skinInternalConductionMult = 2000;
             else
                 part.skinInternalConductionMult = saveConduction;
         }

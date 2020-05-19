@@ -30,6 +30,27 @@ namespace BDB
             if (stageTime <= Planetarium.GetUniversalTime())
                 Decouple();
         }
+
+        public override void OnDecouple()
+        {
+            Part attachedTo = explosiveNode.attachedPart;
+            
+            base.OnDecouple();
+
+            if (attachedTo != null)
+            {
+                List<Collider> attachedColliders = attachedTo.FindModelComponents<Collider>();
+                List<Collider> colliders = part.FindModelComponents<Collider>();
+                Debug.Log("[ModuleAnchoredDecouplerBdb] IgnoreCollision x: " + attachedColliders.Count.ToString() + " y: " + colliders.Count.ToString());
+                for (int x = 0; x < attachedColliders.Count; x++)
+                {
+                    for (int y = 0; y < colliders.Count; y++)
+                    {
+                        Physics.IgnoreCollision(attachedColliders[x], colliders[y]);
+                    }
+                }
+            }
+        }
     }
 
     class ModuleBdbDecoupleAfterBurn : ModuleDecouple

@@ -75,8 +75,8 @@ namespace BDB
 
         public override void OnAwake()
         {
-            OnMovingEvent = new EventData<float, float>("ModuleBdbDecouplerAnimation.OnMovingEvent");
-            OnStopEvent = new EventData<float>("ModuleBdbDecouplerAnimation.OnStopEvent");
+            OnMovingEvent = new EventData<float, float>("ModuleBdbJettison.OnMovingEvent");
+            OnStopEvent = new EventData<float>("ModuleBdbJettison.OnStopEvent");
             base.OnAwake();
         }
 
