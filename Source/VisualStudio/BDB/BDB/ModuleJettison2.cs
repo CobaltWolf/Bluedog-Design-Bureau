@@ -75,8 +75,8 @@ namespace BDB
 
         public override void OnAwake()
         {
-            OnMovingEvent = new EventData<float, float>("ModuleBdbJettison.OnMovingEvent");
-            OnStopEvent = new EventData<float>("ModuleBdbJettison.OnStopEvent");
+            OnMovingEvent = new EventData<float, float>("OnMovingEvent");
+            OnStopEvent = new EventData<float>("OnStopEvent");
             base.OnAwake();
         }
 
@@ -96,8 +96,6 @@ namespace BDB
 
             Actions[nameof(JettisonAction)].active = !isJettisoned;
             Actions[nameof(JettisonAction)].guiName = jettisonGuiName;
-
-            Debug.Log("[ModuleBdbJettison] jettisonDirection: " + jettisonDirection.ToString());
         }
 
         private void OnEditorToggleJettisoned(BaseField field, object oldValue)
@@ -131,6 +129,8 @@ namespace BDB
             //rb.AddForce(part.transform.TransformDirection(jettisonDirection) * (jettisonForce * 0.5f), ForceMode.Force);
             rb.AddForceAtPosition(part.transform.TransformDirection(jettisonDirection) * (jettisonForce * 0.5f), part.transform.position, ForceMode.Force);
             part.Rigidbody.AddForce(part.transform.TransformDirection(jettisonDirection) * (-jettisonForce * 0.5f), ForceMode.Force);
+
+            isJettisoned = true;
 
             OnStop.Fire(1);
 
