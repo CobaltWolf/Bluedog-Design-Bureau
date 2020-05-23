@@ -53,7 +53,31 @@ namespace BDB
                 return;
 
             double heatFlux = heatProduction;
+            heatFlux += part.CrewCapacity * 0.1;
             heatFlux += part.protoModuleCrew.Count * 0.1;
+
+            ModuleCommand mc = part.FindModuleImplementing<ModuleCommand>();
+            if (mc != null)
+            {
+                double ec = 0.0;
+                ModuleResourceHandler mcr = mc.resHandler;
+                if (mcr != null && mcr.inputResources != null)
+                {
+                    for (int i = 0; i < mcr.inputResources.Count; i++)
+                    {
+                        if (mcr.inputResources[i].name == "ElectricCharge")
+                        {
+                            ec = mcr.inputResources[i].rate;
+                        }
+                    }
+                }
+                if (mc.hasHibernation && mc.hibernation)
+                {
+                    ec *= mc.hibernationMultiplier;
+                }
+                heatFlux += ec;
+            }
+
             part.AddThermalFlux(heatFlux);
         }
 
