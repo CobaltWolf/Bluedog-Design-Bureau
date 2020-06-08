@@ -14,6 +14,9 @@ namespace BDB
         [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = false, guiName = "Status", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public string boiloffDisplay = "";
 
+        [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "Heat Leakage", guiFormat = "0.000", guiUnits = " kW", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
+        public double heatLeakageDisplay = 0.0;
+
         [KSPField(guiActive = false, isPersistant = false, guiActiveEditor = false, guiName = "Flux", guiFormat = "0.000", guiUnits = " kW", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public double exposureDisplay = 0.0;
 
@@ -27,7 +30,7 @@ namespace BDB
         public string xDisplay = "";
 
         [KSPField(isPersistant = false)]
-        public bool debug = true;
+        public bool debug = false;
 
         [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = true, guiName = "Insulation", guiFormat = "P0", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public float insulation = 0.0f;
@@ -38,10 +41,22 @@ namespace BDB
         private List<CryoResourceItem> cryoResources;
         private bool boiloffEnabled;
         private double boiloffDifficulty;
-        private double boiloffFactor = 4.0;
+        private double boiloffFactor = 0.34;
         private bool hasCryoResource = false;
         private bool isPreLaunch = false;
-        //private double homeAltAboveSun = 13599840256; // Stock Kerbin
+        private bool useThermal = true;
+
+        [KSPField(isPersistant = true)]
+        public bool temperatureInitialized = false;
+
+        private double saveHeatConductivity;
+        private double saveSkinInternalConductionMult;
+        private double saveEmissiveConstant;
+        private double saveAbsorptiveConstant;
+        private double insulationConductionFactor = 0.006;
+        private double skinInsulationConductionFactor = 190;
+        private double internalTankConductionFactor = 40;
+        private double dayLength = 6 * 3600;
 
         public override void OnAwake()
         {
@@ -96,11 +111,19 @@ namespace BDB
         public override void OnStart(StartState state)
         {
             GameEvents.onVesselWasModified.Add(OnVesselWasModified);
-            Fields["exposureDisplay"].guiActive = debug;
-            Fields["sunFluxDisplay"].guiActive = debug;
-            Fields["bodyFluxDisplay"].guiActive = debug;
+
+            saveHeatConductivity = part.heatConductivity;
+            saveSkinInternalConductionMult = part.skinInternalConductionMult;
+            saveEmissiveConstant = part.emissiveConstant;
+            saveAbsorptiveConstant = part.absorptiveConstant;
+
+            CelestialBody homeWorld = FlightGlobals.GetHomeBody();
+            if (homeWorld != null)
+                dayLength = homeWorld.solarDayLength;
+
             UpdateResources();
             UpdatePreLaunch();
+            UpdateUI();
         }
 
         private void OnDestroy()
@@ -112,6 +135,20 @@ namespace BDB
         {
             UpdateResources();
             UpdatePreLaunch();
+            UpdateUI();
+        }
+
+        private void UpdateUI()
+        {
+            Fields[nameof(boiloffDisplay)].guiActive = hasCryoResource;
+            Fields[nameof(heatLeakageDisplay)].guiActive = hasCryoResource && useThermal;
+            Fields[nameof(insulation)].guiActive = hasCryoResource;
+            Fields[nameof(reflectivity)].guiActive = hasCryoResource && !useThermal;
+
+            Fields[nameof(exposureDisplay)].guiActive = hasCryoResource && debug && !useThermal;
+            Fields[nameof(sunFluxDisplay)].guiActive = hasCryoResource && debug && !useThermal;
+            Fields[nameof(bodyFluxDisplay)].guiActive = hasCryoResource && debug && !useThermal;
+            Fields[nameof(xDisplay)].guiActive = hasCryoResource && debug;
         }
 
         private void UpdateResources()
@@ -128,7 +165,29 @@ namespace BDB
                         hasCryoResource = true;
                     }
                 }
-                Fields["boiloffDisplay"].guiActive = hasCryoResource;
+                
+
+                if (useThermal)
+                {
+                    if (hasCryoResource)
+                    {
+                        if (insulation >= 0)
+                        {
+                            part.heatConductivity = saveHeatConductivity * Math.Pow(1 - insulation, 2) * insulationConductionFactor;
+                            part.skinInternalConductionMult = saveSkinInternalConductionMult * Math.Pow(1 - insulation, 2) * skinInsulationConductionFactor;
+                        }
+
+                        //if (reflectivity > 0)
+                        //    part.absorptiveConstant = 1 - reflectivity;
+                    }
+                    else
+                    {
+                        part.heatConductivity = saveHeatConductivity;
+                        part.skinInternalConductionMult = saveSkinInternalConductionMult;
+                        part.emissiveConstant = saveEmissiveConstant;
+                        part.absorptiveConstant = saveAbsorptiveConstant;
+                    }
+                }
             }
         }
 
@@ -143,8 +202,14 @@ namespace BDB
 
         private void RefreshSettings()
         {
+            bool saveUseThermal = useThermal;
+
+            useThermal = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().useThermal;
             boiloffEnabled = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffEnabled;
             boiloffDifficulty = HighLogic.CurrentGame.Parameters.CustomParams<BdbCustomParams>().boiloffMultiplier;
+
+            if (saveUseThermal != useThermal || !useThermal || !boiloffEnabled)
+                temperatureInitialized = false;
         }
 
         public override string GetModuleDisplayName()
@@ -180,7 +245,7 @@ namespace BDB
 
         public void FixedUpdate()
         {
-            if (HighLogic.LoadedSceneIsFlight && hasCryoResource && boiloffEnabled)
+            if (HighLogic.LoadedSceneIsFlight && hasCryoResource && boiloffEnabled && !vessel.HoldPhysics)
             {
                 if (!isPreLaunch)
                 {
@@ -190,7 +255,66 @@ namespace BDB
                         lastUpdateTime = currentTime;
                     }
                     double deltaTime = currentTime - lastUpdateTime;
-                    if (deltaTime > 0)
+
+                    if (useThermal && deltaTime > 0)
+                    {
+                        if (!temperatureInitialized)
+                            InitializeTemperature();
+
+                        string s = "";
+                        if (part.ShieldedFromAirstream)
+                            s = "Shielded from airstream";
+
+                        double partTemp = part.temperature;
+                        xDisplay = "Part Temp: " + partTemp.ToString("0.000 K");
+                        heatLeakageDisplay = 0.0;
+
+                        foreach (CryoResourceItem item in cryoResources)
+                        {
+                            double resourceAmount = part.Resources[item.name].amount;
+                            double resourceMaxAmount = part.Resources[item.name].maxAmount;
+                            double resourceTemp = item.tempBoil;
+                            
+                            xDisplay += ", " + item.abbreviation + resourceTemp.ToString(" 0 K");
+
+                            double deltaTemp = partTemp - resourceTemp;
+                            if (deltaTemp > 0)
+                            {
+                                double surfaceArea = 4 * Math.PI * Math.Pow((resourceMaxAmount / 1000 / item.volume / (4 / 3 / Math.PI)), 2.0 / 3.0); // Sphere
+                                surfaceArea *= resourceAmount / resourceMaxAmount;
+                                double conduction = part.heatConductivity * PhysicsGlobals.ConductionFactor * internalTankConductionFactor;
+                                double internalFlux = conduction * surfaceArea * deltaTemp * (boiloffDifficulty / 0.5);
+                                internalFlux /= 1000; // kW
+                                xDisplay = "Part Temp: " + partTemp.ToString("0.000 K") + ", " + internalFlux.ToString("0.000 kW");
+                                double massLost = internalFlux / item.heatOfVaporization;
+                                double evaporativeFlux = resourceTemp * massLost * part.Resources[item.name].info.specificHeatCapacity;
+
+                                massLost *= deltaTime;
+                                double unitsLost = massLost / item.density;
+
+                                heatLeakageDisplay += internalFlux;
+                                part.AddThermalFlux(-(internalFlux + evaporativeFlux)); // Is it both, or just one?
+                                part.Resources[item.name].amount = Math.Max(resourceAmount - unitsLost, 0);
+
+                                if (item.hasOutput)
+                                {
+                                    double outputAmount = -(unitsLost * item.outputRatio * item.outputRate);
+                                    part.RequestResource(item.outputResource, outputAmount, ResourceFlowMode.STACK_PRIORITY_SEARCH);
+                                }
+
+                                if (s != "")
+                                {
+                                    s += ", ";
+                                }
+                                s += item.abbreviation + " " + ((unitsLost * (1 / deltaTime) * dayLength) / resourceMaxAmount).ToString("P1") + "/day";
+                            }
+                            item.lastAmount = part.Resources[item.name].amount;
+                        }
+                        boiloffDisplay = s;
+                        lastUpdateTime = currentTime;
+
+                    }
+                    else if (deltaTime > 0)
                     {
                         string s = "";
                         if (part.ShieldedFromAirstream)
@@ -206,7 +330,7 @@ namespace BDB
                             double lossRate = 0.0;
                             
                             if (resourceMass > 0)
-                                lossRate = Q / (item.vsp * resourceMass); // T per second
+                                lossRate = Q / (item.heatOfVaporization * resourceMass); // T per second
                             
                             if (lossRate > 0)
                             {
@@ -243,7 +367,7 @@ namespace BDB
                                 {
                                     s += ", ";
                                 }
-                                s += item.name + " " + ((deltaAmount * (1 / deltaTime) * 60 * 60) / part.Resources[item.name].maxAmount).ToString("P1") + "/hr";
+                                s += item.abbreviation + " " + ((deltaAmount * (1 / deltaTime) * 60 * 60) / part.Resources[item.name].maxAmount).ToString("P1") + "/hr";
                             }
                             item.lastAmount = part.Resources[item.name].amount;
                             item.lastLossRate = lossRate;
@@ -256,6 +380,8 @@ namespace BDB
                 {
                     boiloffDisplay = "Pre-Launch";
                     lastUpdateTime = -1;
+                    if (useThermal)
+                        InitializeTemperature();
                 }
             }
             else
@@ -263,6 +389,25 @@ namespace BDB
                 boiloffDisplay = "Disabled";
                 lastUpdateTime = -1;
             }
+        }
+
+        private void InitializeTemperature()
+        {
+            temperatureInitialized = true;
+
+            double maxTemp = 0.0;
+
+            foreach (CryoResourceItem item in cryoResources)
+            {
+                if (item.tempBoil > maxTemp)
+                    maxTemp = item.tempBoil;
+            }
+
+            if (maxTemp <= 0.0 || maxTemp > vessel.atmosphericTemperature)
+                return;
+
+            part.temperature = (maxTemp + (vessel.atmosphericTemperature - maxTemp) * 0.1);
+            part.skinTemperature = part.temperature;
         }
 
         private double radExposure()
@@ -289,6 +434,8 @@ namespace BDB
     {
         public static string itemName = "CRYOGENICRESOURCE";
         public string name = "";
+        public int id = 0;
+        public string abbreviation = "";
         public double boiloffRate = -1.0;
         public double lastAmount = -1.0;
         public double lastLossRate = -1.0;
@@ -297,7 +444,10 @@ namespace BDB
         public double outputRatio = 0.0; // X Parts Gas to 1 Part Liquid = liquid density / output gas density
         public bool hasOutput = false;
         public double density = 0.0;
-        public double vsp = 0.0;
+        public double volume = 0.0;
+        public double heatOfVaporization = 0.0; // heat of vapourization
+        public double specificHeatCapacity = 0.0; // specific heat capacity
+        public double tempBoil = 0.0;
 
         public CryoResourceItem()
         {
@@ -305,13 +455,18 @@ namespace BDB
         public CryoResourceItem(CryoResourceItem source)
         {
             name = source.name;
+            id = source.id;
+            abbreviation = source.abbreviation;
             boiloffRate = source.boiloffRate;
             outputResource = source.outputResource;
             outputRate = source.outputRate;
             outputRatio = source.outputRatio;
             hasOutput = source.hasOutput;
             density = source.density;
-            vsp = source.vsp;
+            volume = source.volume;
+            heatOfVaporization = source.heatOfVaporization;
+            specificHeatCapacity = source.specificHeatCapacity;
+            tempBoil = source.tempBoil;
         }
         public CryoResourceItem(ConfigNode node)
         {
@@ -320,18 +475,25 @@ namespace BDB
             outputResource = GetStringValue(node, "outputResource", outputResource);
             outputRate = GetDoubleValue(node, "outputRate", outputRate);
 
+            tempBoil = 20; // LqdHydrogen
+
             loadDatabaseValues();
         }
 
         public void loadDatabaseValues()
         {
-            density = PartResourceLibrary.Instance.GetDefinition(name).density;
+            PartResourceDefinition res = PartResourceLibrary.Instance.GetDefinition(name);
+            id = res.id;
+            abbreviation = res.abbreviation;
+            density = res.density;
+            volume = res.volume;
+            specificHeatCapacity = res.specificHeatCapacity;
 
             foreach (ConfigNode resDef in GameDatabase.Instance.GetConfigNodes("RESOURCE_DEFINITION"))
             {
                 if (resDef.GetValue("name") == name)
                 {
-                    vsp = GetDoubleValue(resDef, "vsp", vsp);
+                    heatOfVaporization = GetDoubleValue(resDef, "vsp", heatOfVaporization);
                     break;
                 }
             }
