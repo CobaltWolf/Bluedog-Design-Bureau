@@ -70,23 +70,26 @@ namespace BDB
         [KSPField]
         public string fxGroupName = "jettison";
 
-
+        private const string DRAG_CUBE_JETTISONED = "Jettisoned";
+        private const string DRAG_CUBE_COVERED = "Covered";
 
 
         public override void OnAwake()
         {
             OnMovingEvent = new EventData<float, float>("OnMovingEvent");
             OnStopEvent = new EventData<float>("OnStopEvent");
+
+            jettisons = part.FindModelTransforms(jettisonName);
+
             base.OnAwake();
         }
 
         public override void OnStart(StartState state)
         {
-            jettisons = part.FindModelTransforms(jettisonName);
             if (jettisons.Length == 0)
                 isJettisoned = true;
-            else
-                JettisonsSetActive(!isJettisoned);
+
+            SetDragCube(isJettisoned);
 
             Fields[nameof(isJettisoned)].uiControlEditor.onFieldChanged = OnEditorToggleJettisoned;
             Fields[nameof(isJettisoned)].guiName = toggleJettisonEditorGuiName;
@@ -103,10 +106,14 @@ namespace BDB
             if (!HighLogic.LoadedSceneIsEditor)
                 return;
 
+            OnMoving.Fire(isJettisoned ? 0 : 1, isJettisoned ? 1 : 0);
+
             if (jettisons.Length > 0)
             {
-                JettisonsSetActive(!isJettisoned);
+                SetDragCube(!isJettisoned);
             }
+
+            OnStop.Fire(isJettisoned ? 1 : 0);
         }
 
         [KSPEvent(guiActive = true, guiName = "Jettison")]
@@ -140,7 +147,14 @@ namespace BDB
                 part.Rigidbody.AddForce(d * (-jettisonForce * 0.5f), ForceMode.Force);
             }
 
+            jettisons = new Transform[0];
+
+            if (part.temperature < part.skinMaxTemp)
+                part.skinTemperature = part.temperature;
+
             isJettisoned = true;
+
+            SetDragCube(isJettisoned);
 
             OnStop.Fire(1);
 
@@ -176,6 +190,20 @@ namespace BDB
                     if (!pm.moduleIsEnabled)
                         pm.moduleIsEnabled = true;
                 }
+            }
+        }
+
+        private void SetDragCube(bool deployed)
+        {
+            if (deployed)
+            {
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_JETTISONED, 1);
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_COVERED, 0);
+            }
+            else
+            {
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_JETTISONED, 0);
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_COVERED, 1);
             }
         }
 
@@ -271,7 +299,7 @@ namespace BDB
         #region IMultipleDragCube
         public string[] GetDragCubeNames()
         {
-            return new string[] { "Jettisoned", "Covered" };
+            return new string[2] { DRAG_CUBE_JETTISONED, DRAG_CUBE_COVERED };
         }
 
         public void AssumeDragCubePosition(string name)
@@ -279,7 +307,7 @@ namespace BDB
             if (jettisons.Length == 0)
                 return;
 
-            if (name == "Jettisoned")
+            if (name == DRAG_CUBE_JETTISONED)
                 JettisonsSetActive(false);
             else
                 JettisonsSetActive(true);
