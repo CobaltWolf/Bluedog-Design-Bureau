@@ -38,6 +38,11 @@ namespace BDB
         [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = true, guiName = "Reflectivity", guiFormat = "P0", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
         public float reflectivity = 0.0f;
 
+        [KSPField(isPersistant = false)]
+        public int insulationDeployModuleIndex = -1;
+
+        private IScalarModule insulationScalarModule = null;
+
         private List<CryoResourceItem> cryoResources;
         private bool boiloffEnabled;
         private double boiloffDifficulty;
@@ -124,11 +129,23 @@ namespace BDB
             UpdateResources();
             UpdatePreLaunch();
             UpdateUI();
+
+            if (insulationDeployModuleIndex >= 0 && part.Modules.Count > insulationDeployModuleIndex)
+            {
+                if (part.Modules[insulationDeployModuleIndex] is IScalarModule)
+                {
+                    insulationScalarModule = part.Modules[insulationDeployModuleIndex] as IScalarModule;
+                    insulationScalarModule.OnStop.Add(OnInsulationChanged);
+                }
+            }
         }
 
         private void OnDestroy()
         {
             GameEvents.onVesselWasModified.Remove(OnVesselWasModified);
+
+            if (insulationScalarModule != null)
+                insulationScalarModule.OnStop.Remove(OnInsulationChanged);
         }
 
         private void OnVesselWasModified(Vessel v)
@@ -174,7 +191,10 @@ namespace BDB
                         if (insulation >= 0)
                         {
                             part.heatConductivity = saveHeatConductivity * Math.Pow(1 - insulation, 2) * insulationConductionFactor;
-                            part.skinInternalConductionMult = saveSkinInternalConductionMult * Math.Pow(1 - insulation, 2) * skinInsulationConductionFactor;
+                            if (InsulationActive())
+                                part.skinInternalConductionMult = saveSkinInternalConductionMult * Math.Pow(1 - insulation, 2) * skinInsulationConductionFactor;
+                            else
+                                part.skinInternalConductionMult = 1 / part.heatConductivity;
                         }
 
                         //if (reflectivity > 0)
@@ -189,6 +209,19 @@ namespace BDB
                     }
                 }
             }
+        }
+
+        private void OnInsulationChanged(float at)
+        {
+            UpdateResources();
+        }
+
+        private bool InsulationActive()
+        {
+            if (insulationScalarModule != null)
+                return insulationScalarModule.GetScalar == 0;
+            else
+                return true;
         }
 
         private void UpdatePreLaunch()

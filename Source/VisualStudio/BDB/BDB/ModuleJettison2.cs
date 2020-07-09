@@ -53,7 +53,7 @@ namespace BDB
         [KSPField()]
         public float jettisonedObjectMass = 0.01f;
 
-        private Transform jettison;
+        private Transform[] jettisons;
 
         [KSPField(isPersistant = true, guiActiveEditor = true, guiName = "Fairing"), UI_Toggle(affectSymCounterparts = UI_Scene.Editor, disabledText = "Installed", enabledText = "Removed")]
         public bool isJettisoned = false;
@@ -70,23 +70,26 @@ namespace BDB
         [KSPField]
         public string fxGroupName = "jettison";
 
-
+        private const string DRAG_CUBE_JETTISONED = "Jettisoned";
+        private const string DRAG_CUBE_COVERED = "Covered";
 
 
         public override void OnAwake()
         {
             OnMovingEvent = new EventData<float, float>("OnMovingEvent");
             OnStopEvent = new EventData<float>("OnStopEvent");
+
+            jettisons = part.FindModelTransforms(jettisonName);
+
             base.OnAwake();
         }
 
         public override void OnStart(StartState state)
         {
-            jettison = part.FindModelTransform(jettisonName);
-            if (jettison == null)
+            if (jettisons.Length == 0)
                 isJettisoned = true;
-            else
-                jettison.gameObject.SetActive(!isJettisoned);
+
+            SetDragCube(isJettisoned);
 
             Fields[nameof(isJettisoned)].uiControlEditor.onFieldChanged = OnEditorToggleJettisoned;
             Fields[nameof(isJettisoned)].guiName = toggleJettisonEditorGuiName;
@@ -103,10 +106,14 @@ namespace BDB
             if (!HighLogic.LoadedSceneIsEditor)
                 return;
 
-            if (jettison != null)
+            OnMoving.Fire(isJettisoned ? 0 : 1, isJettisoned ? 1 : 0);
+
+            if (jettisons.Length > 0)
             {
-                jettison.gameObject.SetActive(!isJettisoned);
+                SetDragCube(!isJettisoned);
             }
+
+            OnStop.Fire(isJettisoned ? 1 : 0);
         }
 
         [KSPEvent(guiActive = true, guiName = "Jettison")]
@@ -115,22 +122,39 @@ namespace BDB
             if (isJettisoned)
                 return;
 
-            if (jettison == null)
+            if (jettisons.Length == 0)
                 return;
 
             OnMoving.Fire(0, 1);
 
-            Rigidbody rb = physicalObject.ConvertToPhysicalObject(part, jettison.gameObject).rb;
-            rb.useGravity = true;
-            rb.mass = jettisonedObjectMass;
-            rb.maxAngularVelocity = PhysicsGlobals.MaxAngularVelocity;
-            rb.angularVelocity = part.Rigidbody.angularVelocity;
-            rb.velocity = part.Rigidbody.velocity + Vector3.Cross(part.Rigidbody.worldCenterOfMass - vessel.CurrentCoM, vessel.angularVelocity);
-            //rb.AddForce(part.transform.TransformDirection(jettisonDirection) * (jettisonForce * 0.5f), ForceMode.Force);
-            rb.AddForceAtPosition(part.transform.TransformDirection(jettisonDirection) * (jettisonForce * 0.5f), part.transform.position, ForceMode.Force);
-            part.Rigidbody.AddForce(part.transform.TransformDirection(jettisonDirection) * (-jettisonForce * 0.5f), ForceMode.Force);
+            for (int i = 0; i < jettisons.Length; i++)
+            {
+                Rigidbody rb = physicalObject.ConvertToPhysicalObject(part, jettisons[i].gameObject).rb;
+                rb.useGravity = true;
+                rb.mass = jettisonedObjectMass / jettisons.Length;
+                rb.maxAngularVelocity = PhysicsGlobals.MaxAngularVelocity;
+                rb.angularVelocity = part.Rigidbody.angularVelocity;
+                rb.velocity = part.Rigidbody.velocity + Vector3.Cross(part.Rigidbody.worldCenterOfMass - vessel.CurrentCoM, vessel.angularVelocity);
+
+                Vector3 d = jettisonDirection;
+                if (d == Vector3.zero)
+                    d = Vector3.Normalize(rb.transform.position - part.transform.position);
+                else
+                    d = part.transform.TransformDirection(d);
+
+                //rb.AddForce(part.transform.TransformDirection(jettisonDirection) * (jettisonForce * 0.5f), ForceMode.Force);
+                rb.AddForceAtPosition(d * (jettisonForce * 0.5f), part.transform.position, ForceMode.Force);
+                part.Rigidbody.AddForce(d * (-jettisonForce * 0.5f), ForceMode.Force);
+            }
+
+            jettisons = new Transform[0];
+
+            if (part.temperature < part.skinMaxTemp)
+                part.skinTemperature = part.temperature;
 
             isJettisoned = true;
+
+            SetDragCube(isJettisoned);
 
             OnStop.Fire(1);
 
@@ -167,6 +191,26 @@ namespace BDB
                         pm.moduleIsEnabled = true;
                 }
             }
+        }
+
+        private void SetDragCube(bool deployed)
+        {
+            if (deployed)
+            {
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_JETTISONED, 1);
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_COVERED, 0);
+            }
+            else
+            {
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_JETTISONED, 0);
+                part.DragCubes.SetCubeWeight(DRAG_CUBE_COVERED, 1);
+            }
+        }
+
+        private void JettisonsSetActive(bool b)
+        {
+            for (int i = 0; i < jettisons.Length; i++)
+                jettisons[i].gameObject.SetActive(b);
         }
 
         #region IPartMassModifier
@@ -255,18 +299,18 @@ namespace BDB
         #region IMultipleDragCube
         public string[] GetDragCubeNames()
         {
-            return new string[] { "Jettisoned", "Covered" };
+            return new string[2] { DRAG_CUBE_JETTISONED, DRAG_CUBE_COVERED };
         }
 
         public void AssumeDragCubePosition(string name)
         {
-            if (jettison == null)
+            if (jettisons.Length == 0)
                 return;
 
-            if (name == "Jettisoned")
-                jettison.gameObject.SetActive(false);
+            if (name == DRAG_CUBE_JETTISONED)
+                JettisonsSetActive(false);
             else
-                jettison.gameObject.SetActive(true);
+                JettisonsSetActive(true);
         }
 
         public bool UsesProceduralDragCubes()
