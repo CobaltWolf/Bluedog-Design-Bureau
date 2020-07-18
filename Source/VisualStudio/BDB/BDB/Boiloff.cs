@@ -126,10 +126,6 @@ namespace BDB
             if (homeWorld != null)
                 dayLength = homeWorld.solarDayLength;
 
-            UpdateResources();
-            UpdatePreLaunch();
-            UpdateUI();
-
             if (insulationDeployModuleIndex >= 0 && part.Modules.Count > insulationDeployModuleIndex)
             {
                 if (part.Modules[insulationDeployModuleIndex] is IScalarModule)
@@ -138,6 +134,10 @@ namespace BDB
                     insulationScalarModule.OnStop.Add(OnInsulationChanged);
                 }
             }
+
+            UpdateResources();
+            UpdatePreLaunch();
+            UpdateUI();
         }
 
         private void OnDestroy()
@@ -213,6 +213,7 @@ namespace BDB
 
         private void OnInsulationChanged(float at)
         {
+            Debug.Log("BdbBoiloff insulation changed: " + at.ToString("0.0"));
             UpdateResources();
         }
 

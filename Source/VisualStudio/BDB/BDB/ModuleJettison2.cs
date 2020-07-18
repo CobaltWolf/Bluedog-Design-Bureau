@@ -89,7 +89,7 @@ namespace BDB
             if (jettisons.Length == 0)
                 isJettisoned = true;
 
-            SetDragCube(isJettisoned);
+            SetJettisoned(isJettisoned);
 
             Fields[nameof(isJettisoned)].uiControlEditor.onFieldChanged = OnEditorToggleJettisoned;
             Fields[nameof(isJettisoned)].guiName = toggleJettisonEditorGuiName;
@@ -110,7 +110,7 @@ namespace BDB
 
             if (jettisons.Length > 0)
             {
-                SetDragCube(!isJettisoned);
+                SetJettisoned(isJettisoned);
             }
 
             OnStop.Fire(isJettisoned ? 1 : 0);
@@ -154,7 +154,7 @@ namespace BDB
 
             isJettisoned = true;
 
-            SetDragCube(isJettisoned);
+            SetJettisoned(isJettisoned);
 
             OnStop.Fire(1);
 
@@ -191,6 +191,12 @@ namespace BDB
                         pm.moduleIsEnabled = true;
                 }
             }
+        }
+
+        private void SetJettisoned(bool b)
+        {
+            SetDragCube(b);
+            JettisonsSetActive(!b);
         }
 
         private void SetDragCube(bool deployed)
@@ -304,6 +310,7 @@ namespace BDB
 
         public void AssumeDragCubePosition(string name)
         {
+            Debug.Log("AssumeDragCubePosition: " + name);
             if (jettisons.Length == 0)
                 return;
 
