@@ -33,6 +33,9 @@ namespace BDB
         public bool debug = false;
 
         [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = true, guiName = "Insulation", guiFormat = "P0", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
+        public string insulationDisplay = "";
+
+        [KSPField(isPersistant = false)]
         public float insulation = 0.0f;
 
         [KSPField(guiActive = true, isPersistant = false, guiActiveEditor = true, guiName = "Reflectivity", guiFormat = "P0", groupDisplayName = "Boiloff", groupName = "bdbBoiloff")]
@@ -40,6 +43,9 @@ namespace BDB
 
         [KSPField(isPersistant = false)]
         public int insulationDeployModuleIndex = -1;
+
+        [KSPField(isPersistant = false)]
+        public float internalInsulation = -1f;
 
         private IScalarModule insulationScalarModule = null;
 
@@ -159,13 +165,18 @@ namespace BDB
         {
             Fields[nameof(boiloffDisplay)].guiActive = hasCryoResource;
             Fields[nameof(heatLeakageDisplay)].guiActive = hasCryoResource && useThermal;
-            Fields[nameof(insulation)].guiActive = hasCryoResource;
+            Fields[nameof(insulationDisplay)].guiActive = hasCryoResource;
             Fields[nameof(reflectivity)].guiActive = hasCryoResource && !useThermal;
+            Fields[nameof(reflectivity)].guiActiveEditor = !useThermal;
 
             Fields[nameof(exposureDisplay)].guiActive = hasCryoResource && debug && !useThermal;
             Fields[nameof(sunFluxDisplay)].guiActive = hasCryoResource && debug && !useThermal;
             Fields[nameof(bodyFluxDisplay)].guiActive = hasCryoResource && debug && !useThermal;
             Fields[nameof(xDisplay)].guiActive = hasCryoResource && debug;
+
+            insulationDisplay = "Int: " + internalInsulation.ToString("P0");
+            if (SkinInsulationActive())
+                insulationDisplay += " Shell: " + insulation.ToString("P0");
         }
 
         private void UpdateResources()
@@ -190,11 +201,19 @@ namespace BDB
                     {
                         if (insulation >= 0)
                         {
-                            part.heatConductivity = saveHeatConductivity * Math.Pow(1 - insulation, 2) * insulationConductionFactor;
-                            if (InsulationActive())
+                            if (internalInsulation < 0.0f)
+                                internalInsulation = insulation;
+
+                            if (SkinInsulationActive())
+                            {
+                                part.heatConductivity = saveHeatConductivity * Math.Pow(1 - internalInsulation, 2) * insulationConductionFactor;
                                 part.skinInternalConductionMult = saveSkinInternalConductionMult * Math.Pow(1 - insulation, 2) * skinInsulationConductionFactor;
+                            }
                             else
+                            {
+                                part.heatConductivity = saveHeatConductivity * Math.Pow(1 - internalInsulation, 2) * insulationConductionFactor;
                                 part.skinInternalConductionMult = 1 / part.heatConductivity;
+                            }
                         }
 
                         //if (reflectivity > 0)
@@ -213,11 +232,11 @@ namespace BDB
 
         private void OnInsulationChanged(float at)
         {
-            Debug.Log("BdbBoiloff insulation changed: " + at.ToString("0.0"));
             UpdateResources();
+            UpdateUI();
         }
 
-        private bool InsulationActive()
+        private bool SkinInsulationActive()
         {
             if (insulationScalarModule != null)
                 return insulationScalarModule.GetScalar == 0;
