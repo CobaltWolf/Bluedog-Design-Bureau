@@ -73,6 +73,14 @@ namespace BDB
         private const string DRAG_CUBE_JETTISONED = "Jettisoned";
         private const string DRAG_CUBE_COVERED = "Covered";
 
+        [UI_Toggle(scene = UI_Scene.All, disabledText = "No", enabledText = "Yes")]
+        [KSPField(isPersistant = true, guiActive = true, guiActiveEditor = true, guiName = "Auto-Deploy Fairing")]
+        public bool autoDeploy = true;
+
+        [UI_FloatRange(minValue = 0f, maxValue = 100f, stepIncrement = 1f, scene = UI_Scene.All)]
+        [KSPField(isPersistant = true, guiActive = true, guiActiveEditor = true, guiName = "Autodeploy Altitude (km)")]
+        public float deployAltitude = float.NaN;
+
 
         public override void OnAwake()
         {
@@ -99,6 +107,12 @@ namespace BDB
 
             Actions[nameof(JettisonAction)].active = !isJettisoned;
             Actions[nameof(JettisonAction)].guiName = jettisonGuiName;
+
+            Fields[nameof(autoDeploy)].uiControlEditor.onFieldChanged = OnToggleAutodeploy;
+            Fields[nameof(autoDeploy)].uiControlFlight.onFieldChanged = OnToggleAutodeploy;
+
+            CalculateAutodeployAltitude();
+            UpdateDeployAltitudeVisibility();
         }
 
         private void OnEditorToggleJettisoned(BaseField field, object oldValue)
@@ -114,6 +128,20 @@ namespace BDB
             }
 
             OnStop.Fire(isJettisoned ? 1 : 0);
+
+            part.UpdateStageability(true, true);
+        }
+
+        private void OnToggleAutodeploy(BaseField field, object oldValue)
+        {
+            UpdateDeployAltitudeVisibility();
+        }
+
+        public virtual void FixedUpdate()
+        {
+            if (isJettisoned || !autoDeploy || HighLogic.LoadedSceneIsEditor || !part.started) return;
+
+            if (deployAltitude * 1000f < vessel.altitude) Jettison();
         }
 
         [KSPEvent(guiActive = true, guiName = "Jettison")]
@@ -158,9 +186,6 @@ namespace BDB
 
             OnStop.Fire(1);
 
-            Events[nameof(Jettison)].active = false;
-            Actions[nameof(JettisonAction)].active = false;
-
             EnableOtherModules();
 
             FXGroup effect = part.findFxGroup(fxGroupName);
@@ -168,6 +193,8 @@ namespace BDB
             {
                 effect.Burst();
             }
+
+            GameEvents.onVesselWasModified.Fire(vessel);
         }
 
         [KSPAction("Deploy")]
@@ -197,6 +224,23 @@ namespace BDB
         {
             SetDragCube(b);
             JettisonsSetActive(!b);
+
+            Events[nameof(Jettison)].active = !b;
+            Actions[nameof(JettisonAction)].active = !b;
+            Fields[nameof(autoDeploy)].guiActive = !b;
+            Fields[nameof(autoDeploy)].guiActiveEditor = !b;
+            UpdateDeployAltitudeVisibility();
+        }
+
+        private void UpdateDeployAltitudeVisibility()
+        {
+            Fields[nameof(deployAltitude)].guiActive = !isJettisoned && autoDeploy;
+            Fields[nameof(deployAltitude)].guiActiveEditor = !isJettisoned && autoDeploy;
+        }
+
+        public override bool IsStageable()
+        {
+            return !isJettisoned;
         }
 
         private void SetDragCube(bool deployed)
@@ -217,6 +261,33 @@ namespace BDB
         {
             for (int i = 0; i < jettisons.Length; i++)
                 jettisons[i].gameObject.SetActive(b);
+        }
+
+        private void CalculateAutodeployAltitude()
+        {
+            UI_FloatRange deployAltitudeControl;
+            if (HighLogic.LoadedSceneIsEditor)
+                deployAltitudeControl = (UI_FloatRange)Fields[nameof(deployAltitude)].uiControlEditor;
+            else
+                deployAltitudeControl = (UI_FloatRange)Fields[nameof(deployAltitude)].uiControlFlight;
+
+            float newDeployAltitude;
+
+            CelestialBody home = Planetarium.fetch.Home;
+            if (home != null)
+            {
+                newDeployAltitude = Mathf.Round((float)home.atmosphereDepth * 0.70f / 1000f);// / 5f) * 5f;
+                deployAltitudeControl.maxValue = (float)home.atmosphereDepth / 1000f;
+            }
+            else
+            {
+                Debug.LogError($"[{part.name} {GetType().Name}] Cannot find home celestial body to set altitude from");
+                autoDeploy = false;
+                newDeployAltitude = 100f;
+                deployAltitudeControl.maxValue = 200f;
+            }
+
+            if (float.IsNaN(deployAltitude)) deployAltitude = newDeployAltitude;
         }
 
         #region IPartMassModifier
