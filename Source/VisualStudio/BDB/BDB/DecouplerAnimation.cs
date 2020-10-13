@@ -18,6 +18,9 @@ namespace BDB
         public float waitForAnimation = 0.1f;
 
         [KSPField(isPersistant = false)]
+        public bool waitDuringAbort = false;
+
+        [KSPField(isPersistant = false)]
         public int layer = 1;
 
         [KSPField(isPersistant = false)]
@@ -33,8 +36,8 @@ namespace BDB
 
         private bool playing = false;
 
-        private ModuleDecouple decoupler;
-        private ModuleDecouple payloadDecoupler;
+        private ModuleDecouplerBase decoupler;
+        private ModuleDecouplerBase payloadDecoupler;
 
         [KSPField(isPersistant = false)]
         public string decouplerNodeID = "";
@@ -80,7 +83,7 @@ namespace BDB
         [KSPAction("Decouple")]
         public void DecoupleAction(KSPActionParam param)
         {
-            if (param.group == KSPActionGroup.Abort)
+            if (!waitDuringAbort && param.group == KSPActionGroup.Abort)
             {
                 if (decoupler != null)
                     decoupler.Decouple();
@@ -102,9 +105,9 @@ namespace BDB
             //if (part.stagingIcon == "")
             //    part.stagingIcon = "DECOUPLER_HOR";
 
-            List<ModuleDecouple> decouplers = new List<ModuleDecouple>();
-            decouplers = this.GetComponents<ModuleDecouple>().ToList();
-            foreach (ModuleDecouple d in decouplers)
+            List<ModuleDecouplerBase> decouplers = new List<ModuleDecouplerBase>();
+            decouplers = this.GetComponents<ModuleDecouplerBase>().ToList();
+            foreach (ModuleDecouplerBase d in decouplers)
             {
                 if (d.explosiveNodeID == decouplerNodeID)
                 {
@@ -128,10 +131,10 @@ namespace BDB
                         payloadDecoupler.isEnabled = animPosition >= waitForAnimation;
                 }
             }
-            //if (decoupler == null)
-            //    Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, decouplerNodeID);
-            //if (payloadDecouplerNodeID != "" && payloadDecoupler == null)
-            //    Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, payloadDecouplerNodeID);
+            if (decoupler == null)
+                Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, decouplerNodeID);
+            if (payloadDecouplerNodeID != "" && payloadDecoupler == null)
+                Debug.LogErrorFormat("[{0}] A '{1}' node decoupler was not found.", moduleID, payloadDecouplerNodeID);
 
             SetAnimation(animPosition, 0);
             if (animSpeed != 0)
@@ -170,7 +173,7 @@ namespace BDB
                 animSpeed = anim.speed;
             }
 
-            if (HighLogic.LoadedSceneIsFlight && animPosition >= waitForAnimation && animSpeed > 0)
+            if (HighLogic.LoadedSceneIsFlight && animPosition >= waitForAnimation && playing)
             {
                 if (decoupler != null && !decoupler.isDecoupled)
                 {

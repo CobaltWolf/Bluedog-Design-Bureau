@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BDB</RootNamespace>
     <AssemblyName>BDB</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\ksp-win64-1-4-3\KSP_win64\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\ksp-win64-1-8-1\KSP_win64\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -40,17 +41,33 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\ksp-win64-1-4-3\KSP_win64\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\ksp-win64-1-8-1\KSP_win64\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\ksp-win64-1-8-1\KSP_win64\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\ksp-win64-1-8-1\KSP_win64\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\ksp-win64-1-4-3\KSP_win64\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\..\..\ksp-win64-1-8-1\KSP_win64\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccelAnimation.cs" />
     <Compile Include="AnimatedEngine.cs" />
+    <Compile Include="AnimationMass.cs" />
     <Compile Include="Boiloff.cs" />
     <Compile Include="DepthMask.cs" />
+    <Compile Include="Keyhole.cs" />
+    <Compile Include="Mercury.cs" />
+    <Compile Include="ModuleAnchoredDecoupler2.cs" />
+    <Compile Include="ModuleBdbHeatProduction.cs" />
+    <Compile Include="ModuleJettison2.cs" />
     <Compile Include="RCSEmissive.cs" />
+    <Compile Include="RelayInfo.cs" />
+    <Compile Include="RotateInternal.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DecouplerAnimation.cs" />
     <Compile Include="DefAGHelper.cs" />
@@ -63,7 +80,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "C:\Users\John\Downloads\ksp-win64-1-4-3\KSP_win64\GameData\Bluedog_DB\Plugins\"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "C:\Users\John\Downloads\ksp-win64-1-8-1\KSP_win64\GameData\Bluedog_DB\Plugins\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

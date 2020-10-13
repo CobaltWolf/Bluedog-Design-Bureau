@@ -16,8 +16,13 @@ namespace BDB
         public override string DisplaySection { get { return Section; } }
         public override int SectionOrder { get { return 1; } }
         public override bool HasPresets { get { return true; } }
-        [GameParameters.CustomParameterUI("Cryogenic Boiloff Enabled?", toolTip = "Set to enable boiloff of cryogenic fuel (liquid hydrogen).")]
+
+        [GameParameters.CustomParameterUI("Use Thermal Simulation", toolTip = "Tank temperature affects boiloff rate.")]
+        public bool useThermal = true;
+
+        [GameParameters.CustomParameterUI("Enable Cryogenic Boiloff", toolTip = "Set to enable boiloff of cryogenic fuel (liquid hydrogen).")]
         public bool boiloffEnabled = true;
+
         [GameParameters.CustomFloatParameterUI("Boiloff Rate", toolTip = "Boiloff Rate Percentage", asPercentage = true, displayFormat = "N1", minValue = 0.0f, maxValue = 1.0f)]
         public float boiloffMultiplier = 0.5f;
 
