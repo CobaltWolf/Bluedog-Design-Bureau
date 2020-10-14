@@ -419,7 +419,7 @@ namespace BDB
         public string jettisonName = "jettison";
 
         [KSPField()]
-        public Vector3 jettisonDirection = Vector3.up;
+        public Vector3 jettisonDirection = Vector3.zero;
 
         [KSPField()]
         public float jettisonForce = 50.0f;
