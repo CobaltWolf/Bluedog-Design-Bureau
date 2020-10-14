@@ -243,6 +243,11 @@ namespace BDB
             return !isJettisoned;
         }
 
+        public override bool StagingToggleEnabledEditor()
+        {
+            return true;
+        }
+
         private void SetDragCube(bool deployed)
         {
             if (deployed)
@@ -401,6 +406,191 @@ namespace BDB
             get
             {
                 return true;
+            }
+        }
+        #endregion
+    }
+
+    class ModuleBdbScuppers : PartModule, IScalarModule
+    {
+
+
+        [KSPField()]
+        public string jettisonName = "jettison";
+
+        [KSPField()]
+        public Vector3 jettisonDirection = Vector3.up;
+
+        [KSPField()]
+        public float jettisonForce = 50.0f;
+
+        [KSPField()]
+        public float jettisonTorque = 5.0f;
+
+        [KSPField()]
+        public float jettisonedObjectMass = 0.1f;
+
+        [KSPField()]
+        public float deploykPa = 4.0f;
+
+        private Transform[] jettisons;
+
+        [KSPField(isPersistant = true, guiActiveEditor = true, guiName = "Scuppers"), UI_Toggle(affectSymCounterparts = UI_Scene.Editor, disabledText = "Installed", enabledText = "Removed")]
+        public bool isJettisoned = false;
+
+        [KSPField]
+        public string toggleJettisonEditorGuiName = "Scuppers";
+
+        public override void OnAwake()
+        {
+            OnMovingEvent = new EventData<float, float>("OnMovingEvent");
+            OnStopEvent = new EventData<float>("OnStopEvent");
+
+            jettisons = part.FindModelTransforms(jettisonName);
+
+            base.OnAwake();
+        }
+
+        public override void OnStart(StartState state)
+        {
+            if (jettisons.Length == 0)
+                isJettisoned = true;
+
+            SetJettisoned(isJettisoned);
+
+            Fields[nameof(isJettisoned)].uiControlEditor.onFieldChanged = OnEditorToggleJettisoned;
+            Fields[nameof(isJettisoned)].guiName = toggleJettisonEditorGuiName;
+        }
+
+        private void OnEditorToggleJettisoned(BaseField field, object oldValue)
+        {
+            if (!HighLogic.LoadedSceneIsEditor)
+                return;
+
+            OnMoving.Fire(isJettisoned ? 0 : 1, isJettisoned ? 1 : 0);
+
+            if (jettisons.Length > 0)
+            {
+                SetJettisoned(isJettisoned);
+            }
+
+            OnStop.Fire(isJettisoned ? 1 : 0);
+        }
+
+        public virtual void FixedUpdate()
+        {
+            if (isJettisoned || HighLogic.LoadedSceneIsEditor || !part.started) return;
+
+            if (deploykPa < part.dynamicPressurekPa + part.submergedDynamicPressurekPa) Jettison();
+        }
+
+        public void Jettison()
+        {
+            if (isJettisoned)
+                return;
+
+            if (jettisons.Length == 0)
+                return;
+
+            OnMoving.Fire(0, 1);
+
+            for (int i = 0; i < jettisons.Length; i++)
+            {
+                Rigidbody rb = physicalObject.ConvertToPhysicalObject(part, jettisons[i].gameObject).rb;
+                rb.useGravity = true;
+                rb.mass = jettisonedObjectMass / jettisons.Length;
+                rb.maxAngularVelocity = PhysicsGlobals.MaxAngularVelocity;
+                rb.angularVelocity = part.Rigidbody.angularVelocity;
+                rb.velocity = part.Rigidbody.velocity + Vector3.Cross(part.Rigidbody.worldCenterOfMass - vessel.CurrentCoM, vessel.angularVelocity);
+
+                Vector3 d = jettisonDirection;
+                if (d == Vector3.zero)
+                    d = Vector3.Normalize(rb.transform.position - part.transform.position);
+                else
+                    d = part.transform.TransformDirection(d);
+
+                //rb.AddForce(part.transform.TransformDirection(jettisonDirection) * (jettisonForce * 0.5f), ForceMode.Force);
+                rb.AddForceAtPosition(d * (jettisonForce * 0.5f), part.transform.position, ForceMode.Force);
+                rb.AddTorque(d * jettisonTorque, ForceMode.VelocityChange);
+                //part.Rigidbody.AddForce(d * (-jettisonForce * 0.5f), ForceMode.Force);
+            }
+
+            jettisons = new Transform[0];
+
+            isJettisoned = true;
+
+            SetJettisoned(isJettisoned);
+
+            OnStop.Fire(1);
+        }
+
+        private void SetJettisoned(bool b)
+        {
+            JettisonsSetActive(!b);
+        }
+
+        private void JettisonsSetActive(bool b)
+        {
+            for (int i = 0; i < jettisons.Length; i++)
+                jettisons[i].gameObject.SetActive(b);
+        }
+
+        #region IScalarModule
+        public void SetScalar(float t) { }
+        public void SetUIRead(bool state) { }
+        public void SetUIWrite(bool state) { }
+
+        public bool IsMoving()
+        {
+            return false;
+        }
+
+        [KSPField()]
+        public string ModuleID;
+
+        public string ScalarModuleID
+        {
+            get
+            {
+                return ModuleID;
+            }
+        }
+
+        public float GetScalar
+        {
+            get
+            {
+                if (isJettisoned)
+                    return 1;
+                else
+                    return 0;
+            }
+        }
+
+        public bool CanMove
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        private EventData<float, float> OnMovingEvent;
+        private EventData<float> OnStopEvent;
+
+        public EventData<float, float> OnMoving
+        {
+            get
+            {
+                return OnMovingEvent;
+            }
+        }
+
+        public EventData<float> OnStop
+        {
+            get
+            {
+                return OnStopEvent;
             }
         }
         #endregion
