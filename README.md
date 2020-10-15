@@ -20,6 +20,8 @@ Currently, the mod includes (but is not limited to):
 - Gemini spacecraft (Courtesy of Trails Manufacturing Co.)
 - Gemini Ferry
 - Big Gemini 69' (nice)
+- Manned Orbiting Laboratory (MOL) and derivative station parts
+- Modular space station parts based on never built Gemini proposals
 - Apollo Block I and II spacecraft, as featured in REAL LIFE!
 - Apollo Block III, III+, IV, and V spacecraft, from Eyes Turned Skywards
 - AARDV "Aardvark" autonomous resupply vehicle, also from Eyes
@@ -31,11 +33,14 @@ Currently, the mod includes (but is not limited to):
 - Scout rocket
 - Redstone rocket, with Sergeant clusters and Explorer 1
 - Juno II, IV rockets
-- Thor-Delta rocket (Almost all variants can be made)
-- Delta 2 and 3 rockets (Including upper stage and a variety of GEM SRBs)
-- 4 meter Delta Cryogenic Second Stage, modeled by Blowfish. (5 meter available in ReDIRECT)
+- Thor-Delta rocket (Almost all variants can be made and including Castor SRMs)
+- All Able and Delta upper stages with engines.
+- Never built Delta HOSS cryogenic upper stage.
+- Delta 2 and 3 rockets (with a variety of GEM SRBs)
+- 4 meter Delta Cryogenic Second Stage, modeled by Blowfish.
+- Delta 4 rocket including 5m Delta Cryogenic Second Stage.
 - Atlas rocket (everything from Atlas A up through Atlas V 551)
-- Agena upper stage (All variants)
+- Agena upper stage (All variants, plus some never built ones)
 - Vega (old Kerolox upper stage for Atlas)
 - Centaur D, G, G', T, V upper stages
 - Titan 1, 2, 3, 4 rockets, with SRMs and Transtage
@@ -43,18 +48,45 @@ Currently, the mod includes (but is not limited to):
 - Config switching for the H1, the RS27, and many more! (All config switching provided courtesy of B9 Part Switch)
 - LDC Titan
 - Peacekeeper/Minotaur SRB based launcher
+- Various STAR kick motors
 - Athena SRB based launcher
 - Saturn 1, 1B, V
 - Saturn 1C and Saturn Multibody from Eyes
+- Keyhole satellites with Corona return capsule (KH1, KH4, KH4B, KH7 & KH8)
+-- Huge number of probes including --
+
+- AIMP/IMP
+- Alouette
+- Biosat
+- Courier, Relay & Telstar
+- Explorer 1, 7, 8, 11, S45, S46
+- Helios
+- IDCSP
+- Pioneer 1, 4
+- Pioneer P3
+- Pioneer 5 (by InvaderChaos)
+- Pioneer 6
+- Lunar orbiter
+- Nimbus (parts for most variants)
+- Orbiting Astronomical Observatory (OAO 1,2 & 3)
+- Orbiting Frog Otolith
+- Orbiting Geophysical Observatory
+- Orbiting Solar Observatory
+- Ranger block I, II, III, Ranger B, Mariner 2 and Ranger Lander.
+- TIROS-1
+
 - New probe cores
 - New antennas and dishes
 - New science experiments
+- Challenging custom BDB contracts that work with Contract Configurator!
+- Custom Kerbal Suits (Apollo Skylab A7L) by Bejee10
+- Simple Adjustable Fairings for high quality historical fairings.
 - PlumeParty based rocket plume FX for the stock particle system including FX exclusive to BDB provided by Jade of Maar!
 - High quality realplumes built with Plume Party and custom FX by Zorg!
 - Full engine ignitor configs by _Rock3tMan
-- In total, nearly 500 parts and many features for those parts!
+- In total, nearly 600 parts and many features for those parts!
 
-Planned content includes massive Saturn rockets including unflown variants, and parts based on proposed projects for Gemini and Apollo. Most of the older parts such as Thor-Delta, Redstone, Agena etc are also being remade to the latest standards.
+Planned content includes massive Saturn rockets including unflown variants, and parts based on proposed projects for Apollo.
 
 
 Bluedog Design Bureau by Matthew (CobaltWolf) Mlodzienski is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
