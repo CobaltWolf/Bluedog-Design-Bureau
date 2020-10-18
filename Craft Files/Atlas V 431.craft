@@ -2,7 +2,7 @@ ship = Atlas V 431
 version = 1.10.1
 description = 
 type = VAB
-size = 2.73962069,33.9034424,4.65184689
+size = 2.73962069,35.7180862,4.65184736
 steamPublishedFileId = 0
 persistentId = 3553346906
 rot = 0,0,0,0
@@ -16,7 +16,7 @@ PART
 {
 	part = bluedog.CentaurD.Avionics_4292974176
 	partName = Part
-	persistentId = 3649081415
+	persistentId = 3645747240
 	pos = -0.0827719495,31.3016491,0.404307753
 	attPos = 0,0,0
 	attPos0 = -0.0827719495,31.3016491,0.404307753
@@ -38,10 +38,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.AtlasV.FairingBase4xx_4293003444
+	link = bluedog.AtlasV.400Fairing.SAF_4293399938
 	attN = top,Null_0_0|0.294290006|0_0|1|0_0|0.294290006|0_0|1|0
 	attN = top2,Null_0_0|0.515959978|0_0|1|0_0|0.515959978|0_0|1|0
-	attN = bottom,bluedog.AtlasV.FairingBase4xx_4293003444_0|-0.200000003|0_0|-1|0_0|-0.200000003|0_0|-1|0
+	attN = bottom,bluedog.AtlasV.400Fairing.SAF_4293399938_0|-0.200000003|0_0|-1|0_0|-0.200000003|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -236,9 +236,9 @@ PART
 }
 PART
 {
-	part = bluedog.AtlasV.FairingBase4xx_4293003444
+	part = bluedog.AtlasV.400Fairing.SAF_4293399938
 	partName = Part
-	persistentId = 2501982269
+	persistentId = 3558876859
 	pos = -0.0827719495,30.9586487,0.404307753
 	attPos = 0,0,0
 	attPos0 = 0,-0.343000412,0
@@ -258,23 +258,11 @@ PART
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
-	modMass = 1.40129846E-45
+	modMass = 0.194999993
 	modSize = 0,0,0
 	link = bluedog.CentaurV.Tank_4292971584
 	attN = top,bluedog.CentaurD.Avionics_4292974176_0|0.143000007|0_0|1|0_0|0.143000007|0_0|1|0
 	attN = bottom,bluedog.CentaurV.Tank_4292971584_0|-0.495000005|0_0|-1|0_0|-0.495000005|0_0|-1|0
-	attN = interstage01a,Null_0_0|0.829999983|0_0|-1|0_0|0.829999983|0_0|-1|0
-	attN = interstage01b,Null_0_0|0.879999995|0_0|1|0_0|0.879999995|0_0|1|0
-	attN = interstage02a,Null_0_0|1.58000004|0_0|-1|0_0|1.58000004|0_0|-1|0
-	attN = interstage02b,Null_0_0|1.63|0_0|1|0_0|1.63|0_0|1|0
-	attN = interstage03a,Null_0_0|2.32999992|0_0|-1|0_0|2.32999992|0_0|-1|0
-	attN = interstage03b,Null_0_0|2.38000011|0_0|1|0_0|2.38000011|0_0|1|0
-	attN = interstage04a,Null_0_0|3.07999992|0_0|-1|0_0|3.07999992|0_0|-1|0
-	attN = interstage04b,Null_0_0|3.13000011|0_0|1|0_0|3.13000011|0_0|1|0
-	attN = interstage05a,Null_0_0|3.82999992|0_0|-1|0_0|3.82999992|0_0|-1|0
-	attN = interstage05b,Null_0_0|3.88000011|0_0|1|0_0|3.88000011|0_0|1|0
-	attN = interstage06a,Null_0_0|4.57999992|0_0|-1|0_0|4.57999992|0_0|-1|0
-	attN = interstage06b,Null_0_0|4.63000011|0_0|1|0_0|4.63000011|0_0|1|0
 	EVENTS
 	{
 	}
@@ -301,21 +289,21 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleProceduralFairing
+		name = ModuleSimpleAdjustableFairing
 		isEnabled = True
-		interstageCraftID = 0
-		nArcs = 2
-		ejectionForce = 300
-		useClamshell = True
-		isCapped = False
+		deployed = False
+		numSegments = 0
+		transparentEditor = True
+		openFairing = False
+		autoDeploy = True
+		deployAltitude = 50
 		stagingEnabled = True
-		fsm = st_idle
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			DeployFairingAction
+			DeployAction
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
@@ -342,11 +330,11 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleStructuralNode
+		name = ModuleB9PartSwitch
 		isEnabled = True
-		spawnState = False
-		visibilityState = True
 		stagingEnabled = True
+		moduleID = fairingSwitch
+		currentSubtype = Atlas400LPF
 		EVENTS
 		{
 		}
@@ -359,197 +347,8 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNodeToggle
-		isEnabled = True
-		showMesh = True
-		showNodes = False
+		name = ModuleB9PartInfo
+		isEnabled = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -566,7 +365,7 @@ PART
 {
 	part = bluedog.CentaurV.Tank_4292971584
 	partName = Part
-	persistentId = 1021433805
+	persistentId = 2033895170
 	pos = -0.0827719495,27.9636478,0.404307753
 	attPos = 0,0,0
 	attPos0 = 0,-2.99500084,0
@@ -589,7 +388,7 @@ PART
 	modMass = 0.0100000445
 	modSize = 0,0,0
 	link = bluedog.CentaurV.EngineMount_4282166920
-	attN = top,bluedog.AtlasV.FairingBase4xx_4293003444_0|2.5|0_0|1|0_0|2.5|0_0|1|0
+	attN = top,bluedog.AtlasV.400Fairing.SAF_4293399938_0|2.5|0_0|1|0_0|2.5|0_0|1|0
 	attN = bottom,bluedog.CentaurV.EngineMount_4282166920_0|-2.5|0_0|-1|0_0|-2.5|0_0|-1|0
 	EVENTS
 	{
@@ -685,25 +484,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.875
-		defaultScale = 1.875
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1300
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
@@ -761,7 +541,7 @@ PART
 {
 	part = bluedog.CentaurV.EngineMount_4282166920
 	partName = Part
-	persistentId = 2850825087
+	persistentId = 1947675820
 	pos = -0.0827719495,25.416647,0.404307753
 	attPos = 0,0,0
 	attPos0 = 0,-2.54700089,0
@@ -843,25 +623,6 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.875
-		defaultScale = 1.875
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1257
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 	RESOURCE
 	{
 		name = MonoPropellant
@@ -878,7 +639,7 @@ PART
 {
 	part = bluedog.Centaur.RL10A41_4292984484
 	partName = Part
-	persistentId = 3379542199
+	persistentId = 553134726
 	pos = -0.0827719495,24.487957,0.404307753
 	attPos = 0,0,0
 	attPos0 = 0,-0.928689957,0
@@ -1165,25 +926,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.25
-		defaultScale = 1.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 440
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -1202,7 +944,7 @@ PART
 {
 	part = bluedog.AtlasV.Interstage4xx_4290820356
 	partName = Part
-	persistentId = 1610641618
+	persistentId = 3935749056
 	pos = -0.0827719495,24.2142487,0.404307753
 	attPos = 0,0,0
 	attPos0 = 0,-1.2023983,0
@@ -1213,12 +955,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 3
-	sidx = 2
-	sqor = 1
-	sepI = 1
+	sidx = 1
+	sqor = 2
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
@@ -1273,31 +1015,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 2.5
-		defaultScale = 2.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1370
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.AtlasV.CCBUpperTank_4282166244
 	partName = Part
-	persistentId = 1331774569
+	persistentId = 3281825058
 	pos = -0.0827719495,17.7815475,0.404307753
 	attPos = 0,0,0
 	attPos0 = 0,-6.43270111,0
@@ -1308,12 +1031,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Heaviest
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 1
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = -0.000421524048
@@ -1345,25 +1068,6 @@ PART
 	}
 	PARTDATA
 	{
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 2.5
-		defaultScale = 2.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 9000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
 	}
 	MODULE
 	{
@@ -1441,7 +1145,7 @@ PART
 {
 	part = bluedog.AtlasV.CCBLowerTank_4282166152
 	partName = Part
-	persistentId = 2978939724
+	persistentId = 1511390332
 	pos = -0.0827719495,8.70552635,0.40430966
 	attPos = 0,0,0
 	attPos0 = 0,-9.07599735,0
@@ -1452,12 +1156,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Heaviest
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 1
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = -0.000619888306
@@ -1498,25 +1202,6 @@ PART
 	}
 	PARTDATA
 	{
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 2.5
-		defaultScale = 2.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 6200
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
 	}
 	MODULE
 	{
@@ -1594,7 +1279,7 @@ PART
 {
 	part = bluedog.AtlasV.RD180_4282166032
 	partName = Part
-	persistentId = 3846509156
+	persistentId = 1408211556
 	pos = -0.0827719495,3.61559296,0.404307753
 	attPos = 0,0,0
 	attPos0 = 0,-4.05326843,0
@@ -1605,12 +1290,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 4
 	resPri = 0
 	dstg = 4
 	sidx = 1
-	sqor = 3
-	sepI = 1
+	sqor = 4
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
@@ -1893,25 +1578,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.875
-		defaultScale = 1.875
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 9460
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -1941,7 +1607,7 @@ PART
 {
 	part = bluedog.AtlasV.Star5F_4284513370
 	partName = Part
-	persistentId = 3212487652
+	persistentId = 3930999995
 	pos = 1.07957089,11.7282982,0.40430972
 	attPos = 0.0137029886,-0.00549125671,0
 	attPos0 = 1.14863968,3.02826309,7.4505806E-08
@@ -1952,12 +1618,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
-	sidx = 1
-	sqor = 1
-	sepI = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -2065,25 +1731,6 @@ PART
 	{
 		name = ModuleTestSubject
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 70.1999969
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2111,7 +1758,7 @@ PART
 {
 	part = bluedog.AtlasV.Star5F_4284499388
 	partName = Part
-	persistentId = 2839454585
+	persistentId = 2897486817
 	pos = 0.498399436,11.7282982,-0.602308631
 	attPos = 0.00685149431,-0.00549125671,-0.0118671656
 	attPos0 = 0.574319899,3.02826309,-0.994751096
@@ -2122,12 +1769,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
-	sidx = 1
-	sqor = 1
-	sepI = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -2235,25 +1882,6 @@ PART
 	{
 		name = ModuleTestSubject
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 70.1999969
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2281,7 +1909,7 @@ PART
 {
 	part = bluedog.AtlasV.Star5F_4284499268
 	partName = Part
-	persistentId = 4092644684
+	persistentId = 751917754
 	pos = -0.66394335,11.7282982,-0.602308631
 	attPos = -0.00685149431,-0.00549125671,-0.0118670464
 	attPos0 = -0.574319899,3.02826309,-0.994751215
@@ -2292,12 +1920,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
-	sidx = 1
-	sqor = 1
-	sepI = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -2405,25 +2033,6 @@ PART
 	{
 		name = ModuleTestSubject
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 70.1999969
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2451,7 +2060,7 @@ PART
 {
 	part = bluedog.AtlasV.Star5F_4284499148
 	partName = Part
-	persistentId = 3142821494
+	persistentId = 813821354
 	pos = -1.24511445,11.7282982,0.40430966
 	attPos = -0.0137029886,-0.00549125671,0
 	attPos0 = -1.14863968,3.02826309,2.98023224E-08
@@ -2462,12 +2071,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
-	sidx = 1
-	sqor = 1
-	sepI = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -2575,25 +2184,6 @@ PART
 	{
 		name = ModuleTestSubject
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 70.1999969
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2621,7 +2211,7 @@ PART
 {
 	part = bluedog.AtlasV.Star5F_4284499028
 	partName = Part
-	persistentId = 1448491753
+	persistentId = 599341547
 	pos = -0.66394335,11.7282982,1.41092813
 	attPos = -0.00685149431,-0.00549125671,0.0118671656
 	attPos0 = -0.574319899,3.02826309,0.994751215
@@ -2632,12 +2222,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
-	sidx = 1
-	sqor = 1
-	sepI = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -2756,25 +2346,6 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 70.1999969
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 	RESOURCE
 	{
 		name = SolidFuel
@@ -2791,7 +2362,7 @@ PART
 {
 	part = bluedog.AtlasV.Star5F_4284498908
 	partName = Part
-	persistentId = 1238452142
+	persistentId = 3551252208
 	pos = 0.498399198,11.7282982,1.41092813
 	attPos = 0.00685149431,-0.00549125671,0.0118671656
 	attPos0 = 0.574319661,3.02826309,0.994751215
@@ -2802,12 +2373,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 2
 	resPri = 0
 	dstg = 4
-	sidx = 1
-	sqor = 1
-	sepI = 1
+	sidx = 0
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -2926,25 +2497,6 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 70.1999969
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 	RESOURCE
 	{
 		name = SolidFuel
@@ -2961,7 +2513,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4292561408
 	partName = Part
-	persistentId = 2264373575
+	persistentId = 3578355341
 	pos = -0.0827719197,11.6812057,1.6611284
 	attPos = 0,0,-0.0294599533
 	attPos0 = 2.98023224E-08,2.9756794,1.28627872
@@ -2972,12 +2524,12 @@ PART
 	symMethod = Mirror
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 3
 	resPri = 0
 	dstg = 5
 	sidx = 1
-	sqor = 2
-	sepI = 2
+	sqor = 3
+	sepI = 3
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -3078,32 +2630,13 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.AtlasV.AJ60_4292561336
 	partName = Part
-	persistentId = 1290447076
-	pos = -0.0997001156,7.41693306,2.19938374
+	persistentId = 208118089
+	pos = -0.0997001156,7.41693306,2.19938421
 	attPos = 0.0283682346,-3.82873344,-0.0169288777
 	attPos0 = -0.566617906,-0.435539246,3.57627158E-07
 	rot = 0,1.00000012,0,-4.76837158E-07
@@ -3113,12 +2646,12 @@ PART
 	symMethod = Mirror
 	autostrutMode = Heaviest
 	rigidAttachment = False
-	istg = 3
+	istg = 4
 	resPri = 0
 	dstg = 6
 	sidx = 2
-	sqor = 3
-	sepI = 2
+	sqor = 4
+	sepI = 3
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -3291,25 +2824,6 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.25
-		defaultScale = 1.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 537
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 	RESOURCE
 	{
 		name = SolidFuel
@@ -3326,7 +2840,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4279167910
 	partName = Part
-	persistentId = 1286488035
+	persistentId = 430567301
 	pos = -0.521237791,11.6988792,-0.800365925
 	attPos = 0,-0.113397598,0
 	attPos0 = -0.438465834,3.10675049,-1.20467556
@@ -3337,12 +2851,12 @@ PART
 	symMethod = Mirror
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 3
 	resPri = 0
 	dstg = 5
 	sidx = 0
-	sqor = 2
-	sepI = 2
+	sqor = 3
+	sepI = 3
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -3444,31 +2958,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.AtlasV.AJ60_4279167830
 	partName = Part
-	persistentId = 2565329063
+	persistentId = 2739771884
 	pos = -0.721238971,7.43460655,-1.30036867
 	attPos = 0.0283682346,-3.82873344,-0.0169288777
 	attPos0 = -0.566617906,-0.435539246,3.57627158E-07
@@ -3479,12 +2974,12 @@ PART
 	symMethod = Mirror
 	autostrutMode = Heaviest
 	rigidAttachment = False
-	istg = 3
+	istg = 4
 	resPri = 0
 	dstg = 6
 	sidx = 0
-	sqor = 3
-	sepI = 2
+	sqor = 4
+	sepI = 3
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -3666,25 +3161,6 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.25
-		defaultScale = 1.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 537
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 	RESOURCE
 	{
 		name = SolidFuel
@@ -3701,7 +3177,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4292560164
 	partName = Part
-	persistentId = 1742305650
+	persistentId = 33860029
 	pos = 0.355693877,11.6988792,-0.800365925
 	attPos = 0,-0.113397598,0
 	attPos0 = 0.438465834,3.10675049,-1.20467556
@@ -3712,12 +3188,12 @@ PART
 	symMethod = Mirror
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 3
 	resPri = 0
 	dstg = 5
 	sidx = 0
-	sqor = 2
-	sepI = 2
+	sqor = 3
+	sepI = 3
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -3819,31 +3295,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.AtlasV.AJ60_4292560092
 	partName = Part
-	persistentId = 280941745
+	persistentId = 3782318994
 	pos = 0.555695057,7.43460655,-1.30036867
 	attPos = 0.0283682346,-3.82873344,-0.0169288777
 	attPos0 = -0.566617906,-0.435539246,3.57627158E-07
@@ -3854,12 +3311,12 @@ PART
 	symMethod = Mirror
 	autostrutMode = Heaviest
 	rigidAttachment = False
-	istg = 3
+	istg = 4
 	resPri = 0
 	dstg = 6
 	sidx = 0
-	sqor = 3
-	sepI = 2
+	sqor = 4
+	sepI = 3
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -4022,25 +3479,6 @@ PART
 	{
 		name = ModuleSurfaceFX
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.25
-		defaultScale = 1.25
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 537
 		stagingEnabled = True
 		EVENTS
 		{

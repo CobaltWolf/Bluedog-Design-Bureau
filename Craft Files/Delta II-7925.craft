@@ -1,8 +1,8 @@
 ship = Delta II-7925
-version = 1.9.1
+version = 1.10.1
 description = 
 type = VAB
-size = 3.47641611,23.2480259,3.42487741
+size = 3.47641706,27.1738167,3.4248786
 steamPublishedFileId = 0
 persistentId = 3350592915
 rot = 0,0,0,0
@@ -16,7 +16,7 @@ PART
 {
 	part = bluedog.Delta.Avionics_4290751116
 	partName = Part
-	persistentId = 2655035279
+	persistentId = 3363774156
 	pos = 0.00827646069,22.1980286,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0.00827646069,22.1980286,0.848176718
@@ -38,9 +38,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Delta.Miniskirt.1p5m_4290748322
+	link = bluedog.Delta2.metalFairing.SAF_4292190858
 	attN = top,Null_0_0|0.150000006|0_0|1|0_0|0.150000006|0_0|1|0
-	attN = bottom,bluedog.Delta.Miniskirt.1p5m_4290748322_0|-0.150000006|0_0|-1|0_0|-0.150000006|0_0|-1|0
+	attN = bottom,bluedog.Delta2.metalFairing.SAF_4292190858_0|-0.150000006|0_0|-1|0_0|-0.150000006|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -172,6 +172,38 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = Green
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleTripLogger
 		isEnabled = True
 		stagingEnabled = True
@@ -203,9 +235,9 @@ PART
 }
 PART
 {
-	part = bluedog.Delta.Miniskirt.1p5m_4290748322
+	part = bluedog.Delta2.metalFairing.SAF_4292190858
 	partName = Part
-	persistentId = 2478699942
+	persistentId = 1062869682
 	pos = 0.00827646069,21.9221592,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-0.27586937,0
@@ -216,33 +248,22 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 1
 	resPri = 0
-	dstg = 0
+	dstg = 1
 	sidx = 0
-	sqor = 0
+	sqor = 1
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
-	modMass = 1.40129846E-45
+	modMass = 0.118000001
 	modSize = 0,0,0
 	link = bluedog.DeltaK.Stage_4290749380
 	link = bluedog.Delta.Interstage_4290742974
 	attN = top,bluedog.Delta.Avionics_4290751116_0|0.125870004|0_0|1|0_0|0.125870004|0_0|1|0
-	attN = top2,Null_0_0|-0.402649999|0_0|1|0_0|-0.402649999|0_0|1|0
 	attN = bottom,bluedog.DeltaK.Stage_4290749380_0|0.0758680031|0_0|-1|0_0|0.0758680031|0_0|-1|0
 	attN = bottom2,bluedog.Delta.Interstage_4290742974_0|-0.602649987|0_0|-1|0_0|-0.602649987|0_0|-1|0
-	attN = interstage02a,Null_0_0|1.25|0_0|-1|0_0|1.25|0_0|-1|0
-	attN = interstage02b,Null_0_0|1.29400003|0_0|1|0_0|1.29400003|0_0|1|0
-	attN = interstage03a,Null_0_0|1.85000002|0_0|-1|0_0|1.85000002|0_0|-1|0
-	attN = interstage03b,Null_0_0|1.89400005|0_0|1|0_0|1.89400005|0_0|1|0
-	attN = interstage04a,Null_0_0|2.45000005|0_0|-1|0_0|2.45000005|0_0|-1|0
-	attN = interstage04b,Null_0_0|2.49399996|0_0|1|0_0|2.49399996|0_0|1|0
-	attN = interstage05a,Null_0_0|3.04999995|0_0|-1|0_0|3.04999995|0_0|-1|0
-	attN = interstage05b,Null_0_0|3.0940001|0_0|1|0_0|3.0940001|0_0|1|0
-	attN = interstage06a,Null_0_0|3.6500001|0_0|-1|0_0|3.6500001|0_0|-1|0
-	attN = interstage06b,Null_0_0|3.69400001|0_0|1|0_0|3.69400001|0_0|1|0
 	EVENTS
 	{
 	}
@@ -269,20 +290,21 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleProceduralFairing
+		name = ModuleSimpleAdjustableFairing
 		isEnabled = True
-		interstageCraftID = 0
-		nArcs = 2
-		ejectionForce = 200
-		useClamshell = True
+		deployed = False
+		numSegments = 0
+		transparentEditor = True
+		openFairing = False
+		autoDeploy = True
+		deployAltitude = 50
 		stagingEnabled = True
-		fsm = st_idle
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			DeployFairingAction
+			DeployAction
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
@@ -309,11 +331,11 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleStructuralNode
+		name = ModuleB9PartSwitch
 		isEnabled = True
-		spawnState = False
-		visibilityState = True
 		stagingEnabled = True
+		moduleID = fairingSwitch
+		currentSubtype = DeltaIIMetal
 		EVENTS
 		{
 		}
@@ -326,11 +348,11 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleStructuralNode
+		name = ModuleB9PartSwitch
 		isEnabled = True
-		spawnState = False
-		visibilityState = True
 		stagingEnabled = True
+		moduleID = textureSwitchFairing
+		currentSubtype = White
 		EVENTS
 		{
 		}
@@ -343,11 +365,11 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleStructuralNode
+		name = ModuleB9PartSwitch
 		isEnabled = True
-		spawnState = False
-		visibilityState = True
 		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = Green
 		EVENTS
 		{
 		}
@@ -360,179 +382,8 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNodeToggle
-		isEnabled = True
-		showMesh = True
-		showNodes = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
+		name = ModuleB9PartInfo
+		isEnabled = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -549,7 +400,7 @@ PART
 {
 	part = bluedog.DeltaK.Stage_4290749380
 	partName = Part
-	persistentId = 4195635166
+	persistentId = 2061911362
 	pos = 0.00827646069,21.1653175,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-0.75684166,0
@@ -560,9 +411,9 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 1
 	resPri = 0
-	dstg = 0
+	dstg = 2
 	sidx = -1
 	sqor = -1
 	sepI = -1
@@ -572,7 +423,7 @@ PART
 	modMass = -9.31322575E-09
 	modSize = 0,0,0
 	link = bluedog.AJ10.118K_4290745422
-	attN = top,bluedog.Delta.Miniskirt.1p5m_4290748322_0|0.832710028|0_0|1|0_0|0.832710028|0_0|1|0
+	attN = top,bluedog.Delta2.metalFairing.SAF_4292190858_0|0.832710028|0_0|1|0_0|0.832710028|0_0|1|0
 	attN = bottom,bluedog.AJ10.118K_4290745422_0|-0.865800023|0_0|-1|0_0|-0.865800023|0_0|-1|0
 	EVENTS
 	{
@@ -678,13 +529,11 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
+		name = ModuleB9PartSwitch
 		isEnabled = True
-		currentScale = 0.9375
-		defaultScale = 0.9375
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 730
 		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = Green
 		EVENTS
 		{
 		}
@@ -782,7 +631,7 @@ PART
 {
 	part = bluedog.AJ10.118K_4290745422
 	partName = Part
-	persistentId = 1158441615
+	persistentId = 2993331486
 	pos = 0.00827646069,19.7457466,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-1.41957092,0
@@ -795,8 +644,8 @@ PART
 	rigidAttachment = False
 	istg = 0
 	resPri = 0
-	dstg = 0
-	sidx = 1
+	dstg = 2
+	sidx = 0
 	sqor = 0
 	sepI = -1
 	attm = 0
@@ -1056,31 +905,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.9375
-		defaultScale = 0.9375
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.Interstage_4290742974
 	partName = Part
-	persistentId = 1469955869
+	persistentId = 751978996
 	pos = 0.00827646069,19.9695091,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-1.95265007,0
@@ -1093,8 +923,8 @@ PART
 	rigidAttachment = False
 	istg = 1
 	resPri = 0
-	dstg = 1
-	sidx = 0
+	dstg = 3
+	sidx = 1
 	sqor = 1
 	sepI = 1
 	attm = 0
@@ -1103,7 +933,7 @@ PART
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Thor.UpperTank.1_4290670564
-	attN = top,bluedog.Delta.Miniskirt.1p5m_4290748322_0|1.35000002|0_0|1|0_0|1.35000002|0_0|1|0
+	attN = top,bluedog.Delta2.metalFairing.SAF_4292190858_0|1.35000002|0_0|1|0_0|1.35000002|0_0|1|0
 	attN = bottom,bluedog.Thor.UpperTank.1_4290670564_0|-1.35000002|0_0|-1|0_0|-1.35000002|0_0|-1|0
 	EVENTS
 	{
@@ -1187,25 +1017,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.5
-		defaultScale = 1.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1390
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -1224,7 +1035,7 @@ PART
 {
 	part = bluedog.Thor.UpperTank.1_4290670564
 	partName = Part
-	persistentId = 3226219603
+	persistentId = 1665979693
 	pos = 0.00827646069,16.1023083,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-3.86720085,0
@@ -1237,7 +1048,7 @@ PART
 	rigidAttachment = False
 	istg = 1
 	resPri = 0
-	dstg = 2
+	dstg = 4
 	sidx = -1
 	sqor = -1
 	sepI = 1
@@ -1295,6 +1106,7 @@ PART
 		name = FlagDecal
 		isEnabled = True
 		flagDisplayed = False
+		isMirrored = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1311,6 +1123,7 @@ PART
 		name = FlagDecal
 		isEnabled = True
 		flagDisplayed = False
+		isMirrored = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1329,25 +1142,6 @@ PART
 		stagingEnabled = True
 		moduleID = meshSwitchLength
 		currentSubtype = Extra Extended
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.5
-		defaultScale = 1.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1630
-		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1434,7 +1228,7 @@ PART
 {
 	part = bluedog.Thor.LowerTank.1_4290661632
 	partName = Part
-	persistentId = 1245158989
+	persistentId = 1780970080
 	pos = 0.00827646069,9.38720798,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-6.71510029,0
@@ -1447,7 +1241,7 @@ PART
 	rigidAttachment = False
 	istg = 1
 	resPri = 0
-	dstg = 2
+	dstg = 4
 	sidx = -1
 	sqor = -1
 	sepI = 1
@@ -1545,25 +1339,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.5
-		defaultScale = 1.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1630
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
@@ -1638,7 +1413,7 @@ PART
 {
 	part = bluedog.Thor.EngineMount_4290828896
 	partName = Part
-	persistentId = 2945646412
+	persistentId = 457883606
 	pos = 0.00827646069,3.79920769,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-5.5880003,0
@@ -1651,7 +1426,7 @@ PART
 	rigidAttachment = False
 	istg = 1
 	resPri = 0
-	dstg = 2
+	dstg = 4
 	sidx = -1
 	sqor = -1
 	sepI = 1
@@ -1708,25 +1483,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.5
-		defaultScale = 1.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 320
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -1745,7 +1501,7 @@ PART
 {
 	part = bluedog.Thor.LR79_4290564720
 	partName = Part
-	persistentId = 3427842044
+	persistentId = 2519793970
 	pos = 0.00827646069,3.7525959,0.848176718
 	attPos = 0,0,0
 	attPos0 = 0,-0.0466117859,0
@@ -1758,7 +1514,7 @@ PART
 	rigidAttachment = False
 	istg = 2
 	resPri = 0
-	dstg = 2
+	dstg = 4
 	sidx = 0
 	sqor = 2
 	sepI = 1
@@ -2070,25 +1826,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1.5
-		defaultScale = 1.5
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 980
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -2118,7 +1855,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290576930
 	partName = Part
-	persistentId = 2459699515
+	persistentId = 3532958958
 	pos = 0.00827648118,7.25774765,1.64158094
 	attPos = 0,0.0917873383,0
 	attPos0 = 2.04890966E-08,-2.12946033,0.793404222
@@ -2131,7 +1868,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 0
 	sqor = 3
 	sepI = 3
@@ -2237,31 +1974,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290576828
 	partName = Part
-	persistentId = 2064580595
+	persistentId = 673418407
 	pos = 0.00827642158,6.7421484,2.00444746
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
@@ -2274,7 +1992,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 0
 	sqor = 4
 	sepI = 3
@@ -2469,25 +2187,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -2517,7 +2216,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290818316
 	partName = Part
-	persistentId = 2162494291
+	persistentId = 287114313
 	pos = 0.695384622,7.25774765,0.451474488
 	attPos = 0,0.0917873383,0
 	attPos0 = 0.687108159,-2.12946033,-0.39670223
@@ -2530,7 +2229,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 0
 	sqor = 3
 	sepI = 3
@@ -2636,32 +2335,13 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290818244
 	partName = Part
-	persistentId = 1991615093
-	pos = 1.009637,6.7421484,0.270040989
+	persistentId = 223146368
+	pos = 1.00963736,6.7421484,0.270040751
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
 	rot = 0,0.866025686,0,0.499999821
@@ -2673,7 +2353,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 0
 	sqor = 4
 	sepI = 3
@@ -2868,25 +2548,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -2916,7 +2577,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290818064
 	partName = Part
-	persistentId = 3372165407
+	persistentId = 2595385290
 	pos = -0.678831816,7.25774765,0.451474637
 	attPos = 0,0.0917873383,0
 	attPos0 = -0.687108278,-2.12946033,-0.396702081
@@ -2929,7 +2590,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 0
 	sqor = 3
 	sepI = 3
@@ -3035,31 +2696,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290817992
 	partName = Part
-	persistentId = 2074165800
+	persistentId = 3127789730
 	pos = -0.993083358,6.7421484,0.270041347
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
@@ -3072,7 +2714,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 0
 	sqor = 4
 	sepI = 3
@@ -3267,25 +2909,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -3315,7 +2938,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290810684
 	partName = Part
-	persistentId = 1389953779
+	persistentId = 2507635855
 	pos = -0.262638777,7.26499367,0.103842854
 	attPos = 0,0.0917873383,0
 	attPos0 = -0.27091524,-2.12221432,-0.744333863
@@ -3328,7 +2951,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 1
 	sqor = 3
 	sepI = 3
@@ -3434,32 +3057,13 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290810612
 	partName = Part
-	persistentId = 1932771304
-	pos = -0.386746287,6.74939442,-0.237140656
+	persistentId = 4042190858
+	pos = -0.386746377,6.74939442,-0.237140894
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
 	rot = 0,0.984807849,0,-0.173648298
@@ -3471,7 +3075,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 1
 	sqor = 4
 	sepI = 3
@@ -3666,25 +3270,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -3714,7 +3299,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290802006
 	partName = Part
-	persistentId = 4031878240
+	persistentId = 3711306059
 	pos = -0.500877917,7.26499367,1.45496321
 	attPos = 0,0.0917873383,0
 	attPos0 = -0.509154379,-2.12221432,0.606786489
@@ -3727,7 +3312,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 1
 	sqor = 3
 	sepI = 3
@@ -3833,31 +3418,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290801928
 	partName = Part
-	persistentId = 4136922906
+	persistentId = 1133967720
 	pos = -0.734124243,6.74939442,1.73293507
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
@@ -3870,7 +3436,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 1
 	sqor = 4
 	sepI = 3
@@ -4065,25 +3631,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -4113,7 +3660,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290801738
 	partName = Part
-	persistentId = 2916480647
+	persistentId = 3330404857
 	pos = 0.788346171,7.26499367,0.985724151
 	attPos = 0,0.0917873383,0
 	attPos0 = 0.780069709,-2.12221432,0.137547433
@@ -4126,7 +3673,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 1
 	sqor = 3
 	sepI = 3
@@ -4232,35 +3779,16 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290801660
 	partName = Part
-	persistentId = 1123767666
-	pos = 1.14570093,6.74939442,1.04873562
+	persistentId = 560720774
+	pos = 1.14570141,6.74939442,1.04873562
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
-	rot = 0,-0.642787874,0,-0.766044438
+	rot = 0,-0.642787933,0,-0.766044378
 	attRot = 0,0,0,1
 	attRot0 = 0,-0.70710659,0,0.707106948
 	mir = 1,1,1
@@ -4269,7 +3797,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 1
 	sqor = 4
 	sepI = 3
@@ -4464,25 +3992,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -4512,7 +4021,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290801006
 	partName = Part
-	persistentId = 3187733034
+	persistentId = 3569460624
 	pos = 0.279472679,7.26452637,0.103070855
 	attPos = 0,0.0917873383,0
 	attPos0 = 0.271196216,-2.12268162,-0.745105863
@@ -4525,7 +4034,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 2
 	sqor = 3
 	sepI = 3
@@ -4631,32 +4140,13 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290800928
 	partName = Part
-	persistentId = 3591063841
-	pos = 0.403580815,6.74892712,-0.237912893
+	persistentId = 4240334670
+	pos = 0.403580904,6.74892712,-0.23791337
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
 	rot = 0,0.984807968,0,0.17364794
@@ -4668,7 +4158,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 2
 	sqor = 4
 	sepI = 3
@@ -4863,25 +4353,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -4911,7 +4382,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290794856
 	partName = Part
-	persistentId = 1097721626
+	persistentId = 242710431
 	pos = -0.77260226,7.26452637,0.985866904
 	attPos = 0,0.0917873383,0
 	attPos0 = -0.780878723,-2.12268162,0.137690187
@@ -4924,7 +4395,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 2
 	sqor = 3
 	sepI = 3
@@ -5030,35 +4501,16 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290794772
 	partName = Part
-	persistentId = 3976862259
+	persistentId = 256553012
 	pos = -1.12995636,6.74892712,1.04887795
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
-	rot = 0,0.642787397,0,-0.766044676
+	rot = 0,0.642787457,0,-0.766044676
 	attRot = 0,0,0,1
 	attRot0 = 0,-0.70710659,0,0.707106948
 	mir = 1,1,1
@@ -5067,7 +4519,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 2
 	sqor = 4
 	sepI = 3
@@ -5262,25 +4714,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -5310,7 +4743,7 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4290794572
 	partName = Part
-	persistentId = 2672507851
+	persistentId = 3173193887
 	pos = 0.517959058,7.26452637,1.45559251
 	attPos = 0,0.0917873383,0
 	attPos0 = 0.509682596,-2.12268162,0.607415795
@@ -5323,7 +4756,7 @@ PART
 	rigidAttachment = False
 	istg = 3
 	resPri = 0
-	dstg = 3
+	dstg = 5
 	sidx = 2
 	sqor = 3
 	sepI = 3
@@ -5429,35 +4862,16 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 150
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Delta.GEM40_4290794488
 	partName = Part
-	persistentId = 1012857957
-	pos = 0.751205266,6.74892712,1.7335645
+	persistentId = 2023833310
+	pos = 0.751205325,6.74892712,1.73356462
 	attPos = 0.0251796246,-0.538315773,-2.81259474E-07
 	attPos0 = -0.388045937,0.0227165222,6.89178847E-08
-	rot = 0,-0.342020541,0,-0.939692557
+	rot = 0,-0.342020631,0,-0.939692497
 	attRot = 0,0,0,1
 	attRot0 = 0,-0.70710659,0,0.707106948
 	mir = 1,1,1
@@ -5466,7 +4880,7 @@ PART
 	rigidAttachment = False
 	istg = 4
 	resPri = 0
-	dstg = 4
+	dstg = 6
 	sidx = 2
 	sqor = 4
 	sepI = 3
@@ -5648,25 +5062,6 @@ PART
 	{
 		name = ModuleSurfaceFX
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 183.399994
 		stagingEnabled = True
 		EVENTS
 		{
