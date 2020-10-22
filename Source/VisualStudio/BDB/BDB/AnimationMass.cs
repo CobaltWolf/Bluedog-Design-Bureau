@@ -408,6 +408,12 @@ namespace BDB
         [KSPField(isPersistant = false)]
         public string extent = "";
 
+        [KSPField(isPersistant = false)]
+        public bool enableWeight = false;
+
+        [KSPField(isPersistant = true, guiActive = false, guiActiveEditor = false, guiName = "Weight (KG)"), UI_FloatRange(minValue = 1.0f, maxValue = 100.0f, stepIncrement = 1.0f, affectSymCounterparts = UI_Scene.All)]
+        public float weight = 1.0f;
+
         private IScalarModule anim;
         private bool listen = false;
         private bool wasListening = true;
@@ -461,6 +467,16 @@ namespace BDB
                 extentV.y = float.Parse(sArray[1]);
             if (sArray.Length > 2)
                 extentV.z = float.Parse(sArray[2]);
+
+            Fields["weight"].guiActiveEditor = enableWeight;
+            if (enableWeight)
+            {
+                UI_FloatRange edt = (Fields["weight"].uiControlEditor as UI_FloatRange);
+                edt.minValue = part.prefabMass * 1000;
+                if (weight < edt.minValue)
+                    weight = edt.minValue;
+                
+            }
         }
 
         private void OnDestroy()
@@ -504,7 +520,10 @@ namespace BDB
 
         public float GetModuleMass(float defaultMass, ModifierStagingSituation sit)
         {
-            return 0.0f;
+            if (enableWeight)
+                return weight / 1000 - part.prefabMass;
+            else
+                return 0.0f;
         }
 
         public ModifierChangeWhen GetModuleMassChangeWhen()
