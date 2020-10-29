@@ -1,12 +1,12 @@
-ship = IMP A
+ship = Nimbus 3
 version = 1.10.1
 description = 
 type = VAB
-size = 0.65328145,1.42921829,0.65328145
+size = 0.907830238,2.12539673,0.914762557
 steamPublishedFileId = 0
-persistentId = 435210755
+persistentId = 2595899061
 rot = 0,0,0,0
-missionFlag = Squad/Flags/VSA2
+missionFlag = Bluedog_DB/Flags/BDB_wormLogo
 vesselType = Debris
 OverrideDefault = False,False,False,False
 OverrideActionControl = 0,0,0,0
@@ -14,18 +14,18 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = bluedog.AIMP.Core_4289385166
+	part = bluedog.Nimbus.EarlyControlCore_4293281282
 	partName = Part
-	persistentId = 3420520229
-	pos = 0,15,0
+	persistentId = 1567836826
+	pos = -0.108399518,16.994833,0.01222008
 	attPos = 0,0,0
-	attPos0 = 0,15,0
+	attPos0 = -0.108399518,16.994833,0.01222008
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Radial
-	autostrutMode = Off
+	autostrutMode = Grandparent
 	rigidAttachment = False
 	istg = -1
 	resPri = 0
@@ -38,19 +38,12 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.IMP.Magnetometer_4289384628
-	link = bluedog.AIMP.SolarPaddle_4289298938
-	link = bluedog.AIMP.SolarPaddle_4289256438
-	link = bluedog.AIMP.SolarPaddle_4289256318
-	link = bluedog.AIMP.SolarPaddle_4289256198
-	link = bluedog.AIMP.Antenna_4289295168
-	link = bluedog.AIMP.Antenna_4289254516
-	link = bluedog.AIMP.Antenna_4289254466
-	link = bluedog.AIMP.Antenna_4289254416
-	link = bluedog.AIMP.Magnetometer_4289203656
-	link = bluedog.AIMP.Magnetometer_4289196582
-	attN = top,bluedog.IMP.Magnetometer_4289384628_0|0.0677089989|0_0|1|0_0|0.0677089989|0_0|1|0
-	attN = bottom,Null_0_0|-0.130720004|0_0|-1|0_0|-0.130720004|0_0|-1|0
+	link = bluedog.Nimbus.Truss_4292953842
+	link = bluedog.Nimbus.EarlyCommandAntenna_4292942214
+	link = bluedog.Nimbus.SolarPanel_4293286146
+	link = bluedog.Nimbus.SolarPanel_4293286004
+	attN = bottom,bluedog.Nimbus.Truss_4292953842_0|-0.147430003|0_0|-1|0_0|-0.147430003|0_0|-1|0
+	attN = top,bluedog.Nimbus.EarlyCommandAntenna_4292942214_0|0.151010007|0_0|1|0_0|0.151010007|0_0|1|0
 	EVENTS
 	{
 	}
@@ -202,55 +195,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchEdge
-		currentSubtype = Points
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchStyle
-		currentSubtype = IMP
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleTripLogger
 		isEnabled = True
 		stagingEnabled = True
@@ -271,8 +215,8 @@ PART
 	RESOURCE
 	{
 		name = ElectricCharge
-		amount = 30
-		maxAmount = 30
+		amount = 40
+		maxAmount = 40
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -282,8 +226,8 @@ PART
 	RESOURCE
 	{
 		name = MonoPropellant
-		amount = 4
-		maxAmount = 4
+		amount = 3
+		maxAmount = 3
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -293,12 +237,431 @@ PART
 }
 PART
 {
-	part = bluedog.IMP.Magnetometer_4289384628
+	part = bluedog.Nimbus.Truss_4292953842
 	partName = Part
-	persistentId = 2297201841
-	pos = 0,15.0764666,0
+	persistentId = 4100994951
+	pos = -0.108399518,16.4381828,0.01222008
 	attPos = 0,0,0
-	attPos0 = 0,0.0764665604,0
+	attPos0 = 0,-0.556650162,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Grandparent
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.Nimbus.InstrumentTorus_4292525976
+	attN = bottom,bluedog.Nimbus.InstrumentTorus_4292525976_0|-0.346689999|0_0|-1|0_0|-0.346689999|0_0|-1|0
+	attN = top,bluedog.Nimbus.EarlyControlCore_4293281282_0|0.40922001|0_0|1|0_0|0.40922001|0_0|1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+}
+PART
+{
+	part = bluedog.Nimbus.EarlyCommandAntenna_4292942214
+	partName = Part
+	persistentId = 1174804581
+	pos = -0.108399518,17.2638931,0.01222008
+	attPos = 0,0,0
+	attPos0 = 0,0.269059181,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Grandparent
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = bottom,bluedog.Nimbus.EarlyControlCore_4293281282_0|-0.118050002|0_0|-1|0_0|-0.118050002|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDataTransmitter
+		isEnabled = True
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = False
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = True
+		enableYaw = False
+		enablePitch = False
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9AssignUiGroups
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = 
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Nimbus.SolarPanel_4293286146
+	partName = Part
+	persistentId = 1247501406
+	pos = -0.320850581,16.949585,0.012220093
+	attPos = 0,0,0
+	attPos0 = -0.212451071,-0.0452480316,1.3038516E-08
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Grandparent
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Nimbus.SolarPanel_4293286004
+	srfN = srfAttach,bluedog.Nimbus.EarlyControlCore_4293281282,,0|0|0,1|0|0,0|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDeployableSolarPanel
+		isEnabled = True
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 0, 0, 1)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleBdbSymmetricalPart
+		isEnabled = True
+		isSideA = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Nimbus.SolarPanel_4293286004
+	partName = Part
+	persistentId = 1739596989
+	pos = 0.104051553,16.949585,0.0122200483
+	attPos = 0,0,0
+	attPos0 = 0.212451071,-0.0452480316,-3.16649675E-08
+	rot = 0,1,0,-4.37113883E-08
+	attRot = 0,0,0,1
+	attRot0 = 0,1,0,-4.37113883E-08
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Grandparent
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Nimbus.SolarPanel_4293286146
+	srfN = srfAttach,bluedog.Nimbus.EarlyControlCore_4293281282,,0|0|0,1|0|0,0|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDeployableSolarPanel
+		isEnabled = True
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 0, 0, 1)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 1
+		deployState = RETRACTED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleBdbSymmetricalPart
+		isEnabled = True
+		isSideA = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Nimbus.InstrumentTorus_4292525976
+	partName = Part
+	persistentId = 4280219906
+	pos = -0.108399518,15.9914932,0.01222008
+	attPos = 0,0,0
+	attPos0 = 0,-0.446689606,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -317,7 +680,15 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = bottom,bluedog.AIMP.Core_4289385166_0|-0.0087580001|0_0|-1|0_0|-0.0087580001|0_0|-1|0
+	link = bluedog.Nimbus.Instrument.THIR_4292522258
+	link = bluedog.Nimbus.Instrument.THIR_4292522112
+	link = bluedog.Nimbus.SBandAntenna_4292525714
+	link = bluedog.Nimbus.SBandAntenna_4292521148
+	link = bluedog.Nimbus.Instrument.SIS_4292521682
+	link = bluedog.Nimbus.BeaconAntenna_4292519148
+	link = bluedog.RTG.SNAP19.Nimbus_4292495086
+	attN = bottom,Null_0_0|-0.0981959999|0_0|-1|0_0|-0.0981959999|0_0|-1|0
+	attN = top,bluedog.Nimbus.Truss_4292953842_0|0.100000001|0_0|1|0_0|0.100000001|0_0|1|0
 	EVENTS
 	{
 	}
@@ -344,8 +715,42 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleResourceScanner
+		name = ModuleB9PartSwitch
 		isEnabled = True
+		stagingEnabled = True
+		moduleID = meshSwitchTopDeck
+		currentSubtype = Disabled
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = meshSwitchBottomDeck
+		currentSubtype = Enabled
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -356,6 +761,81 @@ PART
 		UPGRADESAPPLIED
 		{
 		}
+	}
+	RESOURCE
+	{
+		name = MonoPropellant
+		amount = 5
+		maxAmount = 5
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+	RESOURCE
+	{
+		name = ElectricCharge
+		amount = 200
+		maxAmount = 200
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
+	part = bluedog.Nimbus.Instrument.THIR_4292522258
+	partName = Part
+	persistentId = 882234499
+	pos = -0.464813501,15.8370342,0.012220108
+	attPos = 0,0,0
+	attPos0 = -0.35641399,-0.154459,2.79396772E-08
+	rot = 0,0.707106829,0.707106829,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0.707106829,0.707106829,0
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Nimbus.Instrument.THIR_4292522112
+	srfN = srfAttach,bluedog.Nimbus.InstrumentTorus_4292525976,pCylinder111_COLLIDER,0|0|0.0562629998,0|0|-1,0|0|0.0562629998
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
 	}
 	MODULE
 	{
@@ -407,17 +887,17 @@ PART
 }
 PART
 {
-	part = bluedog.AIMP.SolarPaddle_4289298938
+	part = bluedog.Nimbus.Instrument.THIR_4292522112
 	partName = Part
-	persistentId = 2233501761
-	pos = 0.150695428,14.9045,-0.150695413
+	persistentId = 2087893363
+	pos = 0.24801448,15.8370342,0.012220108
 	attPos = 0,0,0
-	attPos0 = 0.150695428,-0.0954999924,-0.150695413
-	rot = 0,0.906307817,0,-0.42261833
-	attRot = 0,0.906307757,0,-0.4226183
-	attRot0 = 0,0.906307817,0,-0.42261833
+	attPos0 = 0.35641399,-0.154459,2.79396772E-08
+	rot = 0,0.707106829,0.707106709,0
+	attRot = 0,0,0,1
+	attRot0 = 0,0.707106829,0.707106709,0
 	mir = 1,1,1
-	symMethod = Radial
+	symMethod = Mirror
 	autostrutMode = Off
 	rigidAttachment = False
 	istg = -1
@@ -431,10 +911,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = bluedog.AIMP.SolarPaddle_4289256438
-	sym = bluedog.AIMP.SolarPaddle_4289256318
-	sym = bluedog.AIMP.SolarPaddle_4289256198
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER 1,0|0.0205000006|0,0|1|0,0|0.0205000006|0
+	sym = bluedog.Nimbus.Instrument.THIR_4292522258
+	srfN = srfAttach,bluedog.Nimbus.InstrumentTorus_4292525976,pCylinder111_COLLIDER,0|0|0.0562629998,0|0|-1,0|0|0.0562629998
 	EVENTS
 	{
 	}
@@ -458,951 +936,6 @@ PART
 	}
 	PARTDATA
 	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, -0.707106829, 0, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchAttach
-		currentSubtype = Top
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.SolarPaddle_4289256438
-	partName = Part
-	persistentId = 2176974917
-	pos = -0.150695398,14.9045,-0.150695428
-	attPos = 0,0,0
-	attPos0 = -0.150695398,-0.0954999924,-0.150695428
-	rot = 0,0.342020124,0,-0.939692676
-	attRot = 0,0.906307757,0,-0.4226183
-	attRot0 = 0,0.342020124,0,-0.939692676
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.SolarPaddle_4289256318
-	sym = bluedog.AIMP.SolarPaddle_4289256198
-	sym = bluedog.AIMP.SolarPaddle_4289298938
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER 1,0|0.0205000006|0,0|1|0,0|0.0205000006|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, -0.707106829, 0, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchAttach
-		currentSubtype = Top
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.SolarPaddle_4289256318
-	partName = Part
-	persistentId = 1638116743
-	pos = -0.150695413,14.9045,0.150695428
-	attPos = 0,0,0
-	attPos0 = -0.150695413,-0.0954999924,0.150695428
-	rot = 0,-0.42261833,0,-0.906307757
-	attRot = 0,0.906307757,0,-0.4226183
-	attRot0 = 0,-0.42261833,0,-0.906307757
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.SolarPaddle_4289256198
-	sym = bluedog.AIMP.SolarPaddle_4289298938
-	sym = bluedog.AIMP.SolarPaddle_4289256438
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER 1,0|0.0205000006|0,0|1|0,0|0.0205000006|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, -0.707106829, 0, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchAttach
-		currentSubtype = Top
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.SolarPaddle_4289256198
-	partName = Part
-	persistentId = 2118069146
-	pos = 0.150695413,14.9045,0.150695413
-	attPos = 0,0,0
-	attPos0 = 0.150695413,-0.0954999924,0.150695413
-	rot = 0,-0.939692676,0,-0.342020124
-	attRot = 0,0.906307757,0,-0.4226183
-	attRot0 = 0,-0.939692676,0,-0.342020124
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.SolarPaddle_4289298938
-	sym = bluedog.AIMP.SolarPaddle_4289256438
-	sym = bluedog.AIMP.SolarPaddle_4289256318
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER 1,0|0.0205000006|0,0|1|0,0|0.0205000006|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, -0.707106829, 0, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchAttach
-		currentSubtype = Top
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.Antenna_4289295168
-	partName = Part
-	persistentId = 2899575971
-	pos = 0.0455719009,15.0649776,-0.0455718972
-	attPos = -0.0456304848,0.0337743759,0.0456304811
-	attPos0 = 0.0455719009,0.0649776459,-0.0455718972
-	rot = 0.274652779,-0.266481638,0.66307044,-0.643343687
-	attRot = -0.153045818,0.690345645,0.153045848,-0.690345645
-	attRot0 = 0.274652779,-0.266481638,0.66307044,-0.643343687
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.Antenna_4289254516
-	sym = bluedog.AIMP.Antenna_4289254466
-	sym = bluedog.AIMP.Antenna_4289254416
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER1 1,0|0|0,0|-1|0,0|0|0
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.Antenna_4289254516
-	partName = Part
-	persistentId = 2394950408
-	pos = -0.0455718935,15.0649776,-0.0455719009
-	attPos = -0.0456304848,0.0337743759,0.0456304811
-	attPos0 = -0.0455718935,0.0649776459,-0.0455719009
-	rot = 0.66307044,-0.643343627,0.274652749,-0.266481698
-	attRot = -0.153045818,0.690345645,0.153045848,-0.690345645
-	attRot0 = -0.508108079,0.771608472,-0.210465252,0.319610745
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.Antenna_4289254466
-	sym = bluedog.AIMP.Antenna_4289254416
-	sym = bluedog.AIMP.Antenna_4289295168
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER1 1,0|0|0,0|-1|0,0|0|0
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.Antenna_4289254466
-	partName = Part
-	persistentId = 37972727
-	pos = -0.0455718972,15.0649776,0.0455719009
-	attPos = -0.0456304848,0.0337743759,0.0456304811
-	attPos0 = -0.0455718972,0.0649776459,0.0455719009
-	rot = 0.663070381,-0.643343687,-0.274652779,0.266481668
-	attRot = -0.153045818,0.690345645,0.153045848,-0.690345645
-	attRot0 = -0.508108079,0.771608531,0.210465267,-0.319610715
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.Antenna_4289254416
-	sym = bluedog.AIMP.Antenna_4289295168
-	sym = bluedog.AIMP.Antenna_4289254516
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER1 1,0|0|0,0|-1|0,0|0|0
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.Antenna_4289254416
-	partName = Part
-	persistentId = 151277859
-	pos = 0.0455718972,15.0649776,0.0455718972
-	attPos = -0.0456304848,0.0337743759,0.0456304811
-	attPos0 = 0.0455718972,0.0649776459,0.0455718972
-	rot = 0.274652749,-0.266481698,-0.66307044,0.643343627
-	attRot = -0.153045818,0.690345645,0.153045848,-0.690345645
-	attRot0 = -0.210465252,0.319610745,0.508108079,-0.771608472
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.Antenna_4289295168
-	sym = bluedog.AIMP.Antenna_4289254516
-	sym = bluedog.AIMP.Antenna_4289254466
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER1 1,0|0|0,0|-1|0,0|0|0
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AIMP.Magnetometer_4289203656
-	partName = Part
-	persistentId = 2534133606
-	pos = -1.95078993E-08,14.9121637,-0.223144367
-	attPos = 0,0,0
-	attPos0 = -1.95078993E-08,-0.0878362656,-0.223144367
-	rot = 0,-0.707106829,0,0.707106829
-	attRot = 0,-0.707106769,0,0.707106769
-	attRot0 = 0,-0.707106829,0,0.707106829
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.AIMP.Magnetometer_4289196582
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER 1,0|0.012836|0,0|1|0,0|0.012836|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleResourceScanner
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
 	}
 	MODULE
 	{
@@ -1451,86 +984,20 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchAttach
-		currentSubtype = Top
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchDeploy
-		currentSubtype = Straight
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchStyle
-		currentSubtype = IMP
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
-	part = bluedog.AIMP.Magnetometer_4289196582
+	part = bluedog.Nimbus.SBandAntenna_4292525714
 	partName = Part
-	persistentId = 2832238630
-	pos = 3.90157986E-08,14.9121637,0.223144367
+	persistentId = 2444919466
+	pos = -0.284388751,15.7437572,0.317042381
 	attPos = 0,0,0
-	attPos0 = 3.90157986E-08,-0.0878362656,0.223144367
-	rot = 0,0.707106888,0,0.707106769
-	attRot = 0,-0.707106769,0,0.707106769
-	attRot0 = 0,0.707106888,0,0.707106769
+	attPos0 = -0.17598924,-0.247735977,0.304822296
+	rot = 1,0,0,0
+	attRot = 0,0,0,1
+	attRot0 = 1,0,0,0
 	mir = 1,1,1
-	symMethod = Radial
+	symMethod = Mirror
 	autostrutMode = Off
 	rigidAttachment = False
 	istg = -1
@@ -1544,8 +1011,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = bluedog.AIMP.Magnetometer_4289203656
-	srfN = srfAttach,bluedog.AIMP.Core_4289385166,pCylinder43_COLLIDER 1,0|0.012836|0,0|1|0,0|0.012836|0
+	sym = bluedog.Nimbus.SBandAntenna_4292521148
+	srfN = srfAttach,bluedog.Nimbus.InstrumentTorus_4292525976,pCylinder111_COLLIDER,0|-0.149540007|0,0|-1|0,0|-0.149540007|0
+	attN = bottom,Null_0_0|-0.149540007|0_0|-1|0_0|-0.149540007|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -1572,26 +1040,156 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleResourceScanner
+		name = ModuleDataTransmitter
 		isEnabled = True
+		xmitIncomplete = False
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
 		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
+}
+PART
+{
+	part = bluedog.Nimbus.SBandAntenna_4292521148
+	partName = Part
+	persistentId = 1562146050
+	pos = 0.0675897226,15.7437572,0.317042381
+	attPos = 0,0,0
+	attPos0 = 0.17598924,-0.247735977,0.304822296
+	rot = 1,0,0,0
+	attRot = 0,0,0,1
+	attRot0 = 1,0,0,0
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Nimbus.SBandAntenna_4292525714
+	srfN = srfAttach,bluedog.Nimbus.InstrumentTorus_4292525976,pCylinder111_COLLIDER,0|-0.149540007|0,0|-1|0,0|-0.149540007|0
+	attN = bottom,Null_0_0|-0.149540007|0_0|-1|0_0|-0.149540007|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
 	MODULE
 	{
-		name = DMModuleScienceAnimateGeneric
+		name = ModuleDataTransmitter
 		isEnabled = True
-		IsDeployed = False
-		experimentsReturned = 0
-		experimentsNumber = 0
+		xmitIncomplete = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Nimbus.Instrument.SIS_4292521682
+	partName = Part
+	persistentId = 2342538492
+	pos = -0.108399518,15.8914928,0.01222008
+	attPos = 0.0127248541,0.00478744507,0.00340961386
+	attPos0 = -0.0127248541,-0.104787827,-0.00340961386
+	rot = 1,0,0,0
+	attRot = 0,0,0,1
+	attRot0 = 1,0,0,0
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.Nimbus.InstrumentTorus_4292525976,pCylinder111_COLLIDER,0|-0.0065919999|0,0|-1|0,0|-0.0065919999|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
 		Deployed = False
 		Inoperable = False
 		cooldownToGo = 0
@@ -1601,22 +1199,6 @@ PART
 		}
 		ACTIONS
 		{
-			deployAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			retractAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			toggleAction
-			{
-				actionGroup = None
-				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
 			DeployAction
 			{
 				actionGroup = None
@@ -1632,67 +1214,161 @@ PART
 		{
 		}
 	}
+}
+PART
+{
+	part = bluedog.Nimbus.BeaconAntenna_4292519148
+	partName = Part
+	persistentId = 4281506264
+	pos = -0.329116017,15.9876423,-0.370072007
+	attPos = 0,0,0
+	attPos0 = -0.220716506,-0.00385093689,-0.382292092
+	rot = 0,-0.258819133,0,-0.965925813
+	attRot = 0,0,0,1
+	attRot0 = 0,-0.258819133,0,-0.965925813
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.Nimbus.InstrumentTorus_4292525976,pCylinder111_COLLIDER,0|0|0.00170000002,0|0|-1,0|0|0.00170000002
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
 	MODULE
 	{
-		name = ModuleB9PartSwitch
+		name = ModuleDataTransmitter
 		isEnabled = True
+		xmitIncomplete = False
 		stagingEnabled = True
-		moduleID = meshSwitchAttach
-		currentSubtype = Top
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+			StartTransmissionAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
 		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
-	MODULE
+}
+PART
+{
+	part = bluedog.RTG.SNAP19.Nimbus_4292495086
+	partName = Part
+	persistentId = 110879971
+	pos = -0.108399488,16.0914936,-0.289002955
+	attPos = 0,0,0
+	attPos0 = 2.98023224E-08,0.100000381,-0.30122304
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.Nimbus.InstrumentTorus_4292525976,pCylinder111_COLLIDER,0|0|0,0|-1.10000002|0,0|0|0
+	EVENTS
 	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchDeploy
-		currentSubtype = Straight
-		EVENTS
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
 		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
-		ACTIONS
+		SetSameVesselInteraction
 		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
-		UPGRADESAPPLIED
+		RemoveSameVesselInteraction
 		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
+	}
+	PARTDATA
+	{
 	}
 	MODULE
 	{
-		name = ModuleB9PartSwitch
+		name = ModuleGenerator
 		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchStyle
-		currentSubtype = IMP
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
+		generatorIsActive = False
+		throttle = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+			ToggleAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ActivateAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ShutdownAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
 		}
 		UPGRADESAPPLIED
 		{
