@@ -1,5 +1,5 @@
 ship = Skylab OWS
-version = 1.7.0
+version = 1.10.1
 description = Skylab OWS¨
 type = VAB
 size = 4.8505106,15.4927101,4.8505106
@@ -8,11 +8,15 @@ persistentId = 3998681346
 rot = 0,0,0,0
 missionFlag = Squad/Flags/volcspac
 vesselType = Debris
+OverrideDefault = False,False,False,False
+OverrideActionControl = 0,0,0,0
+OverrideAxisControl = 0,0,0,0
+OverrideGroupNames = ,,,
 PART
 {
 	part = bluedog.Skylab.MDA_4287463882
 	partName = Part
-	persistentId = 880563314
+	persistentId = 3789778970
 	pos = -0.729380786,29.741209,0.522831082
 	attPos = 0,0,0
 	attPos0 = -0.729380786,29.741209,0.522831082
@@ -30,6 +34,7 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
@@ -37,15 +42,30 @@ PART
 	link = bluedog.Apollo.Block2.PassiveDockingMechanism_4290393664
 	link = bluedog.Apollo.Block2.PassiveDockingMechanism_4290383388
 	link = bluedog.Apollo.Block2.PassiveDockingMechanism_4290382394
-	attN = top,bluedog.Apollo.Block2.PassiveDockingMechanism_4290382394_0|1.83|0
-	attN = bottom,bluedog.Skylab.Airlock_4290410960_0|-0.74|0
-	attN = side1,bluedog.Apollo.Block2.PassiveDockingMechanism_4290393664_0|0.551|-0.942
-	attN = side2,bluedog.Apollo.Block2.PassiveDockingMechanism_4290383388_0|0.5510001|0.9419999
+	attN = top,bluedog.Apollo.Block2.PassiveDockingMechanism_4290382394_0|1.83000004|0_0|1|0_0|1.83000004|0_0|1|0
+	attN = bottom,bluedog.Skylab.Airlock_4290410960_0|-0.74000001|0_0|-1|0_0|-0.74000001|0_0|-1|0
+	attN = side1,bluedog.Apollo.Block2.PassiveDockingMechanism_4290393664_0|0.550999999|-0.941999972_-3.2584137E-07|0|-1_0|0.550999999|-0.941999972_-3.2584137E-07|0|-1
+	attN = side2,bluedog.Apollo.Block2.PassiveDockingMechanism_4290383388_0|0.551000118|0.941999912_0|0|1_0|0.551000118|0.941999912_0|0|1
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -162,6 +182,19 @@ PART
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
 		UPGRADESAPPLIED
 		{
 		}
@@ -201,7 +234,7 @@ PART
 {
 	part = bluedog.Skylab.Airlock_4290410960
 	partName = Part
-	persistentId = 170579071
+	persistentId = 1761115894
 	pos = -0.729380786,28.0662098,0.522831082
 	attPos = 0,0,0
 	attPos0 = 0,-1.67499924,0
@@ -219,19 +252,35 @@ PART
 	sqor = 0
 	sepI = -1
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
-	modMass = 0
+	modMass = 1.40129846E-45
 	modSize = 0,0,0
 	link = bluedog.Saturn.S4B.InstrumentUnit_4290607954
 	link = bluedog.Skylab.DisconeAntenna_4287447370
 	link = bluedog.Skylab.DisconeAntenna_4290405364
-	attN = top,bluedog.Skylab.MDA_4287463882_0|0.935|0
-	attN = bottom,bluedog.Saturn.S4B.InstrumentUnit_4290607954_0|-1.624|0
+	attN = top,bluedog.Skylab.MDA_4287463882_0|0.935000002|0_0|1|0_0|0.935000002|0_0|1|0
+	attN = bottom,bluedog.Saturn.S4B.InstrumentUnit_4290607954_0|-1.62399995|0_0|-1|0_0|-1.62399995|0_0|-1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -292,6 +341,7 @@ PART
 		nArcs = 2
 		ejectionForce = 300
 		useClamshell = True
+		isCapped = False
 		stagingEnabled = True
 		fsm = st_idle
 		EVENTS
@@ -346,21 +396,18 @@ PART
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
-		UPGRADESAPPLIED
+		AXISGROUPS
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -401,7 +448,7 @@ PART
 {
 	part = bluedog.Saturn.S4B.InstrumentUnit_4290607954
 	partName = Part
-	persistentId = 4193942304
+	persistentId = 3220478718
 	pos = -0.729380786,26.182209,0.522831082
 	attPos = 0,0,0
 	attPos0 = 0,-1.88400078,0
@@ -419,17 +466,33 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Skylab.OWS_4283191714
-	attN = top,bluedog.Skylab.Airlock_4290410960_0|0.26|0
-	attN = bottom,bluedog.Skylab.OWS_4283191714_0|-0.255|0
+	attN = top,bluedog.Skylab.Airlock_4290410960_0|0.25999999|0_0|1|0_0|0.25999999|0_0|1|0
+	attN = bottom,bluedog.Skylab.OWS_4283191714_0|-0.254999995|0_0|-1|0_0|-0.254999995|0_0|-1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -541,25 +604,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 3.75
-		defaultScale = 3.75
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleTripLogger
 		isEnabled = True
 		stagingEnabled = True
@@ -593,7 +637,7 @@ PART
 {
 	part = bluedog.Skylab.OWS_4283191714
 	partName = Part
-	persistentId = 2740052616
+	persistentId = 2924827045
 	pos = -0.729380786,22.8742085,0.522831082
 	attPos = 0,0,0
 	attPos0 = 0,-3.30800056,0
@@ -611,19 +655,35 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Skylab.Radiator_4287237924
 	link = bluedog.Spacelab.SolarPanel_4291304638
 	link = bluedog.Spacelab.SolarPanel_4283189384
-	attN = top,bluedog.Saturn.S4B.InstrumentUnit_4290607954_0|3.053|0
-	attN = bottom,bluedog.Skylab.Radiator_4287237924_0|-3.377|0
+	attN = top,bluedog.Saturn.S4B.InstrumentUnit_4290607954_0|3.05299997|0_0|1|0_0|3.05299997|0_0|1|0
+	attN = bottom,bluedog.Skylab.Radiator_4287237924_0|-3.37700009|0_0|-1|0_0|-3.37700009|0_0|-1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -758,6 +818,19 @@ PART
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
 		UPGRADESAPPLIED
 		{
 		}
@@ -846,7 +919,7 @@ PART
 {
 	part = bluedog.Skylab.Radiator_4287237924
 	partName = Part
-	persistentId = 1405296058
+	persistentId = 1547333385
 	pos = -0.729380786,18.9482098,0.522831082
 	attPos = 0,0,0
 	attPos0 = 0,-3.92599869,0
@@ -864,15 +937,33 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = top,bluedog.Skylab.OWS_4283191714_0|0.549|0
+	attN = top,bluedog.Skylab.OWS_4283191714_0|0.549000025|0_0|1|0_0|0.549000025|0_0|1|0
+	attN = bottom,Null_0_0|0.549000025|0_0|-1|0_0|0.549000025|0_0|-1|0
+	attN = bottom,Null_0_0|0.549000025|0_0|-1|0_0|0.549000025|0_0|-1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -908,25 +999,6 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 3.75
-		defaultScale = 3.75
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 125.999985
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 	RESOURCE
 	{
 		name = MonoPropellant
@@ -943,7 +1015,7 @@ PART
 {
 	part = bluedog.Spacelab.SolarPanel_4291304638
 	partName = Part
-	persistentId = 2953392958
+	persistentId = 2092452140
 	pos = 1.17550111,24.7249508,0.012419641
 	attPos = 0,0,0
 	attPos0 = 1.90488195,1.85074234,-0.510411441
@@ -961,16 +1033,32 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Spacelab.SolarPanel_4283189384
-	srfN = srfAttach,bluedog.Skylab.OWS_4283191714
+	srfN = srfAttach,bluedog.Skylab.OWS_4283191714,,-0.112000003|0|0,-1|0|0,-0.112000003|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1029,31 +1117,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Spacelab.SolarPanel_4283189384
 	partName = Part
-	persistentId = 2641993698
+	persistentId = 2996957062
 	pos = -2.6342628,24.7249508,1.0332427
 	attPos = 0,0,0
 	attPos0 = -1.90488195,1.85074234,0.510411561
@@ -1071,16 +1140,32 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Spacelab.SolarPanel_4291304638
-	srfN = srfAttach,bluedog.Skylab.OWS_4283191714
+	srfN = srfAttach,bluedog.Skylab.OWS_4283191714,,-0.112000003|0|0,-1|0|0,-0.112000003|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1139,31 +1224,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 5000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Skylab.DisconeAntenna_4287447370
 	partName = Part
-	persistentId = 1856738606
+	persistentId = 118356540
 	pos = 0.0684540868,28.5171909,1.12556553
 	attPos = 0.00284451246,-0.0470314026,0.0372819901
 	attPos0 = 0.797155499,0.497901917,0.562718034
@@ -1181,16 +1247,32 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Skylab.DisconeAntenna_4290405364
-	srfN = srfAttach,bluedog.Skylab.Airlock_4290410960
+	srfN = srfAttach,bluedog.Skylab.Airlock_4290410960,,0|-0.0399999991|-0.0399999991,0|-1|0,0|-0.0399999991|-0.0399999991
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1215,6 +1297,19 @@ PART
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 		}
 		UPGRADESAPPLIED
@@ -1249,25 +1344,6 @@ PART
 		stagingEnabled = True
 		moduleID = meshSwitch
 		currentSubtype = Vertical Mount
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1
-		defaultScale = 1
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 600
-		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1298,7 +1374,7 @@ PART
 {
 	part = bluedog.Skylab.DisconeAntenna_4290405364
 	partName = Part
-	persistentId = 2160438033
+	persistentId = 3554425550
 	pos = -1.52721572,28.5171909,1.12556553
 	attPos = -0.00284457207,-0.0470314026,0.0372819901
 	attPos0 = -0.79715544,0.497901917,0.562718034
@@ -1316,16 +1392,32 @@ PART
 	sqor = -1
 	sepI = -1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Skylab.DisconeAntenna_4287447370
-	srfN = srfAttach,bluedog.Skylab.Airlock_4290410960
+	srfN = srfAttach,bluedog.Skylab.Airlock_4290410960,,0|-0.0399999991|-0.0399999991,0|-1|0,0|-0.0399999991|-0.0399999991
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1350,6 +1442,19 @@ PART
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 		}
 		UPGRADESAPPLIED
@@ -1396,25 +1501,6 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 1
-		defaultScale = 1
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 600
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -1433,7 +1519,7 @@ PART
 {
 	part = bluedog.Apollo.Block2.PassiveDockingMechanism_4290393664
 	partName = Part
-	persistentId = 4186818630
+	persistentId = 859050749
 	pos = -0.729380786,30.2922096,-0.51016891
 	attPos = 0,0,0
 	attPos0 = 0,0.551000595,-1.03299999
@@ -1451,16 +1537,33 @@ PART
 	sqor = -1
 	sepI = 0
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Apollo.Block2.PassiveDockingMechanism_4290383388
-	attN = bottom,bluedog.Skylab.MDA_4287463882_0|-0.091|0
+	attN = bottom,bluedog.Skylab.MDA_4287463882_0|-0.0909999982|0_0|-1|0_0|-0.0909999982|0_0|-1|0
+	attN = top,Null_0_0|0.0500000007|0_0|1|0_0|0.0500000007|0_0|1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1469,6 +1572,7 @@ PART
 	{
 		name = ModuleDockingNode
 		isEnabled = True
+		acquireForceTweak = 100
 		crossfeed = True
 		stagingEnabled = False
 		state = Ready
@@ -1514,31 +1618,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 300
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Apollo.Block2.PassiveDockingMechanism_4290383388
 	partName = Part
-	persistentId = 3851130603
+	persistentId = 734332201
 	pos = -0.729380786,30.2922096,1.55583096
 	attPos = 0,0,0
 	attPos0 = 0,0.551000595,1.03299987
@@ -1556,16 +1641,33 @@ PART
 	sqor = -1
 	sepI = 0
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Apollo.Block2.PassiveDockingMechanism_4290393664
-	attN = bottom,bluedog.Skylab.MDA_4287463882_0|-0.091|0
+	attN = bottom,bluedog.Skylab.MDA_4287463882_0|-0.0909999982|0_0|-1|0_0|-0.0909999982|0_0|-1|0
+	attN = top,Null_0_0|0.0500000007|0_0|1|0_0|0.0500000007|0_0|1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1574,6 +1676,7 @@ PART
 	{
 		name = ModuleDockingNode
 		isEnabled = True
+		acquireForceTweak = 100
 		crossfeed = True
 		stagingEnabled = False
 		state = Ready
@@ -1619,31 +1722,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 300
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Apollo.Block2.PassiveDockingMechanism_4290382394
 	partName = Part
-	persistentId = 2657339603
+	persistentId = 107250208
 	pos = -0.729380786,31.6622086,0.522831082
 	attPos = 0,0,0
 	attPos0 = 0,1.92099953,0
@@ -1661,17 +1745,33 @@ PART
 	sqor = -1
 	sepI = 0
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Apollo.Block2.ActiveDockingMechanism_4290379594
-	attN = bottom,bluedog.Skylab.MDA_4287463882_0|-0.091|0
-	attN = top,bluedog.Apollo.Block2.ActiveDockingMechanism_4290379594_0|0.05|0
+	attN = bottom,bluedog.Skylab.MDA_4287463882_0|-0.0909999982|0_0|-1|0_0|-0.0909999982|0_0|-1|0
+	attN = top,bluedog.Apollo.Block2.ActiveDockingMechanism_4290379594_0|0.0500000007|0_0|1|0_0|0.0500000007|0_0|1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1680,6 +1780,7 @@ PART
 	{
 		name = ModuleDockingNode
 		isEnabled = True
+		acquireForceTweak = 100
 		crossfeed = True
 		stagingEnabled = False
 		state = Ready
@@ -1725,31 +1826,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 300
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Apollo.Block2.ActiveDockingMechanism_4290379594
 	partName = Part
-	persistentId = 1415558395
+	persistentId = 1684782852
 	pos = -0.729380786,31.7482071,0.522831082
 	attPos = 0,0,0
 	attPos0 = 0,0.0859985352,0
@@ -1767,17 +1849,33 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Skylab.ATM_4287151598
-	attN = bottom,bluedog.Skylab.ATM_4287151598_0|-0.036|0
-	attN = top,bluedog.Apollo.Block2.PassiveDockingMechanism_4290382394_0|0.03599977|0
+	attN = bottom,bluedog.Skylab.ATM_4287151598_0|-0.0359999985|0_0|-1|0_0|-0.157380104|0_0|-1|0
+	attN = top,bluedog.Apollo.Block2.PassiveDockingMechanism_4290382394_0|0.0359997712|0_0|1|0_0|0.0359997712|0_0|1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -1786,6 +1884,7 @@ PART
 	{
 		name = ModuleDockingNode
 		isEnabled = True
+		acquireForceTweak = 100
 		crossfeed = True
 		stagingEnabled = False
 		state = Ready
@@ -1853,18 +1952,44 @@ PART
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
+		AXISGROUPS
+		{
+			deployPercent
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
 	MODULE
 	{
-		name = TweakScale
+		name = ModuleB9PartSwitch
 		isEnabled = True
-		currentScale = 0.625
-		defaultScale = 0.625
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 300
+		stagingEnabled = True
+		moduleID = meshSwitchAdapter
+		currentSubtype = 0.9375
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1881,7 +2006,7 @@ PART
 {
 	part = bluedog.Skylab.ATM_4287151598
 	partName = Part
-	persistentId = 2657653547
+	persistentId = 3258591185
 	pos = -0.729380786,32.894207,0.522831082
 	attPos = 0,0,0
 	attPos0 = 0,-1.14599991,0
@@ -1899,6 +2024,7 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
@@ -1910,12 +2036,28 @@ PART
 	link = bluedog.Skylab.ATMsolar_4287142054
 	link = bluedog.Skylab.ATMsolar_4287141812
 	link = bluedog.Skylab.ATMsolar_4287141570
-	attN = bottom,bluedog.Apollo.Block2.ActiveDockingMechanism_4290379594_0|-1.11|0
+	attN = bottom,bluedog.Apollo.Block2.ActiveDockingMechanism_4290379594_0|-1.11000001|0_0|-1|0_0|-1.11000001|0_0|-1|0
+	attN = top,Null_0_0|1|0_0|1|0_0|1|0_0|1|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2075,18 +2217,55 @@ PART
 	}
 	MODULE
 	{
-		name = TweakScale
+		name = ModuleScienceExperiment
 		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1702
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+			DeployAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ResetAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ResetAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -2138,7 +2317,7 @@ PART
 {
 	part = bluedog.Apollo.Block2.RCSquad_4287149000
 	partName = Part
-	persistentId = 3467540594
+	persistentId = 380697289
 	pos = -2.32938099,32.9942093,0.522831082
 	attPos = -0.00232958794,-0.0116462708,-1.19209304E-07
 	attPos0 = -1.59767032,0.11164856,1.19209304E-07
@@ -2156,18 +2335,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Apollo.Block2.RCSquad_4287148106
 	sym = bluedog.Apollo.Block2.RCSquad_4287148034
 	sym = bluedog.Apollo.Block2.RCSquad_4287147962
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2203,31 +2398,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 750
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Apollo.Block2.RCSquad_4287148106
 	partName = Part
-	persistentId = 1630956740
+	persistentId = 4213840433
 	pos = -0.729380906,32.9942093,2.12283087
 	attPos = -1.1920929E-07,-0.0116462708,0.00232958794
 	attPos0 = 0,0.11164856,1.5976702
@@ -2245,18 +2421,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Apollo.Block2.RCSquad_4287148034
 	sym = bluedog.Apollo.Block2.RCSquad_4287147962
 	sym = bluedog.Apollo.Block2.RCSquad_4287149000
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2292,31 +2484,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 750
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Apollo.Block2.RCSquad_4287148034
 	partName = Part
-	persistentId = 2338688759
+	persistentId = 3881432711
 	pos = 0.870619237,32.9942093,0.522830963
 	attPos = 0.00232958794,-0.0116462708,1.1920929E-07
 	attPos0 = 1.59767032,0.11164856,-2.38418579E-07
@@ -2334,18 +2507,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Apollo.Block2.RCSquad_4287147962
 	sym = bluedog.Apollo.Block2.RCSquad_4287149000
 	sym = bluedog.Apollo.Block2.RCSquad_4287148106
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2381,31 +2570,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 750
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Apollo.Block2.RCSquad_4287147962
 	partName = Part
-	persistentId = 1334579034
+	persistentId = 2945011292
 	pos = -0.729380906,32.9942093,-1.07716882
 	attPos = 1.1920929E-07,-0.0116462708,-0.00232958794
 	attPos0 = -2.38418579E-07,0.11164856,-1.5976702
@@ -2423,18 +2593,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Apollo.Block2.RCSquad_4287149000
 	sym = bluedog.Apollo.Block2.RCSquad_4287148106
 	sym = bluedog.Apollo.Block2.RCSquad_4287148034
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2470,31 +2656,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 750
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Skylab.ATMsolar_4287144390
 	partName = Part
-	persistentId = 2727527758
+	persistentId = 2933850883
 	pos = -1.49095666,33.2835197,-0.238744795
 	attPos = 0,0,0
 	attPos0 = -0.761575758,0.389312387,-0.761575758
@@ -2512,18 +2679,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Skylab.ATMsolar_4287142054
 	sym = bluedog.Skylab.ATMsolar_4287141812
 	sym = bluedog.Skylab.ATMsolar_4287141570
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,0|0|0,-1|0|0,0|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2566,31 +2749,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Skylab.ATMsolar_4287142054
 	partName = Part
-	persistentId = 398292223
+	persistentId = 3697318043
 	pos = -1.49095666,33.2835197,1.2844069
 	attPos = 0,0,0
 	attPos0 = -0.761575758,0.389312387,0.761575639
@@ -2608,18 +2772,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Skylab.ATMsolar_4287141812
 	sym = bluedog.Skylab.ATMsolar_4287141570
 	sym = bluedog.Skylab.ATMsolar_4287144390
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,0|0|0,-1|0|0,0|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2662,31 +2842,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Skylab.ATMsolar_4287141812
 	partName = Part
-	persistentId = 3327414753
+	persistentId = 3734265659
 	pos = 0.0321950912,33.2835197,1.2844069
 	attPos = 0,0,0
 	attPos0 = 0.761575818,0.389312387,0.761575639
@@ -2704,18 +2865,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Skylab.ATMsolar_4287141570
 	sym = bluedog.Skylab.ATMsolar_4287144390
 	sym = bluedog.Skylab.ATMsolar_4287142054
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,0|0|0,-1|0|0,0|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2758,31 +2935,12 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
 	part = bluedog.Skylab.ATMsolar_4287141570
 	partName = Part
-	persistentId = 2628480894
+	persistentId = 586601143
 	pos = 0.0321948528,33.2835197,-0.238744855
 	attPos = 0,0,0
 	attPos0 = 0.76157558,0.389312387,-0.761575818
@@ -2800,18 +2958,34 @@ PART
 	sqor = -1
 	sepI = 1
 	attm = 1
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	sym = bluedog.Skylab.ATMsolar_4287144390
 	sym = bluedog.Skylab.ATMsolar_4287142054
 	sym = bluedog.Skylab.ATMsolar_4287141812
-	srfN = srfAttach,bluedog.Skylab.ATM_4287151598
+	srfN = srfAttach,bluedog.Skylab.ATM_4287151598,,0|0|0,-1|0|0,0|0|0
 	EVENTS
 	{
 	}
 	ACTIONS
 	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
 	}
 	PARTDATA
 	{
@@ -2849,25 +3023,6 @@ PART
 				active = False
 				wasActiveBeforePartWasAdjusted = False
 			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TweakScale
-		isEnabled = True
-		currentScale = 100
-		defaultScale = 100
-		defaultTransformScale = (0, 0, 0)
-		DryCost = 1000
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
 		}
 		UPGRADESAPPLIED
 		{
