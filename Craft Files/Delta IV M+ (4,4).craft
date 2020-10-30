@@ -2,7 +2,7 @@ ship = Delta IV M+ (4,4)
 version = 1.10.1
 description = 
 type = VAB
-size = 5.32778835,37.0888176,4.26883125
+size = 5.32778835,37.9362793,4.26883125
 steamPublishedFileId = 0
 persistentId = 3633385575
 rot = 0,0,0,0
@@ -35,14 +35,14 @@ PART
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0.000191092491
-	modMass = 2.92202458E-08
+	modCost = 842.025879
+	modMass = 0.185000032
 	modSize = 0,0,0
 	link = bluedog.CentaurD.RL10B2_4293791902
-	link = bluedog.DCSS.2p5mFairing.SAF_4293791334
 	link = bluedog.DCSS.Interstage_4293783572
-	attN = top,bluedog.DCSS.2p5mFairing.SAF_4293791334_0|1.99349999|0_0|1|0_0|1.99349999|0_0|1|0
-	attN = bottom,bluedog.DCSS.Interstage_4293783572_0|0.0428650007|0_0|-1|0_0|0.0428650007|0_0|-1|0
+	link = bluedog.DCSS.2p5mFairing.SAF_4293791334
+	attN = top,bluedog.DCSS.2p5mFairing.SAF_4293791334_0|1.99349999|0_0|1|0_0|2.6703999|0_0|1|0
+	attN = bottom,bluedog.DCSS.Interstage_4293783572_0|0.0428650007|0_0|-1|0_0|0.299558014|0_0|-1|0
 	attN = engine,bluedog.CentaurD.RL10B2_4293791902_0|-1.73469996|0_0|-1|0_0|-1.73469996|0_0|-1|0
 	EVENTS
 	{
@@ -149,6 +149,9 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -206,6 +209,37 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = False
+		enablePitch = False
+		enableRoll = False
+		enableX = False
+		enableY = False
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleBdbBoiloff
 		isEnabled = True
 		lastUpdateTime = -1
@@ -227,7 +261,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = volumeSwitch
-		currentSubtype = Delta III (4m)
+		currentSubtype = Delta IV (4m)
 		EVENTS
 		{
 		}
@@ -244,7 +278,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = textureSwitchPaint
-		currentSubtype = Orange
+		currentSubtype = White
 		EVENTS
 		{
 		}
@@ -320,8 +354,8 @@ PART
 	RESOURCE
 	{
 		name = LqdHydrogen
-		amount = 8475
-		maxAmount = 8475
+		amount = 10350
+		maxAmount = 10350
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -331,8 +365,8 @@ PART
 	RESOURCE
 	{
 		name = Oxidizer
-		amount = 565
-		maxAmount = 565
+		amount = 690
+		maxAmount = 690
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -342,8 +376,8 @@ PART
 	RESOURCE
 	{
 		name = MonoPropellant
-		amount = 39.999988555908203
-		maxAmount = 39.999988555908203
+		amount = 48.849540710449219
+		maxAmount = 48.849540710449219
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -663,136 +697,10 @@ PART
 }
 PART
 {
-	part = bluedog.DCSS.2p5mFairing.SAF_4293791334
-	partName = Part
-	persistentId = 732883926
-	pos = 1.14355671,31.6186028,0.301074952
-	attPos = 0,0,0
-	attPos0 = 0,2.08589363,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.448000014
-	modSize = 0,0,0
-	attN = top,Null_0_0|0.0673940033|0_0|1|0_0|0.0673940033|0_0|1|0
-	attN = bottom,bluedog.DCSS.Tank_4293792524_0|-0.0923940018|0_0|-1|0_0|-0.0923940018|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleSimpleAdjustableFairing
-		isEnabled = True
-		deployed = False
-		numSegments = 1
-		transparentEditor = False
-		openFairing = False
-		autoDeploy = True
-		deployAltitude = 50
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleCargoBay
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = fairingSwitch
-		currentSubtype = CT3
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
 	part = bluedog.DCSS.Interstage_4293783572
 	partName = Part
 	persistentId = 3553901165
-	pos = 1.14355671,27.8255749,0.301074952
+	pos = 1.14355671,27.8506184,0.301074952
 	attPos = 0,0,0
 	attPos0 = 0,-1.70713425,0
 	rot = 0,0,0,1
@@ -805,7 +713,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 0
 	sqor = 1
 	sepI = 1
 	attm = 0
@@ -814,8 +722,8 @@ PART
 	modMass = 0.116999999
 	modSize = 0,0,0
 	link = bluedog.DeltaIV.s1.upperTank_4293876546
-	attN = top,bluedog.DCSS.Tank_4293792524_0|1.75|0_0|1|0_0|1.75|0_0|1|0
-	attN = bottom,bluedog.DeltaIV.s1.upperTank_4293876546_0|-1.75|0_0|-1|0_0|-1.75|0_0|-1|0
+	attN = top,bluedog.DCSS.Tank_4293792524_0|1.75|0_0|1|0_0|1.98164999|0_0|1|0
+	attN = bottom,bluedog.DeltaIV.s1.upperTank_4293876546_0|-1.75|0_0|-1|0_0|-1.94560003|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -868,7 +776,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = meshSwitchDiameter
-		currentSubtype = 3.125m (Alt)
+		currentSubtype = 3.125m (Delta IV)
 		EVENTS
 		{
 		}
@@ -900,7 +808,7 @@ PART
 	part = bluedog.DeltaIV.s1.upperTank_4293876546
 	partName = Part
 	persistentId = 2884650562
-	pos = 1.14355671,23.3551159,0.301074952
+	pos = 1.14355671,23.1845589,0.301074952
 	attPos = 0,0,0
 	attPos0 = 0,-4.47045994,0
 	rot = 0,0,0,1
@@ -1095,7 +1003,7 @@ PART
 	part = bluedog.DeltaIV.s1.lowerTank_4293876176
 	partName = Part
 	persistentId = 4150374773
-	pos = 1.14355671,12.9063759,0.301074952
+	pos = 1.14355671,12.7358189,0.301074952
 	attPos = 0,0,0
 	attPos0 = 0,-10.44874,0
 	rot = 0,0,0,1
@@ -1275,7 +1183,7 @@ PART
 	part = bluedog.DeltaIV.RS68_4293861278
 	partName = Part
 	persistentId = 3060775904
-	pos = 1.14355671,3.17774582,0.301074952
+	pos = 1.14355671,3.0071888,0.301074952
 	attPos = 0,0,0
 	attPos0 = 0,-9.62799072,0
 	rot = 0,0,0,1
@@ -1670,7 +1578,7 @@ PART
 	part = bluedog.RadialDecoupler.Mini_4293839210
 	partName = Part
 	persistentId = 3537158504
-	pos = -0.390939832,7.9499855,-0.110092133
+	pos = -0.390939832,7.77942848,-0.110092133
 	attPos = 0,0.0284881592,0
 	attPos0 = -1.53449655,-4.95639038,-0.411167085
 	rot = -3.05219068E-08,-0.13052614,2.31836879E-07,0.991444945
@@ -1793,10 +1701,10 @@ PART
 	part = bluedog.Delta.GEM60_4293838082
 	partName = Part
 	persistentId = 1722464721
-	pos = -0.916597009,8.0763588,-0.250941366
+	pos = -0.916597009,7.90580177,-0.250941366
 	attPos = 0,0,0
 	attPos0 = -0.544200242,0.126373544,1.3038516E-07
-	rot = 1.42351084E-07,-0.79335326,1.85515646E-07,0.608761728
+	rot = 1.42351084E-07,-0.79335326,1.85515631E-07,0.608761728
 	attRot = 0,0,0,1
 	attRot0 = 0,-0.707106709,1.95399252E-14,0.707106948
 	mir = 1,1,1
@@ -2072,7 +1980,7 @@ PART
 	part = bluedog.RadialDecoupler.Mini_4293818862
 	partName = Part
 	persistentId = 10885660
-	pos = 2.67805338,7.9499855,0.712241888
+	pos = 2.67805338,7.77942848,0.712241888
 	attPos = 0,0.0284881592,0
 	attPos0 = 1.53449655,-4.95639038,0.411166936
 	rot = 2.31836879E-07,0.991444945,3.05218961E-08,0.130526096
@@ -2195,10 +2103,10 @@ PART
 	part = bluedog.Delta.GEM60_4293818790
 	partName = Part
 	persistentId = 1316095570
-	pos = 3.20371294,8.0763588,0.853091717
+	pos = 3.20371342,7.90580177,0.853091717
 	attPos = 0,0,0
 	attPos0 = -0.544200242,0.126373544,1.3038516E-07
-	rot = 1.85515745E-07,0.608761728,-1.42351098E-07,0.7933532
+	rot = 1.85515745E-07,0.608761728,-1.42351084E-07,0.7933532
 	attRot = 0,0,0,1
 	attRot0 = 0,-0.707106709,1.95399252E-14,0.707106948
 	mir = 1,1,1
@@ -2466,7 +2374,7 @@ PART
 	part = bluedog.RadialDecoupler.Mini_4293837492
 	partName = Part
 	persistentId = 3523589722
-	pos = -0.391020417,7.96074295,0.712263703
+	pos = -0.391020417,7.79018593,0.712263703
 	attPos = 0,0,0
 	attPos0 = -1.53457713,-4.94563293,0.411188781
 	rot = 3.05219068E-08,0.13052623,2.31836879E-07,0.991444886
@@ -2589,10 +2497,10 @@ PART
 	part = bluedog.Delta.GEM60_4293837420
 	partName = Part
 	persistentId = 173707743
-	pos = -0.916677356,8.08711624,0.853113294
+	pos = -0.916677356,7.91655922,0.853113294
 	attPos = 0,0,0
 	attPos0 = -0.544200242,0.126373544,1.3038516E-07
-	rot = 1.85515631E-07,-0.608761311,1.42351269E-07,0.793353558
+	rot = 1.85515589E-07,-0.608761251,1.42351269E-07,0.793353438
 	attRot = 0,0,0,1
 	attRot0 = 0,-0.707106709,1.95399252E-14,0.707106948
 	mir = 1,1,1
@@ -2860,7 +2768,7 @@ PART
 	part = bluedog.RadialDecoupler.Mini_4293817208
 	partName = Part
 	persistentId = 3247374605
-	pos = 2.67813396,7.96074295,-0.110114008
+	pos = 2.67813396,7.79018593,-0.110114008
 	attPos = 0,0,0
 	attPos0 = 1.53457713,-4.94563293,-0.41118896
 	rot = 2.31836879E-07,0.991444886,-3.05219174E-08,-0.130526274
@@ -2983,10 +2891,10 @@ PART
 	part = bluedog.Delta.GEM60_4293817130
 	partName = Part
 	persistentId = 937018913
-	pos = 3.20379114,8.08711624,-0.250963718
+	pos = 3.20379114,7.91655922,-0.250963718
 	attPos = 0,0,0
 	attPos0 = -0.544200242,0.126373544,1.3038516E-07
-	rot = 1.42351169E-07,0.793353379,-1.85515589E-07,0.60876143
+	rot = 1.42351169E-07,0.793353379,-1.85515589E-07,0.608761489
 	attRot = 0,0,0,1
 	attRot0 = 0,-0.707106709,1.95399252E-14,0.707106948
 	mir = 1,1,1
@@ -3247,5 +3155,131 @@ PART
 		hideFlow = False
 		isVisible = True
 		flowMode = Both
+	}
+}
+PART
+{
+	part = bluedog.DCSS.2p5mFairing.SAF_4293791334
+	partName = Part
+	persistentId = 732883926
+	pos = 1.14355671,32.2955055,0.301074952
+	attPos = 0,0,0
+	attPos0 = 0,2.7627964,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 1
+	sidx = 1
+	sqor = 1
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0.448000014
+	modSize = 0,0,0
+	attN = top,Null_0_0|0.0673940033|0_0|1|0_0|0.0673940033|0_0|1|0
+	attN = bottom,bluedog.DCSS.Tank_4293792524_0|-0.0923940018|0_0|-1|0_0|-0.0923940018|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleSimpleAdjustableFairing
+		isEnabled = True
+		deployed = False
+		numSegments = 1
+		transparentEditor = False
+		openFairing = False
+		autoDeploy = True
+		deployAltitude = 50
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoBay
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = fairingSwitch
+		currentSubtype = CT3
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 }
