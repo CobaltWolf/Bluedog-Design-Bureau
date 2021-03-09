@@ -16,8 +16,8 @@ BDB makes heavy use of B9PartSwitch's advanced features including features such 
 For those familiar with KSP mods, BDB can be considered a ReStockalike equivalent of FASA, and a US counterpart to Tantares' soviet rockets.
 
 Currently, the mod includes (but is not limited to):
-- Mercury spacecraft (Courtesy of Bloeting Aerospace Corp)
-- Gemini spacecraft (Courtesy of Trails Manufacturing Co.)
+- Mercury spacecraft
+- Gemini spacecraft
 - Gemini Ferry
 - Big Gemini 69' (nice)
 - Manned Orbiting Laboratory (MOL) and derivative station parts
@@ -42,7 +42,7 @@ Currently, the mod includes (but is not limited to):
 - Atlas rocket (everything from Atlas A up through Atlas V 551)
 - Agena upper stage (All variants, plus some never built ones)
 - Vega (old Kerolox upper stage for Atlas)
-- Centaur D, G, G', T, V upper stages
+- Centaur D, G, G', T, II & III upper stages
 - Titan 1, 2, 3, 4 rockets, with SRMs and Transtage
 - Config switching for the LR87s, with alternate kerolox versions and plumes to match!
 - Config switching for the H1, the RS27, and many more! (All config switching provided courtesy of B9 Part Switch)
@@ -52,7 +52,9 @@ Currently, the mod includes (but is not limited to):
 - Athena SRB based launcher
 - Saturn 1, 1B, V
 - Saturn 1C and Saturn Multibody from Eyes
-- Keyhole satellites with Corona return capsule (KH1, KH4, KH4B, KH7 & KH8)
+- TIMBER WIND particle bed reactor nuclear engines (TW 75 by Maffif)
+- Keyhole satellites with Corona return capsule (KH1, KH4, KH4B, KH7, KH8 and KH9 Hexagon)
+
 -- Huge number of probes including --
 
 - AIMP/IMP
@@ -67,12 +69,15 @@ Currently, the mod includes (but is not limited to):
 - Pioneer 5 (by InvaderChaos)
 - Pioneer 6
 - Lunar orbiter
+- Mariner 10
 - Nimbus (parts for most variants)
 - Orbiting Astronomical Observatory (OAO 1,2 & 3)
 - Orbiting Frog Otolith
 - Orbiting Geophysical Observatory
 - Orbiting Solar Observatory
 - Ranger block I, II, III, Ranger B, Mariner 2 and Ranger Lander.
+- Strawman
+- Transit 2A and Grab
 - TIROS-1
 
 - New probe cores
@@ -82,6 +87,7 @@ Currently, the mod includes (but is not limited to):
 - Custom Kerbal Suits (Apollo Skylab A7L) by Bejee10
 - Simple Adjustable Fairings for high quality historical fairings.
 - PlumeParty based rocket plume FX for the stock particle system including FX exclusive to BDB provided by Jade of Maar!
+- Mesh based high quality, high performing plumes powered by Waterfall (by Nertea).
 - High quality realplumes built with Plume Party and custom FX by Zorg!
 - Full engine ignitor configs by _Rock3tMan
 - In total, nearly 600 parts and many features for those parts!
