@@ -45,6 +45,25 @@ namespace BDB
 		public void ToggleAnimationEditor()
 		{
             float x = 0;
+
+            foreach (var anim in animationStates)
+            {
+                if (anim.normalizedTime >= 1)
+                {
+                    anim.speed = 0;
+                    anim.normalizedTime = 1;
+                }
+
+                if (anim.normalizedTime < 0)
+                {
+                    anim.speed = 0;
+                    anim.normalizedTime = 0;
+                }
+
+                animPosition = anim.normalizedTime;
+                animSpeed = anim.speed;
+            }
+
             if (animPosition >= 1)
             {
                 x = -1;
@@ -57,6 +76,7 @@ namespace BDB
             {
                 x = animSpeed * -1;
             }
+
             PlayAnimation(x);
         }
 		
@@ -91,7 +111,7 @@ namespace BDB
 		
 		
 		
-		public void FixedUpdate()
+		public void Update()
 		{
             float oldSpeed = animSpeed;
 
@@ -128,9 +148,11 @@ namespace BDB
                 //OnStop.Fire(animPosition);
             }
 
-            if (wantEngineOn && animPosition < WaitForAnimation) // engine on, nozzle not extended enough
+            if (wantEngineOn && animPosition < WaitForAnimation) // engine on, nozzle not extended enough, engine must be restartable
             {
-                SetEngineOff();
+                if (QueryAllowRestart())
+                    SetEngineOff();
+
                 if (!playing) 
                 {
                     PlayAnimation(1); // Engine ignited while stowed. Extend nozzle, engine will ignite when extended enough
@@ -162,6 +184,16 @@ namespace BDB
                 else
                     Events["ToggleAnimationEditor"].guiName = "Retract Nozzle";
             }
+        }
+
+        private bool QueryAllowRestart()
+        {
+            foreach (ModuleEngines e in engines)
+            {
+                if (!e.allowRestart)
+                    return false;
+            }
+            return true;
         }
 
         private bool QueryEngineOn()
@@ -268,4 +300,116 @@ namespace BDB
             return states.ToArray();
         }
 	}
+
+    public class ModuleBdbAnimatedMultiModeEngine : PartModule
+    {
+        [KSPField(isPersistant = false)]
+        public string animationName;
+
+        [KSPField(isPersistant = false)]
+        public int Layer = 1;
+
+        private float animPosition = 0f;
+        private float animSpeed = 0f;
+        private bool playing = false;
+
+        private MultiModeEngine multiController;
+        private AnimationState[] animationStates;
+
+        public void Start()
+        {
+
+            animationStates = SetUpAnimation(animationName, this.part);
+
+            multiController = this.GetComponent<MultiModeEngine>();
+            if (multiController != null)
+            {
+                if (multiController.runningPrimary)
+                    SetAnimation(0, 0);
+                else
+                    SetAnimation(1, 0);
+            }
+        }
+
+
+
+        public void Update()
+        {
+            float oldSpeed = animSpeed;
+
+            foreach (var anim in animationStates)
+            {
+                if (anim.normalizedTime >= 1)
+                {
+                    anim.speed = 0;
+                    anim.normalizedTime = 1;
+                }
+
+                if (anim.normalizedTime < 0)
+                {
+                    anim.speed = 0;
+                    anim.normalizedTime = 0;
+                }
+
+                animPosition = anim.normalizedTime;
+                animSpeed = anim.speed;
+            }
+
+            if (multiController != null)
+            {
+                if (multiController.runningPrimary)
+                {
+                    if (animPosition > 0 && animSpeed >= 0)
+                    {
+                        PlayAnimation(-1);
+                    }
+                }
+                else
+                {
+                    if (animPosition < 1 && animSpeed <= 0)
+                    {
+                        PlayAnimation(1);
+                    }
+                }
+            }
+        }
+
+        public void SetAnimation(float position, float speed = 0.0f)
+        {
+            animPosition = position;
+            animSpeed = speed;
+            foreach (var anim in animationStates)
+            {
+                anim.normalizedTime = position;
+                anim.speed = speed;
+            }
+        }
+
+        public void PlayAnimation(float speed)
+        {
+            foreach (var anim in animationStates)
+            {
+                anim.speed = speed;
+            }
+
+            playing = speed != 0f;
+        }
+
+        public AnimationState[] SetUpAnimation(string animationName, Part part)  //Thanks Majiir!
+        {
+            var states = new List<AnimationState>();
+            foreach (var animation in part.FindModelAnimators(animationName))
+            {
+                var animationState = animation[animationName];
+                animationState.speed = 0;
+                animationState.enabled = true;
+                animationState.layer = Layer;
+                animationState.wrapMode = WrapMode.ClampForever;
+                animation.Blend(animationName);
+                states.Add(animationState);
+                break;
+            }
+            return states.ToArray();
+        }
+    }
 }
