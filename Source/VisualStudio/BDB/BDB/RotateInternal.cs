@@ -11,7 +11,27 @@ namespace BDB
         [KSPField(isPersistant = false)]
         public string rotation = "0,0,0";
 
+        [KSPField(isPersistant = false)]
+        public bool debug = false;
+
         public override void OnStart(StartState state)
+        {
+            GameEvents.onVesselChange.Add(OnVesselChange);
+            RotateInternal();
+        }
+
+        private void OnDestroy()
+        {
+            GameEvents.onVesselChange.Remove(OnVesselChange);
+        }
+
+        public void OnVesselChange(Vessel v)
+        {
+            if (v == vessel)
+                RotateInternal();
+        }
+
+        public void RotateInternal()
         {
             if (!HighLogic.LoadedSceneIsFlight)
                 return;
@@ -28,7 +48,11 @@ namespace BDB
                 rot.y = float.Parse(sArray[1]);
             if (sArray.Length > 2)
                 rot.z = float.Parse(sArray[2]);
+
             part.internalModel.transform.localRotation *= Quaternion.Euler(rot);
+
+            if (debug)
+                ScreenMessages.PostScreenMessage("[ModuleBdbRotateInternal] Internal rotation: " + rotation);
         }
 	}
 }
