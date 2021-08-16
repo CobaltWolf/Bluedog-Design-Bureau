@@ -1,3 +1,11 @@
+### v2.18.0
+
+* Recompile against KSP 1.11.2
+* Fix modules getting force-enabled when new data is loaded
+* Change remote AVC reference so that it notifies even if you change KSP
+  versions
+* Prevent exceptions caused by zombie parts
+
 ### v2.17.0
 
 * Recompile against KSP 1.10.1
