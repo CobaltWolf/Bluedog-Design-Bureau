@@ -66,7 +66,7 @@ Currently, the mod includes (but is not limited to):
 - IDCSP
 - Pioneer 1, 4
 - Pioneer P3
-- Pioneer 5 (by InvaderChaos)
+- Pioneer 5
 - Pioneer 6
 - Lunar orbiter
 - Mariner 10
@@ -76,8 +76,9 @@ Currently, the mod includes (but is not limited to):
 - Orbiting Geophysical Observatory
 - Orbiting Solar Observatory
 - Ranger block I, II, III, Ranger B, Mariner 2 and Ranger Lander.
+- SOLRAD/GRAB/POPPY
 - Strawman
-- Transit 2A and Grab
+- Transit 2-5
 - TIROS-1
 
 - New probe cores
