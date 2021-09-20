@@ -60,14 +60,18 @@ Currently, the mod includes (but is not limited to):
 - AIMP/IMP
 - Alouette
 - Biosat
+- Clementine, ISAS
 - Courier, Relay & Telstar
-- Explorer 1, 7, 8, 11, S45, S46
+- Explorer 1, 6, 7, 8, 11, S45, S46
 - Helios
 - IDCSP
 - Pioneer 1, 4
 - Pioneer P3
 - Pioneer 5
 - Pioneer 6
+- Pioneer 10/11
+- Pioneer SUAE (Saturn Uranus Atmospheric Entry)
+- Pioneer Outer Planets Orbiter
 - Lunar orbiter
 - Mariner 10
 - Nimbus (parts for most variants)
@@ -78,9 +82,13 @@ Currently, the mod includes (but is not limited to):
 - Ranger block I, II, III, Ranger B, Mariner 2 and Ranger Lander.
 - SOLRAD/GRAB/POPPY
 - Strawman
-- Transit 2-5
+- Transit 2-3, ANNA A/B
+- Transit 4
+- Transit 5A, 5C, 5-Oscar
+- Transit 5BN
+- Transit 5E
+- Transit 5 SOOS (Stacked Oscar on Scout)
 - TIROS-1
-
 - New probe cores
 - New antennas and dishes
 - New science experiments
