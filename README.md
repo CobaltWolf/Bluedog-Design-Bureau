@@ -53,6 +53,7 @@ Currently, the mod includes (but is not limited to):
 - Saturn 1, 1B, V
 - Saturn 1C and Saturn Multibody from Eyes
 - TIMBER WIND particle bed reactor nuclear engines (TW 75 by Maffif)
+- Never built cryogenic engines such as the M-1, XLR129, RS30 and RL20.
 - Keyhole satellites with Corona return capsule (KH1, KH4, KH4B, KH7, KH8 and KH9 Hexagon)
 
 -- Huge number of probes including --
