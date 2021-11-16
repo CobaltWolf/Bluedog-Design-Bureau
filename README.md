@@ -60,6 +60,8 @@ Currently, the mod includes (but is not limited to):
 
 - AIMP/IMP
 - Alouette
+- ANNA 1B
+- Beacon Explorer
 - Biosat
 - Clementine, ISAS
 - Courier, Relay & Telstar
@@ -81,6 +83,7 @@ Currently, the mod includes (but is not limited to):
 - Orbiting Geophysical Observatory
 - Orbiting Solar Observatory
 - Ranger block I, II, III, Ranger B, Mariner 2 and Ranger Lander.
+- Radio Astronomy Explorer A/B
 - SOLRAD/GRAB/POPPY
 - Strawman
 - Transit 2-3, ANNA A/B
