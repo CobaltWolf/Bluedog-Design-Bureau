@@ -60,6 +60,8 @@ Currently, the mod includes (but is not limited to):
 
 - AIMP/IMP
 - Alouette
+- ANNA 1B
+- Beacon Explorer
 - Biosat
 - Clementine, ISAS
 - Courier, Relay & Telstar
