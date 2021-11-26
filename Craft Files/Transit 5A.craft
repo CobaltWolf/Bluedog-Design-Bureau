@@ -1,12 +1,12 @@
-ship = Transit 5A
-version = 1.10.1
+ship = Transit 5A-1
+version = 1.12.2
 description = 
 type = VAB
-size = 3.35746884,4.25848389,3.35746908
+size = 3.35793734,4.25848389,3.35793757
 steamPublishedFileId = 0
-persistentId = 2577421235
+persistentId = 3214793691
 rot = 0,0,0,0
-missionFlag = Bluedog_DB/Flags/BDB
+missionFlag = Bluedog_DB/Flags/BDB_wormLogo
 vesselType = Debris
 OverrideDefault = False,False,False,False
 OverrideActionControl = 0,0,0,0
@@ -14,9 +14,9 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = bluedog.Transit5.Bus_4291775102
+	part = bluedog.Transit5.Bus_4292899132
 	partName = Part
-	persistentId = 4071989830
+	persistentId = 70012202
 	pos = 0,15,0
 	attPos = 0,0,0
 	attPos0 = 0,15,0
@@ -38,15 +38,15 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Transit5.Solar_4291774478
-	link = bluedog.Transit5.Solar_4291769842
-	link = bluedog.Transit5.Solar_4291769246
-	link = bluedog.Transit5.Solar_4291768650
-	link = bluedog.Transit5.GravityGradientBoom_4291757140
-	link = bluedog.Transit5.Antenna_4291756554
-	attN = top2,bluedog.Transit5.GravityGradientBoom_4291757140_0|0.135015994|0_0|1|0_0|0.135015994|0_0|1|0
+	link = bluedog.Transit5.Solar_4292898502
+	link = bluedog.Transit5.Solar_4292886154
+	link = bluedog.Transit5.Solar_4292885556
+	link = bluedog.Transit5.Solar_4292884958
+	link = bluedog.Transit5.GravityGradientBoom_4292883876
+	link = bluedog.Transit5.Antenna_4292881382
+	attN = top2,bluedog.Transit5.GravityGradientBoom_4292883876_0|0.135015994|0_0|1|0_0|0.135015994|0_0|1|0
 	attN = top,Null_0_0|0.155016005|0_0|1|0_0|0.155016005|0_0|1|0
-	attN = bottom2,bluedog.Transit5.Antenna_4291756554_0|-0.135015994|0_0|-1|0_0|-0.135015994|0_0|-1|0
+	attN = bottom2,bluedog.Transit5.Antenna_4292881382_0|-0.135015994|0_0|-1|0_0|-0.135015994|0_0|-1|0
 	attN = bottom,Null_0_0|-0.155016005|0_0|-1|0_0|-0.155016005|0_0|-1|0
 	EVENTS
 	{
@@ -56,14 +56,17 @@ PART
 		ToggleSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		SetSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 	}
 	PARTDATA
@@ -85,10 +88,12 @@ PART
 			MakeReferenceToggle
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			HibernateToggle
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -112,18 +117,22 @@ PART
 			CycleAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			Activate
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			Deactivate
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			Toggle
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -159,6 +168,7 @@ PART
 			OpenKerbNetAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -180,6 +190,7 @@ PART
 			{
 				actionGroup = None
 				active = False
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -188,679 +199,11 @@ PART
 	}
 	MODULE
 	{
-		name = MechJebCore
+		name = ModuleCargoPart
 		isEnabled = True
-		running = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnOrbitProgradeAction
-			{
-				actionGroup = None
-			}
-			OnOrbitRetrogradeAction
-			{
-				actionGroup = None
-			}
-			OnOrbitNormalAction
-			{
-				actionGroup = None
-			}
-			OnOrbitAntinormalAction
-			{
-				actionGroup = None
-			}
-			OnOrbitRadialInAction
-			{
-				actionGroup = None
-			}
-			OnOrbitRadialOutAction
-			{
-				actionGroup = None
-			}
-			OnKillRotationAction
-			{
-				actionGroup = None
-			}
-			OnDeactivateSmartASSAction
-			{
-				actionGroup = None
-			}
-			OnLandsomewhereAction
-			{
-				actionGroup = None
-			}
-			OnLandTargetAction
-			{
-				actionGroup = None
-			}
-			OnPanicAction
-			{
-				actionGroup = None
-			}
-			OnTranslatronOffAction
-			{
-				actionGroup = None
-			}
-			OnTranslatronKeepVertAction
-			{
-				actionGroup = None
-			}
-			OnTranslatronZeroSpeedAction
-			{
-				actionGroup = None
-			}
-			OnTranslatronPlusOneSpeedAction
-			{
-				actionGroup = None
-			}
-			OnTranslatronMinusOneSpeedAction
-			{
-				actionGroup = None
-			}
-			OnTranslatronToggleHSAction
-			{
-				actionGroup = None
-			}
-			OnAscentAPToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		MechJebLocalSettings
-		{
-			MechJebModuleMenu
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleRoverWindow
-			{
-				unlockParts = 
-				unlockTechs = fieldScience
-			}
-			MechJebModuleAttitudeAdjustment
-			{
-				unlockParts = 
-				unlockTechs = advFlightControl
-			}
-			MechJebModuleAscentNavBall
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleLogicalStageTracking
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleRCSBalancerWindow
-			{
-				unlockParts = 
-				unlockTechs = advFlightControl
-			}
-			MechJebModuleRoverController
-			{
-				ControlHeading = False
-				ControlSpeed = False
-				BrakeOnEject = False
-				BrakeOnEnergyDepletion = False
-				WarpToDaylight = False
-				StabilityControl = False
-				LimitAcceleration = False
-				unlockParts = 
-				unlockTechs = 
-				heading
-				{
-					_val = 0
-					_text = 0
-				}
-				speed
-				{
-					_val = 10
-					_text = 10
-				}
-			}
-			MechJebModuleSpaceplaneGuidance
-			{
-				runwayIndex = 0
-				unlockParts = 
-				unlockTechs = unmannedTech
-			}
-			MechJebModuleAscentPVG
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleInfoItems
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleSmartRcs
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleAscentClassic
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleSpaceplaneAutopilot
-			{
-				bBreakAsSoonAsLanded = False
-				unlockParts = 
-				unlockTechs = 
-				glideslope
-				{
-					_val = 3
-					_text = 3
-				}
-				approachSpeed
-				{
-					_val = 80
-					_text = 80
-				}
-				touchdownSpeed
-				{
-					_val = 60
-					_text = 60
-				}
-				maximumSafeBankAngle
-				{
-					_val = 25
-					_text = 25
-				}
-			}
-			MechJebModuleAirplaneAutopilot
-			{
-				HeadingHoldEnabled = False
-				AltitudeHoldEnabled = False
-				VertSpeedHoldEnabled = False
-				RollHoldEnabled = False
-				SpeedHoldEnabled = False
-				AltitudeTarget = 0
-				HeadingTarget = 90
-				RollTarget = 0
-				SpeedTarget = 0
-				VertSpeedTarget = 0
-				BankAngle = 30
-				unlockParts = 
-				unlockTechs = 
-				AccKp
-				{
-					_val = 0.5
-					_text = 0.5
-				}
-				AccKi
-				{
-					_val = 0.5
-					_text = 0.5
-				}
-				AccKd
-				{
-					_val = 0.0050000000000000001
-					_text = 0.005
-				}
-				PitKp
-				{
-					_val = 2
-					_text = 2
-				}
-				PitKi
-				{
-					_val = 1
-					_text = 1
-				}
-				PitKd
-				{
-					_val = 0.0050000000000000001
-					_text = 0.005
-				}
-				RolKp
-				{
-					_val = 0.5
-					_text = 0.5
-				}
-				RolKi
-				{
-					_val = 0.02
-					_text = 0.02
-				}
-				RolKd
-				{
-					_val = 0.5
-					_text = 0.5
-				}
-				YawKp
-				{
-					_val = 1
-					_text = 1
-				}
-				YawKi
-				{
-					_val = 0.25
-					_text = 0.25
-				}
-				YawKd
-				{
-					_val = 0.02
-					_text = 0.02
-				}
-				YawLimit
-				{
-					_val = 10
-					_text = 10
-				}
-				RollLimit
-				{
-					_val = 45
-					_text = 45
-				}
-				PitchDownLimit
-				{
-					_val = 15
-					_text = 15
-				}
-				PitchUpLimit
-				{
-					_val = 25
-					_text = 25
-				}
-			}
-			MechJebModuleDockingGuidance
-			{
-				unlockParts = 
-				unlockTechs = advUnmanned
-			}
-			MechJebModuleSettings
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleAscentGT
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleDebugArrows
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleSmartASS
-			{
-				mode = ORBITAL
-				target = OFF
-				advReference = INERTIAL
-				advDirection = FORWARD
-				forceRol = False
-				forcePitch = True
-				forceYaw = True
-				unlockParts = 
-				unlockTechs = flightControl
-				srfHdg
-				{
-					_val = 90
-					_text = 90
-				}
-				srfPit
-				{
-					_val = 90
-					_text = 90
-				}
-				srfRol
-				{
-					_val = 0
-					_text = 0
-				}
-				srfVelYaw
-				{
-					_val = 0
-					_text = 0
-				}
-				srfVelPit
-				{
-					_val = 0
-					_text = 0
-				}
-				srfVelRol
-				{
-					_val = 0
-					_text = 0
-				}
-				rol
-				{
-					_val = 0
-					_text = 0
-				}
-			}
-			MechJebModuleDockingAutopilot
-			{
-				forceRol = False
-				overrideSafeDistance = False
-				overrideTargetSize = False
-				unlockParts = 
-				unlockTechs = 
-				rol
-				{
-					_val = 0
-					_text = 0
-				}
-			}
-			ModExtensionDemo
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleThrustWindow
-			{
-				autostageSavedState = False
-				unlockParts = 
-				unlockTechs = advFlightControl
-			}
-			MechJebModuleWarpHelper
-			{
-				unlockParts = 
-				unlockTechs = advFlightControl
-				phaseAngle
-				{
-					_val = 0
-					_text = 0
-				}
-			}
-			MechJebModuleCustomWindowEditor
-			{
-				unlockParts = 
-				unlockTechs = flightControl
-			}
-			MechJebModuleAscentAutopilot
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleRendezvousAutopilotWindow
-			{
-				unlockParts = 
-				unlockTechs = advUnmanned
-			}
-			MechJebModuleNodeExecutor
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleNodeEditor
-			{
-				unlockParts = 
-				unlockTechs = advFlightControl
-			}
-			MechJebModuleLandingAutopilot
-			{
-				deployGears = True
-				deployChutes = True
-				rcsAdjustment = True
-				unlockParts = 
-				unlockTechs = 
-				touchdownSpeed
-				{
-					_val = 0.5
-					_text = 0.5
-				}
-				limitGearsStage
-				{
-					val = 0
-					_text = 0
-				}
-				limitChutesStage
-				{
-					val = 0
-					_text = 0
-				}
-			}
-			MechJebModuleScript
-			{
-				minifiedGUI = False
-				selectedSlot = 0
-				selectedMemorySlotType = 0
-				activeSavepoint = -1
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleLandingGuidance
-			{
-				landingSiteIdx = 0
-				unlockParts = 
-				unlockTechs = unmannedTech
-			}
-			MechJebModuleLandingPredictions
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleTranslatron
-			{
-				unlockParts = 
-				unlockTechs = advFlightControl
-				trans_spd
-				{
-					_val = 0
-					_text = 0
-				}
-			}
-			MechJebModuleAscentGuidance
-			{
-				unlockParts = 
-				unlockTechs = unmannedTech
-			}
-			MechJebModuleRendezvousAutopilot
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleWaypointWindow
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleWaypointHelpWindow
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleTargetController
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleManeuverPlanner
-			{
-				unlockParts = 
-				unlockTechs = advFlightControl
-			}
-			MechJebModuleStageStats
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleAirplaneGuidance
-			{
-				showpid = False
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleGuidanceController
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleRendezvousGuidance
-			{
-				unlockParts = 
-				unlockTechs = advUnmanned
-			}
-			MechJebModuleAscentClassicMenu
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleCustomInfoWindow
-			{
-			}
-			MechJebModuleCustomInfoWindow
-			{
-			}
-			MechJebModuleCustomInfoWindow
-			{
-			}
-			MechJebModuleCustomInfoWindow
-			{
-			}
-			MechJebModuleWarpController
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleDeployableAntennaController
-			{
-				prev_shouldDeploy = False
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleSolarPanelController
-			{
-				prev_shouldDeploy = False
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleThrustController
-			{
-				limitThrottle = False
-				limiterMinThrottle = False
-				electricThrottle = False
-				unlockParts = 
-				unlockTechs = 
-				maxThrottle
-				{
-					_val = 1
-					_text = 100
-				}
-				minThrottle
-				{
-					_val = 0.050000000000000003
-					_text = 5
-				}
-				electricThrottleLo
-				{
-					_val = 0.050000000000000003
-					_text = 5
-				}
-				electricThrottleHi
-				{
-					_val = 0.14999999999999999
-					_text = 15
-				}
-			}
-			MechJebModuleRCSController
-			{
-				unlockParts = 
-				unlockTechs = 
-				Tf
-				{
-					_val = 1
-					_text = 1
-				}
-				Kp
-				{
-					_val = 0.12492219800962338
-					_text = 0.124922198009623
-				}
-				Ki
-				{
-					_val = 0.0073611111111111091
-					_text = 0.00736111111111111
-				}
-				Kd
-				{
-					_val = 0.53000000000000003
-					_text = 0.53
-				}
-			}
-			MechJebModuleRCSBalancer
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleAttitudeController
-			{
-				unlockParts = 
-				unlockTechs = 
-				MJAttitudeController
-				{
-				}
-				KosAttitudeController
-				{
-				}
-				HybridController
-				{
-				}
-				BetterController
-				{
-				}
-			}
-			MechJebModuleStagingController
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleFlightRecorder
-			{
-				markUT = 0
-				deltaVExpended = 0
-				dragLosses = 0
-				gravityLosses = 0
-				steeringLosses = 0
-				markLAN = 0
-				markLatitude = 0
-				markLongitude = 0
-				markAltitude = 0
-				markBodyIndex = 1
-				maxDragGees = 0
-				unlockParts = 
-				unlockTechs = 
-			}
-			MechJebModuleFlightRecorderGraph
-			{
-				unlockParts = 
-				unlockTechs = 
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = TrajectoriesVesselSettings
-		isEnabled = True
-		Initialized = False
-		EntryAngle = 3.1415926535897931
-		EntryHorizon = False
-		HighAngle = 3.1415926535897931
-		HighHorizon = False
-		LowAngle = 3.1415926535897931
-		LowHorizon = False
-		GroundAngle = 3.1415926535897931
-		GroundHorizon = False
-		RetrogradeEntry = True
-		TargetBody = 
-		TargetPosition_x = 0
-		TargetPosition_y = 0
-		TargetPosition_z = 0
-		ManualTargetTxt = 
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -905,15 +248,15 @@ PART
 }
 PART
 {
-	part = bluedog.Transit5.Solar_4291774478
+	part = bluedog.Transit5.Solar_4292898502
 	partName = Part
-	persistentId = 2813902556
-	pos = -0.150137261,15.0950212,-0.150137246
-	attPos = 0,-0.00271034241,0
-	attPos0 = -0.150137261,0.0977315903,-0.150137246
-	rot = -8.06445133E-09,0.923879564,-1.94693062E-08,-0.382683456
+	persistentId = 1017874037
+	pos = -0.150373131,15.0953169,0.150373116
+	attPos = 0,0,0
+	attPos0 = -0.150373131,0.0953168869,0.150373116
+	rot = -2.84579027E-08,-0.382683486,-1.17876517E-08,0.923879504
 	attRot = 0,0,0,1
-	attRot0 = -8.06445133E-09,0.923879564,-1.94693062E-08,-0.382683456
+	attRot0 = -2.84579027E-08,-0.382683486,-1.17876517E-08,0.923879504
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -929,10 +272,10 @@ PART
 	modCost = 0
 	modMass = 0.00400000019
 	modSize = 0,0,0
-	sym = bluedog.Transit5.Solar_4291769842
-	sym = bluedog.Transit5.Solar_4291769246
-	sym = bluedog.Transit5.Solar_4291768650
-	srfN = srfAttach,bluedog.Transit5.Bus_4291775102,Collider1,0|0|0,0|0|1,0|0|0
+	sym = bluedog.Transit5.Solar_4292886154
+	sym = bluedog.Transit5.Solar_4292885556
+	sym = bluedog.Transit5.Solar_4292884958
+	srfN = srfAttach,bluedog.Transit5.Bus_4292899132,Collider1,0|0|0,0|0|1,0|0|0
 	EVENTS
 	{
 	}
@@ -941,14 +284,17 @@ PART
 		ToggleSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		SetSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 	}
 	PARTDATA
@@ -968,6 +314,7 @@ PART
 			StartTransmissionAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -993,14 +340,17 @@ PART
 			ExtendPanelsAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			ExtendAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			RetractAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -1029,8 +379,26 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchExtension
+		moduleID = meshSwitchBase
 		currentSubtype = Default Base
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1059,15 +427,15 @@ PART
 }
 PART
 {
-	part = bluedog.Transit5.Solar_4291769842
+	part = bluedog.Transit5.Solar_4292886154
 	partName = Part
-	persistentId = 363467000
-	pos = -0.150137246,15.0950212,0.150137246
-	attPos = 0,-0.00271034241,0
-	attPos0 = -0.150137246,0.0977315903,0.150137246
-	rot = -1.94693062E-08,0.382683426,-8.06445044E-09,-0.923879564
+	persistentId = 4040325791
+	pos = 0.150373101,15.0953169,0.150373131
+	attPos = 0,0,0
+	attPos0 = 0.150373101,0.0953168869,0.150373131
+	rot = -2.84579045E-08,0.382683367,1.17876473E-08,0.923879564
 	attRot = 0,0,0,1
-	attRot0 = -1.94693062E-08,0.382683426,-8.06445044E-09,-0.923879564
+	attRot0 = -2.84579045E-08,0.382683367,1.17876473E-08,0.923879564
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -1083,10 +451,10 @@ PART
 	modCost = 0
 	modMass = 0.00400000019
 	modSize = 0,0,0
-	sym = bluedog.Transit5.Solar_4291769246
-	sym = bluedog.Transit5.Solar_4291768650
-	sym = bluedog.Transit5.Solar_4291774478
-	srfN = srfAttach,bluedog.Transit5.Bus_4291775102,Collider1,0|0|0,0|0|1,0|0|0
+	sym = bluedog.Transit5.Solar_4292885556
+	sym = bluedog.Transit5.Solar_4292884958
+	sym = bluedog.Transit5.Solar_4292898502
+	srfN = srfAttach,bluedog.Transit5.Bus_4292899132,Collider1,0|0|0,0|0|1,0|0|0
 	EVENTS
 	{
 	}
@@ -1095,14 +463,17 @@ PART
 		ToggleSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		SetSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 	}
 	PARTDATA
@@ -1122,6 +493,7 @@ PART
 			StartTransmissionAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -1136,7 +508,7 @@ PART
 		launchUT = -1
 		currentRotation = (0.923879504, 0.382683456, -3.33292256E-08, -6.79129215E-08)
 		storedAnimationTime = 0
-		storedAnimationSpeed = 10
+		storedAnimationSpeed = 0
 		deployState = EXTENDED
 		stagingEnabled = True
 		EVENTS
@@ -1147,14 +519,17 @@ PART
 			ExtendPanelsAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			ExtendAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			RetractAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -1183,8 +558,26 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchExtension
+		moduleID = meshSwitchBase
 		currentSubtype = Default Base
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1213,15 +606,15 @@ PART
 }
 PART
 {
-	part = bluedog.Transit5.Solar_4291769246
+	part = bluedog.Transit5.Solar_4292885556
 	partName = Part
-	persistentId = 4278252769
-	pos = 0.150137275,15.0950212,0.150137231
-	attPos = 0,-0.00271034241,0
-	attPos0 = 0.150137275,0.0977315903,0.150137231
-	rot = -1.94693062E-08,-0.382683486,8.06445222E-09,-0.923879564
+	persistentId = 562350892
+	pos = 0.150373116,15.0953169,-0.150373131
+	attPos = 0,0,0
+	attPos0 = 0.150373116,0.0953168869,-0.150373131
+	rot = -1.17876509E-08,0.923879504,2.84579027E-08,0.382683456
 	attRot = 0,0,0,1
-	attRot0 = -1.94693062E-08,-0.382683486,8.06445222E-09,-0.923879564
+	attRot0 = -1.17876509E-08,0.923879504,2.84579027E-08,0.382683456
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -1237,10 +630,10 @@ PART
 	modCost = 0
 	modMass = 0.00400000019
 	modSize = 0,0,0
-	sym = bluedog.Transit5.Solar_4291768650
-	sym = bluedog.Transit5.Solar_4291774478
-	sym = bluedog.Transit5.Solar_4291769842
-	srfN = srfAttach,bluedog.Transit5.Bus_4291775102,Collider1,0|0|0,0|0|1,0|0|0
+	sym = bluedog.Transit5.Solar_4292884958
+	sym = bluedog.Transit5.Solar_4292898502
+	sym = bluedog.Transit5.Solar_4292886154
+	srfN = srfAttach,bluedog.Transit5.Bus_4292899132,Collider1,0|0|0,0|0|1,0|0|0
 	EVENTS
 	{
 	}
@@ -1249,14 +642,17 @@ PART
 		ToggleSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		SetSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 	}
 	PARTDATA
@@ -1276,6 +672,7 @@ PART
 			StartTransmissionAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -1290,7 +687,7 @@ PART
 		launchUT = -1
 		currentRotation = (0.923879504, 0.382683456, -3.33292256E-08, -6.79129215E-08)
 		storedAnimationTime = 0
-		storedAnimationSpeed = 10
+		storedAnimationSpeed = 0
 		deployState = EXTENDED
 		stagingEnabled = True
 		EVENTS
@@ -1301,14 +698,17 @@ PART
 			ExtendPanelsAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			ExtendAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			RetractAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -1337,8 +737,26 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchExtension
+		moduleID = meshSwitchBase
 		currentSubtype = Default Base
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1367,15 +785,15 @@ PART
 }
 PART
 {
-	part = bluedog.Transit5.Solar_4291768650
+	part = bluedog.Transit5.Solar_4292884958
 	partName = Part
-	persistentId = 1579177230
-	pos = 0.150137231,15.0950212,-0.150137261
-	attPos = 0,-0.00271034241,0
-	attPos0 = 0.150137231,0.0977315903,-0.150137261
-	rot = -8.06445044E-09,-0.923879564,1.94693062E-08,-0.382683426
+	persistentId = 966964286
+	pos = -0.150373116,15.0953169,-0.150373116
+	attPos = 0,0,0
+	attPos0 = -0.150373116,0.0953168869,-0.150373116
+	rot = 1.17876473E-08,0.923879564,2.84579045E-08,-0.382683367
 	attRot = 0,0,0,1
-	attRot0 = -8.06445044E-09,-0.923879564,1.94693062E-08,-0.382683426
+	attRot0 = 1.17876473E-08,0.923879564,2.84579045E-08,-0.382683367
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -1391,10 +809,10 @@ PART
 	modCost = 0
 	modMass = 0.00400000019
 	modSize = 0,0,0
-	sym = bluedog.Transit5.Solar_4291774478
-	sym = bluedog.Transit5.Solar_4291769842
-	sym = bluedog.Transit5.Solar_4291769246
-	srfN = srfAttach,bluedog.Transit5.Bus_4291775102,Collider1,0|0|0,0|0|1,0|0|0
+	sym = bluedog.Transit5.Solar_4292898502
+	sym = bluedog.Transit5.Solar_4292886154
+	sym = bluedog.Transit5.Solar_4292885556
+	srfN = srfAttach,bluedog.Transit5.Bus_4292899132,Collider1,0|0|0,0|0|1,0|0|0
 	EVENTS
 	{
 	}
@@ -1403,14 +821,17 @@ PART
 		ToggleSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		SetSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 	}
 	PARTDATA
@@ -1430,6 +851,7 @@ PART
 			StartTransmissionAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -1444,7 +866,7 @@ PART
 		launchUT = -1
 		currentRotation = (0.923879504, 0.382683456, -3.33292256E-08, -6.79129215E-08)
 		storedAnimationTime = 0
-		storedAnimationSpeed = 10
+		storedAnimationSpeed = 0
 		deployState = EXTENDED
 		stagingEnabled = True
 		EVENTS
@@ -1455,14 +877,17 @@ PART
 			ExtendPanelsAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			ExtendAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			RetractAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -1491,8 +916,26 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchExtension
+		moduleID = meshSwitchBase
 		currentSubtype = Default Base
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1521,15 +964,15 @@ PART
 }
 PART
 {
-	part = bluedog.Transit5.GravityGradientBoom_4291757140
+	part = bluedog.Transit5.GravityGradientBoom_4292883876
 	partName = Part
-	persistentId = 1711434040
+	persistentId = 1605842198
 	pos = 0,15.1350164,0
 	attPos = 0,0,0
 	attPos0 = 0,0.135016441,0
-	rot = 0,0,0,-1
-	attRot = 0,0,0,-0.999999881
-	attRot0 = 0,0,0,-1
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
 	mir = 1,1,1
 	symMethod = Radial
 	autostrutMode = Off
@@ -1545,7 +988,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = bottom,bluedog.Transit5.Bus_4291775102_0|0|0_0|-1|0_0|0|0_0|-1|0
+	attN = bottom,bluedog.Transit5.Bus_4292899132_0|0|0_0|-1|0_0|0|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -1554,14 +997,17 @@ PART
 		ToggleSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		SetSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 	}
 	PARTDATA
@@ -1586,6 +1032,7 @@ PART
 			ToggleAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		AXISGROUPS
@@ -1594,6 +1041,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -1638,19 +1086,41 @@ PART
 			CycleAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			Activate
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			Deactivate
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 			Toggle
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -1659,9 +1129,9 @@ PART
 }
 PART
 {
-	part = bluedog.Transit5.Antenna_4291756554
+	part = bluedog.Transit5.Antenna_4292881382
 	partName = Part
-	persistentId = 3744360760
+	persistentId = 2590503910
 	pos = 0,14.8649836,0
 	attPos = 0,0,0
 	attPos0 = 0,-0.135016441,0
@@ -1683,7 +1153,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = bottom,bluedog.Transit5.Bus_4291775102_0|0|0_0|-1|0_0|0|0_0|-1|0
+	attN = bottom,bluedog.Transit5.Bus_4292899132_0|0|0_0|-1|0_0|0|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -1692,14 +1162,17 @@ PART
 		ToggleSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		SetSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
 		}
 	}
 	PARTDATA
@@ -1724,6 +1197,7 @@ PART
 			ToggleAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		AXISGROUPS
@@ -1732,6 +1206,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -1757,6 +1232,7 @@ PART
 			StartTransmissionAction
 			{
 				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
 			}
 		}
 		UPGRADESAPPLIED
