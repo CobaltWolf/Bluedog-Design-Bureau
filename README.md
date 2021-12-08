@@ -75,7 +75,7 @@ Currently, the mod includes (but is not limited to):
 - Pioneer 10/11
 - Pioneer SUAE (Saturn Uranus Atmospheric Entry)
 - Pioneer Outer Planets Orbiter
-- Lunar orbiter
+- Lunar Orbiter
 - Mariner 10
 - Nimbus (parts for most variants)
 - Orbiting Astronomical Observatory (OAO 1,2 & 3)
@@ -85,7 +85,7 @@ Currently, the mod includes (but is not limited to):
 - Ranger block I, II, III, Ranger B, Mariner 2 and Ranger Lander.
 - Radio Astronomy Explorer A/B
 - SOLRAD/GRAB/POPPY
-- Strawman
+- Strawman 1-4
 - Transit 2-3, ANNA A/B
 - Transit 4
 - Transit 5A, 5C, 5-Oscar
