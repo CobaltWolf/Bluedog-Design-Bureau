@@ -3,9 +3,9 @@ Stockalike parts pack for Kerbal Space Program
 
 What is this mod?
 
-BDB adds parts. Lots of parts. Nearly 500 parts, including launchers, spacecraft, and probes, all in a ReStockalike style. The focus lies primarily on the US space program up through the Apollo program, though some modern parts exist. They are not perfect replicas, but rather take inspiration directly from existing designs. Care has been taken to research and include pieces for projects that were proposed but never happened, to increase the possibilities available to the player. Parts are made in a lego frame of mind, and screenshots of your unique franken creations are always appreciated! The mod is not recommended for new players, as the mod adds a good deal of clutter to the VAB lists. The mod also adds new standard sizes (such a 0.9375m, 1.5m, 1.875m, 3.125m and 5.625m diameter) of parts in order to more accurately scale to KSP.
+BDB adds parts. Lots of parts. Just over 1000 parts, including launchers, spacecraft, and probes, all in a ReStockalike style. The focus lies primarily on the US space program up through the Apollo program, though some modern parts exist. They are not perfect replicas, but rather take inspiration directly from existing designs. Care has been taken to research and include pieces for projects that were proposed but never happened, to increase the possibilities available to the player. Parts are made in a lego frame of mind, and screenshots of your unique franken creations are always appreciated! The mod is not recommended for new players, as the mod adds a good deal of clutter to the VAB lists. The mod also adds new standard sizes (such a 0.9375m, 1.5m, 1.875m, 3.125m and 5.625m diameter) of parts in order to more accurately scale to KSP.
 
-Now, 500 parts sounds like it would kill your PC. While the mod certainly is large, the memory overhead is likely lower than you would expect. Care has been taken to ensure the mod is efficient, with methods such as enforcing a strict texel density (a technique I have only used since mid-2017, so the older assets might not be as efficient) and texture atlasing to cram several parts onto each texture sheet.
+Now, 1000 parts sounds like it would kill your PC. While the mod certainly is large, the memory overhead is likely lower than you would expect. Care has been taken to ensure the mod is efficient, with methods such as enforcing a strict texel density (a technique I have only used since mid-2017, so the older assets might not be as efficient) and texture atlasing to cram several parts onto each texture sheet.
 
 BDB makes heavy use of B9PartSwitch's advanced features including features such as
 - Texture and mesh switching
@@ -103,7 +103,7 @@ Currently, the mod includes (but is not limited to):
 - Mesh based high quality, high performing plumes powered by Waterfall (by Nertea).
 - High quality realplumes built with Plume Party and custom FX by Zorg!
 - Full engine ignitor configs by _Rock3tMan
-- In total, nearly 600 parts and many features for those parts!
+- In total, over 1000 parts and many features for those parts!
 
 Planned content includes massive Saturn rockets including unflown variants, and parts based on proposed projects for Apollo.
 
