@@ -20,6 +20,7 @@ Currently, the mod includes (but is not limited to):
 - Gemini spacecraft
 - Gemini Ferry
 - Big Gemini 69' (nice)
+- Big Gemini (Saturn)
 - Manned Orbiting Laboratory (MOL) and derivative station parts
 - Modular space station parts based on never built Gemini proposals
 - Apollo Block I and II spacecraft, as featured in REAL LIFE!
@@ -30,6 +31,7 @@ Currently, the mod includes (but is not limited to):
 - Spacelab (from Eyes) station parts
 - Parts for the Manned Venus Flyby mission
 - Apollo-Soyuz Test Project Docking Module and the APAS 75 docking port
+- Apollo Boilerplate CM/SM
 - Vanguard rocket and probe
 - Scout rocket
 - Redstone rocket, with Sergeant clusters and Explorer 1
@@ -69,13 +71,6 @@ Currently, the mod includes (but is not limited to):
 - Explorer 1, 6, 7, 8, 11, S45, S46
 - Helios
 - IDCSP
-- Pioneer 1, 4
-- Pioneer P3
-- Pioneer 5
-- Pioneer 6
-- Pioneer 10/11
-- Pioneer SUAE (Saturn Uranus Atmospheric Entry)
-- Pioneer Outer Planets Orbiter
 - Lunar Orbiter
 - Mariner 10
 - Nimbus (parts for most variants)
@@ -83,6 +78,14 @@ Currently, the mod includes (but is not limited to):
 - Orbiting Frog Otolith
 - Orbiting Geophysical Observatory
 - Orbiting Solar Observatory
+- Pegasus Micrometeorite Satellite (Saturn I-based)
+- Pioneer 1, 4
+- Pioneer P3
+- Pioneer 5
+- Pioneer 6
+- Pioneer 10/11
+- Pioneer SUAE (Saturn Uranus Atmospheric Entry)
+- Pioneer Outer Planets Orbiter
 - Ranger block I, II, III, Ranger B, Mariner 2 and Ranger Lander.
 - Radio Astronomy Explorer A/B
 - SOLRAD/GRAB/POPPY
