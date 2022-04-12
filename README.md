@@ -29,6 +29,7 @@ Currently, the mod includes (but is not limited to):
 - Skylab station parts
 - Spacelab (from Eyes) station parts
 - Parts for the Manned Venus Flyby mission
+- Apollo-Soyuz Test Project Docking Module and the APAS 75 docking port
 - Vanguard rocket and probe
 - Scout rocket
 - Redstone rocket, with Sergeant clusters and Explorer 1
