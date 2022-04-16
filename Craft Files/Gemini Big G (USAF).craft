@@ -1,10 +1,10 @@
-ship = Gemini Advanced Big G 1969
-version = 1.8.1
-description = Titan IIIM
+ship = Gemini Big G (USAF)
+version = 1.12.3
+description = Titan IIIG
 type = VAB
-size = 2.95165992,9.96846771,2.9516592
+size = 9.62470913,25.5154648,8.4504385
 steamPublishedFileId = 0
-persistentId = 1925477493
+persistentId = 852116051
 rot = 0,0,0,0
 missionFlag = Bluedog_DB/Flags/BDB_wormLogo
 vesselType = Debris
@@ -16,7 +16,7 @@ PART
 {
 	part = bluedog.BigG.Cabin_4292489870
 	partName = Part
-	persistentId = 3630946538
+	persistentId = 932217044
 	pos = -0.12273553,14.6497393,1.27497435
 	attPos = 0,0,0
 	attPos0 = 0,0.746789932,0
@@ -367,7 +367,7 @@ PART
 {
 	part = bluedog.Gemini.Capsule_4293196502
 	partName = Part
-	persistentId = 1804374538
+	persistentId = 551786074
 	pos = -0.12273553,15.8282499,1.27497435
 	attPos = 0,0,0
 	attPos0 = -0.12273553,15.8282499,1.27497435
@@ -734,7 +734,7 @@ PART
 {
 	part = bluedog.Gemini.ReentryRCS_4293176450
 	partName = Part
-	persistentId = 3524978272
+	persistentId = 263280643
 	pos = -0.12273553,16.6005211,1.27497435
 	attPos = 0,0,0
 	attPos0 = 0,0.772270203,0
@@ -756,10 +756,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Gemini.MainParachute_4293172770
 	link = bluedog.Gemini.HorizonScanners_4293205618
+	link = bluedog.BigG.MainParachute_4292257584
 	attN = bottom,bluedog.Gemini.Capsule_4293196502_0|-0.155359998|0_0|-1|0_0|-0.155359998|0_0|-1|0
-	attN = top,bluedog.Gemini.MainParachute_4293172770_0|0.129299998|0_0|1|0_0|0.129299998|0_0|1|0
+	attN = top,bluedog.BigG.MainParachute_4292257584_0|0.129299998|0_0|1|0_0|0.129299998|0_0|1|0
 	EVENTS
 	{
 	}
@@ -834,163 +834,9 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Gemini.MainParachute_4293172770
-	partName = Part
-	persistentId = 1282440425
-	pos = -0.12273553,16.759201,1.27497435
-	attPos = 0,0,0
-	attPos0 = 0,0.15868187,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = 0
-	sqor = 0
-	sepI = 0
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = bluedog.Gemini.DockingPort_4293176060
-	attN = bottom,bluedog.Gemini.ReentryRCS_4293176450_0|-0.0293819997|0_0|-1|0_0|-0.0293819997|0_0|-1|0
-	attN = top,bluedog.Gemini.DockingPort_4293176060_0|0.0276430007|0_0|1|0_0|0.0276430007|0_0|1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleParachute
-		isEnabled = True
-		persistentState = STOWED
-		animTime = 0
-		minAirPressureToOpen = 0.75
-		deployAltitude = 1000
-		spreadAngle = 7
-		automateSafeDeploy = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			CutAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDragModifier
+		name = ModuleWaterfallFX
 		isEnabled = True
 		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDragModifier
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchPaint
-		currentSubtype = Black
 		EVENTS
 		{
 		}
@@ -1005,312 +851,6 @@ PART
 	{
 		name = ModuleB9PartInfo
 		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Gemini.DockingPort_4293176060
-	partName = Part
-	persistentId = 2653665364
-	pos = -0.12273553,17.0085564,1.27497435
-	attPos = 0,0,0
-	attPos0 = 0,0.249353409,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = bluedog.Gemini.DrogueChute_4293158116
-	attN = bottom,bluedog.Gemini.MainParachute_4293172770_0|-0.221709996|0_0|-1|0_0|-0.221709996|0_0|-1|0
-	attN = top,Null_0_0|0.423400015|0_0|1|0_0|0.423400015|0_0|1|0
-	attN = parachute,bluedog.Gemini.DrogueChute_4293158116_0.0638939962|0.272442967|-0.113534898_0|1.00000012|-1.1920929E-07_0.0638939962|0.272442967|-0.113534898_0|1.00000012|-1.1920929E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDockingNode
-		isEnabled = True
-		acquireForceTweak = 100
-		crossfeed = True
-		stagingEnabled = False
-		state = Ready
-		dockUId = 0
-		dockNodeIdx = 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			UndockAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			MakeReferenceToggle
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			EnableXFeedAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			DisableXFeedAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ToggleXFeedAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAnimateGeneric
-		isEnabled = True
-		aniState = LOCKED
-		animSwitch = True
-		animTime = 0
-		animSpeed = 1
-		deployPercent = 100
-		animationIsDisabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		AXISGROUPS
-		{
-			deployPercent
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = textureSwitchStyle
-		currentSubtype = Late
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchPaint
-		currentSubtype = Black
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Gemini.DrogueChute_4293158116
-	partName = Part
-	persistentId = 2853411182
-	pos = -0.058841534,17.2809982,1.16143942
-	attPos = 0,0,0
-	attPos0 = 0.0638939962,0.272443771,-0.113534875
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 2
-	sidx = 0
-	sqor = 1
-	sepI = 1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	attN = parachute,bluedog.Gemini.DockingPort_4293176060_-1.95405122E-15|0|-2.23517418E-08_0|-1.00000012|-1.1920929E-07_-1.95405122E-15|0|-2.23517418E-08_0|-1.00000012|-1.1920929E-07
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleParachute
-		isEnabled = True
-		persistentState = STOWED
-		animTime = 0
-		minAirPressureToOpen = 0.75
-		deployAltitude = 7000
-		spreadAngle = 7
-		automateSafeDeploy = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			CutAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDragModifier
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDragModifier
-		isEnabled = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1327,7 +867,7 @@ PART
 {
 	part = bluedog.Gemini.HorizonScanners_4293205618
 	partName = Part
-	persistentId = 3747102534
+	persistentId = 367341433
 	pos = -0.429260641,16.5236206,1.27497435
 	attPos = 0,0,0
 	attPos0 = -0.306525111,-0.0768995285,1.82703221E-08
@@ -1373,6 +913,24 @@ PART
 	}
 	PARTDATA
 	{
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	MODULE
 	{
@@ -1471,7 +1029,7 @@ PART
 {
 	part = bluedog.Gemini.Heatshield.2p5m_4292486990
 	partName = Part
-	persistentId = 2220082270
+	persistentId = 3585198536
 	pos = -0.12273553,13.8777008,1.27497435
 	attPos = 0,0,0
 	attPos0 = 0,-0.77203846,0
@@ -1614,7 +1172,7 @@ PART
 {
 	part = bluedog.BigG.Decoupler_4292469338
 	partName = Part
-	persistentId = 903530743
+	persistentId = 941232517
 	pos = -0.12273553,13.9372101,1.27497435
 	attPos = 0,0,0
 	attPos0 = 0,0.0595092773,0
@@ -1625,10 +1183,10 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 0
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 0
 	sqor = 1
 	sepI = -1
 	attm = 0
@@ -1779,7 +1337,7 @@ PART
 {
 	part = bluedog.BigG.CylindricalSM_4292467658
 	partName = Part
-	persistentId = 2240914836
+	persistentId = 460047865
 	pos = -0.12273553,11.5662384,1.27497435
 	attPos = 0,0,0
 	attPos0 = 0,-2.37097168,0
@@ -1790,7 +1348,7 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 0
 	resPri = 0
 	dstg = 2
 	sidx = -1
@@ -1799,13 +1357,13 @@ PART
 	attm = 0
 	sameVesselCollision = False
 	modCost = 22
-	modMass = 9.99999975E-05
+	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Apollo.Block2.RCSquad_4293035622
-	link = bluedog.Apollo.Block2.RCSquad_4292467284
-	link = bluedog.Apollo.Block2.RCSquad_4292467218
-	link = bluedog.Apollo.Block2.RCSquad_4292467152
 	link = bluedog.GeminiFerry.DockingAdapter_4293079486
+	link = bluedog.Apollo.RCS.Quad_4291874404
+	link = bluedog.Apollo.RCS.Quad_4291873638
+	link = bluedog.Apollo.RCS.Quad_4291873502
+	link = bluedog.Apollo.RCS.Quad_4291873366
 	attN = top,bluedog.BigG.Decoupler_4292469338_0|2.36849999|0_0|1|0_0|2.36849999|0_0|1|0
 	attN = bottom,bluedog.GeminiFerry.DockingAdapter_4293079486_0|-2.36849999|0_0|-1|0_0|-2.36849999|0_0|-1|0
 	EVENTS
@@ -1841,6 +1399,9 @@ PART
 		{
 		}
 		ACTIONS
+		{
+		}
+		STOREDPARTS
 		{
 		}
 		UPGRADESAPPLIED
@@ -1934,353 +1495,9 @@ PART
 }
 PART
 {
-	part = bluedog.Apollo.Block2.RCSquad_4293035622
-	partName = Part
-	persistentId = 338231643
-	pos = -1.39115322,12.5083923,1.27497447
-	attPos = 0.00827586651,0,4.93280083E-10
-	attPos0 = -1.26841772,0.942153931,1.1920929E-07
-	rot = 0,4.21468513E-07,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,4.21468513E-07,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Apollo.Block2.RCSquad_4292467284
-	sym = bluedog.Apollo.Block2.RCSquad_4292467218
-	sym = bluedog.Apollo.Block2.RCSquad_4292467152
-	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Apollo.Block2.RCSquad_4292467284
-	partName = Part
-	persistentId = 1584395958
-	pos = -0.122735485,12.5083923,2.54339194
-	attPos = 0.00827586651,0,4.93280083E-10
-	attPos0 = 4.47034836E-08,0.942153931,1.2684176
-	rot = 0,0.707107067,0,0.707106471
-	attRot = 0,0,0,1
-	attRot0 = 0,0.707107067,0,0.707106471
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Apollo.Block2.RCSquad_4292467218
-	sym = bluedog.Apollo.Block2.RCSquad_4292467152
-	sym = bluedog.Apollo.Block2.RCSquad_4293035622
-	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Apollo.Block2.RCSquad_4292467218
-	partName = Part
-	persistentId = 1287183477
-	pos = 1.14568222,12.5083923,1.27497411
-	attPos = 0.00827586651,0,4.93280083E-10
-	attPos0 = 1.26841772,0.942153931,-2.38418579E-07
-	rot = 0,1,0,-4.65179909E-07
-	attRot = 0,0,0,1
-	attRot0 = 0,1,0,-4.65179909E-07
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Apollo.Block2.RCSquad_4292467152
-	sym = bluedog.Apollo.Block2.RCSquad_4293035622
-	sym = bluedog.Apollo.Block2.RCSquad_4292467284
-	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Apollo.Block2.RCSquad_4292467152
-	partName = Part
-	persistentId = 665996697
-	pos = -0.122735724,12.5083923,0.00655674934
-	attPos = 0.00827586651,0,4.93280083E-10
-	attPos0 = -1.93715096E-07,0.942153931,-1.2684176
-	rot = 0,0.707106471,0,-0.707107067
-	attRot = 0,0,0,1
-	attRot0 = 0,0.707106471,0,-0.707107067
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 2
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Apollo.Block2.RCSquad_4293035622
-	sym = bluedog.Apollo.Block2.RCSquad_4292467284
-	sym = bluedog.Apollo.Block2.RCSquad_4292467218
-	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,-0.0460000001|0|0,1|0|0,-0.0460000001|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
 	part = bluedog.GeminiFerry.DockingAdapter_4293079486
 	partName = Part
-	persistentId = 1506389741
+	persistentId = 2936286058
 	pos = -0.12273553,8.80488873,1.27497435
 	attPos = 0,0,0
 	attPos0 = 0,-2.76134968,0
@@ -2291,7 +1508,7 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 0
 	resPri = 0
 	dstg = 2
 	sidx = -1
@@ -2302,9 +1519,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Apollo.Block2.ActiveDockingMechanism_4293047012
+	link = bluedog.Apollo.ProbeDockingPort_4293047012
 	attN = top,bluedog.BigG.CylindricalSM_4292467658_0|0.392850012|0_0|1|0_0|0.392850012|0_0|1|0
-	attN = bottom,bluedog.Apollo.Block2.ActiveDockingMechanism_4293047012_0|-0.40902999|0_0|-1|0_0|-0.40902999|0_0|-1|0
+	attN = bottom,bluedog.Apollo.ProbeDockingPort_4293047012_0|-0.40902999|0_0|-1|0_0|-0.40902999|0_0|-1|0
 	attN = bottom2,Null_0_0|0.338620007|0_0|-1|0_0|0.338620007|0_0|-1|0
 	EVENTS
 	{
@@ -2333,9 +1550,9 @@ PART
 }
 PART
 {
-	part = bluedog.Apollo.Block2.ActiveDockingMechanism_4293047012
+	part = bluedog.Apollo.ProbeDockingPort_4293047012
 	partName = Part
-	persistentId = 3668022951
+	persistentId = 1901464073
 	pos = -0.12273553,8.35985947,1.27497435
 	attPos = 0,0,0
 	attPos0 = 0,-0.445029736,0
@@ -2346,7 +1563,7 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 0
 	resPri = 0
 	dstg = 2
 	sidx = -1
@@ -2389,6 +1606,9 @@ PART
 		isEnabled = True
 		acquireForceTweak = 100
 		crossfeed = True
+		nodeIsLocked = True
+		targetAngle = 0
+		inverted = False
 		stagingEnabled = False
 		state = Ready
 		dockUId = 0
@@ -2398,6 +1618,21 @@ PART
 		}
 		ACTIONS
 		{
+			ToggleLockedAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ServoEngageLockAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ServoDisgageLockAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
 			UndockAction
 			{
 				actionGroup = None
@@ -2427,6 +1662,20 @@ PART
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		AXISGROUPS
+		{
+			targetAngle
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 		}
 		UPGRADESAPPLIED
@@ -2461,6 +1710,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -2474,11 +1724,592 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Apollo.RCS.Quad_4291874404
+	partName = Part
+	persistentId = 2718663895
+	pos = -0.122735485,12.4888344,2.66111994
+	attPos = 0,0,0
+	attPos0 = 4.47034836E-08,0.922595978,1.38614559
+	rot = 0,3.05473804E-07,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,3.05473804E-07,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Apollo.RCS.Quad_4291873638
+	sym = bluedog.Apollo.RCS.Quad_4291873502
+	sym = bluedog.Apollo.RCS.Quad_4291873366
+	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,0|0|-0.0725919977,0|0|1,0|0|-0.0725919977
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Apollo.RCS.Quad_4291873638
+	partName = Part
+	persistentId = 2777482827
+	pos = 1.26340997,12.4888344,1.27497435
+	attPos = 0,0,0
+	attPos0 = 1.38614547,0.922595978,0
+	rot = 0,0.707107067,0,0.70710659
+	attRot = 0,0,0,1
+	attRot0 = 0,0.707107067,0,0.70710659
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Apollo.RCS.Quad_4291873502
+	sym = bluedog.Apollo.RCS.Quad_4291873366
+	sym = bluedog.Apollo.RCS.Quad_4291874404
+	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,0|0|-0.0725919977,0|0|1,0|0|-0.0725919977
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Apollo.RCS.Quad_4291873502
+	partName = Part
+	persistentId = 576611663
+	pos = -0.122735694,12.4888344,-0.111171246
+	attPos = 0,0,0
+	attPos0 = -1.63912773E-07,0.922595978,-1.38614559
+	rot = 0,1,0,-3.491852E-07
+	attRot = 0,0,0,1
+	attRot0 = 0,1,0,-3.491852E-07
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Apollo.RCS.Quad_4291873366
+	sym = bluedog.Apollo.RCS.Quad_4291874404
+	sym = bluedog.Apollo.RCS.Quad_4291873638
+	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,0|0|-0.0725919977,0|0|1,0|0|-0.0725919977
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Apollo.RCS.Quad_4291873366
+	partName = Part
+	persistentId = 1688667489
+	pos = -1.50888097,12.4888344,1.27497447
+	attPos = 0,0,0
+	attPos0 = -1.38614547,0.922595978,1.1920929E-07
+	rot = 0,0.70710659,0,-0.707107067
+	attRot = 0,0,0,1
+	attRot0 = 0,0.70710659,0,-0.707107067
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Apollo.RCS.Quad_4291874404
+	sym = bluedog.Apollo.RCS.Quad_4291873638
+	sym = bluedog.Apollo.RCS.Quad_4291873502
+	srfN = srfAttach,bluedog.BigG.CylindricalSM_4292467658,Collider,0|0|-0.0725919977,0|0|1,0|0|-0.0725919977
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.BigG.MainParachute_4292257584
+	partName = Part
+	persistentId = 3955369374
+	pos = -0.12273553,16.9963207,1.27497435
+	attPos = 0,0,0
+	attPos0 = 0,0.395799637,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 1
+	sqor = 0
+	sepI = 0
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.BigG.Nose_4292250182
+	attN = bottom,bluedog.Gemini.ReentryRCS_4293176450_0|-0.266499996|0_0|-1|0_0|-0.266499996|0_0|-1|0
+	attN = top,bluedog.BigG.Nose_4292250182_0|-0.209480003|0_0|1|0_0|-0.209480003|0_0|1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleParachute
+		isEnabled = True
+		persistentState = STOWED
+		animTime = 0
+		minAirPressureToOpen = 0.0399999991
+		deployAltitude = 1000
+		spreadAngle = 7
+		automateSafeDeploy = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			CutAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDragModifier
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDragModifier
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchAdapter
-		currentSubtype = 0.625
+		moduleID = meshSwitchPaint
+		currentSubtype = Black
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -2493,6 +2324,224 @@ PART
 	{
 		name = ModuleB9PartInfo
 		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.BigG.Nose_4292250182
+	partName = Part
+	persistentId = 3986150050
+	pos = -0.12273553,17.0249596,1.27497435
+	attPos = 0,0,0
+	attPos0 = 0,0.0286388397,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 0
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.BigG.DrogueChute_4292249534
+	attN = bottom,bluedog.BigG.MainParachute_4292257584_0|-0.238120005|0_0|-1|0_0|-0.238120005|0_0|-1|0
+	attN = top,Null_0_0|0.331449986|0_0|1|0_0|0.331449986|0_0|1|0
+	attN = parachute,bluedog.BigG.DrogueChute_4292249534_0.0812854171|0.200048834|-0.0812854394_0|1.00000012|-1.1920929E-07_0.0812854171|0.200048834|-0.0812854394_0|1.00000012|-1.1920929E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = meshSwitchPaint
+		currentSubtype = Black
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.BigG.DrogueChute_4292249534
+	partName = Part
+	persistentId = 3111639957
+	pos = -0.0588415265,17.2286243,1.16143942
+	attPos = 0,0,0
+	attPos0 = 0.0638940036,0.20366478,-0.113534927
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 2
+	sidx = 0
+	sqor = 2
+	sepI = 0
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	attN = parachute,bluedog.BigG.Nose_4292250182_0.0173914135|-0.0036155954|0.0322494283_0|-1.00000012|-1.1920929E-07_0.0173914135|-0.0036155954|0.0322494283_0|-1.00000012|-1.1920929E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleParachute
+		isEnabled = True
+		persistentState = STOWED
+		animTime = 0
+		minAirPressureToOpen = 0.00999999978
+		deployAltitude = 7000
+		spreadAngle = 7
+		automateSafeDeploy = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			CutAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDragModifier
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDragModifier
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
 		stagingEnabled = True
 		EVENTS
 		{

@@ -1,10 +1,10 @@
 ship = Delta D (TAD)
-version = 1.8.1
+version = 1.12.3
 description = Delta B, C, C1 = LR79-NA11 Engine; Delta B Upper Stage; Optional Star 20 Altair¨¨Delta D (Thrust Augmented Delta) = LR79-NA13 Engine; 3x Castor 1; Optional Star-20 Altair
 type = VAB
-size = 2.66632557,19.0031433,2.30910611
+size = 2.66632581,19.0031357,2.30910587
 steamPublishedFileId = 0
-persistentId = 518751898
+persistentId = 3682661282
 rot = 0,0,0,0
 missionFlag = Bluedog_DB/Flags/BDB_wormLogo
 vesselType = Debris
@@ -14,12 +14,12 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = bluedog.Sargent.3xDecoupler_4291918464
+	part = bluedog.UpperSolids.Altair_4291924456
 	partName = Part
-	persistentId = 2910506340
-	pos = -0.0819793195,25.9302464,0.769827604
+	persistentId = 441471522
+	pos = -0.0819793195,26.4646988,0.769827604
 	attPos = 0,0,0
-	attPos0 = 0,0.0569839478,0
+	attPos0 = -0.0819793195,26.4646988,0.769827604
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -29,18 +29,18 @@ PART
 	rigidAttachment = False
 	istg = 0
 	resPri = 0
-	dstg = 1
+	dstg = 0
 	sidx = 0
 	sqor = 0
-	sepI = 0
+	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 5.60000038
+	modMass = 0.00139999995
 	modSize = 0,0,0
-	link = bluedog.FairingBase.0p625m.SAF_4292313370
-	attN = top,bluedog.UpperSolids.Altair_4291924456_0|0.0264526606|0_0|1|0_0|0.0264526606|0_0|1|0
-	attN = bottom,bluedog.FairingBase.0p625m.SAF_4292313370_0|-0.0259846393|0_0|-1|0_0|-0.0259846393|0_0|-1|0
+	link = bluedog.PSM.0p3125m.LowProfile_4291951306
+	attN = top,Null_0_0|0.508000016|0_0|1|0_0|0.508000016|0_0|1|0
+	attN = bottom,bluedog.PSM.0p3125m.LowProfile_4291951306_0|-0.508000016|0_0|-1|0_0|-0.508000016|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -67,79 +67,21 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDecouple
+		name = ModuleCargoPart
 		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			DecoupleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
 		}
 		UPGRADESAPPLIED
 		{
 		}
-	}
-}
-PART
-{
-	part = bluedog.UpperSolids.Altair_4291924456
-	partName = Part
-	persistentId = 441471522
-	pos = -0.0819793195,26.4646988,0.769827604
-	attPos = 0,0,0
-	attPos0 = -0.0819793195,26.4646988,0.769827604
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = 1
-	sqor = 0
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 5.60000038
-	modMass = 0.00139999995
-	modSize = 0,0,0
-	link = bluedog.Sargent.3xDecoupler_4291918464
-	attN = top,Null_0_0|0.508000016|0_0|1|0_0|0.508000016|0_0|1|0
-	attN = bottom,bluedog.Sargent.3xDecoupler_4291918464_0|-0.508000016|0_0|-1|0_0|-0.508000016|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
 	}
 	MODULE
 	{
@@ -188,6 +130,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -198,6 +141,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -341,12 +285,157 @@ PART
 }
 PART
 {
+	part = bluedog.PSM.0p3125m.LowProfile_4291951306
+	partName = Part
+	persistentId = 2537275881
+	pos = -0.0819793195,25.9316998,0.769827604
+	attPos = 0,0,0
+	attPos0 = 0,-0.532999039,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 1
+	sepI = 0
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.FairingBase.0p625m.SAF_4292313370
+	attN = top,bluedog.UpperSolids.Altair_4291924456_0|0.0250000004|0_0|1|0_0|0.0250000004|0_0|1|0
+	attN = bottom,bluedog.FairingBase.0p625m.SAF_4292313370_0|-0.0250000004|0_0|-1|0_0|-0.0250000004|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleBdbDecouplerAnimation
+		isEnabled = True
+		animPosition = 0
+		animSpeed = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+				active = False
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleToggleCrossfeed
+		isEnabled = True
+		crossfeedStatus = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			EnableAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			DisableAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
 	part = bluedog.FairingBase.0p625m.SAF_4292313370
 	partName = Part
 	persistentId = 3738600172
-	pos = -0.0819793195,25.8732643,0.769827604
+	pos = -0.0819793195,25.8757019,0.769827604
 	attPos = 0,0,0
-	attPos0 = 0,-0.0569820404,0
+	attPos0 = 0,-0.0559978485,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -357,7 +446,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 3
-	sidx = 0
+	sidx = 1
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -366,7 +455,7 @@ PART
 	modMass = 0.0120000001
 	modSize = 0,0,0
 	link = bluedog.ThorAble.Guidance_4292239512
-	attN = top,bluedog.Sargent.3xDecoupler_4291918464_0|0.0309989993|0_0|1|0_0|0.0309989993|0_0|1|0
+	attN = top,bluedog.PSM.0p3125m.LowProfile_4291951306_0|0.0309989993|0_0|1|0_0|0.0309989993|0_0|1|0
 	attN = bottom,bluedog.ThorAble.Guidance_4292239512_0|-0.0190009996|0_0|-1|0_0|-0.0190009996|0_0|-1|0
 	EVENTS
 	{
@@ -488,7 +577,7 @@ PART
 	part = bluedog.ThorAble.Guidance_4292239512
 	partName = Part
 	persistentId = 3251547853
-	pos = -0.0819793195,25.469574,0.769827604
+	pos = -0.0819793195,25.4720116,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,-0.403690338,0
 	rot = 0,0,0,1
@@ -617,6 +706,9 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -677,7 +769,7 @@ PART
 	part = bluedog.DeltaB.Tank_4292225752
 	partName = Part
 	persistentId = 2199935312
-	pos = -0.0819793195,23.5218849,0.769827604
+	pos = -0.0819793195,23.5243225,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,1.84186935,0
 	rot = 0,0,0,1
@@ -825,6 +917,36 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
@@ -911,7 +1033,7 @@ PART
 	part = bluedog.Able.Engine_4292237842
 	partName = Part
 	persistentId = 1418946717
-	pos = -0.0819793195,21.7878857,0.769827604
+	pos = -0.0819793195,21.7903233,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,-1.73400021,0
 	rot = 0,0,0,1
@@ -924,7 +1046,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 4
-	sidx = 1
+	sidx = 2
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -957,6 +1079,24 @@ PART
 	}
 	PARTDATA
 	{
+	}
+	MODULE
+	{
+		name = ModuleCargoPart
+		isEnabled = True
+		beingAttached = False
+		beingSettled = False
+		reinitResourcesOnStoreInVessel = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	MODULE
 	{
@@ -1005,6 +1145,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -1015,6 +1156,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -1203,6 +1345,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -1222,7 +1379,7 @@ PART
 	part = bluedog.ThorDelta.Interstage_4291960188
 	partName = Part
 	persistentId = 3039554477
-	pos = -0.0819793195,21.6800156,0.769827604
+	pos = -0.0819793195,21.6824532,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,0.710109711,0
 	rot = 0,0,0,1
@@ -1235,7 +1392,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 2
+	sidx = 3
 	sqor = 1
 	sepI = 1
 	attm = 0
@@ -1399,7 +1556,7 @@ PART
 	part = bluedog.Thor.0p9375mAdapter_4291962820
 	partName = Part
 	persistentId = 507965560
-	pos = -0.0819793195,20.9699059,0.769827604
+	pos = -0.0819793195,20.9723434,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,1.68860054,0
 	rot = 0,0,0,1
@@ -1555,7 +1712,7 @@ PART
 	part = bluedog.Thor.1p25mAdapter.Long_4292078644
 	partName = Part
 	persistentId = 3105676789
-	pos = -0.0819793195,19.2813053,0.769827604
+	pos = -0.0819793195,19.2837429,0.769827604
 	attPos = 0,0,0
 	attPos0 = -0.0819773227,19.2813034,0.769827187
 	rot = 0,0,0,1
@@ -1697,7 +1854,7 @@ PART
 	part = bluedog.Thor.LowerTank.1_4292075198
 	partName = Part
 	persistentId = 735951094
-	pos = -0.0819793195,15.6563053,0.769827604
+	pos = -0.0819793195,15.6587429,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,-3.625,0
 	rot = 0,0,0,1
@@ -1873,7 +2030,7 @@ PART
 	part = bluedog.Thor.EngineMount_4290870886
 	partName = Part
 	persistentId = 2942949534
-	pos = -0.0819793195,12.0162048,0.769827604
+	pos = -0.0819793195,12.0186424,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,-3.64010048,0
 	rot = 0,0,0,1
@@ -1966,7 +2123,7 @@ PART
 	part = bluedog.Thor.LR79_4292059756
 	partName = Part
 	persistentId = 3786214636
-	pos = -0.0819793195,11.969595,0.769827604
+	pos = -0.0819793195,11.9720325,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0,-0.0466098785,0
 	rot = 0,0,0,1
@@ -2060,6 +2217,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -2070,6 +2228,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -2290,6 +2449,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -2320,7 +2494,7 @@ PART
 	part = bluedog.Thor.LR101_4292060852
 	partName = Part
 	persistentId = 1277437945
-	pos = 0.442020655,11.4112053,0.769827604
+	pos = 0.442020655,11.4136429,0.769827604
 	attPos = 0,0,0
 	attPos0 = 0.523999989,-0.604999542,0
 	rot = 0,0,0,1
@@ -2414,6 +2588,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -2424,6 +2599,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -2649,6 +2825,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -2668,7 +2859,7 @@ PART
 	part = bluedog.Thor.LR101_4290867978
 	partName = Part
 	persistentId = 3357298110
-	pos = -0.605979323,11.4112053,0.769827604
+	pos = -0.605979323,11.4136429,0.769827604
 	attPos = 0,0,0
 	attPos0 = -0.523999989,-0.604999542,0
 	rot = 0,1,0,-4.37113883E-08
@@ -2762,12 +2953,14 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -2989,6 +3182,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -3008,7 +3216,7 @@ PART
 	part = bluedog.Castor.RadialDecoupler_4291898510
 	partName = Part
 	persistentId = 312640643
-	pos = -0.0819793046,12.0985594,1.61986959
+	pos = -0.0819793046,12.100997,1.61986959
 	attPos = -1.49011612E-08,-0.226585388,-0.0485944748
 	attPos0 = 1.49011612E-08,0.0823545456,0.850041986
 	rot = 0,0.707106829,0,0.707106829
@@ -3133,7 +3341,7 @@ PART
 	part = bluedog.Castor2_4291898418
 	partName = Part
 	persistentId = 3111936045
-	pos = -0.0819792747,12.8551912,1.88520646
+	pos = -0.0819792747,12.8576288,1.88520646
 	attPos = 0,0,0
 	attPos0 = -0.265336454,0.756631851,-2.98023188E-08
 	rot = 0,2.08616257E-07,0,1.00000012
@@ -3228,12 +3436,14 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -3337,7 +3547,7 @@ PART
 	part = bluedog.Castor.RadialDecoupler_4290865220
 	partName = Part
 	persistentId = 4086270322
-	pos = 0.654178619,12.0985594,0.344806492
+	pos = 0.654178619,12.100997,0.344806492
 	attPos = -1.49011612E-08,-0.226585388,-0.0485944748
 	attPos0 = 0.736157954,0.0823545456,-0.425021112
 	rot = 0,0.965925872,0,-0.258819103
@@ -3462,7 +3672,7 @@ PART
 	part = bluedog.Castor2_4290865134
 	partName = Part
 	persistentId = 4021572587
-	pos = 0.883967638,12.8551912,0.212137759
+	pos = 0.883967698,12.8576288,0.212137699
 	attPos = 0,0,0
 	attPos0 = -0.265336454,0.756631851,-2.98023188E-08
 	rot = 0,0.866025567,0,0.499999881
@@ -3557,12 +3767,14 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -3666,7 +3878,7 @@ PART
 	part = bluedog.Castor.RadialDecoupler_4290865036
 	partName = Part
 	persistentId = 807364127
-	pos = -0.818137407,12.0985594,0.344806612
+	pos = -0.818137407,12.100997,0.344806612
 	attPos = -1.49011612E-08,-0.226585388,-0.0485944748
 	attPos0 = -0.736158073,0.0823545456,-0.425020993
 	rot = 0,0.258819014,0,-0.965925872
@@ -3791,7 +4003,7 @@ PART
 	part = bluedog.Castor2_4290864950
 	partName = Part
 	persistentId = 428879412
-	pos = -1.04792571,12.8551912,0.212138295
+	pos = -1.04792571,12.8576288,0.212138295
 	attPos = 0,0,0
 	attPos0 = -0.265336454,0.756631851,-2.98023188E-08
 	rot = 0,0.866025388,0,-0.500000179
@@ -3886,12 +4098,14 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
