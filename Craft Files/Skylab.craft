@@ -2,7 +2,7 @@ ship = Skylab
 version = 1.12.3
 description = Airlock Module, RAM used for ETS
 type = VAB
-size = 16.9905167,22.7339745,13.1041145
+size = 16.9905167,22.7339745,13.1041164
 steamPublishedFileId = 0
 persistentId = 3337055120
 rot = 0,0,0,0
@@ -154,6 +154,40 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = meshSwitchDiameter
+		currentSubtype = 4.25m
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = Black
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleDataTransmitter
 		isEnabled = True
 		xmitIncomplete = False
@@ -169,6 +203,21 @@ PART
 				active = False
 				wasActiveBeforePartWasAdjusted = False
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -236,6 +285,8 @@ PART
 	link = bluedog.Skylab.RadiatorMount_4293345652
 	attN = top,bluedog.Saturn.S4B.InstrumentUnit_4293381776_0|4.03888988|0_0|1|0_0|4.03888988|0_0|1|0
 	attN = bottom,bluedog.Skylab.RadiatorMount_4293345652_0|-2.43774009|0_0|-1|0_0|-2.43774009|0_0|-1|0
+	attN = SAL2,Null_0_0|1.00999999|2.13000011_0|0|1_0|1.00999999|2.13000011_0|0|1
+	attN = SAL1,Null_0_0|1.00999999|-2.13000011_0|0|-1_0|1.00999999|-2.13000011_0|0|-1
 	EVENTS
 	{
 	}
@@ -1193,6 +1244,23 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = meshSwitchRails
+		currentSubtype = Blue
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -1917,6 +1985,38 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = Black
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
@@ -2047,6 +2147,38 @@ PART
 				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = Black
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -2316,16 +2448,23 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDataTransmitter
+		name = ModuleScienceExperiment
 		isEnabled = True
-		xmitIncomplete = False
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			StartTransmissionAction
+			DeployAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+			ResetAction
 			{
 				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
@@ -2552,7 +2691,7 @@ PART
 	pos = 0.00806858949,27.0261211,-2.92670584
 	attPos = 0,0,0
 	attPos0 = -2.08432142E-14,3.41422081,-2.38418579E-07
-	rot = -0.707106829,0,6.18172464E-08,0.707106829
+	rot = -0.707106829,-7.10542736E-15,6.18172535E-08,0.707106829
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
@@ -2804,10 +2943,10 @@ PART
 	part = bluedog.Skylab.ATM.experiments_4293314526
 	partName = Part
 	persistentId = 3409959889
-	pos = 0.00806846749,27.0261211,-4.31879282
+	pos = 0.00806846749,27.0261211,-4.31879473
 	attPos = 0,0,0
 	attPos0 = 0,1.39208603,0
-	rot = -0.707106829,0,6.18172464E-08,0.707106829
+	rot = -0.707106829,-7.10542736E-15,6.18172535E-08,0.707106829
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
 	mir = 1,1,1
@@ -3024,10 +3163,10 @@ PART
 	part = bluedog.Skylab.evaLight_4293312992
 	partName = Part
 	persistentId = 49151298
-	pos = 0.178058118,25.944273,-5.00496292
+	pos = 0.178058177,25.944273,-5.00496483
 	attPos = 0,0,0
 	attPos0 = 0.169989586,0.686170578,-1.08184838
-	rot = -0.707106709,1.0658141E-14,6.19700344E-08,0.707106948
+	rot = -0.707106709,3.55271368E-15,6.19700486E-08,0.707106948
 	attRot = 0,0,0,1
 	attRot0 = 1.68587405E-07,-1.08037974E-10,1.08037974E-10,1
 	mir = 1,1,1
@@ -3205,10 +3344,10 @@ PART
 	part = bluedog.Skylab.ATM.solar_4292216676
 	partName = Part
 	persistentId = 1119564125
-	pos = -0.729815841,26.2882366,-4.16286516
+	pos = -0.729816198,26.2882366,-4.16286707
 	attPos = 0,0,0
 	attPos0 = -0.737884164,-0.155927658,-0.737884164
-	rot = 0.65328151,-0.270597816,0.270597845,-0.653281748
+	rot = 0.653281569,-0.270597845,0.270597786,-0.653281808
 	attRot = 0,0,0,1
 	attRot0 = -8.94069743E-08,-0.382683158,6.48955236E-08,-0.923879683
 	mir = 1,1,1
@@ -3328,7 +3467,7 @@ PART
 	part = bluedog.Skylab.ATM.solar_4292213774
 	partName = Part
 	persistentId = 1072944414
-	pos = -0.7298159,27.7640038,-4.16286516
+	pos = -0.729816258,27.7640038,-4.16286707
 	attPos = 0,0,0
 	attPos0 = -0.737884104,-0.155927896,0.737883866
 	rot = 0.270598322,-0.653281391,0.65328151,-0.270598322
@@ -3450,10 +3589,10 @@ PART
 	part = bluedog.Skylab.ATM.solar_4292213468
 	partName = Part
 	persistentId = 2975002507
-	pos = 0.745952785,27.7640038,-4.16286516
+	pos = 0.745952904,27.7640038,-4.16286707
 	attPos = 0,0,0
 	attPos0 = 0.737884343,-0.155927896,0.737883627
-	rot = -0.270597786,-0.653281629,0.653281629,0.270597875
+	rot = -0.270597786,-0.653281748,0.653281629,0.270597905
 	attRot = 0,0,0,1
 	attRot0 = 4.47034942E-08,-0.923879683,8.10431686E-08,0.382683188
 	mir = 1,1,1
@@ -3573,10 +3712,10 @@ PART
 	part = bluedog.Skylab.ATM.solar_4292213162
 	partName = Part
 	persistentId = 1503673916
-	pos = 0.745952725,26.2882366,-4.16286516
+	pos = 0.745952845,26.2882366,-4.16286707
 	attPos = 0,0,0
 	attPos0 = 0.737884164,-0.155927658,-0.737884402
-	rot = -0.653281331,-0.270598292,0.270598382,0.653281569
+	rot = -0.653281331,-0.270598263,0.270598322,0.653281569
 	attRot = 0,0,0,1
 	attRot0 = 5.96046448E-08,-0.382683754,3.94126189E-08,0.923879385
 	mir = 1,1,1
@@ -3698,7 +3837,7 @@ PART
 	pos = 0.619520903,27.6006546,-1.90386546
 	attPos = 0.0323759913,0.0092716217,-0.00454175472
 	attPos0 = 0.57907635,-1.03211212,0.579076231
-	rot = 0.707106709,6.18172464E-08,7.10542736E-15,0.707106948
+	rot = 0.707106709,6.18172464E-08,1.0658141E-14,0.707106948
 	attRot = 0,0,0,1
 	attRot0 = 1,-5.32299953E-29,5.32299953E-29,1.68587405E-07
 	mir = 1,1,1
@@ -3768,10 +3907,10 @@ PART
 	part = bluedog.Skylab.evaLight_4293311660
 	partName = Part
 	persistentId = 294579939
-	pos = -0.456179857,26.0795975,-2.60815001
+	pos = -0.456180096,26.0795975,-2.60815001
 	attPos = -0.0554375947,0.138881683,0
 	attPos0 = -0.408810884,-0.457437515,-0.946523428
-	rot = 0.410774231,-0.911737323,7.14514528E-08,-3.46525013E-08
+	rot = 0.410774231,-0.911737204,7.14514528E-08,-3.46525084E-08
 	attRot = -0.354234457,-0.935156822,5.72567771E-08,1.00778212E-08
 	attRot0 = 0.290461063,-0.64469564,-0.644695461,-0.290461153
 	mir = 1,1,1

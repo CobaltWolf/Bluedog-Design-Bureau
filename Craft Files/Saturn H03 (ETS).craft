@@ -2,7 +2,7 @@ ship = Saturn H03 (ETS)
 version = 1.12.3
 description = 
 type = VAB
-size = 14.6537027,45.2743225,6.32102203
+size = 14.6537027,47.1132813,6.32102108
 steamPublishedFileId = 0
 persistentId = 2071394577
 rot = 0,0,0,0
@@ -39,8 +39,8 @@ PART
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Saturn.S4B.Tank_4292477270
-	link = bluedog.FairingBase.4p25m_4292364194
-	attN = top,bluedog.FairingBase.4p25m_4292364194_0|0.263669997|0_0|1|0_0|0.263669997|0_0|1|0
+	link = bluedog.FairingBase.4p25m.SAF_4292050600
+	attN = top,bluedog.FairingBase.4p25m.SAF_4292050600_0|0.263669997|0_0|1|0_0|0.263669997|0_0|1|0
 	attN = bottom,bluedog.Saturn.S4B.Tank_4292477270_0|-0.361330003|0_0|-1|0_0|-0.361330003|0_0|-1|0
 	EVENTS
 	{
@@ -135,11 +135,47 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleSAS
+		isEnabled = True
+		standaloneToggle = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = meshSwitchDiameter
 		currentSubtype = 4.25m
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = Black
 		EVENTS
 		{
 		}
@@ -165,53 +201,6 @@ PART
 			{
 				actionGroup = None
 				active = False
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSAS
-		isEnabled = True
-		standaloneToggle = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-			upgrade = sss_SAS1
-			upgrade = sss_SAS2
-			upgrade = sss-SAS3
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-			ResetAction
-			{
-				actionGroup = None
 				wasActiveBeforePartWasAdjusted = False
 			}
 		}
@@ -288,8 +277,8 @@ PART
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 5284.08545
-	modMass = 0
+	modCost = 3424.81177
+	modMass = 1.85000026
 	modSize = 0,0,0
 	link = bluedog.Saturn.S4B.EngineMount_4292462428
 	attN = top,bluedog.Saturn.S4B.InstrumentUnit_4292483606_0|3.21490002|0_0|1|0_0|6.09819984|0_0|1|0
@@ -324,7 +313,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = textureSwitchPaint
-		currentSubtype = 200 Series
+		currentSubtype = 500 Series
 		EVENTS
 		{
 		}
@@ -375,7 +364,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = fuelSwitch
-		currentSubtype = Hydrolox
+		currentSubtype = LH2/O
 		EVENTS
 		{
 		}
@@ -405,7 +394,7 @@ PART
 	{
 		name = LqdHydrogen
 		amount = 108391.5
-		maxAmount = 108391.5
+		maxAmount = 81375
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -416,7 +405,7 @@ PART
 	{
 		name = Oxidizer
 		amount = 7226.10009765625
-		maxAmount = 7226.10009765625
+		maxAmount = 5425
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -463,6 +452,8 @@ PART
 	attN = LASS_node2,Null_0_-1.18599999|-2.75033855|5.03682109E-08_-0.155106992|-0.987897754|-9.68575478E-08_-1.18599999|-2.75033855|5.03682109E-08_-0.155106992|-0.987897754|-9.68575478E-08
 	attN = Dual_1,Null_0_-0.86438936|-2.08321095|4.0055744E-07_0|-1.00000012|-1.1920929E-07_-0.86438936|-2.08321095|4.0055744E-07_0|-1.00000012|-1.1920929E-07
 	attN = Dual_2,Null_0_0.86400032|-2.08321095|4.0055744E-07_0|-1.00000012|-1.1920929E-07_0.86400032|-2.08321095|4.0055744E-07_0|-1.00000012|-1.1920929E-07
+	attN = Quad_1,Null_0_0|-2.08321071|1.01399994_0|-0.99999994|1.78813934E-07_0|-2.08321071|1.01399994_0|-0.99999994|1.78813934E-07
+	attN = Quad_2,Null_0_0|-2.08321071|-1.01399994_0|-0.99999994|1.78813934E-07_0|-2.08321071|-1.01399994_0|-0.99999994|1.78813934E-07
 	EVENTS
 	{
 	}
@@ -1094,8 +1085,8 @@ PART
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
-	modCost = 34967.6992
-	modMass = 6.07500029
+	modCost = 11512.001
+	modMass = 2.00000048
 	modSize = 0,0,0
 	link = bluedog.Saturn.S1.EngineMount_4292441820
 	link = bluedog.Saturn.AJ260.RadialDecoupler_4291294284
@@ -1167,7 +1158,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = fuelSwitch
-		currentSubtype = Kerolox
+		currentSubtype = Balloon
 		EVENTS
 		{
 		}
@@ -1350,7 +1341,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 3
-	sidx = 0
+	sidx = 1
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -1680,366 +1671,6 @@ PART
 	{
 		name = ModuleB9PartInfo
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.FairingBase.4p25m_4292364194
-	partName = Part
-	persistentId = 2247586526
-	pos = 0.115604304,35.1552696,-0.450885355
-	attPos = 0,0,0
-	attPos0 = 0,0.707954407,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 1
-	sidx = 1
-	sqor = 1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 1.40129846E-45
-	modSize = 0,0,0
-	link = bluedog.FairingBase.4p25m.SAF_4292050600
-	attN = top,bluedog.FairingBase.4p25m.SAF_4292050600_0|-0.0815050006|0_0|1|0_0|-0.0815050006|0_0|1|0
-	attN = bottom,bluedog.Saturn.S4B.InstrumentUnit_4292483606_0|-0.444281995|0_0|-1|0_0|-0.444281995|0_0|-1|0
-	attN = interstage01a,Null_0_0|0.687838018|0_0|-1|0_0|0.687838018|0_0|-1|0
-	attN = interstage01b,Null_0_0|0.731837988|0_0|1|0_0|0.731837988|0_0|1|0
-	attN = interstage02a,Null_0_0|1.28783798|0_0|-1|0_0|1.28783798|0_0|-1|0
-	attN = interstage02b,Null_0_0|1.33183801|0_0|1|0_0|1.33183801|0_0|1|0
-	attN = interstage03a,Null_0_0|1.88783801|0_0|-1|0_0|1.88783801|0_0|-1|0
-	attN = interstage03b,Null_0_0|1.93183804|0_0|1|0_0|1.93183804|0_0|1|0
-	attN = interstage04a,Null_0_0|2.48783803|0_0|-1|0_0|2.48783803|0_0|-1|0
-	attN = interstage04b,Null_0_0|2.53183794|0_0|1|0_0|2.53183794|0_0|1|0
-	attN = interstage05a,Null_0_0|3.08783793|0_0|-1|0_0|3.08783793|0_0|-1|0
-	attN = interstage05b,Null_0_0|3.13183808|0_0|1|0_0|3.13183808|0_0|1|0
-	attN = interstage06a,Null_0_0|3.68783808|0_0|-1|0_0|3.68783808|0_0|-1|0
-	attN = interstage06b,Null_0_0|3.73183799|0_0|1|0_0|3.73183799|0_0|1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleProceduralFairing
-		isEnabled = True
-		interstageCraftID = 0
-		nArcs = 2
-		ejectionForce = 300
-		useClamshell = True
-		isCapped = False
-		stagingEnabled = True
-		fsm = st_idle
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployFairingAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleCargoBay
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNode
-		isEnabled = True
-		spawnState = False
-		visibilityState = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleStructuralNodeToggle
-		isEnabled = True
-		showMesh = True
-		showNodes = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = textureSwitchBody
-		currentSubtype = Black
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2543,8 +2174,40 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = S-IVB
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleTestSubject
 		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2707,148 +2370,26 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = S-IVB
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleTestSubject
 		isEnabled = True
 		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 20
-		maxAmount = 20
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.FairingBase.4p25m.SAF_4292050600
-	partName = Part
-	persistentId = 1866230901
-	pos = 0.115604304,35.5180473,-0.450885355
-	attPos = 0,0,0
-	attPos0 = 0,0.36277771,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 2
-	resPri = 0
-	dstg = 3
-	sidx = 0
-	sqor = 2
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 3.76800013
-	modSize = 0,0,0
-	attN = top,Null_0_0|-0.0815050006|0_0|1|0_0|-0.0815050006|0_0|1|0
-	attN = bottom,bluedog.FairingBase.4p25m_4292364194_0|-0.444281995|0_0|-1|0_0|-0.444281995|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleSimpleAdjustableFairing
-		isEnabled = True
-		deployed = False
-		numSegments = 0
-		transparentEditor = False
-		openFairing = False
-		autoDeploy = True
-		deployAltitude = 50
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleCargoBay
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = fairingSwitch
-		currentSubtype = S4B
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = textureSwitchBody
-		currentSubtype = Black
 		EVENTS
 		{
 		}
@@ -2874,6 +2415,17 @@ PART
 		{
 		}
 	}
+	RESOURCE
+	{
+		name = SolidFuel
+		amount = 20
+		maxAmount = 20
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
 }
 PART
 {
@@ -2890,12 +2442,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 3
 	sidx = 0
-	sqor = 3
-	sepI = 3
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -3045,12 +2597,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 3
 	sidx = 0
-	sqor = 3
-	sepI = 3
+	sqor = 2
+	sepI = 2
 	attm = 1
 	sameVesselCollision = False
 	modCost = 0
@@ -3200,16 +2752,16 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
-	modCost = 34967.6992
-	modMass = 6.07500029
+	modCost = 11512.001
+	modMass = 2.00000048
 	modSize = 0,0,0
 	link = bluedog.Saturn.S1.EngineMount_4291289928
 	link = bluedog.Saturn.AJ260.Nose_4291274546
@@ -3281,7 +2833,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = fuelSwitch
-		currentSubtype = Kerolox
+		currentSubtype = Balloon
 		EVENTS
 		{
 		}
@@ -3362,12 +2914,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
@@ -3465,9 +3017,9 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 3
+	sidx = 0
 	sqor = 1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 3250
@@ -3815,16 +3367,16 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
-	modCost = 34967.6992
-	modMass = 6.07500029
+	modCost = 11512.001
+	modMass = 2.00000048
 	modSize = 0,0,0
 	link = bluedog.Saturn.S1.EngineMount_4291277714
 	link = bluedog.Saturn.AJ260.Nose_4291274128
@@ -3896,7 +3448,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = fuelSwitch
-		currentSubtype = Kerolox
+		currentSubtype = Balloon
 		EVENTS
 		{
 		}
@@ -3977,12 +3529,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
@@ -4080,9 +3632,9 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 2
+	sidx = 0
 	sqor = 1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 3250
@@ -4430,12 +3982,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
@@ -4498,12 +4050,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
@@ -4539,6 +4091,149 @@ PART
 	{
 		name = ModuleTestSubject
 		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.FairingBase.4p25m.SAF_4292050600
+	partName = Part
+	persistentId = 1866230901
+	pos = 0.115604304,35.1552696,-0.450885355
+	attPos = 0,0,0
+	attPos0 = 0,0.707954407,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 2
+	resPri = 0
+	dstg = 1
+	sidx = 1
+	sqor = 2
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 3.76800013
+	modSize = 0,0,0
+	attN = top,Null_0_0|-0.0815050006|0_0|1|0_0|-0.0815050006|0_0|1|0
+	attN = bottom,bluedog.Saturn.S4B.InstrumentUnit_4292483606_0|-0.444281995|0_0|-1|0_0|-0.444281995|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleSimpleAdjustableFairing
+		isEnabled = True
+		deployed = False
+		numSegments = 0
+		transparentEditor = False
+		openFairing = False
+		autoDeploy = True
+		deployAltitude = 50
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoBay
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = fairingSwitch
+		currentSubtype = S4B
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchBody
+		currentSubtype = Black
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
 		stagingEnabled = True
 		EVENTS
 		{
