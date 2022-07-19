@@ -65,7 +65,6 @@ Currently, the mod includes (but is not limited to):
 - AIMP/IMP
 - Alouette
 - ANNA 1B
-- Beacon 1/2 (Juno)
 - Beacon Explorer
 - Biosat
 - Clementine, ISAS
