@@ -46,6 +46,7 @@ Currently, the mod includes (but is not limited to):
 - Agena upper stage (All variants, plus some never built ones)
 - Vega (old Kerolox upper stage for Atlas)
 - Centaur D, G, G', T, II & III upper stages
+- Centaur Kickstage
 - Titan 1, 2, 3, 4 rockets, with SRMs and Transtage
 - Config switching for the LR87s, with alternate kerolox versions and plumes to match!
 - Config switching for the H1, the RS27, and many more! (All config switching provided courtesy of B9 Part Switch)
