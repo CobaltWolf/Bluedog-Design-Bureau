@@ -2,9 +2,9 @@ ship = Atlas IIAS
 version = 1.12.3
 description = Atlas IIAS Centaur II (SEC)
 type = VAB
-size = 3.49833369,28.410511,3.06523752
+size = 3.49833345,28.348011,3.06523752
 steamPublishedFileId = 0
-persistentId = 976381936
+persistentId = 2780660659
 rot = 0,0,0,0
 missionFlag = Bluedog_DB/Flags/BDB_wormLogo
 vesselType = Debris
@@ -16,7 +16,7 @@ PART
 {
 	part = bluedog.CentaurD.Avionics_4293130308
 	partName = Part
-	persistentId = 1135983099
+	persistentId = 812401279
 	pos = 0.0947420821,29.750351,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0.0947420821,29.750351,0.282619745
@@ -238,7 +238,7 @@ PART
 {
 	part = bluedog.Centaur.MPF.FairingBase.SAF_4293418288
 	partName = Part
-	persistentId = 2801124140
+	persistentId = 3917614314
 	pos = 0.0947420821,29.7034798,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-0.0468711853,0
@@ -260,9 +260,9 @@ PART
 	modCost = 0
 	modMass = 0.136000007
 	modSize = 0,0,0
-	link = bluedog.CentaurIII.FuelTank_4292420634
+	link = bluedog.Centaur4.Tank_4293074258
 	attN = top,bluedog.CentaurD.Avionics_4293130308_0|-0.153129995|0_0|1|0_0|-0.153129995|0_0|1|0
-	attN = bottom,bluedog.CentaurIII.FuelTank_4292420634_0|-0.278129995|0_0|-1|0_0|-0.278129995|0_0|-1|0
+	attN = bottom,bluedog.Centaur4.Tank_4293074258_0|-0.278129995|0_0|-1|0_0|-0.278129995|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -331,12 +331,12 @@ PART
 }
 PART
 {
-	part = bluedog.CentaurIII.FuelTank_4292420634
+	part = bluedog.Centaur4.Tank_4293074258
 	partName = Part
-	persistentId = 1278050947
-	pos = 0.0947420821,27.3941002,0.282619745
+	persistentId = 1599843143
+	pos = 0.0947420821,27.4253502,0.282619745
 	attPos = 0,0,0
-	attPos0 = 0,-2.30937958,0
+	attPos0 = 0,-2.27812958,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -356,8 +356,8 @@ PART
 	modMass = 2.42143869E-08
 	modSize = 0,0,0
 	link = bluedog.CentaurD.EngineMount_4293127698
-	attN = top,bluedog.Centaur.MPF.FairingBase.SAF_4293418288_0|2.03125|0_0|1|0_0|2.03125|0_0|1|0
-	attN = bottom,bluedog.CentaurD.EngineMount_4293127698_0|-2.03125|0_0|-1|0_0|-2.03125|0_0|-1|0
+	attN = top,bluedog.Centaur.MPF.FairingBase.SAF_4293418288_0|2|0_0|1|0_0|2|0_0|1|0
+	attN = bottom,bluedog.CentaurD.EngineMount_4293127698_0|-2|0_0|-1|0_0|-2|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -384,11 +384,28 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleB9PartSwitch
+		name = FlagDecal
 		isEnabled = True
+		flagDisplayed = False
+		isMirrored = False
 		stagingEnabled = True
-		moduleID = meshSwitchLength
-		currentSubtype = Centaur II
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FlagDecal
+		isEnabled = True
+		flagDisplayed = False
+		isMirrored = False
+		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -404,7 +421,7 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = textureSwitchPaint
+		moduleID = meshSwitchColor
 		currentSubtype = Orange
 		EVENTS
 		{
@@ -423,23 +440,6 @@ PART
 		lastUpdateTime = -1
 		temperatureInitialized = False
 		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchDome
-		currentSubtype = Common Centaur (4xx)
 		EVENTS
 		{
 		}
@@ -509,10 +509,10 @@ PART
 {
 	part = bluedog.CentaurD.EngineMount_4293127698
 	partName = Part
-	persistentId = 1597497345
-	pos = 0.0947420821,25.146452,0.282619745
+	persistentId = 1642454154
+	pos = 0.0947420821,25.208952,0.282619745
 	attPos = 0,0,0
-	attPos0 = 0,-2.24764824,0
+	attPos0 = 0,-2.21639824,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -536,10 +536,8 @@ PART
 	link = bluedog.centaur1875mAdapterFairing_4293079908
 	attN = engine1,bluedog.CentaurD.RL10_4293124996_-0.371126771|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07_-0.371126771|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07
 	attN = engine2,bluedog.CentaurD.RL10_4293123878_0.370999992|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07_0.370999992|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07
-	attN = engine3,Null_0_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07
-	attN = ABC_Node,Null_0_-0.417268634|-0.431620002|-0.320182025_-0.238564894|-0.953716934|-0.183059812_-0.417268634|-0.431620002|-0.320182025_-0.238564894|-0.953716934|-0.183059812
 	attN = interstage,bluedog.centaur1875mAdapterFairing_4293079908_0|0.196699381|2.56671179E-16_0|-1.00000012|-1.1920929E-07_0|0.196699381|2.56671179E-16_0|-1.00000012|-1.1920929E-07
-	attN = top,bluedog.CentaurIII.FuelTank_4292420634_0|0.216398954|2.47922811E-16_0|1.00000012|-1.1920929E-07_0|0.216398954|2.47922811E-16_0|1.00000012|-1.1920929E-07
+	attN = top,bluedog.Centaur4.Tank_4293074258_0|0.216398954|2.47922811E-16_0|1.00000012|-1.1920929E-07_0|0.216398954|2.47922811E-16_0|1.00000012|-1.1920929E-07
 	EVENTS
 	{
 	}
@@ -563,23 +561,6 @@ PART
 	}
 	PARTDATA
 	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMountType
-		currentSubtype = Centaur D
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
 	}
 	MODULE
 	{
@@ -659,21 +640,6 @@ PART
 		{
 		}
 	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 	RESOURCE
 	{
 		name = MonoPropellant
@@ -690,8 +656,8 @@ PART
 {
 	part = bluedog.CentaurD.RL10_4293124996
 	partName = Part
-	persistentId = 1302328875
-	pos = -0.276384681,24.2664032,0.282619745
+	persistentId = 1295918268
+	pos = -0.276384681,24.3289032,0.282619745
 	attPos = 0,0,0
 	attPos0 = -0.371126771,-0.880048752,0
 	rot = 0,0,0,1
@@ -786,7 +752,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -797,7 +762,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -1019,8 +983,8 @@ PART
 {
 	part = bluedog.CentaurD.RL10_4293123878
 	partName = Part
-	persistentId = 2529154099
-	pos = 0.465742081,24.2664032,0.282619745
+	persistentId = 878006189
+	pos = 0.465742081,24.3289032,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0.370999992,-0.880048752,0
 	rot = 0,1,0,-4.37113883E-08
@@ -1115,14 +1079,12 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -1340,8 +1302,8 @@ PART
 {
 	part = bluedog.centaur1875mAdapterFairing_4293079908
 	partName = Part
-	persistentId = 3045207100
-	pos = 0.0947420821,23.5263519,0.282619745
+	persistentId = 3976262455
+	pos = 0.0947420821,23.5888519,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-1.62010002,0
 	rot = 0,0,0,1
@@ -1362,8 +1324,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
+	link = bluedog.Atlas2.RollControlSystem_4293262274
 	link = bluedog.Atlas.MediumFuelTank_4293302656
-	link = bluedog.Centaur.ARCM_4292282690
 	attN = top,bluedog.CentaurD.EngineMount_4293127698_0|1.8168|0_0|1|0_0|1.8168|0_0|1|0
 	attN = bottom,bluedog.Atlas.MediumFuelTank_4293302656_0|0|0_0|-1|0_0|-0.666849971|0_0|-1|0
 	EVENTS
@@ -1418,24 +1380,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = meshSwitchBody
-		currentSubtype = Long (Centaur)
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchType
-		currentSubtype = Centaur D
+		currentSubtype = Long
 		EVENTS
 		{
 		}
@@ -1464,10 +1409,104 @@ PART
 }
 PART
 {
+	part = bluedog.Atlas2.RollControlSystem_4293262274
+	partName = Part
+	persistentId = 3743723019
+	pos = 0.0947419554,23.9584904,-0.697271585
+	attPos = 0,0,0
+	attPos0 = -1.2665987E-07,0.369638443,-0.9798913
+	rot = 1.09010318E-18,-5.14089948E-07,-5.60411077E-25,-1
+	attRot = 0,0,0,1
+	attRot0 = 1.09010318E-18,-5.14089948E-07,-5.60411077E-25,-1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 4
+	sidx = -1
+	sqor = -1
+	sepI = 1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.centaur1875mAdapterFairing_4293079908,pCylinder359,0|0|0.0460000001,0|0|-1,0|0|0.0460000001
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+			wasActiveBeforePartWasAdjusted = False
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+				wasActiveBeforePartWasAdjusted = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	RESOURCE
+	{
+		name = MonoPropellant
+		amount = 20
+		maxAmount = 20
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+}
+PART
+{
 	part = bluedog.Atlas.MediumFuelTank_4293302656
 	partName = Part
-	persistentId = 597844616
-	pos = 0.0947420821,21.5433006,0.282619745
+	persistentId = 3856550613
+	pos = 0.0947420821,21.6058006,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-1.9830513,0
 	rot = 0,0,0,1
@@ -1591,8 +1630,8 @@ PART
 {
 	part = bluedog.Atlas.MediumFuelTank_4293302346
 	partName = Part
-	persistentId = 3710765047
-	pos = 0.0947420821,18.9073009,0.282619745
+	persistentId = 2149229243
+	pos = 0.0947420821,18.9698009,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-2.63599968,0
 	rot = 0,0,0,1
@@ -1716,8 +1755,8 @@ PART
 {
 	part = bluedog.Atlas.MediumFuelTank_4293275192
 	partName = Part
-	persistentId = 260834999
-	pos = 0.0947420821,16.2713013,0.282619745
+	persistentId = 1746239164
+	pos = 0.0947420821,16.3338013,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-2.63599968,0
 	rot = 0,0,0,1
@@ -1841,8 +1880,8 @@ PART
 {
 	part = bluedog.Atlas.LongFuelTank_4293152058
 	partName = Part
-	persistentId = 1596974441
-	pos = 0.0947420821,12.3115025,0.282619745
+	persistentId = 86498064
+	pos = 0.0947420821,12.3740025,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-3.95979881,0
 	rot = 0,0,0,1
@@ -1966,8 +2005,8 @@ PART
 {
 	part = bluedog.Atlas.SustainerAdapterTank_4293147146
 	partName = Part
-	persistentId = 3700028840
-	pos = 0.0947420821,9.93350029,0.282619745
+	persistentId = 2902331858
+	pos = 0.0947420821,9.99600029,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-2.37800121,0
 	rot = 0,0,0,1
@@ -2093,8 +2132,8 @@ PART
 {
 	part = bluedog.Atlas.BoosterSkirt_4293144148
 	partName = Part
-	persistentId = 2327563795
-	pos = 0.0947420821,8.88866234,0.282619745
+	persistentId = 2292758678
+	pos = 0.0947420821,8.95116234,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-1.04483795,0
 	rot = 0,0,0,1
@@ -2217,7 +2256,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -2228,7 +2266,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -2273,8 +2310,8 @@ PART
 {
 	part = bluedog.Atlas.LR89_4293118864
 	partName = Part
-	persistentId = 3180724582
-	pos = 0.0947420821,8.68166161,1.2466197
+	persistentId = 4123248955
+	pos = 0.0947420821,8.74416161,1.2466197
 	attPos = 0,0,0
 	attPos0 = 0,-0.207000732,0.963999927
 	rot = 0,-1,0,0
@@ -2369,14 +2406,12 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -2545,8 +2580,8 @@ PART
 {
 	part = bluedog.Atlas.LR89_4293140322
 	partName = Part
-	persistentId = 3761389466
-	pos = 0.0947420821,8.68166161,-0.681380272
+	persistentId = 3069712891
+	pos = 0.0947420821,8.74416161,-0.681380272
 	attPos = 0,0,0
 	attPos0 = 0,-0.207000732,-0.963999987
 	rot = 0,4.37113883E-08,0,1
@@ -2641,14 +2676,12 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -2817,8 +2850,8 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4293067254
 	partName = Part
-	persistentId = 4145369039
-	pos = -0.85374099,9.64920616,0.536764979
+	persistentId = 3796189919
+	pos = -0.85374099,9.71170616,0.536764979
 	attPos = 0,0,0
 	attPos0 = -0.94848305,0.760543823,0.254145265
 	rot = -4.3254606E-18,0.130526274,-3.28551375E-17,0.991444886
@@ -2940,8 +2973,8 @@ PART
 {
 	part = bluedog.Castor4_4293051862
 	partName = Part
-	persistentId = 1525447472
-	pos = -1.25374103,11.6492062,0.636765003
+	persistentId = 2822128702
+	pos = -1.25374103,11.7117062,0.636765003
 	attPos = -0.0241690278,1.90443802,-0.00693516154
 	attPos0 = -0.388083249,0.0955619812,6.79865053E-08
 	rot = -4.32545812E-18,0.130526319,-3.28551474E-17,0.991444886
@@ -2951,11 +2984,11 @@ PART
 	symMethod = Mirror
 	autostrutMode = Grandparent
 	rigidAttachment = False
-	istg = 4
+	istg = 3
 	resPri = 0
 	dstg = 6
 	sidx = 1
-	sqor = 4
+	sqor = 3
 	sepI = 3
 	attm = 1
 	sameVesselCollision = False
@@ -3035,14 +3068,12 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -3204,8 +3235,8 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4293061434
 	partName = Part
-	persistentId = 2022262731
-	pos = 1.04322505,9.64920616,0.536764979
+	persistentId = 3587715568
+	pos = 1.04322505,9.71170616,0.536764979
 	attPos = 0,0,0
 	attPos0 = 0.94848299,0.760543823,0.254145265
 	rot = -3.28551375E-17,0.991444886,-4.32546225E-18,0.130526245
@@ -3327,22 +3358,22 @@ PART
 {
 	part = bluedog.Castor4_4293051668
 	partName = Part
-	persistentId = 3250792302
-	pos = 1.44322646,11.6492062,0.636765122
+	persistentId = 4289513891
+	pos = 1.44322586,11.7117062,0.636765122
 	attPos = -0.0241689384,1.90443802,0.00693517644
 	attPos0 = -0.388083279,0.0955619812,-1.04308022E-07
-	rot = -3.28551408E-17,0.991444886,-4.32545357E-18,0.130526304
+	rot = -3.28551507E-17,0.991444886,-4.32545688E-18,0.130526304
 	attRot = 0,0,0,1
 	attRot0 = -2.06795133E-24,-2.98023188E-08,-3.30872206E-24,1
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Grandparent
 	rigidAttachment = False
-	istg = 4
+	istg = 3
 	resPri = 0
 	dstg = 6
 	sidx = 1
-	sqor = 4
+	sqor = 3
 	sepI = 3
 	attm = 1
 	sameVesselCollision = False
@@ -3422,14 +3453,12 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -3591,8 +3620,8 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4293061246
 	partName = Part
-	persistentId = 567564864
-	pos = -0.860952437,9.65184212,0.0265422165
+	persistentId = 3736105840
+	pos = -0.860952437,9.71434212,0.0265422165
 	attPos = 0,0,0
 	attPos0 = -0.955694497,0.763179779,-0.256077528
 	rot = 7.99241843E-18,-0.13052623,-6.07084594E-17,0.991444886
@@ -3605,7 +3634,7 @@ PART
 	istg = 3
 	resPri = 0
 	dstg = 5
-	sidx = 1
+	sidx = 2
 	sqor = 3
 	sepI = 3
 	attm = 1
@@ -3714,8 +3743,8 @@ PART
 {
 	part = bluedog.Castor4_4293055178
 	partName = Part
-	persistentId = 2959655313
-	pos = -1.26095247,11.6518421,-0.0734577775
+	persistentId = 2187561765
+	pos = -1.26095247,11.7143421,-0.0734577775
 	attPos = -0.0241060853,1.90665817,0.00693514338
 	attPos0 = -0.388146192,0.0933418274,-5.30853512E-08
 	rot = 7.99241677E-18,-0.130526319,-6.0708466E-17,0.991444886
@@ -3725,11 +3754,11 @@ PART
 	symMethod = Mirror
 	autostrutMode = Grandparent
 	rigidAttachment = False
-	istg = 4
+	istg = 3
 	resPri = 0
 	dstg = 6
-	sidx = 2
-	sqor = 4
+	sidx = 3
+	sqor = 3
 	sepI = 3
 	attm = 1
 	sameVesselCollision = False
@@ -3809,7 +3838,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -3820,7 +3848,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -3986,8 +4013,8 @@ PART
 {
 	part = bluedog.RadialDecoupler.Mini_4293061072
 	partName = Part
-	persistentId = 3172523185
-	pos = 1.0504365,9.65184212,0.0265422165
+	persistentId = 4000792991
+	pos = 1.0504365,9.71434212,0.0265422165
 	attPos = 0,0,0
 	attPos0 = 0.955694437,0.763179779,-0.256077528
 	rot = -6.07084528E-17,0.991444886,7.99241843E-18,-0.130526245
@@ -4000,7 +4027,7 @@ PART
 	istg = 3
 	resPri = 0
 	dstg = 5
-	sidx = 1
+	sidx = 2
 	sqor = 3
 	sepI = 3
 	attm = 1
@@ -4109,8 +4136,8 @@ PART
 {
 	part = bluedog.Castor4_4293053522
 	partName = Part
-	persistentId = 3239819968
-	pos = 1.45043778,11.6518421,-0.0734580755
+	persistentId = 885986760
+	pos = 1.45043731,11.7143421,-0.0734579563
 	attPos = -0.0241061151,1.90665817,-0.00693514664
 	attPos0 = -0.388146102,0.0933418274,4.47034267E-08
 	rot = -6.07084726E-17,0.991444886,7.99241181E-18,-0.130526394
@@ -4120,11 +4147,11 @@ PART
 	symMethod = Mirror
 	autostrutMode = Grandparent
 	rigidAttachment = False
-	istg = 4
+	istg = 3
 	resPri = 0
 	dstg = 6
-	sidx = 2
-	sqor = 4
+	sidx = 3
+	sqor = 3
 	sepI = 3
 	attm = 1
 	sameVesselCollision = False
@@ -4204,14 +4231,12 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 			thrustPercentage
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 			}
 		}
@@ -4373,8 +4398,8 @@ PART
 {
 	part = bluedog.Atlas.LR105_4293142292
 	partName = Part
-	persistentId = 3765353376
-	pos = 0.0947420821,8.45350075,0.282619745
+	persistentId = 1466500874
+	pos = 0.0947420821,8.51600075,0.282619745
 	attPos = 0,0,0
 	attPos0 = 0,-1.47999954,0
 	rot = 0,0,0,-1
@@ -4387,7 +4412,7 @@ PART
 	istg = 4
 	resPri = 0
 	dstg = 5
-	sidx = 3
+	sidx = 1
 	sqor = 4
 	sepI = 1
 	attm = 0
@@ -4468,7 +4493,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -4479,7 +4503,6 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -4644,147 +4667,6 @@ PART
 		flowState = True
 		isTweakable = False
 		hideFlow = True
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.Centaur.ARCM_4292282690
-	partName = Part
-	persistentId = 4282264694
-	pos = 0.0947422087,23.6947861,-0.483128756
-	attPos = 0,0,0
-	attPos0 = 1.2665987E-07,0.168434143,-0.765748501
-	rot = 2.30374813E-08,-6.3329918E-07,-1.45896174E-14,-1
-	attRot = 0,0,0,1
-	attRot0 = 2.30374813E-08,-6.3329918E-07,-1.45896174E-14,-1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 4
-	sidx = -1
-	sqor = -1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 38
-	modMass = 0.0124999993
-	modSize = 0,0,0
-	srfN = srfAttach,bluedog.centaur1875mAdapterFairing_4293079908,pCylinder359,0|0.0923309997|-0.167253003,0|0|-1,0|0.0923309997|-0.167253003
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-			wasActiveBeforePartWasAdjusted = False
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleBdbDepthMask
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchTank
-		currentSubtype = Default
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-				wasActiveBeforePartWasAdjusted = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = MonoPropellant
-		amount = 20
-		maxAmount = 20
-		flowState = True
-		isTweakable = True
-		hideFlow = False
 		isVisible = True
 		flowMode = Both
 	}
