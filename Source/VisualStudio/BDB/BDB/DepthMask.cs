@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using System.Collections.Generic;
+using System.Linq;
 
 // Taken from ModuleDepthMask v1.1.0
 // and added by CineboxAndrew
@@ -25,10 +27,10 @@ namespace BDB
 
 
         // depth mask object transforms
-        public Transform[] maskTransformObjects;
+        public List<Transform> maskTransformObjects;
 
         // body object transform
-        public Transform bodyTransformObject;
+        public List<Transform> bodyTransformObjects;
 
         // depth mask shader object
         public Shader depthShader;
@@ -42,12 +44,14 @@ namespace BDB
             // the part variant system is implemented extremely stupidly
             // so we have to make this whole module more complicated as a result
             GameEvents.onVariantApplied.Add(OnVariantApplied);
+            GameEvents.onPartRepaired.Add(OnPartRepaired);
         }
 
 
         private void OnDestroy()
         {
             GameEvents.onVariantApplied.Remove(OnVariantApplied);
+            GameEvents.onPartRepaired.Remove(OnPartRepaired);
         }
 
 
@@ -57,25 +61,50 @@ namespace BDB
 
             if (HighLogic.LoadedSceneIsEditor || HighLogic.LoadedSceneIsFlight) return;
 
-            this.maskTransformObjects = base.part.FindModelTransforms(maskTransform);
-            if (this.maskTransformObjects.Length == 0 || this.maskTransformObjects == null)
+            this.maskTransformObjects = new List<Transform>();
+            this.bodyTransformObjects = new List<Transform>();
+
+            foreach (string name in maskTransform.Split(','))
             {
-                this.LogError($"Can't find transform {maskTransform}");
+                var trimmed = name.Trim();
+                var transforms = base.part.FindModelTransforms(trimmed);
+                if (transforms.Length == 0)
+                {
+                    this.LogError($"Can't find any mask transforms named {trimmed}");
+                }
+
+                this.maskTransformObjects.AddRange(transforms);
+            }
+
+            if (this.maskTransformObjects.Count == 0)
+            {
+                this.LogError($"Can't find any mask transforms");
                 return;
             }
 
             if (bodyTransform.Length == 0)
             {
-                this.bodyTransformObject = base.part.partTransform;
+                this.bodyTransformObjects.Add(base.part.partTransform);
             }
             else
             {
-                this.bodyTransformObject = base.part.FindModelTransform(bodyTransform);
-                if (this.bodyTransformObject == null)
+                foreach (string name in bodyTransform.Split(','))
                 {
-                    this.LogError($"Can't find transform {bodyTransform}");
-                    this.bodyTransformObject = base.part.partTransform;
+                    var trimmed = name.Trim();
+                    var transforms = base.part.FindModelTransforms(trimmed);
+                    if (transforms.Length == 0)
+                    {
+                        this.LogError($"Can't find any body transforms named {trimmed}");
+                    }
+
+                    this.bodyTransformObjects.AddRange(transforms);
                 }
+            }
+
+            if (this.bodyTransformObjects.Count == 0)
+            {
+                this.LogError($"Can't find any body transforms");
+                return;
             }
 
             this.depthShader = Shader.Find(shaderName);
@@ -93,10 +122,19 @@ namespace BDB
             if (appliedPart == this.part) UpdateAllMaterials();
         }
 
+        public void OnPartRepaired(Part repairedPart)
+        {
+            // Part repair resets part of the mesh from the prefab, so it needs to be reapplied
+            if (repairedPart == this.part) UpdateAllMaterials();
+        }
 
         private void UpdateAllMaterials()
         {
-            var renderers = bodyTransformObject.GetComponentsInChildren<Renderer>(true);
+            var renderers = new List<Renderer>();
+            foreach (var body in bodyTransformObjects)
+            {
+                renderers.AddRange(body.GetComponentsInChildren<Renderer>(true));
+            }
 
             foreach (var renderer in renderers)
             {
