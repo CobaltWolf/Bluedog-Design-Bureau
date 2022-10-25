@@ -32,4 +32,20 @@ namespace BDB
             return info.ToString();
         }
     }
+    public class ModuleBdbStorableInventory : ModuleInventoryPart
+    {
+        //public override string GetInfo()
+        //{
+        //    StringBuilder info = new StringBuilder();
+
+        //    info.AppendLine(Localizer.Format("#LOC_BDB_storablePartDescription"));
+        //    info.AppendLine(" ");
+        //    info.AppendLine(Localizer.Format("#LOC_BDB_storablePartDryMass", new string[] { string.Format("{0:n3}", part.mass) }));
+        //    info.AppendLine(Localizer.Format("#LOC_BDB_storablePartPackedVolume", new string[] { string.Format("{0:n1}", packedVolume) }));
+        //    if (stackableQuantity > 1)
+        //        info.AppendLine(Localizer.Format("#LOC_BDB_storablePartStackingCapacity", stackableQuantity.ToString()));
+
+        //    return info.ToString();
+        //}
+    }
 }
