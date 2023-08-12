@@ -94,6 +94,7 @@ Currently, the mod includes (but is not limited to):
 - Radio Astronomy Explorer A/B
 - SOLRAD/GRAB/POPPY
 - Strawman 1-4
+- Surveyor Lander and Orbiter
 - Syncom 1-3
 - Transit 2-3, ANNA A/B
 - Transit 4
