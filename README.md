@@ -65,6 +65,7 @@ Currently, the mod includes (but is not limited to):
 - AIMP/IMP
 - Alouette
 - ANNA 1B
+- Beacon (Juno)
 - Beacon Explorer
 - Biosat
 - Clementine, ISAS
@@ -72,7 +73,9 @@ Currently, the mod includes (but is not limited to):
 - Explorer 1, 6, 7, 8, 11, S45, S46
 - Helios
 - IDCSP
+- Kepler Space Telescope
 - Lunar Orbiter
+- Mariner 3/4
 - Mariner 10
 - Nimbus (parts for most variants)
 - Orbiting Astronomical Observatory (OAO 1,2 & 3)
@@ -91,6 +94,8 @@ Currently, the mod includes (but is not limited to):
 - Radio Astronomy Explorer A/B
 - SOLRAD/GRAB/POPPY
 - Strawman 1-4
+- Surveyor Lander and Orbiter
+- Syncom 1-3
 - Transit 2-3, ANNA A/B
 - Transit 4
 - Transit 5A, 5C, 5-Oscar
@@ -98,6 +103,7 @@ Currently, the mod includes (but is not limited to):
 - Transit 5E
 - Transit 5 SOOS (Stacked Oscar on Scout)
 - TIROS-1
+- Voyager Mars (Orbiter and Lander)
 - New probe cores
 - New antennas and dishes
 - New science experiments
