@@ -1,8 +1,8 @@
 ship = Titan IIIA
-version = 1.12.3
+version = 1.12.5
 description = 
 type = VAB
-size = 2.47356558,28.866169,2.21814847
+size = 2.47356558,30.5198898,2.21814895
 steamPublishedFileId = 0
 persistentId = 4014524201
 rot = 0,0,0,0
@@ -17,9 +17,9 @@ PART
 	part = bluedog.Titan.Transtage_4291818962
 	partName = Part
 	persistentId = 1908854689
-	pos = 0.0805830285,24.2087555,0.803015828
+	pos = 0.0660115629,24.2023201,0.781568527
 	attPos = 0,0,0
-	attPos0 = 0.0805830285,24.2087555,0.803015828
+	attPos0 = 0.0660115629,24.2023201,0.781568527
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -38,14 +38,14 @@ PART
 	modCost = 3515.75488
 	modMass = 0.0381250009
 	modSize = 0,0,0
-	link = bluedog.Titan.Transtage.RCS.A_4290731850
-	link = bluedog.Titan.Transtage.RCS.A_4290728230
-	link = bluedog.Titan.Transtage.RCS.B_4290769174
-	link = bluedog.Titan.Transtage.RCS.B_4290727834
-	link = bluedog.Decoupler.1p5m_4291063344
 	link = bluedog.Titan3C.StandardFairing.SAF_4291061248
+	link = bluedog.Titan2.S2.GeminiDecoupler_4288077890
+	link = bluedog.Titan.Transtage.RCS_4288071552
+	link = bluedog.Titan.Transtage.RCS_4288070872
+	link = bluedog.Titan.Transtage.RCS_4288069896
+	link = bluedog.Titan.Transtage.RCS_4288069474
 	attN = top,bluedog.Titan3C.StandardFairing.SAF_4291061248_0|1.40400004|0_0|1|0_0|1.40400004|0_0|1|0
-	attN = bottom,bluedog.Decoupler.1p5m_4291063344_0|-1.40400004|0_0|-1|0_0|-1.40400004|0_0|-1|0
+	attN = bottom,bluedog.Titan2.S2.GeminiDecoupler_4288077890_0|-1.40400004|0_0|-1|0_0|-1.40400004|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -293,6 +293,9 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -441,21 +444,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -535,332 +523,12 @@ PART
 }
 PART
 {
-	part = bluedog.Titan.Transtage.RCS.A_4290731850
+	part = bluedog.Titan3C.StandardFairing.SAF_4291061248
 	partName = Part
-	persistentId = 2681184945
-	pos = -0.90905875,24.9434776,0.803015947
+	persistentId = 760895586
+	pos = 0.0660115629,25.6688194,0.781568527
 	attPos = 0,0,0
-	attPos0 = -0.989641786,0.734722137,1.1920929E-07
-	rot = 0,0.707107186,0,0.707106471
-	attRot = 0,0,0,1
-	attRot0 = 0,0.707107186,0,0.707106471
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Titan.Transtage.RCS.A_4290728230
-	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0.0693370029,0|0|-1,0|0|0.0693370029
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Titan.Transtage.RCS.A_4290728230
-	partName = Part
-	persistentId = 3641884551
-	pos = 1.07022476,24.9434776,0.803015649
-	attPos = 0,0,0
-	attPos0 = 0.989641726,0.734722137,-1.78813934E-07
-	rot = 0,0.707106411,0,-0.707107246
-	attRot = 0,0,0,1
-	attRot0 = 0,0.707106411,0,-0.707107246
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Titan.Transtage.RCS.A_4290731850
-	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0.0693370029,0|0|-1,0|0|0.0693370029
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Titan.Transtage.RCS.B_4290769174
-	partName = Part
-	persistentId = 816389168
-	pos = 0.0805829167,24.9448795,-0.144965649
-	attPos = 0,0,0
-	attPos0 = -1.11758709E-07,0.736124039,-0.947981477
-	rot = 0,-5.14090175E-07,0,-1
-	attRot = 0,0,0,1
-	attRot0 = 0,-5.14090175E-07,0,-1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Titan.Transtage.RCS.B_4290727834
-	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0.0265299994,0|0|-1,0|0|0.0265299994
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Titan.Transtage.RCS.B_4290727834
-	partName = Part
-	persistentId = 570684513
-	pos = 0.0805832222,24.9448795,1.7509973
-	attPos = 0,0,0
-	attPos0 = 1.93715096E-07,0.736124039,0.947981477
-	rot = 0,-1,0,5.5780157E-07
-	attRot = 0,0,0,1
-	attRot0 = 0,-1,0,5.5780157E-07
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = bluedog.Titan.Transtage.RCS.B_4290769174
-	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0.0265299994,0|0|-1,0|0|0.0265299994
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRCSFX
-		isEnabled = True
-		rcsEnabled = True
-		thrustPercentage = 100
-		currentShowToggles = False
-		enableYaw = True
-		enablePitch = True
-		enableRoll = True
-		enableX = True
-		enableY = True
-		enableZ = True
-		useThrottle = False
-		fullThrust = False
-		stagingEnabled = False
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.Decoupler.1p5m_4291063344
-	partName = Part
-	persistentId = 1476755376
-	pos = 0.0805830285,22.7547569,0.803015828
-	attPos = 0,0,0
-	attPos0 = 0,-1.45399857,0
+	attPos0 = 0,1.46649933,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -873,15 +541,14 @@ PART
 	dstg = 1
 	sidx = 0
 	sqor = 1
-	sepI = 1
+	sepI = -1
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
-	modMass = 0
+	modMass = 0.0700000003
 	modSize = 0,0,0
-	link = bluedog.Titan2.S2.Tank_4291810752
-	attN = top,bluedog.Titan.Transtage_4291818962_0|0.0500000007|0_0|1|0_0|0.0500000007|0_0|1|0
-	attN = bottom,bluedog.Titan2.S2.Tank_4291810752_0|-0.0500000007|0_0|-1|0_0|-0.0500000007|0_0|-1|0
+	attN = top,Null_0_0|0.0625|0_0|1|0_0|0.0625|0_0|1|0
+	attN = bottom,bluedog.Titan.Transtage_4291818962_0|-0.0625|0_0|-1|0_0|-0.0625|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -905,75 +572,68 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleSimpleAdjustableFairing
+		isEnabled = True
+		deployed = False
+		numSegments = 0
+		transparentEditor = True
+		openFairing = False
+		autoDeploy = True
+		deployAltitude = 50
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleCargoBay
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = fairingSwitch
+		currentSubtype = 3A
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = textureSwitchBody
 		currentSubtype = White
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleToggleCrossfeed
-		isEnabled = True
-		crossfeedStatus = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-			EnableAction
-			{
-				actionGroup = None
-			}
-			DisableAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
 		EVENTS
 		{
 		}
@@ -1002,12 +662,12 @@ PART
 }
 PART
 {
-	part = bluedog.Titan2.S2.Tank_4291810752
+	part = bluedog.Titan2.S2.GeminiDecoupler_4288077890
 	partName = Part
-	persistentId = 4120633868
-	pos = 0.0805830285,21.0970287,0.803015828
-	attPos = 0,0.101770401,0
-	attPos0 = 0,-1.7594986,0
+	persistentId = 3635392487
+	pos = 0.0660115629,22.6803799,0.781568527
+	attPos = 0,0,0
+	attPos0 = 0,-1.52194023,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1015,20 +675,607 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 0
+	resPri = 0
+	dstg = 1
+	sidx = 1
+	sqor = 0
+	sepI = 0
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	link = bluedog.Titan.S2.Tank_4288059340
+	attN = bottom,bluedog.Titan.S2.Tank_4288059340_0|-0.117940001|0_0|-1|0_0|-0.117940001|0_0|-1|0
+	attN = top,bluedog.Titan.Transtage_4291818962_0|0.117940001|0_0|1|0_0|0.117940001|0_0|1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = meshSwitchBody
+		currentSubtype = Normal
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaint
+		currentSubtype = 3A
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Titan.Transtage.RCS_4288071552
+	partName = Part
+	persistentId = 330795059
+	pos = 0.0660115629,24.9399395,1.70144117
+	attPos = 0,0,0
+	attPos0 = 0,0.7376194,0.919872642
+	rot = 0,1,0,9.36446809E-10
+	attRot = 0,0,0,1
+	attRot0 = 0,1,0,9.36446809E-10
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Titan.Transtage.RCS_4288070872
+	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0,0|0|-1,0|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = RCSSwitch
+		currentSubtype = RCSB
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Titan.Transtage.RCS_4288070872
+	partName = Part
+	persistentId = 1419867458
+	pos = 0.066011481,24.9399395,-0.138304114
+	attPos = 0,0,0
+	attPos0 = -8.19563866E-08,0.7376194,-0.919872642
+	rot = 0,-4.27749427E-08,0,-1
+	attRot = 0,0,0,1
+	attRot0 = 0,-4.27749427E-08,0,-1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Titan.Transtage.RCS_4288071552
+	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0,0|0|-1,0|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = RCSSwitch
+		currentSubtype = RCSB
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Titan.Transtage.RCS_4288069896
+	partName = Part
+	persistentId = 1065860486
+	pos = -0.853584647,24.9374523,0.781568587
+	attPos = 0,0.0225887299,0
+	attPos0 = -0.919596195,0.712543488,5.96046448E-08
+	rot = 0,0.707106829,0,0.707106829
+	attRot = 0,0,0,1
+	attRot0 = 0,0.707106829,0,0.707106829
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Titan.Transtage.RCS_4288069474
+	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0,0|0|-1,0|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = RCSSwitch
+		currentSubtype = RCSA
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Titan.Transtage.RCS_4288069474
+	partName = Part
+	persistentId = 2111426109
+	pos = 0.985607743,24.9374523,0.781568408
+	attPos = 5.96046448E-08,0.0225887299,0
+	attPos0 = 0.919596136,0.712543488,-1.1920929E-07
+	rot = 0,0.707106769,0,-0.707106888
+	attRot = 0,0,0,1
+	attRot0 = 0,0.707106769,0,-0.707106888
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = bluedog.Titan.Transtage.RCS_4288069896
+	srfN = srfAttach,bluedog.Titan.Transtage_4291818962,Collider,0|0|0,0|0|-1,0|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRCSFX
+		isEnabled = True
+		rcsEnabled = True
+		thrustPercentage = 100
+		currentShowToggles = False
+		enableYaw = True
+		enablePitch = True
+		enableRoll = True
+		enableX = True
+		enableY = True
+		enableZ = True
+		useThrottle = False
+		fullThrust = False
+		stagingEnabled = False
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = RCSSwitch
+		currentSubtype = RCSA
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.Titan.S2.Tank_4288059340
+	partName = Part
+	persistentId = 420075240
+	pos = 0.0660115629,20.8529396,0.781568527
+	attPos = 0,0,0
+	attPos0 = 0,-2.02674103,0
+	rot = 0,0,0,1
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
 	resPri = 0
 	dstg = 2
 	sidx = -1
 	sqor = -1
-	sepI = 1
+	sepI = 0
 	attm = 0
 	sameVesselCollision = False
 	modCost = -3.43322754E-05
 	modMass = -4.00468707E-08
 	modSize = 0,0,0
-	link = bluedog.LR91.11_4291794690
-	attN = top,bluedog.Decoupler.1p5m_4291063344_0|1.62129998|0_0|1|0_0|1.70949996|0_0|1|0
-	attN = bottom,bluedog.LR91.11_4291794690_0|-1.70949996|0_0|-1|0_0|-1.70949996|0_0|-1|0
+	link = bluedog.LR91_4288032652
+	link = bluedog.Titan2.S2.EngineInterstage_4288017498
+	attN = top,bluedog.Titan2.S2.GeminiDecoupler_4288077890_0|1.47360003|0_0|1|0_0|1.70949996|0_0|1|0
+	attN = bottom,bluedog.LR91_4288032652_0|-1.70949996|0_0|-1|0_0|-1.70949996|0_0|-1|0
+	attN = interstage2,bluedog.Titan2.S2.EngineInterstage_4288017498_0|-1.70949996|0_0|-1|0_0|-1.94538295|0_0|-1|0
+	attN = interstage4,Null_0_0|-1.90919995|0_0|-1|0_0|-2.14508295|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -1055,8 +1302,8 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchShroud
-		currentSubtype = Titan 3
+		moduleID = realnameMeshSwitchTank
+		currentSubtype = Titan3
 		EVENTS
 		{
 		}
@@ -1072,8 +1319,76 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = textureSwitchPaint
+		moduleID = interstageNode
+		currentSubtype = Interstage
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = interstageRing
+		currentSubtype = titan3Ring
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaintA
 		currentSubtype = 3A
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaintB
+		currentSubtype = Titan IV
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaintC
+		currentSubtype = White
 		EVENTS
 		{
 		}
@@ -1158,12 +1473,12 @@ PART
 }
 PART
 {
-	part = bluedog.LR91.11_4291794690
+	part = bluedog.LR91_4288032652
 	partName = Part
-	persistentId = 388773079
-	pos = 0.0805830285,18.7796001,0.803015828
+	persistentId = 2526141559
+	pos = 0.0660115629,18.4778385,0.781568527
 	attPos = 0,0,0
-	attPos0 = 0,-2.31742954,0
+	attPos0 = 0,-2.37510037,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1176,16 +1491,16 @@ PART
 	dstg = 2
 	sidx = 0
 	sqor = 2
-	sepI = 1
+	sepI = 0
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
+	modCost = 250
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.Titan2.S2.EngineDecoupler_4291770294
-	attN = top,bluedog.Titan2.S2.Tank_4291810752_0|0.60792923|0_0|1|0_0|0.60792923|0_0|1|0
-	attN = bottom,bluedog.Titan2.S2.EngineDecoupler_4291770294_0|-1.01660001|0_0|-1|0_0|-1.01660001|0_0|-1|0
-	attN = interstage,Null_0_0|0.371600002|0_0|-1|0_0|0.371600002|0_0|-1|0
+	attN = top,bluedog.Titan.S2.Tank_4288059340_0|0.665600002|0_0|1|0_0|0.665600002|0_0|1|0
+	attN = bottom,Null_0_0|-1.01660001|0_0|-1|0_0|-1.01660001|0_0|-1|0
+	attN = interstage1v,Null_0_0|0.429274797|0_0|-1|0_0|0.665600002|0_0|-1|0
+	attN = interstage4v,Null_0_0|0.0957619995|0_0|-1|0_0|0|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -1275,77 +1590,11 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = engineSwitch
-		currentSubtype = LR91-AJ11
+		currentSubtype = AJ11
 		EVENTS
 		{
 		}
@@ -1362,10 +1611,10 @@ PART
 		isEnabled = True
 		gimbalLock = False
 		gimbalLimiter = 100
-		currentShowToggles = True
+		currentShowToggles = False
 		enableYaw = True
 		enablePitch = True
-		enableRoll = False
+		enableRoll = True
 		gimbalActive = False
 		stagingEnabled = True
 		EVENTS
@@ -1408,7 +1657,7 @@ PART
 		isEnabled = True
 		gimbalLock = False
 		gimbalLimiter = 100
-		currentShowToggles = True
+		currentShowToggles = False
 		enableYaw = False
 		enablePitch = False
 		enableRoll = True
@@ -1466,33 +1715,11 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleJettison
-		isEnabled = True
-		activejettisonName = fairing
-		isJettisoned = False
-		shroudHideOverride = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = textureSwitchPaint
-		currentSubtype = Titan IV
+		moduleID = meshSwitchShroud
+		currentSubtype = compact
 		EVENTS
 		{
 		}
@@ -1523,8 +1750,8 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchShroud
-		currentSubtype = Titan
+		moduleID = textureSwitchPaint
+		currentSubtype = Gray
 		EVENTS
 		{
 		}
@@ -1641,38 +1868,8 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
-		isEnabled = False
+		isEnabled = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1698,12 +1895,12 @@ PART
 }
 PART
 {
-	part = bluedog.Titan2.S2.EngineDecoupler_4291770294
+	part = bluedog.Titan2.S2.EngineInterstage_4288017498
 	partName = Part
-	persistentId = 3111155902
-	pos = 0.0805830285,17.5367298,0.803015828
+	persistentId = 4071576575
+	pos = 0.0660115629,17.2931557,0.781568527
 	attPos = 0,0,0
-	attPos0 = 0,-1.24287033,0
+	attPos0 = 0,-3.45998311,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1711,20 +1908,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 3
-	sidx = 0
-	sqor = 3
-	sepI = 3
+	sidx = 1
+	sqor = 2
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 50
+	modMass = 0.200000003
 	modSize = 0,0,0
-	link = bluedog.Titan2.S1.Upper.Tank_4291754900
-	attN = bottom,bluedog.Titan2.S1.Upper.Tank_4291754900_0|-0.226270005|0_0|-1|0_0|-0.226270005|0_0|-1|0
-	attN = top,bluedog.LR91.11_4291794690_0|0.226270005|0_0|1|0_0|0.226270005|0_0|1|0
+	link = bluedog.Titan.S1.UpperTank_4287990506
+	attN = bottom,bluedog.Titan.S1.UpperTank_4287990506_0|-0.226270005|0_0|-1|0_0|-0.226270005|0_0|-1|0
+	attN = top,bluedog.Titan.S2.Tank_4288059340_0|1.51460004|0_0|1|0_0|1.61440003|0_0|1|0
 	EVENTS
 	{
 	}
@@ -1787,7 +1984,24 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = textureSwitchPaint
+		moduleID = meshSwitchFairing
+		currentSubtype = Titan 3
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchUpperPaint
 		currentSubtype = Classic
 		EVENTS
 		{
@@ -1801,8 +2015,53 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchLowerPaint
+		currentSubtype = Classic
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleToggleCrossfeed
+		isEnabled = True
+		crossfeedStatus = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
-		isEnabled = False
+		isEnabled = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1817,12 +2076,12 @@ PART
 }
 PART
 {
-	part = bluedog.Titan2.S1.Upper.Tank_4291754900
+	part = bluedog.Titan.S1.UpperTank_4287990506
 	partName = Part
-	persistentId = 1803873447
-	pos = 0.0805830285,14.7378588,0.803015828
+	persistentId = 3827249322
+	pos = 0.0660115629,14.0733871,0.781568527
 	attPos = 0,0,0
-	attPos0 = 0,-2.79887009,0
+	attPos0 = 0,-3.21976852,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1830,20 +2089,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
-	modCost = -0.000267028809
-	modMass = 1.3038516E-08
+	modCost = 1599.41968
+	modMass = 0.862499952
 	modSize = 0,0,0
-	link = bluedog.Titan2.S1.Lower.Tank_4291745014
-	attN = top,bluedog.Titan2.S2.EngineDecoupler_4291770294_0|2.57259989|0_0|1|0_0|2.57259989|0_0|1|0
-	attN = bottom,bluedog.Titan2.S1.Lower.Tank_4291745014_0|-2.57229996|0_0|-1|0_0|-2.57229996|0_0|-1|0
+	link = bluedog.Titan.S1.LowerTank_4287984788
+	attN = top,bluedog.Titan2.S2.EngineInterstage_4288017498_0|2.125|0_0|1|0_0|2.99349999|0_0|1|0
+	attN = bottom,bluedog.Titan.S1.LowerTank_4287984788_0|-2.125|0_0|-1|0_0|-3.25139999|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -1864,6 +2123,23 @@ PART
 	}
 	PARTDATA
 	{
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = realnameMeshSwitchTank
+		currentSubtype = Titan3
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	MODULE
 	{
@@ -1904,7 +2180,24 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = textureSwitchPaint
+		moduleID = textureSwitchPaintA
+		currentSubtype = Default
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaintB
 		currentSubtype = GLV
 		EVENTS
 		{
@@ -1968,8 +2261,8 @@ PART
 	RESOURCE
 	{
 		name = LiquidFuel
-		amount = 1116
-		maxAmount = 1116
+		amount = 1386
+		maxAmount = 1386
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1979,8 +2272,8 @@ PART
 	RESOURCE
 	{
 		name = Oxidizer
-		amount = 1364
-		maxAmount = 1364
+		amount = 1694
+		maxAmount = 1694
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1990,12 +2283,12 @@ PART
 }
 PART
 {
-	part = bluedog.Titan2.S1.Lower.Tank_4291745014
+	part = bluedog.Titan.S1.LowerTank_4287984788
 	partName = Part
-	persistentId = 2785641440
-	pos = 0.0805830285,10.1477585,0.803015828
+	persistentId = 1535767387
+	pos = 0.0660115629,8.80418777,0.781568527
 	attPos = 0,0,0
-	attPos0 = 0,-4.59010029,0
+	attPos0 = 0,-6.01919937,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -2003,20 +2296,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 2
 	resPri = 0
 	dstg = 4
 	sidx = -1
 	sqor = -1
-	sepI = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
-	modCost = -4.95910645E-05
-	modMass = -5.12227416E-08
+	modCost = 880.839783
+	modMass = 0.474999964
 	modSize = 0,0,0
-	link = bluedog.LR87.5_4291717986
-	attN = top,bluedog.Titan2.S1.Upper.Tank_4291754900_0|2.01780009|0_0|1|0_0|2.01780009|0_0|1|0
-	attN = bottom,bluedog.LR87.5_4291717986_0|-2.01780009|0_0|-1|0_0|-2.01780009|0_0|-1|0
+	link = bluedog.LR87_4287977254
+	attN = top,bluedog.Titan.S1.UpperTank_4287990506_0|1.49790001|0_0|1|0_0|2.01780009|0_0|1|0
+	attN = bottom,bluedog.LR87_4287977254_0|-1.50209999|0_0|-1|0_0|-2.01780009|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -2043,8 +2336,42 @@ PART
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = textureSwitchPaint
+		moduleID = realnameMeshSwitchTank
+		currentSubtype = Titan2
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaintA
 		currentSubtype = White
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchPaintB
+		currentSubtype = GLV
 		EVENTS
 		{
 		}
@@ -2129,12 +2456,12 @@ PART
 }
 PART
 {
-	part = bluedog.LR87.5_4291717986
+	part = bluedog.LR87_4287977254
 	partName = Part
-	persistentId = 1610179021
-	pos = 0.0805830285,7.28657722,0.803015828
+	persistentId = 1920686419
+	pos = 0.0660115629,6.2867775,0.781568527
 	attPos = 0,0,0
-	attPos0 = 0,-2.86118031,0
+	attPos0 = 0,-2.51741028,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -2142,19 +2469,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 4
+	istg = 3
 	resPri = 0
 	dstg = 4
 	sidx = 0
-	sqor = 4
-	sepI = 3
+	sqor = 3
+	sepI = 2
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 2798
+	modMass = -0.0500000007
 	modSize = 0,0,0
-	attN = top,bluedog.Titan2.S1.Lower.Tank_4291745014_0|1.01170003|0_0|1|0_0|0.843379974|0_0|1|0
-	attN = bottom,Null_0_0|-0.927541316|0_0|-1|0_0|-0.927541316|0_0|-1|0
+	attN = top,bluedog.Titan.S1.LowerTank_4287984788_0|0.667940021|0_0|1|0_0|0.499610007|0_0|1|0
+	attN = bottom,Null_0_0|-0.927541316|0_0|-1|0_0|-1.02754128|0_0|-1|0
+	attN = bottom2,Null_0_0|0.0484599993|0_0|-1|0_0|0.0484599993|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -2356,6 +2684,23 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = textureSwitchFoil
+		currentSubtype = None
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleSurfaceFX
 		isEnabled = True
 		stagingEnabled = True
@@ -2460,23 +2805,8 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleWaterfallFX
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
-		isEnabled = False
+		isEnabled = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -2498,144 +2828,5 @@ PART
 		hideFlow = True
 		isVisible = True
 		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.Titan3C.StandardFairing.SAF_4291061248
-	partName = Part
-	persistentId = 760895586
-	pos = 0.0805830285,25.6752548,0.803015828
-	attPos = 0,0,0
-	attPos0 = 0,1.46649933,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 1
-	sidx = 1
-	sqor = 1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.0700000003
-	modSize = 0,0,0
-	attN = top,Null_0_0|0.0625|0_0|1|0_0|0.0625|0_0|1|0
-	attN = bottom,bluedog.Titan.Transtage_4291818962_0|-0.0625|0_0|-1|0_0|-0.0625|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleSimpleAdjustableFairing
-		isEnabled = True
-		deployed = False
-		numSegments = 0
-		transparentEditor = True
-		openFairing = False
-		autoDeploy = True
-		deployAltitude = 50
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleCargoBay
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = fairingSwitch
-		currentSubtype = 3A
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = textureSwitchBody
-		currentSubtype = White
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
 	}
 }

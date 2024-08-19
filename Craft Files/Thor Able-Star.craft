@@ -35,14 +35,14 @@ PART
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = -7.62939453E-06
+	modCost = 1000
 	modMass = -3.7252903E-09
 	modSize = 0,0,0
 	link = bluedog.Ablestar.Fairing.SAF_4291710010
-	link = bluedog.Ablestar.Engine_4291696730
+	link = bluedog.Able.Engine_4285569716
 	link = bluedog.Thor.0p9375mInterstage_4292043964
 	attN = top,bluedog.Ablestar.Fairing.SAF_4291710010_0|0.871370018|0_0|1|0_0|0.871370018|0_0|1|0
-	attN = engine,bluedog.Ablestar.Engine_4291696730_0|-0.608060002|0_0|-1|0_0|-0.608060002|0_0|-1|0
+	attN = engine,bluedog.Able.Engine_4285569716_0|-0.608060002|0_0|-1|0_0|-0.608060002|0_0|-1|0
 	attN = bottom,bluedog.Thor.0p9375mInterstage_4292043964_0|-0.811779976|0_0|-1|0_0|-0.811779976|0_0|-1|0
 	EVENTS
 	{
@@ -192,6 +192,23 @@ PART
 		isEnabled = True
 		standaloneToggle = True
 		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = SASlevel
+		currentSubtype = 3
 		EVENTS
 		{
 		}
@@ -445,12 +462,12 @@ PART
 }
 PART
 {
-	part = bluedog.Ablestar.Engine_4291696730
+	part = bluedog.Able.Engine_4285569716
 	partName = Part
-	persistentId = 3372674482
-	pos = -0.0771005675,23.1067982,0.780484498
+	persistentId = 1693199974
+	pos = -0.0771005675,23.2377968,0.780484498
 	attPos = 0,0,0
-	attPos0 = 0,-1.11306,0
+	attPos0 = 0,-0.982061386,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -458,19 +475,19 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 1
+	istg = 0
 	resPri = 0
 	dstg = 0
-	sidx = 0
-	sqor = 1
+	sidx = 1
+	sqor = 0
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 100
-	modMass = -0.0799999982
+	modCost = 5
+	modMass = 0
 	modSize = 0,0,0
-	attN = top,bluedog.Ablestar.Tank_4292220476_0|0.504999995|0_0|1|0_0|0.504999995|0_0|1|0
-	attN = bottom,Null_0_0|-0.569999993|0_0|-1|0_0|-0.569999993|0_0|-1|0
+	attN = top,bluedog.Ablestar.Tank_4292220476_0|0.374000013|0_0|1|0_0|0.374000013|0_0|1|0
+	attN = bottom,Null_0_0|-0.447340012|0_0|-1|0_0|-0.700999975|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -582,7 +599,7 @@ PART
 		isEnabled = True
 		stagingEnabled = True
 		moduleID = engineSwitch
-		currentSubtype = AblestarAJ10-118E
+		currentSubtype = AblestarAJ10-104
 		EVENTS
 		{
 		}
@@ -641,7 +658,7 @@ PART
 	}
 	MODULE
 	{
-		name = FXModuleLookAtConstraint
+		name = ModuleAdvancedLookAtConstraint
 		isEnabled = True
 		stagingEnabled = True
 		EVENTS
@@ -777,7 +794,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 0
-	sidx = 1
+	sidx = 0
 	sqor = 1
 	sepI = 1
 	attm = 0
@@ -1106,6 +1123,23 @@ PART
 	}
 	PARTDATA
 	{
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = realnameMeshSwitchTank
+		currentSubtype = 600
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 	MODULE
 	{
@@ -2325,7 +2359,7 @@ PART
 	}
 	MODULE
 	{
-		name = FXModuleLookAtConstraint
+		name = ModuleAdvancedLookAtConstraint
 		isEnabled = True
 		stagingEnabled = True
 		EVENTS
