@@ -64,24 +64,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleCargoPart
-		isEnabled = True
-		beingAttached = False
-		beingSettled = False
-		reinitResourcesOnStoreInVessel = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
@@ -200,7 +182,7 @@ PART
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
-	modCost = 1014.68799
+	modCost = 14.6879959
 	modMass = -3.7252903E-09
 	modSize = 0,0,0
 	link = bluedog.Juno4.Engine.6K_4292889548
@@ -364,23 +346,9 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 3
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -422,6 +390,36 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
@@ -439,16 +437,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -551,7 +585,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 0
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -817,6 +851,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -849,7 +898,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 2
-	sidx = 0
+	sidx = 1
 	sqor = 1
 	sepI = 1
 	attm = 0
@@ -954,7 +1003,7 @@ PART
 	sepI = 1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 1000
+	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Titan3C.StandardFairing.SAF_4293267626
@@ -1057,23 +1106,9 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 3
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -1446,6 +1481,36 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartSwitch
 		isEnabled = True
 		stagingEnabled = True
@@ -1463,16 +1528,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -1587,16 +1688,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -1997,6 +2134,36 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -2235,16 +2402,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -2311,7 +2514,7 @@ PART
 	sepI = 3
 	attm = 0
 	sameVesselCollision = False
-	modCost = 149.999939
+	modCost = -6.19888306E-05
 	modMass = 1.65309757E-08
 	modSize = 0,0,0
 	link = bluedog.atlas.aftTank_4291608846
@@ -2409,23 +2612,7 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 1
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
 		}
 	}
 	MODULE
@@ -2464,16 +2651,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -2652,16 +2875,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -3218,6 +3477,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -3545,6 +3819,21 @@ PART
 				actionGroup = None
 				active = False
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -3922,6 +4211,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -4279,6 +4583,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -4617,6 +4936,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -4789,6 +5123,21 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -4986,6 +5335,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -5169,6 +5533,21 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -5366,6 +5745,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -5549,6 +5943,21 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -5746,6 +6155,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -5936,6 +6360,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -6119,6 +6558,21 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{

@@ -2,7 +2,7 @@ ship = Atlas SLV-3B
 version = 1.12.5
 description = Atlas SLV-3B Agena-D OAO-1
 type = VAB
-size = 2.89718723,21.1288033,3.14870453
+size = 2.89718723,21.1287994,3.14870453
 steamPublishedFileId = 0
 persistentId = 1441173994
 rot = 0,0,0,0
@@ -16,7 +16,7 @@ PART
 {
 	part = bluedog.Agena.Tank.Long_4291321244
 	partName = Part
-	persistentId = 2720437517
+	persistentId = 841281106
 	pos = -1.66542077,20.1219368,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,1.0960598,0
@@ -132,16 +132,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -189,7 +225,7 @@ PART
 {
 	part = bluedog.Agena.Avionics_4291315798
 	partName = Part
-	persistentId = 713806046
+	persistentId = 1330499884
 	pos = -1.66542077,21.1546478,1.06877494
 	attPos = 0,0,0
 	attPos0 = -0.000979575561,27.7467728,-0.035012804
@@ -208,7 +244,7 @@ PART
 	sepI = 0
 	attm = 0
 	sameVesselCollision = False
-	modCost = 150
+	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Agena.Tank.Long_4291321244
@@ -327,23 +363,7 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 1
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
 		}
 	}
 	MODULE
@@ -417,7 +437,7 @@ PART
 {
 	part = bluedog.OAO.spacecraftAdapter_4291424272
 	partName = Part
-	persistentId = 358185670
+	persistentId = 1859002341
 	pos = -1.66542077,21.5596733,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,0.405025482,0
@@ -517,7 +537,7 @@ PART
 {
 	part = bluedog.OAO3.serviceModule_4291413664
 	partName = Part
-	persistentId = 1004771152
+	persistentId = 4243543927
 	pos = -1.66542077,22.2196655,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-0.589995384,0
@@ -662,7 +682,7 @@ PART
 {
 	part = bluedog.OAO.solarLower_4291430062
 	partName = Part
-	persistentId = 959396497
+	persistentId = 2028770257
 	pos = -2.27293611,22.4586258,0.851004004
 	attPos = 0,0,0
 	attPos0 = -0.607515275,0.23896122,-0.217770964
@@ -812,7 +832,7 @@ PART
 {
 	part = bluedog.OAO.solarLower_4291412522
 	partName = Part
-	persistentId = 2856118666
+	persistentId = 592892292
 	pos = -1.05790544,22.4586258,0.851004004
 	attPos = 0,0,0
 	attPos0 = 0.607515275,0.23896122,-0.217770964
@@ -962,7 +982,7 @@ PART
 {
 	part = bluedog.OAO.ProbeCore_4291444554
 	partName = Part
-	persistentId = 1917088785
+	persistentId = 2344655670
 	pos = -1.66542077,22.80966,1.06877494
 	attPos = 0,0,0
 	attPos0 = -0.136727586,30.0988827,0.00642030919
@@ -1173,7 +1193,7 @@ PART
 {
 	part = bluedog.OAO.antenna_4291424714
 	partName = Part
-	persistentId = 1136917771
+	persistentId = 1680317819
 	pos = -1.86178565,22.8091221,1.6762526
 	attPos = 0,0,0
 	attPos0 = -0.196364895,-0.000537872314,0.607477725
@@ -1220,24 +1240,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleCargoPart
-		isEnabled = True
-		beingAttached = False
-		beingSettled = False
-		reinitResourcesOnStoreInVessel = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleDataTransmitter
 		isEnabled = True
 		xmitIncomplete = False
@@ -1261,7 +1263,7 @@ PART
 {
 	part = bluedog.OAO.antenna_4291424472
 	partName = Part
-	persistentId = 1550863479
+	persistentId = 1035234210
 	pos = -1.46905589,22.8091221,0.461297214
 	attPos = 0,0,0
 	attPos0 = 0.196364835,-0.000537872314,-0.607477725
@@ -1308,24 +1310,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleCargoPart
-		isEnabled = True
-		beingAttached = False
-		beingSettled = False
-		reinitResourcesOnStoreInVessel = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleDataTransmitter
 		isEnabled = True
 		xmitIncomplete = False
@@ -1349,7 +1333,7 @@ PART
 {
 	part = bluedog.OAO3.PEP.instrument_4291414920
 	partName = Part
-	persistentId = 3524779168
+	persistentId = 3654818623
 	pos = -1.66542077,23.3996544,1.06877494
 	attPos = 0,0,0
 	attPos0 = -1.66542077,23.3996544,1.06877494
@@ -1525,7 +1509,7 @@ PART
 {
 	part = bluedog.OAO.balanceBoom_4291426384
 	partName = Part
-	persistentId = 2641528097
+	persistentId = 2959896804
 	pos = -1.66542077,23.6435928,1.67626143
 	attPos = 0,0,0
 	attPos0 = 0,0.2439394,0.607486486
@@ -1635,12 +1619,27 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
 	part = bluedog.OAO.balanceBoom_4291414478
 	partName = Part
-	persistentId = 1581293572
+	persistentId = 2807629994
 	pos = -1.66542077,23.6435928,0.461288452
 	attPos = 0,0,0
 	attPos0 = -5.31081561E-08,0.2439394,-0.607486486
@@ -1750,12 +1749,27 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
 	part = bluedog.OAO.starTracker_4291414346
 	partName = Part
-	persistentId = 611293010
+	persistentId = 1328434142
 	pos = -2.09467793,23.4964828,0.639517725
 	attPos = 0,0,0
 	attPos0 = -0.429257244,0.0968294144,-0.429257214
@@ -1801,24 +1815,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleCargoPart
-		isEnabled = True
-		beingAttached = False
-		beingSettled = False
-		reinitResourcesOnStoreInVessel = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleSAS
 		isEnabled = True
 		standaloneToggle = True
@@ -1838,7 +1834,7 @@ PART
 {
 	part = bluedog.OAO.starTracker_4291414068
 	partName = Part
-	persistentId = 2654543353
+	persistentId = 2562177968
 	pos = -1.23605561,23.4916153,0.6394099
 	attPos = 0,0,0
 	attPos0 = 0.429365098,0.0919618607,-0.429365069
@@ -1884,24 +1880,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleCargoPart
-		isEnabled = True
-		beingAttached = False
-		beingSettled = False
-		reinitResourcesOnStoreInVessel = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleSAS
 		isEnabled = True
 		standaloneToggle = True
@@ -1921,7 +1899,7 @@ PART
 {
 	part = bluedog.OAO.solarUpper_4291411972
 	partName = Part
-	persistentId = 2593091229
+	persistentId = 3331275910
 	pos = -2.27289867,23.1604652,1.29108548
 	attPos = 0,0,0
 	attPos0 = -0.607477963,-0.239190102,0.222310603
@@ -2071,7 +2049,7 @@ PART
 {
 	part = bluedog.OAO.solarUpper_4291410986
 	partName = Part
-	persistentId = 3070930203
+	persistentId = 27308373
 	pos = -1.05794287,23.1604652,1.29108548
 	attPos = 0,0,0
 	attPos0 = 0.607477963,-0.239190102,0.222310603
@@ -2221,7 +2199,7 @@ PART
 {
 	part = bluedog.Agena.EngineMount_4292655910
 	partName = Part
-	persistentId = 2187949199
+	persistentId = 1230243473
 	pos = -1.66542077,19.025877,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-1.0960598,0
@@ -2306,7 +2284,7 @@ PART
 {
 	part = bluedog.Agena.Engine.XLR81_4291322714
 	partName = Part
-	persistentId = 669134563
+	persistentId = 29665076
 	pos = -1.66542077,18.3072453,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-0.718631744,0
@@ -2320,7 +2298,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 0
-	sidx = 5
+	sidx = 0
 	sqor = 1
 	sepI = 0
 	attm = 0
@@ -2617,6 +2595,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -2635,7 +2628,7 @@ PART
 {
 	part = bluedog.Agena.SLV3B.Interstage_4292667516
 	partName = Part
-	persistentId = 3456408964
+	persistentId = 799197067
 	pos = -1.66542077,18.7675571,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-0.258319855,0
@@ -2649,7 +2642,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 1
-	sidx = 4
+	sidx = 1
 	sqor = 1
 	sepI = 1
 	attm = 0
@@ -2735,7 +2728,7 @@ PART
 {
 	part = bluedog.Agena.SLV3B.FairingBase_4293187650
 	partName = Part
-	persistentId = 3921644714
+	persistentId = 1224359687
 	pos = -1.66542077,17.7816658,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-0.985891342,0
@@ -2749,7 +2742,7 @@ PART
 	istg = 2
 	resPri = 0
 	dstg = 3
-	sidx = 1
+	sidx = 0
 	sqor = 2
 	sepI = 1
 	attm = 0
@@ -2862,7 +2855,7 @@ PART
 {
 	part = bluedog.atlas.extensionTanks_4291176116
 	partName = Part
-	persistentId = 3323395413
+	persistentId = 558354492
 	pos = -1.66542077,16.6299725,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-1.15169334,0
@@ -2961,16 +2954,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -3018,7 +3047,7 @@ PART
 {
 	part = bluedog.atlas.coreTank_4291617108
 	partName = Part
-	persistentId = 1824206756
+	persistentId = 3685947464
 	pos = -1.66542077,12.4740171,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-4.15595531,0
@@ -3037,20 +3066,12 @@ PART
 	sepI = 1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 149.999939
+	modCost = -6.19888306E-05
 	modMass = 1.65309757E-08
 	modSize = 0,0,0
 	link = bluedog.atlas.aftTank_4291608846
 	link = bluedog.atlas.LR101_4291603976
 	link = bluedog.atlas.LR101_4291603172
-	link = bluedog.atlas.retroMotor_4291283040
-	link = bluedog.atlas.retroMotor_4291281392
-	link = bluedog.atlas.retroMotor_4291281106
-	link = bluedog.atlas.retroMotor_4291280940
-	link = bluedog.atlas.retroMotor_4291280652
-	link = bluedog.atlas.retroMotor_4291280250
-	link = bluedog.atlas.retroMotor_4291279962
-	link = bluedog.atlas.retroMotor_4291279796
 	attN = top,bluedog.atlas.extensionTanks_4291176116_0|3.57001996|0_0|1|0_0|3.57001996|0_0|1|0
 	attN = bottom,bluedog.atlas.aftTank_4291608846_0|-3.81270003|0_0|-1|0_0|-3.81270003|0_0|-1|0
 	EVENTS
@@ -3135,23 +3156,7 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 1
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
 		}
 	}
 	MODULE
@@ -3190,16 +3195,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -3277,7 +3318,7 @@ PART
 {
 	part = bluedog.atlas.aftTank_4291608846
 	partName = Part
-	persistentId = 4163979313
+	persistentId = 1577281225
 	pos = -1.66542077,8.1852541,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-4.28876305,0
@@ -3378,16 +3419,52 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleBdbBoiloff
+		name = ModuleSystemHeat
 		isEnabled = True
-		lastUpdateTime = -1
-		temperatureInitialized = False
+		totalSystemTemperature = 0
+		totalSystemFlux = 0
+		currentLoopID = 0
+		currentLoopTemperature = 2.70000005
+		nominalLoopTemperature = 2.70000005
+		currentLoopFlux = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleSystemHeatCryoTank
+		isEnabled = True
+		LastUpdateTime = 232623.83817695206
+		CoolingAllowed = True
+		CoolingEnabled = False
+		BoiloffOccuring = False
+		DebugMode = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			EnableAction
+			{
+				actionGroup = None
+			}
+			DisableAction
+			{
+				actionGroup = None
+			}
+			ToggleAction
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -3435,7 +3512,7 @@ PART
 {
 	part = bluedog.atlas.boosterSkirt_4291608216
 	partName = Part
-	persistentId = 744194363
+	persistentId = 1553179947
 	pos = -1.66542077,7.66131687,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-0.523937225,0
@@ -3446,12 +3523,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 4
 	resPri = 0
 	dstg = 3
 	sidx = 0
-	sqor = 2
-	sepI = 2
+	sqor = 4
+	sepI = 4
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
@@ -3631,7 +3708,7 @@ PART
 {
 	part = bluedog.atlas.LR89engine_4291597720
 	partName = Part
-	persistentId = 3256174850
+	persistentId = 1825360411
 	pos = -1.66542089,7.03570175,2.01734495
 	attPos = 0,0,0
 	attPos0 = -1.1920929E-07,-0.625614166,0.948570132
@@ -3642,12 +3719,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 5
 	resPri = 0
 	dstg = 5
 	sidx = 0
-	sqor = 3
-	sepI = 2
+	sqor = 5
+	sepI = 4
 	attm = 0
 	sameVesselCollision = False
 	modCost = 400
@@ -3944,6 +4021,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -3973,7 +4065,7 @@ PART
 {
 	part = bluedog.atlas.LR89engine_4291596270
 	partName = Part
-	persistentId = 350973048
+	persistentId = 418363145
 	pos = -1.66542065,7.03570175,0.120204806
 	attPos = 0,0,0
 	attPos0 = 1.1920929E-07,-0.625614166,-0.948570132
@@ -3984,12 +4076,12 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 5
 	resPri = 0
 	dstg = 5
 	sidx = 0
-	sqor = 3
-	sepI = 2
+	sqor = 5
+	sepI = 4
 	attm = 0
 	sameVesselCollision = False
 	modCost = 400
@@ -4278,6 +4370,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -4307,7 +4414,7 @@ PART
 {
 	part = bluedog.atlas.LR105engine_4291602538
 	partName = Part
-	persistentId = 1662332587
+	persistentId = 1278646583
 	pos = -1.66542077,6.85267639,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-1.33257866,0
@@ -4318,11 +4425,11 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 5
 	resPri = 0
 	dstg = 5
-	sidx = 1
-	sqor = 3
+	sidx = 2
+	sqor = 5
 	sepI = 1
 	attm = 0
 	sameVesselCollision = False
@@ -4648,6 +4755,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -4677,7 +4799,7 @@ PART
 {
 	part = bluedog.atlas.LR101_4291603976
 	partName = Part
-	persistentId = 202771038
+	persistentId = 946342656
 	pos = -2.62057161,8.74008846,1.06877494
 	attPos = 0,0,0
 	attPos0 = -0.955150723,-3.73392868,5.96046448E-08
@@ -4688,11 +4810,11 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 5
 	resPri = 0
 	dstg = 5
-	sidx = 2
-	sqor = 3
+	sidx = 1
+	sqor = 5
 	sepI = 1
 	attm = 1
 	sameVesselCollision = False
@@ -5005,6 +5127,21 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleWaterfallFX
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -5023,7 +5160,7 @@ PART
 {
 	part = bluedog.atlas.LR101_4291603172
 	partName = Part
-	persistentId = 421050556
+	persistentId = 3654985829
 	pos = -0.710270047,8.74008846,1.06877482
 	attPos = 0,0,0
 	attPos0 = 0.955150723,-3.73392868,-1.49011612E-07
@@ -5034,11 +5171,11 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 3
+	istg = 5
 	resPri = 0
 	dstg = 5
-	sidx = 2
-	sqor = 3
+	sidx = 1
+	sqor = 5
 	sepI = 1
 	attm = 1
 	sameVesselCollision = False
@@ -5343,178 +5480,14 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291283040
-	partName = Part
-	persistentId = 735324209
-	pos = -2.05460072,8.78273106,0.23417604
-	attPos = -0.99947083,23.8749104,-0.918254375
-	attPos0 = -0.389179915,-3.69128609,-0.834598899
-	rot = -3.3345728E-08,0.537299573,5.23423154E-08,-0.843391478
-	attRot = 0,0,0,1
-	attRot0 = -3.3345728E-08,0.537299573,5.23423154E-08,-0.843391478
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 0
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291281392
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
+		name = ModuleWaterfallFX
 		isEnabled = True
 		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -5534,1354 +5507,13 @@ PART
 		UPGRADESAPPLIED
 		{
 		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291281392
-	partName = Part
-	persistentId = 721096569
-	pos = -1.27624083,8.78273106,1.90337384
-	attPos = -0.99947083,23.8749104,-0.918254375
-	attPos0 = 0.389179975,-3.69128609,0.834598899
-	rot = 5.23423154E-08,-0.843391478,3.33457244E-08,-0.537299514
-	attRot = 0,0,0,1
-	attRot0 = 5.23423154E-08,-0.843391478,3.33457244E-08,-0.537299514
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 0
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291283040
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291281106
-	partName = Part
-	persistentId = 3665306397
-	pos = -2.19243002,8.78116703,0.316127419
-	attPos = 0.0105140209,0,0.0150154829
-	attPos0 = -0.53752315,-3.69285011,-0.767663002
-	rot = -2.86569168E-08,0.461748749,5.50494086E-08,-0.887010753
-	attRot = 0,0,0,1
-	attRot0 = -2.86569168E-08,0.461748749,5.50494086E-08,-0.887010753
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 1
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291280940
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291280940
-	partName = Part
-	persistentId = 3864175472
-	pos = -1.13841152,8.78116703,1.82142246
-	attPos = -0.0105140209,0,-0.0150154829
-	attPos0 = 0.53752321,-3.69285011,0.767663002
-	rot = 5.50494086E-08,-0.887010753,2.86569151E-08,-0.461748719
-	attRot = 0,0,0,1
-	attRot0 = 5.50494086E-08,-0.887010753,2.86569151E-08,-0.461748719
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 1
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291281106
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291280652
-	partName = Part
-	persistentId = 3790015838
-	pos = -1.27647865,8.7864542,0.234685898
-	attPos = -0.99947083,23.8749104,-0.918254375
-	attPos0 = 0.388942152,-3.68756294,-0.834089041
-	rot = 2.38477371E-09,0.843391418,-1.51926816E-09,-0.537299633
-	attRot = 0,0,0,1
-	attRot0 = 2.38477371E-09,0.843391418,-1.51926816E-09,-0.537299633
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 2
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291280250
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291280250
-	partName = Part
-	persistentId = 4137254298
-	pos = -2.05436277,8.7864542,1.9028641
-	attPos = -0.99947083,23.8749104,-0.918254375
-	attPos0 = -0.388942093,-3.68756294,0.83408916
-	rot = -1.51926827E-09,-0.537299693,-2.38477371E-09,-0.843391418
-	attRot = 0,0,0,1
-	attRot0 = -1.51926827E-09,-0.537299693,-2.38477371E-09,-0.843391418
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 2
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291280652
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291279962
-	partName = Part
-	persistentId = 2563747328
-	pos = -1.13830495,8.78796673,0.31597507
-	attPos = -0.00946199894,0,0.0135130882
-	attPos0 = 0.536577821,-3.68605042,-0.766312957
-	rot = 2.50811172E-09,0.887010813,-1.30564071E-09,-0.461748779
-	attRot = 0,0,0,1
-	attRot0 = 2.50811172E-09,0.887010813,-1.30564071E-09,-0.461748779
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 3
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291279796
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = bluedog.atlas.retroMotor_4291279796
-	partName = Part
-	persistentId = 2950312701
-	pos = -2.19253635,8.78796673,1.82157493
-	attPos = 0.00946199894,0,-0.0135130882
-	attPos0 = -0.536577702,-3.68605042,0.766313076
-	rot = -1.30564082E-09,-0.461748809,-2.50811172E-09,-0.887010813
-	attRot = 0,0,0,1
-	attRot0 = -1.30564082E-09,-0.461748809,-2.50811172E-09,-0.887010813
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 5
-	sidx = 3
-	sqor = 1
-	sepI = 1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00100000005
-	modSize = 0,0,0
-	sym = bluedog.atlas.retroMotor_4291279962
-	srfN = srfAttach,bluedog.atlas.coreTank_4291617108,atlasCore_COLLIDER,0|0|0,1|0|0,0|0|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchMount
-		currentSubtype = Red
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleEnginesFX
-		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OnAction
-			{
-				actionGroup = None
-			}
-			ShutdownAction
-			{
-				actionGroup = None
-			}
-			ActivateAction
-			{
-				actionGroup = None
-			}
-			ToggleThrottle
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			independentThrottlePercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-			thrustPercentage
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisSpeedMultiplier = 0
-				axisInverted = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbSequentialFire
-		isEnabled = True
-		sequentialFire = False
-		overlap = 0.200000003
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = False
-		deployAltitude = 49
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartInfo
-		isEnabled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	RESOURCE
-	{
-		name = SolidFuel
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
 	}
 }
 PART
 {
 	part = bluedog.Agena.SLV3B.Fairing.SAF_4291332830
 	partName = Part
-	persistentId = 2862864724
+	persistentId = 2618689175
 	pos = -1.66542077,17.553318,1.06877494
 	attPos = 0,0,0
 	attPos0 = 0,-0.228347778,0
@@ -6892,11 +5524,11 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 2
+	istg = 3
 	resPri = 0
 	dstg = 5
-	sidx = 2
-	sqor = 2
+	sidx = 0
+	sqor = 3
 	sepI = 1
 	attm = 0
 	sameVesselCollision = False
