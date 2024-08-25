@@ -1,4 +1,4 @@
-These .craft files are as accurate as possible recreations of real and proposed designs. As BDB is updated, improvements will be implemented.
+These .craft files are as accurate as possible recreations of real and proposed designs. As BDB is updated, improvements will be implemented. They are set up so that they can be easily merged into the .craft file of the payload.
 
 Most of those .craft files require both Conformal Decals and Simple Adjustable Fairings. They have accurately replicated paint schemes from real launch vehicles. Not every paint scheme had been replicated.
 
