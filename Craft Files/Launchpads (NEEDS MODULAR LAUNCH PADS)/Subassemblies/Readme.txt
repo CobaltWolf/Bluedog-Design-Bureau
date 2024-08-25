@@ -1,0 +1,1 @@
+Launchpad subassemblies for BDB .craft files. Layout is directly based on real pads. Some applications might need tweaks to umbilical lengths and positions, and the pad will sometimes need minor adjustment with offset tool due to how nodes are set up. Still, if following the relevant PDF manual, everything should match up.
