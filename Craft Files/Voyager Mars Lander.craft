@@ -1,5 +1,5 @@
 ship = Voyager Mars Lander
-version = 1.12.3
+version = 1.12.5
 description = 
 type = VAB
 size = 3.55907273,2.17668915,3.55907249
@@ -458,6 +458,7 @@ PART
 	link = bluedog.voyagerMarsLander.descentEngine_4291945454
 	link = bluedog.voyagerMarsLander.radarAltimeter_4293288400
 	link = bluedog.voyagerMarsOrbiter.heatshield_4293281232
+	link = bluedog.voyagerMarsLander.drill_4292310540
 	attN = top,bluedog.voyagerMarsLander.parachute_4291956062_0|0.302019|0_0|1|0_0|0.302019|0_0|1|0
 	attN = top2,bluedog.voyagerMarsLander.srbMount_4293291930_0|0.302019|0_0|1|0_0|0.302019|0_0|1|0
 	attN = bottom,bluedog.voyagerMarsLander.radarAltimeter_4293288400_0|-0.385426998|0_0|-1|0_0|-0.385426998|0_0|-1|0
@@ -470,6 +471,7 @@ PART
 	attN = engine3,bluedog.voyagerMarsLander.descentEngine_4291945548_-0.649943352|0.0542780682|0.375245124_5.36441803E-07|-1|-5.06639481E-07_-0.649943352|0.0542780682|0.375245124_5.36441803E-07|-1|-5.06639481E-07
 	attN = cameraNode,bluedog.voyagerMarsLander.camera_4291954518_0.287737548|0.298628956|-0.154622957_-2.84217094E-14|1|-1.19209332E-07_0.287737548|0.298628956|-0.154622957_-2.84217094E-14|1|-1.19209332E-07
 	attN = HGAnode,bluedog.voyagerMarsLander.HGA_4291953726_-0.119275287|0.299277365|0.347246498_-2.84217094E-14|1|-1.19209332E-07_-0.119275287|0.299277365|0.347246498_-2.84217094E-14|1|-1.19209332E-07
+	attN = sampleBoomNode,Null_0_-0.332382113|0.20819515|-0.361444026_-0.866025448|2.98023224E-08|-0.50000006_-0.332382113|0.20819515|-0.361444026_-0.866025448|2.98023224E-08|-0.50000006
 	EVENTS
 	{
 	}
@@ -888,6 +890,32 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
@@ -941,7 +969,7 @@ PART
 	{
 		name = ModuleDeployableAntenna
 		isEnabled = True
-		currentRotation = (0, 0, 0, 0)
+		currentRotation = (-0.0979828238, 3.55906991E-07, 3.50413849E-08, 0.995188117)
 		storedAnimationTime = 0
 		storedAnimationSpeed = 1
 		deployState = RETRACTED
@@ -1100,7 +1128,7 @@ PART
 	modMass = 0
 	modSize = 0,0,0
 	srfN = srfAttach,bluedog.voyagerMarsLander.core_4291957144,Lcore_COLLIDER,0|0|-0.0068930001,0|0|-1,0|0|-0.0068930001
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
+	attN = boomNode,Null_0_-1.49011612E-08|-5.43497691E-09|0.00166836381_3.55271368E-15|3.33841399E-08|1_-1.49011612E-08|-5.43497691E-09|0.00166836381_3.55271368E-15|3.33841399E-08|1
 	EVENTS
 	{
 	}
@@ -1258,6 +1286,52 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEnviroSensor
+		isEnabled = True
+		sensorActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
@@ -1369,6 +1443,52 @@ PART
 				actionGroup = None
 			}
 			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEnviroSensor
+		isEnabled = True
+		sensorActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
 			{
 				actionGroup = None
 			}
@@ -2900,6 +3020,78 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleEnviroSensor
+		isEnabled = True
+		sensorActive = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
@@ -2928,6 +3120,7 @@ PART
 	modMass = 0
 	modSize = 0,0,0
 	attN = top,bluedog.voyagerMarsLander.core_4291957144_0|0.518169999|0_0|-1|0_0|0.518169999|0_0|-1|0
+	attN = rim,Null_0_0|-0.277595013|0_0|-1|0_0|-0.277595013|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -2972,8 +3165,28 @@ PART
 		{
 			ToggleAction
 			{
-				actionGroup = None
+				actionGroup = Custom10
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleBdbDefAGHelper
+		isEnabled = True
+		actionModuleName = ModuleRCSFX
+		actionModuleIndex = 0
+		actionName = ToggleAction
+		actionDefaultActionGroup = Custom10
+		saveFlag = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -3063,5 +3276,96 @@ PART
 		hideFlow = False
 		isVisible = True
 		flowMode = Both
+	}
+}
+PART
+{
+	part = bluedog.voyagerMarsLander.drill_4292310540
+	partName = Part
+	persistentId = 365856967
+	pos = 0.125278264,15.3809433,0.566694379
+	attPos = 0,0,0
+	attPos0 = 0.204971343,0.195287704,0.460447282
+	rot = 3.19744333E-14,1,8.94069814E-08,-3.57627925E-07
+	attRot = 0,0,0,1
+	attRot0 = 3.19744333E-14,1,8.94069814E-08,-3.57627925E-07
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 2
+	sidx = -1
+	sqor = -1
+	sepI = 0
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,bluedog.voyagerMarsLander.core_4291957144,Lcore_COLLIDER,0|0|0,0|0|-1,0|0|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = DMModuleScienceAnimateGeneric
+		isEnabled = True
+		IsDeployed = False
+		experimentsReturned = 0
+		experimentsNumber = 0
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			deployAction
+			{
+				actionGroup = None
+			}
+			retractAction
+			{
+				actionGroup = None
+			}
+			toggleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 }
