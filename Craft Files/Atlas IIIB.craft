@@ -35,7 +35,7 @@ PART
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 1000
+	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	link = bluedog.Centaur.FairingBase4xx.SAF_4292446012
@@ -138,23 +138,9 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 3
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -259,7 +245,7 @@ PART
 	istg = 0
 	resPri = 0
 	dstg = 1
-	sidx = 1
+	sidx = 0
 	sqor = 0
 	sepI = -1
 	attm = 0
@@ -564,11 +550,11 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.CentaurD.RL10A4N_4293012726
-	link = bluedog.CentaurD.RL10A4N_4293011330
+	link = bluedog.CentaurD.RL10_4292234120
+	link = bluedog.CentaurD.RL10_4292205380
 	link = bluedog.centaur1875mAdapterFairing_4289231138
-	attN = engine1,bluedog.CentaurD.RL10A4N_4293012726_-0.371126771|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07_-0.371126771|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07
-	attN = engine2,bluedog.CentaurD.RL10A4N_4293011330_0.370999992|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07_0.370999992|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07
+	attN = engine1,bluedog.CentaurD.RL10_4292234120_-0.371126771|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07_-0.371126771|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07
+	attN = engine2,bluedog.CentaurD.RL10_4292205380_0.370999992|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07_0.370999992|-0.390428901|5.17408541E-16_0|-1.00000012|-1.1920929E-07
 	attN = engine3,Null_0_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07
 	attN = ABC_Node,Null_0_-0.417268634|-0.431620002|-0.320182025_-0.238564894|-0.953716934|-0.183059812_-0.417268634|-0.431620002|-0.320182025_-0.238564894|-0.953716934|-0.183059812
 	attN = interstage,bluedog.centaur1875mAdapterFairing_4289231138_0|0.196699381|2.56671179E-16_0|-1.00000012|-1.1920929E-07_0|0.196699381|2.56671179E-16_0|-1.00000012|-1.1920929E-07
@@ -716,9 +702,9 @@ PART
 }
 PART
 {
-	part = bluedog.CentaurD.RL10A4N_4293012726
+	part = bluedog.CentaurD.RL10_4292234120
 	partName = Part
-	persistentId = 3827306646
+	persistentId = 196184881
 	pos = -2.63502121,25.1933727,-0.188645333
 	attPos = 0,0,0
 	attPos0 = -0.37112689,-0.880048752,0
@@ -729,20 +715,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 1
 	resPri = 0
 	dstg = 2
 	sidx = 0
-	sqor = 0
+	sqor = 2
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 170
+	modMass = 0.0199999996
 	modSize = 0,0,0
-	sym = bluedog.CentaurD.RL10A4N_4293011330
+	sym = bluedog.CentaurD.RL10_4292205380
 	attN = top,bluedog.CentaurD.EngineMount_4293015880_0|0.48962|0_0|1|0_0|0.48962|0_0|1|0
-	attN = bottom,Null_0_0|-0.537069976|0_0|-1|0_0|-0.537069976|0_0|-1|0
+	attN = bottom,Null_0_0|-0.801580012|0_0|-1|0_0|-0.801580012|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -809,10 +795,6 @@ PART
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				axisSpeedMultiplier = 0
 				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 			thrustPercentage
 			{
@@ -820,11 +802,54 @@ PART
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				axisSpeedMultiplier = 0
 				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = engineSwitch
+		currentSubtype = RL10A-4-1N
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDeployableEngine
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDeployableEngine
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -871,6 +896,21 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -982,7 +1022,7 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDeployableEngine
+		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
 		EVENTS
@@ -998,9 +1038,9 @@ PART
 }
 PART
 {
-	part = bluedog.CentaurD.RL10A4N_4293011330
+	part = bluedog.CentaurD.RL10_4292205380
 	partName = Part
-	persistentId = 2505574649
+	persistentId = 217856936
 	pos = -1.89289427,25.1933727,-0.188645333
 	attPos = 0,0,0
 	attPos0 = 0.371000051,-0.880048752,0
@@ -1011,20 +1051,20 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = 1
 	resPri = 0
 	dstg = 2
 	sidx = 0
-	sqor = 0
+	sqor = 2
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 170
+	modMass = 0.0199999996
 	modSize = 0,0,0
-	sym = bluedog.CentaurD.RL10A4N_4293012726
+	sym = bluedog.CentaurD.RL10_4292234120
 	attN = top,bluedog.CentaurD.EngineMount_4293015880_0|0.48962|0_0|1|0_0|0.48962|0_0|1|0
-	attN = bottom,Null_0_0|-0.537069976|0_0|-1|0_0|-0.537069976|0_0|-1|0
+	attN = bottom,Null_0_0|-0.801580012|0_0|-1|0_0|-0.801580012|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -1106,6 +1146,53 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = engineSwitch
+		currentSubtype = RL10A-4-1N
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDeployableEngine
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDeployableEngine
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleGimbal
 		isEnabled = True
 		gimbalLock = False
@@ -1145,6 +1232,21 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -1256,7 +1358,7 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDeployableEngine
+		name = ModuleB9PartInfo
 		isEnabled = True
 		stagingEnabled = True
 		EVENTS
@@ -1288,7 +1390,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 3
-	sidx = 0
+	sidx = 6
 	sqor = 1
 	sepI = 1
 	attm = 0
@@ -1570,7 +1672,7 @@ PART
 	sepI = 1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 149.999939
+	modCost = -6.19888306E-05
 	modMass = 1.65309757E-08
 	modSize = 0,0,0
 	link = bluedog.AtlasV.RD180engine_4291651572
@@ -1670,23 +1772,7 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 1
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
 		}
 	}
 	MODULE
@@ -2528,7 +2614,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 3
+	sidx = 1
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -2908,7 +2994,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 3
+	sidx = 2
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -3098,7 +3184,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 3
+	sidx = 7
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -3287,7 +3373,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 4
+	sidx = 8
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -3476,7 +3562,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 5
+	sidx = 3
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -3666,7 +3752,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 5
+	sidx = 3
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -3856,7 +3942,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 6
+	sidx = 4
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -4046,7 +4132,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 6
+	sidx = 4
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -4236,7 +4322,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 7
+	sidx = 5
 	sqor = 1
 	sepI = 1
 	attm = 1
@@ -4426,7 +4512,7 @@ PART
 	istg = 1
 	resPri = 0
 	dstg = 5
-	sidx = 7
+	sidx = 5
 	sqor = 1
 	sepI = 1
 	attm = 1

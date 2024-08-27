@@ -35,7 +35,7 @@ PART
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 1000
+	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
 	attN = top,Null_0_0|0.294290006|0_0|1|0_0|0.294290006|0_0|1|0
@@ -137,23 +137,9 @@ PART
 		}
 		UPGRADESAPPLIED
 		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = SASlevel
-		currentSubtype = 3
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
+			upgrade = bluedog_SAS1
+			upgrade = bluedog_SAS2
+			upgrade = bluedog_SAS3
 		}
 	}
 	MODULE
@@ -442,11 +428,11 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = bluedog.CentaurD.RL10A4N_4292946534
 	link = bluedog.AtlasV.5xx.conicalAdapter_4290528492
+	link = bluedog.CentaurD.RL10_4292153414
 	attN = engine1,Null_0_-0.371126771|-0.390428901|-6.36089439E-08_0|-0.99999994|-3.57627869E-07_-0.371126771|-0.390428901|-6.36089439E-08_0|-0.99999994|-3.57627869E-07
 	attN = engine2,Null_0_0.370999992|-0.390428901|-6.36089439E-08_0|-0.99999994|-3.57627869E-07_0.370999992|-0.390428901|-6.36089439E-08_0|-0.99999994|-3.57627869E-07
-	attN = engine3,bluedog.CentaurD.RL10A4N_4292946534_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07
+	attN = engine3,bluedog.CentaurD.RL10_4292153414_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07_9.53674316E-07|-0.624599576|7.7058678E-07_0|-0.99999994|-3.57627869E-07
 	attN = ABC_Node,Null_0_-0.417268634|-0.431620002|-0.320182025_-0.238564894|-0.953716934|-0.183059812_-0.417268634|-0.431620002|-0.320182025_-0.238564894|-0.953716934|-0.183059812
 	attN = interstage,bluedog.AtlasV.5xx.conicalAdapter_4290528492_0|0.196699381|3.20463975E-08_0|-0.99999994|-3.57627869E-07_0|0.196699381|3.20463975E-08_0|-0.99999994|-3.57627869E-07
 	attN = top,bluedog.CentaurIII.FuelTank_4292359242_0|0.216398954|3.52558658E-08_0|0.99999994|5.96046448E-08_0|0.216398954|3.52558658E-08_0|0.99999994|5.96046448E-08
@@ -593,12 +579,12 @@ PART
 }
 PART
 {
-	part = bluedog.CentaurD.RL10A4N_4292946534
+	part = bluedog.AtlasV.centaurFLR_4290589270
 	partName = Part
-	persistentId = 186519211
-	pos = -0.19739911,29.9840336,0.725798428
+	persistentId = 1397993018
+	pos = -0.197400063,36.3792877,0.725797713
 	attPos = 0,0,0
-	attPos0 = 9.53674316E-07,-1.11421967,7.74860382E-07
+	attPos0 = 0,2.50950813,0
 	rot = 0,0,0,1
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -606,19 +592,194 @@ PART
 	symMethod = Radial
 	autostrutMode = Off
 	rigidAttachment = False
+	istg = 1
+	resPri = 0
+	dstg = 1
+	sidx = 0
+	sqor = 1
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0.00999999978
+	modSize = 0,0,0
+	attN = top,bluedog.CentaurIII.FuelTank_4292359242_0|0.0456140004|0_0|-1|0_0|0.0456140004|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleBdbJettison
+		isEnabled = True
+		isJettisoned = False
+		autoDeploy = True
+		deployAltitude = 63
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			JettisonAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.AtlasV.5xx.conicalAdapter_4290528492
+	partName = Part
+	persistentId = 591645324
+	pos = -0.197400063,30.7155895,0.725797713
+	attPos = 0,0,0
+	attPos0 = 0,-0.382663727,5.96046448E-08
+	rot = 0,1,0,0
+	attRot = 0,0.99999994,0,0
+	attRot0 = 0,1,0,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
 	istg = 0
 	resPri = 0
-	dstg = 0
+	dstg = 1
 	sidx = 0
 	sqor = 0
-	sepI = -1
+	sepI = 0
 	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
+	link = bluedog.AtlasV.500Fairing.SAF_4290584430
+	attN = top,bluedog.CentaurD.EngineMount_4292348350_0|0.579361975|0_0|1|0_0|0.579361975|0_0|1|0
+	attN = bottom,bluedog.AtlasV.500Fairing.SAF_4290584430_0|-0.670252025|0_0|-1|0_0|-0.670252025|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+		ToggleSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		SetSameVesselInteraction
+		{
+			actionGroup = None
+		}
+		RemoveSameVesselInteraction
+		{
+			actionGroup = None
+		}
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = meshSwitchType
+		currentSubtype = Centaur
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartInfo
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = bluedog.CentaurD.RL10_4292153414
+	partName = Part
+	persistentId = 2780444033
+	pos = -0.19739911,29.9840336,0.725798428
+	attPos = 0,0,0
+	attPos0 = 9.53674316E-07,-1.11421967,7.74860382E-07
+	rot = 0,-0.707106829,0,0.707106829
+	attRot = 0,-0.707106769,0,0.707106769
+	attRot0 = 0,-0.707106829,0,0.707106829
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = 0
+	resPri = 0
+	dstg = 0
+	sidx = 1
+	sqor = 0
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
+	modCost = 170
+	modMass = 0.0199999996
+	modSize = 0,0,0
 	attN = top,bluedog.CentaurD.EngineMount_4292348350_0|0.48962|0_0|1|0_0|0.48962|0_0|1|0
-	attN = bottom,Null_0_0|-0.537069976|0_0|-1|0_0|-0.537069976|0_0|-1|0
+	attN = bottom,Null_0_0|-0.801580012|0_0|-1|0_0|-0.801580012|0_0|-1|0
 	EVENTS
 	{
 	}
@@ -685,10 +846,6 @@ PART
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				axisSpeedMultiplier = 0
 				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 			thrustPercentage
 			{
@@ -696,11 +853,54 @@ PART
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				axisSpeedMultiplier = 0
 				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleB9PartSwitch
+		isEnabled = True
+		stagingEnabled = True
+		moduleID = engineSwitch
+		currentSubtype = RL10A-4-1N
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDeployableEngine
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDeployableEngine
+		isEnabled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -747,6 +947,21 @@ PART
 			{
 				actionGroup = None
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -858,183 +1073,8 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDeployableEngine
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AtlasV.centaurFLR_4290589270
-	partName = Part
-	persistentId = 1397993018
-	pos = -0.197400063,36.3792877,0.725797713
-	attPos = 0,0,0
-	attPos0 = 0,2.50950813,0
-	rot = 0,0,0,1
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 1
-	resPri = 0
-	dstg = 1
-	sidx = 0
-	sqor = 1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0.00999999978
-	modSize = 0,0,0
-	attN = top,bluedog.CentaurIII.FuelTank_4292359242_0|0.0456140004|0_0|-1|0_0|0.0456140004|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleBdbJettison
-		isEnabled = True
-		isJettisoned = False
-		autoDeploy = True
-		deployAltitude = 63
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			JettisonAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = bluedog.AtlasV.5xx.conicalAdapter_4290528492
-	partName = Part
-	persistentId = 591645324
-	pos = -0.197400063,30.7155895,0.725797713
-	attPos = 0,0,0
-	attPos0 = 0,-0.382663727,5.96046448E-08
-	rot = 0,1,0,0
-	attRot = 0,0.99999994,0,0
-	attRot0 = 0,1,0,0
-	mir = 1,1,1
-	symMethod = Radial
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = 0
-	resPri = 0
-	dstg = 1
-	sidx = 1
-	sqor = 0
-	sepI = 0
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = bluedog.AtlasV.500Fairing.SAF_4290584430
-	attN = top,bluedog.CentaurD.EngineMount_4292348350_0|0.579361975|0_0|1|0_0|0.579361975|0_0|1|0
-	attN = bottom,bluedog.AtlasV.500Fairing.SAF_4290584430_0|-0.670252025|0_0|-1|0_0|-0.670252025|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-		ToggleSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		SetSameVesselInteraction
-		{
-			actionGroup = None
-		}
-		RemoveSameVesselInteraction
-		{
-			actionGroup = None
-		}
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDecouple
-		isEnabled = True
-		ejectionForcePercent = 100
-		isDecoupled = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DecoupleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleB9PartSwitch
-		isEnabled = True
-		stagingEnabled = True
-		moduleID = meshSwitchType
-		currentSubtype = Centaur
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
-		isEnabled = False
+		isEnabled = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1052,7 +1092,7 @@ PART
 	part = bluedog.AtlasV.500Fairing.SAF_4290584430
 	partName = Part
 	persistentId = 1051461401
-	pos = -0.197400063,30.5269871,0.725797653
+	pos = -0.197400063,30.5269871,0.725797713
 	attPos = 0,0,5.96046448E-08
 	attPos0 = 0,-0.188602448,0
 	rot = 0,0,0,1
@@ -1193,7 +1233,7 @@ PART
 	part = bluedog.AtlasV.CCB.upper_4290604812
 	partName = Part
 	persistentId = 2227286883
-	pos = -0.197400063,22.2066078,0.725797653
+	pos = -0.197400063,22.2066078,0.725797713
 	attPos = 0,0,0
 	attPos0 = 0,-8.32037926,0
 	rot = 0,0,0,1
@@ -1392,7 +1432,7 @@ PART
 	part = bluedog.AtlasV.CCB.lower_4290567566
 	partName = Part
 	persistentId = 2978795820
-	pos = -0.197400063,13.1689987,0.725797653
+	pos = -0.197400063,13.1689987,0.725797713
 	attPos = 0,0,0
 	attPos0 = 0,-9.0376091,0
 	rot = 0,0,0,1
@@ -1666,7 +1706,7 @@ PART
 	part = bluedog.AtlasV.RD180engine_4290562790
 	partName = Part
 	persistentId = 223018791
-	pos = -0.197400063,8.25280762,0.725797653
+	pos = -0.197400063,8.25280762,0.725797713
 	attPos = 0,0,0
 	attPos0 = 0,-3.8579216,0
 	rot = 0,0,0,1
@@ -2178,7 +2218,7 @@ PART
 	part = bluedog.AtlasV.SRMDecoupler_4290554218
 	partName = Part
 	persistentId = 1562689829
-	pos = 1.03996885,15.2020798,0.725323439
+	pos = 1.03996885,15.2020798,0.725323498
 	attPos = 0,0,0
 	attPos0 = 1.23736894,2.03308105,-0.000474214554
 	rot = 0,1,0,0
@@ -2349,7 +2389,7 @@ PART
 	part = bluedog.AtlasV.AJ60motor_4290546644
 	partName = Part
 	persistentId = 4028785241
-	pos = 1.70221913,13.2520409,0.72532326
+	pos = 1.70221913,13.2520409,0.725323319
 	attPos = 0,0,0
 	attPos0 = -0.66225028,-1.95003891,1.78813934E-07
 	rot = 0,-0.707106829,0,0.707106829
@@ -2542,7 +2582,7 @@ PART
 	part = bluedog.AtlasV.SRMDecoupler_4290544400
 	partName = Part
 	persistentId = 3968113950
-	pos = -1.36047065,15.2020798,0.303958356
+	pos = -1.36047065,15.2020798,0.303958416
 	attPos = 0,0,0
 	attPos0 = -1.16307056,2.03308105,-0.421839297
 	rot = 4.14010479E-08,0.173648641,-2.82824271E-08,-0.98480767
@@ -2713,10 +2753,10 @@ PART
 	part = bluedog.AtlasV.AJ60motor_4290544272
 	partName = Part
 	persistentId = 275437713
-	pos = -1.98278213,13.2520409,0.077455163
+	pos = -1.98278213,13.2520409,0.0774552226
 	attPos = 0,0,0
 	attPos0 = -0.66225028,-1.95003891,1.78813934E-07
-	rot = -4.92736589E-08,0.573576093,-9.27626509E-09,0.819152355
+	rot = -4.92736589E-08,0.573576093,-9.27626687E-09,0.819152296
 	attRot = 0,-0.707106769,0,0.707106769
 	attRot0 = 0,-0.707106829,0,-0.707106829
 	mir = 1,1,1
@@ -2898,7 +2938,7 @@ PART
 	part = bluedog.AtlasV.SRMDecoupler_4290543248
 	partName = Part
 	persistentId = 2910944607
-	pos = -1.39236081,15.2020798,1.04744303
+	pos = -1.39236081,15.2020798,1.04744315
 	attPos = 0,0,0
 	attPos0 = -1.19496071,2.03308105,0.321645379
 	rot = -3.11197716E-08,-0.130525798,2.08746331E-09,-0.991444945
@@ -3072,7 +3112,7 @@ PART
 	pos = -2.0320456,13.2520409,1.21884561
 	attPos = 0,0,0
 	attPos0 = -0.66225028,-1.95003891,1.78813934E-07
-	rot = 2.34810624E-08,0.7933532,2.05289421E-08,0.608761787
+	rot = 2.34810624E-08,0.7933532,2.05289403E-08,0.608761787
 	attRot = 0,-0.707106769,0,0.707106769
 	attRot0 = 0,-0.707106829,0,-0.707106829
 	mir = 1,1,1
@@ -3254,7 +3294,7 @@ PART
 	part = bluedog.AtlasV.SRMDecoupler_4290542274
 	partName = Part
 	persistentId = 489879964
-	pos = 0.815649271,15.2020798,0.0157694817
+	pos = 0.815649271,15.2020798,0.0157695413
 	attPos = 0,0,0
 	attPos0 = 1.01304936,2.03308105,-0.710028172
 	rot = -2.16900318E-07,-0.953716993,7.16939326E-08,0.300705731
@@ -3425,10 +3465,10 @@ PART
 	part = bluedog.AtlasV.AJ60motor_4290542140
 	partName = Part
 	persistentId = 923732891
-	pos = 1.35813224,13.2520409,-0.364081085
+	pos = 1.35813236,13.2520409,-0.364081085
 	attPos = 0,0,0
 	attPos0 = -0.66225028,-1.95003891,1.78813934E-07
-	rot = 2.04066964E-07,0.461748749,1.02676431E-07,-0.887010932
+	rot = 2.04066964E-07,0.461748749,1.02676424E-07,-0.887010932
 	attRot = 0,-0.707106769,0,0.707106769
 	attRot0 = 0,-0.707106829,0,-0.707106829
 	mir = 1,1,1
@@ -3610,7 +3650,7 @@ PART
 	part = bluedog.AtlasV.SRMDecoupler_4290541392
 	partName = Part
 	persistentId = 2677014375
-	pos = 0.816737413,15.2020798,1.4352206
+	pos = 0.816737413,15.2020798,1.43522072
 	attPos = 0,0,0
 	attPos0 = 1.01413751,2.03308105,0.709422946
 	rot = -2.16900432E-07,-0.953716934,-7.16937762E-08,-0.30070594
@@ -3781,10 +3821,10 @@ PART
 	part = bluedog.AtlasV.AJ60motor_4290541252
 	partName = Part
 	persistentId = 3884145977
-	pos = 1.3592205,13.2520409,1.81507111
+	pos = 1.3592205,13.2520409,1.81507134
 	attPos = 0,0,0
 	attPos0 = -0.66225028,-1.95003891,1.78813934E-07
-	rot = 1.02676609E-07,0.887010992,2.04066936E-07,-0.46174854
+	rot = 1.0267658E-07,0.887010932,2.04066936E-07,-0.46174854
 	attRot = 0,-0.707106769,0,0.707106769
 	attRot0 = 0,-0.707106829,0,-0.707106829
 	mir = 1,1,1
@@ -4132,7 +4172,7 @@ PART
 	part = bluedog.AtlasV.Star5F_4290565234
 	partName = Part
 	persistentId = 4135737471
-	pos = -1.31513703,16.7848473,0.318974853
+	pos = -1.31513703,16.7848473,0.318974912
 	attPos = 0,0,0
 	attPos0 = -1.11773694,-5.42176056,-0.406822801
 	rot = -8.79288748E-08,-0.57357645,6.15684712E-08,-0.819151998
@@ -4922,7 +4962,7 @@ PART
 	part = bluedog.AtlasV.Star5F_4290564844
 	partName = Part
 	persistentId = 1730568449
-	pos = 0.880626321,16.7848473,0.22310549
+	pos = 0.880626321,16.7848473,0.22310555
 	attPos = 0,0,0
 	attPos0 = 1.07802641,-5.42176056,-0.502692163
 	rot = 9.05307758E-08,-0.537299633,5.76744625E-08,0.843391478
