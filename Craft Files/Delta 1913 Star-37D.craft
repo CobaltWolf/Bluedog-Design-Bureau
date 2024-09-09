@@ -29,19 +29,19 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 2
 resPri = 0
-dstg = 1
+dstg = 3
 sidx = 0
 sqor = 2
-sepI = -1
+sepI = 1
 attm = 0
 sameVesselCollision = False
 modCost = 0
 modMass = 0.211999997
 modSize = 0,0,0
-link = bluedog.DeltaP.Stage_4292326280
+link = bluedog.DeltaK.Stage_4292326280
 link = bluedog.Delta.Interstage_4292352046
 attN = top,bluedog.Delta.Avionics_4292328916_0|0.125870004|0_0|1|0_0|0.125870004|0_0|1|0
-attN = bottom,bluedog.DeltaP.Stage_4292326280_0|0.0758680031|0_0|-1|0_0|0.0758680031|0_0|-1|0
+attN = bottom,bluedog.DeltaK.Stage_4292326280_0|0.0758680031|0_0|-1|0_0|0.0758680031|0_0|-1|0
 attN = bottom2,bluedog.Delta.Interstage_4292352046_0|-0.602649987|0_0|-1|0_0|-0.602649987|0_0|-1|0
 EVENTS
 {
@@ -212,12 +212,12 @@ mir = 1,1,1
 symMethod = Radial
 autostrutMode = Off
 rigidAttachment = False
-istg = -1
+istg = 1
 resPri = 0
-dstg = 0
+dstg = 2
 sidx = -1
 sqor = -1
-sepI = -1
+sepI = 1
 attm = 0
 sameVesselCollision = False
 modCost = 0
@@ -428,273 +428,6 @@ RESOURCE
 name = ElectricCharge
 amount = 80
 maxAmount = 80
-flowState = True
-isTweakable = True
-hideFlow = False
-isVisible = True
-flowMode = Both
-}
-}
-PART
-{
-part = bluedog.DeltaP.Stage_4292326280
-partName = Part
-persistentId = 936315324
-pos = 0.127513289,25.1024914,-0.1031949
-attPos = 0,0,0
-attPos0 = 0,-0.823310852,0
-rot = 0,0,0,1
-attRot = 0,0,0,1
-attRot0 = 0,0,0,1
-mir = 1,1,1
-symMethod = Radial
-autostrutMode = Off
-rigidAttachment = False
-istg = 2
-resPri = 0
-dstg = 2
-sidx = -1
-sqor = -1
-sepI = -1
-attm = 0
-sameVesselCollision = False
-modCost = -1.43051147E-06
-modMass = 4.65661287E-10
-modSize = 0,0,0
-link = bluedog.TR.201_4292323682
-attN = top,bluedog.Delta2.metalFairing.SAF_4292346294_0|0.899179995|0_0|1|0_0|0.899179995|0_0|1|0
-attN = bottom,bluedog.TR.201_4292323682_0|-1.06389999|0_0|-1|0_0|-1.06389999|0_0|-1|0
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleSameVesselInteraction
-{
-actionGroup = None
-}
-SetSameVesselInteraction
-{
-actionGroup = None
-}
-RemoveSameVesselInteraction
-{
-actionGroup = None
-}
-AutostrutOff
-{
-actionGroup = None
-}
-AutostrutRoot
-{
-actionGroup = None
-}
-AutostrutHeaviest
-{
-actionGroup = None
-}
-AutostrutGrandparent
-{
-actionGroup = None
-}
-ResourcesEnableFlow
-{
-actionGroup = None
-}
-ResourcesDisableFlow
-{
-actionGroup = None
-}
-}
-PARTDATA
-{
-}
-MODULE
-{
-name = ModuleRCSFX
-isEnabled = True
-rcsEnabled = True
-thrustPercentage = 100
-currentShowToggles = False
-enableYaw = True
-enablePitch = True
-enableRoll = True
-enableX = False
-enableY = False
-enableZ = False
-useThrottle = False
-fullThrust = False
-stagingEnabled = False
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleRCSFX
-isEnabled = True
-rcsEnabled = True
-thrustPercentage = 100
-currentShowToggles = False
-enableYaw = False
-enablePitch = False
-enableRoll = False
-enableX = True
-enableY = True
-enableZ = True
-useThrottle = False
-fullThrust = False
-stagingEnabled = False
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleB9AssignUiGroups
-isEnabled = True
-stagingEnabled = True
-moduleID = 
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleB9PartSwitch
-isEnabled = True
-stagingEnabled = True
-moduleID = realnameTankSwitch
-currentSubtype = DeltaP
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleB9PartSwitch
-isEnabled = True
-stagingEnabled = True
-moduleID = textureSwitchPaint
-currentSubtype = Green
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleB9PartSwitch
-isEnabled = True
-stagingEnabled = True
-moduleID = fuelSwitch
-currentSubtype = LF/O
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleBdbBoiloff
-isEnabled = True
-lastUpdateTime = -1
-temperatureInitialized = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleB9PartInfo
-isEnabled = True
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-RESOURCE
-{
-name = LiquidFuel
-amount = 81
-maxAmount = 81
-flowState = True
-isTweakable = True
-hideFlow = False
-isVisible = True
-flowMode = Both
-}
-RESOURCE
-{
-name = Oxidizer
-amount = 99
-maxAmount = 99
-flowState = True
-isTweakable = True
-hideFlow = False
-isVisible = True
-flowMode = Both
-}
-RESOURCE
-{
-name = MonoPropellant
-amount = 9
-maxAmount = 9
 flowState = True
 isTweakable = True
 hideFlow = False
@@ -1020,10 +753,10 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 0
 resPri = 0
-dstg = 2
+dstg = 0
 sidx = 0
 sqor = 0
-sepI = 1
+sepI = -1
 attm = 0
 sameVesselCollision = False
 modCost = 8
@@ -1354,12 +1087,279 @@ flowMode = Both
 }
 PART
 {
+part = bluedog.DeltaK.Stage_4292326280
+partName = Part
+persistentId = 936315324
+pos = 0.127513289,25.1689606,-0.1031949
+attPos = 0,0,0
+attPos0 = 0,-0.823310852,0
+rot = 0,0,0,1
+attRot = 0,0,0,1
+attRot0 = 0,0,0,1
+mir = 1,1,1
+symMethod = Radial
+autostrutMode = Off
+rigidAttachment = False
+istg = 2
+resPri = 0
+dstg = 4
+sidx = -1
+sqor = -1
+sepI = 1
+attm = 0
+sameVesselCollision = False
+modCost = -1.43051147E-06
+modMass = 4.65661287E-10
+modSize = 0,0,0
+link = bluedog.TR.201_4292323682
+attN = top,bluedog.Delta2.metalFairing.SAF_4292346294_0|0.899179995|0_0|1|0_0|0.899179995|0_0|1|0
+attN = bottom,bluedog.TR.201_4292323682_0|-1.06389999|0_0|-1|0_0|-1.06389999|0_0|-1|0
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleSameVesselInteraction
+{
+actionGroup = None
+}
+SetSameVesselInteraction
+{
+actionGroup = None
+}
+RemoveSameVesselInteraction
+{
+actionGroup = None
+}
+AutostrutOff
+{
+actionGroup = None
+}
+AutostrutRoot
+{
+actionGroup = None
+}
+AutostrutHeaviest
+{
+actionGroup = None
+}
+AutostrutGrandparent
+{
+actionGroup = None
+}
+ResourcesEnableFlow
+{
+actionGroup = None
+}
+ResourcesDisableFlow
+{
+actionGroup = None
+}
+}
+PARTDATA
+{
+}
+MODULE
+{
+name = ModuleRCSFX
+isEnabled = True
+rcsEnabled = True
+thrustPercentage = 100
+currentShowToggles = False
+enableYaw = True
+enablePitch = True
+enableRoll = True
+enableX = False
+enableY = False
+enableZ = False
+useThrottle = False
+fullThrust = False
+stagingEnabled = False
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleRCSFX
+isEnabled = True
+rcsEnabled = True
+thrustPercentage = 100
+currentShowToggles = False
+enableYaw = False
+enablePitch = False
+enableRoll = False
+enableX = True
+enableY = True
+enableZ = True
+useThrottle = False
+fullThrust = False
+stagingEnabled = False
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9AssignUiGroups
+isEnabled = True
+stagingEnabled = True
+moduleID = 
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9PartSwitch
+isEnabled = True
+stagingEnabled = True
+moduleID = realnameTankSwitch
+currentSubtype = DeltaP
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9PartSwitch
+isEnabled = True
+stagingEnabled = True
+moduleID = textureSwitchPaint
+currentSubtype = Green
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9PartSwitch
+isEnabled = True
+stagingEnabled = True
+moduleID = fuelSwitch
+currentSubtype = LF/O
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleBdbBoiloff
+isEnabled = True
+lastUpdateTime = -1
+temperatureInitialized = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9PartInfo
+isEnabled = True
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+RESOURCE
+{
+name = LiquidFuel
+amount = 81
+maxAmount = 81
+flowState = True
+isTweakable = True
+hideFlow = False
+isVisible = True
+flowMode = Both
+}
+RESOURCE
+{
+name = Oxidizer
+amount = 99
+maxAmount = 99
+flowState = True
+isTweakable = True
+hideFlow = False
+isVisible = True
+flowMode = Both
+}
+RESOURCE
+{
+name = MonoPropellant
+amount = 9
+maxAmount = 9
+flowState = True
+isTweakable = True
+hideFlow = False
+isVisible = True
+flowMode = Both
+}
+}
+PART
+{
 part = bluedog.TR.201_4292323682
 partName = Part
 persistentId = 2818753343
-pos = 0.127513289,23.4848213,-0.1031949
+pos = 0.127513289,23.5512905,-0.1031949
 attPos = 0,0,0
-attPos0 = 0,-1.61766934,0
+attPos0 = 0,-1.61767006,0
 rot = 0,0,0,1
 attRot = 0,0,0,1
 attRot0 = 0,0,0,1
@@ -1369,16 +1369,16 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 3
 resPri = 0
-dstg = 2
+dstg = 4
 sidx = 0
 sqor = 3
-sepI = -1
+sepI = 1
 attm = 0
 sameVesselCollision = False
 modCost = 0
 modMass = 0
 modSize = 0,0,0
-attN = top,bluedog.DeltaP.Stage_4292326280_0|0.553770006|0_0|1|0_0|0.553770006|0_0|1|0
+attN = top,bluedog.DeltaK.Stage_4292326280_0|0.553770006|0_0|1|0_0|0.553770006|0_0|1|0
 attN = bottom,Null_0_0|-0.553770006|0_0|-1|0_0|-0.553770006|0_0|-1|0
 EVENTS
 {
@@ -1661,7 +1661,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 3
 resPri = 0
-dstg = 3
+dstg = 5
 sidx = 1
 sqor = 3
 sepI = 3
@@ -1836,7 +1836,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 3
 resPri = 0
-dstg = 4
+dstg = 6
 sidx = -1
 sqor = -1
 sepI = 3
@@ -2050,7 +2050,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 3
 resPri = 0
-dstg = 4
+dstg = 6
 sidx = -1
 sqor = -1
 sepI = 3
@@ -2247,7 +2247,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 3
 resPri = 0
-dstg = 4
+dstg = 6
 sidx = -1
 sqor = -1
 sepI = 3
@@ -2369,7 +2369,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 4
+dstg = 6
 sidx = 4
 sqor = 5
 sepI = 3
@@ -2736,7 +2736,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 0
 sqor = 5
 sepI = 3
@@ -3091,7 +3091,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 0
 sqor = 5
 sepI = 3
@@ -3438,7 +3438,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 0
 sqor = 4
 sepI = 4
@@ -3582,7 +3582,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 1
 sqor = 5
 sepI = 4
@@ -3815,7 +3815,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 0
 sqor = 4
 sepI = 4
@@ -3947,7 +3947,7 @@ PART
 part = bluedog.Castor2_4292248562
 partName = Part
 persistentId = 4130480575
-pos = 1.09498286,11.1205549,-0.661764026
+pos = 1.09498298,11.1205549,-0.661764085
 attPos = 0,0,0
 attPos0 = -0.265336543,0.756631851,-2.98023224E-08
 rot = 0,0.866025507,0,0.499999881
@@ -3959,7 +3959,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 1
 sqor = 5
 sepI = 4
@@ -4184,7 +4184,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 0
 sqor = 4
 sepI = 4
@@ -4328,7 +4328,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 1
 sqor = 5
 sepI = 4
@@ -4553,7 +4553,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 1
 sqor = 4
 sepI = 4
@@ -4697,7 +4697,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 2
 sqor = 5
 sepI = 4
@@ -4922,7 +4922,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 1
 sqor = 4
 sepI = 4
@@ -5054,10 +5054,10 @@ PART
 part = bluedog.Castor2_4292228018
 partName = Part
 persistentId = 2257052243
-pos = 1.2297672,11.1204691,0.0911621079
+pos = 1.22976732,11.1204691,0.0911621377
 attPos = 0,0,0
 attPos0 = -0.265336543,0.756631851,-2.98023224E-08
-rot = 0,-0.642787874,0,-0.766044438
+rot = 0,-0.642787874,0,-0.766044378
 attRot = 0,0,0,1
 attRot0 = 0,-0.707106829,0,0.707106829
 mir = 1,1,1
@@ -5066,7 +5066,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 2
 sqor = 5
 sepI = 4
@@ -5291,7 +5291,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 1
 sqor = 4
 sepI = 4
@@ -5435,7 +5435,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 2
 sqor = 5
 sepI = 4
@@ -5660,7 +5660,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 2
 sqor = 4
 sepI = 4
@@ -5804,7 +5804,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 3
 sqor = 5
 sepI = 4
@@ -6029,7 +6029,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 2
 sqor = 4
 sepI = 4
@@ -6173,7 +6173,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 3
 sqor = 5
 sepI = 4
@@ -6398,7 +6398,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 4
 resPri = 0
-dstg = 5
+dstg = 7
 sidx = 2
 sqor = 4
 sepI = 4
@@ -6542,7 +6542,7 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 5
 resPri = 0
-dstg = 6
+dstg = 8
 sidx = 3
 sqor = 5
 sepI = 4
