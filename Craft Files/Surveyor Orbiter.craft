@@ -1,8 +1,8 @@
 ship = Surveyor Orbiter
-version = 1.12.5
+version = 1.12.3
 description = 
 type = VAB
-size = 1.48116577,1.93023872,1.47299576
+size = 1.48116577,1.93023872,1.47299564
 steamPublishedFileId = 0
 persistentId = 2894884397
 rot = 0,0,0,0
@@ -14,12 +14,12 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-part = bluedog.SurveyorOrbiter.Core_4292086502
+part = bluedog.Surveyor.Adapter_4292172612
 partName = Part
-persistentId = 1906205356
-pos = 0.0115929879,14.98944,-0.089710176
+persistentId = 1274919483
+pos = -0.028539544,14.7072201,0.0347929299
 attPos = 0,0,0
-attPos0 = 0.000535624975,15.0423279,0.007984492
+attPos0 = -0.028539544,14.7072201,0.0347929299
 rot = 0,0,0,1
 attRot = 0,0,0,1
 attRot0 = 0,0,0,1
@@ -29,32 +29,166 @@ autostrutMode = Off
 rigidAttachment = False
 istg = 1
 resPri = 0
+dstg = 0
+sidx = 0
+sqor = 1
+sepI = 1
+attm = 0
+sameVesselCollision = False
+modCost = 0
+modMass = 0
+modSize = 0,0,0
+link = bluedog.Surveyor.Core_4292640932
+attN = top,bluedog.Surveyor.Core_4292640932_0|0.248195097|0_0|1|0_0|0.248195097|0_0|1|0
+attN = bottom,Null_0_0|-0.155589998|0_0|-1|0_0|-0.155589998|0_0|-1|0
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleSameVesselInteraction
+{
+actionGroup = None
+}
+SetSameVesselInteraction
+{
+actionGroup = None
+}
+RemoveSameVesselInteraction
+{
+actionGroup = None
+}
+AutostrutOff
+{
+actionGroup = None
+}
+AutostrutRoot
+{
+actionGroup = None
+}
+AutostrutHeaviest
+{
+actionGroup = None
+}
+AutostrutGrandparent
+{
+actionGroup = None
+}
+ResourcesEnableFlow
+{
+actionGroup = None
+active = False
+}
+ResourcesDisableFlow
+{
+actionGroup = None
+active = False
+}
+}
+PARTDATA
+{
+}
+MODULE
+{
+name = ModuleDecouple
+isEnabled = True
+ejectionForcePercent = 100
+isDecoupled = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+DecoupleAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleToggleCrossfeed
+isEnabled = True
+crossfeedStatus = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+}
+EnableAction
+{
+actionGroup = None
+}
+DisableAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+}
+PART
+{
+part = bluedog.Surveyor.Core_4292640932
+partName = Part
+persistentId = 2574209231
+pos = -0.028539544,15.208415,0.0347929299
+attPos = 0,0,0
+attPos0 = 0,0.501194954,0
+rot = 0,0,0,1
+attRot = 0,0,0,1
+attRot0 = 0,0,0,1
+mir = 1,1,1
+symMethod = Radial
+autostrutMode = Off
+rigidAttachment = False
+istg = 0
+resPri = 0
 dstg = 1
-sidx = 1
+sidx = 0
 sqor = 0
 sepI = 1
 attm = 0
 sameVesselCollision = False
-modCost = -4.76837158E-07
-modMass = -1.39698386E-09
+modCost = -23.6199989
+modMass = -0.00750000123
 modSize = 0,0,0
-link = bluedog.SurveyorOrbiter.Solar_4292082248
-link = bluedog.SurveyorOrbiter.Solar_4292080794
-link = bluedog.Surveyor.Vernier_4292073936
-link = bluedog.Surveyor.Vernier_4292072986
-link = bluedog.Surveyor.Vernier_4292072646
+link = bluedog.SurveyorOrbiter.Solar_4292625800
+link = bluedog.SurveyorOrbiter.Solar_4292623684
 link = bluedog.SurveyorOrbiter.Antenna_4291933692
-link = bluedog.LunarOrbiter.Camera_4291974928
 link = bluedog.Surveyor.Omni_4292565276
+link = bluedog.Surveyor.Vernier_4292072986
+link = bluedog.Surveyor.Vernier_4292618376
+link = bluedog.Surveyor.Vernier_4292618038
+link = bluedog.LunarOrbiter.Camera_4291974928
 attN = bottom,bluedog.Surveyor.Adapter_4292172612_0|-0.252999991|0_0|-1|0_0|-0.252999991|0_0|-1|0
 attN = bottom2,Null_0_0|-0.0850000009|0_0|-1|0_0|-0.0850000009|0_0|-1|0
 attN = antennaNode,bluedog.SurveyorOrbiter.Antenna_4291933692_0|0.216883734|-7.14807134E-18_0|1.00000012|-1.1920929E-07_0|0.216883734|-7.14807134E-18_0|1.00000012|-1.1920929E-07
-attN = omniNode,bluedog.Surveyor.Omni_4292565276_0.484970242|0.0584858805|0.279997706_0.866025388|0|0.5_0.484970242|0.0584858805|0.279997706_0.866025388|0|0.5
-attN = solarNode_1,bluedog.SurveyorOrbiter.Solar_4292080794_0|-0.230000004|0.383587748_1.22464685E-16|1.22464685E-16|1_0|-0.230000004|0.383587748_1.22464685E-16|1.22464685E-16|1
-attN = solarNode_2,bluedog.SurveyorOrbiter.Solar_4292082248_-3.30872245E-24|-0.22999987|-0.608006001_-1.22464685E-16|-1.22464685E-16|-1_-3.30872245E-24|-0.22999987|-0.608006001_-1.22464685E-16|-1.22464685E-16|-1
-attN = vernierNode_1,bluedog.Surveyor.Vernier_4292072646_-0.140314564|-0.22999993|-0.524143875_-0.866025388|-1.64071556E-17|-0.5_-0.140314564|-0.22999993|-0.524143875_-0.866025388|-1.64071556E-17|-0.5
-attN = vernierNode_2,bluedog.Surveyor.Vernier_4292072986_0.524079204|-0.22999993|0.140555963_0.866025388|-2.2852221E-16|-0.5_0.524079204|-0.22999993|0.140555963_0.866025388|-2.2852221E-16|-0.5
-attN = vernierNode_3,bluedog.Surveyor.Vernier_4292073936_-0.383764654|-0.22999993|0.383587927_0|0|1_-0.383764654|-0.22999993|0.383587927_0|0|1
+attN = cameraNode,Null_0_0.213353351|0.203350142|0.410670489_0|1.00000012|-1.1920929E-07_0.213353351|0.203350142|0.410670489_0|1.00000012|-1.1920929E-07
+attN = legNode_1,Null_0_0.526548624|-0.22999987|0.304003_0.866025388|0|0.5_0.526548624|-0.22999987|0.304003_0.866025388|0|0.5
+attN = legNode_2,Null_0_-3.30872245E-24|-0.22999987|-0.608006001_-1.22464685E-16|-1.22464685E-16|-1_-3.30872245E-24|-0.22999987|-0.608006001_-1.22464685E-16|-1.22464685E-16|-1
+attN = legNode_3,Null_0_-0.526548624|-0.22999987|0.304003_-0.866025388|0|0.5_-0.526548624|-0.22999987|0.304003_-0.866025388|0|0.5
+attN = solarNode_1,bluedog.SurveyorOrbiter.Solar_4292623684_0|-0.230000004|0.383587748_1.22464685E-16|1.22464685E-16|1_0|-0.230000004|0.383587748_1.22464685E-16|1.22464685E-16|1
+attN = solarNode_2,bluedog.SurveyorOrbiter.Solar_4292625800_-3.30872245E-24|-0.22999987|-0.608006001_-1.22464685E-16|-1.22464685E-16|-1_-3.30872245E-24|-0.22999987|-0.608006001_-1.22464685E-16|-1.22464685E-16|-1
+attN = omni,bluedog.Surveyor.Omni_4292565276_0.484970242|0.0584858805|0.279997706_0.866025388|0|0.5_0.484970242|0.0584858805|0.279997706_0.866025388|0|0.5
+attN = omni1,Null_0_0.215510339|-0.180018425|-0.610213518_1.22464685E-16|-1.22464685E-16|-1_0.215510339|-0.180018425|-0.610213518_1.22464685E-16|-1.22464685E-16|-1
+attN = omni2,Null_0_-0.333375245|-0.0232331604|0.460471034_-0.453411877|0|0.891301095_-0.333375245|-0.0232331604|0.460471034_-0.453411877|0|0.891301095
+attN = rearNode,Null_0_0|-0.161455214|0.412524968_0|0|1_0|-0.161455214|0.412524968_0|0|1
+attN = scoopNode,Null_0_0.405444056|-0.228582591|0.400569648_0|0|1_0.405444056|-0.228582591|0.400569648_0|0|1
+attN = vernierNode_1,bluedog.Surveyor.Vernier_4292618038_-0.140314564|-0.22999993|-0.524143875_-0.866025388|-1.64071556E-17|-0.5_-0.140314564|-0.22999993|-0.524143875_-0.866025388|-1.64071556E-17|-0.5
+attN = vernierNode_2,bluedog.Surveyor.Vernier_4292618376_0.524079204|-0.22999993|0.140555963_0.866025388|-2.2852221E-16|-0.5_0.524079204|-0.22999993|0.140555963_0.866025388|-2.2852221E-16|-0.5
+attN = vernierNode_3,bluedog.Surveyor.Vernier_4292072986_-0.383764654|-0.22999993|0.383587927_0|0|1_-0.383764654|-0.22999993|0.383587927_0|0|1
 EVENTS
 {
 }
@@ -284,6 +418,44 @@ MODULE
 name = ModuleB9PartSwitch
 isEnabled = True
 stagingEnabled = True
+moduleID = realnameMeshSwitchStyle
+currentSubtype = Orbiter
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleDecouple
+isEnabled = True
+ejectionForcePercent = 100
+isDecoupled = False
+stagingEnabled = False
+EVENTS
+{
+}
+ACTIONS
+{
+DecoupleAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9PartSwitch
+isEnabled = True
+stagingEnabled = True
 moduleID = fuelSwitch
 currentSubtype = LF/O
 EVENTS
@@ -361,8 +533,8 @@ flowMode = Both
 RESOURCE
 {
 name = LiquidFuel
-amount = 45
-maxAmount = 45
+amount = 22.5
+maxAmount = 22.5
 flowState = True
 isTweakable = True
 hideFlow = False
@@ -372,8 +544,8 @@ flowMode = Both
 RESOURCE
 {
 name = Oxidizer
-amount = 55
-maxAmount = 55
+amount = 27.5
+maxAmount = 27.5
 flowState = True
 isTweakable = True
 hideFlow = False
@@ -383,8 +555,8 @@ flowMode = Both
 RESOURCE
 {
 name = MonoPropellant
-amount = 8
-maxAmount = 8
+amount = 6.6666646003723145
+maxAmount = 6.6666646003723145
 flowState = True
 isTweakable = True
 hideFlow = False
@@ -394,12 +566,12 @@ flowMode = Both
 }
 PART
 {
-part = bluedog.SurveyorOrbiter.Solar_4292082248
+part = bluedog.SurveyorOrbiter.Solar_4292625800
 partName = Part
-persistentId = 1906913706
-pos = 0.0115929879,14.7594404,-0.697716177
+persistentId = 4159416539
+pos = -0.028539544,14.9784155,-0.5732131
 attPos = 0,0,0
-attPos0 = -3.30872245E-24,-0.229999542,-0.608006001
+attPos0 = 0,-0.229999542,-0.608006001
 rot = 0,-1,0,0
 attRot = 0,-0.999999881,0,0
 attRot0 = 0,-1,0,0
@@ -407,7 +579,7 @@ mir = 1,1,1
 symMethod = Radial
 autostrutMode = Off
 rigidAttachment = False
-istg = 1
+istg = 0
 resPri = 0
 dstg = 1
 sidx = -1
@@ -418,7 +590,7 @@ sameVesselCollision = False
 modCost = 0
 modMass = 0
 modSize = 0,0,0
-attN = attachNode,bluedog.SurveyorOrbiter.Core_4292086502_0|6.85215773E-17|0_0|1.22464685E-16|-1_0|6.85215773E-17|0_0|1.22464685E-16|-1
+attN = attachNode,bluedog.Surveyor.Core_4292640932_0|6.85215773E-17|0_0|1.22464685E-16|-1_0|6.85215773E-17|0_0|1.22464685E-16|-1
 EVENTS
 {
 }
@@ -566,12 +738,12 @@ UPGRADESAPPLIED
 }
 PART
 {
-part = bluedog.SurveyorOrbiter.Solar_4292080794
+part = bluedog.SurveyorOrbiter.Solar_4292623684
 partName = Part
-persistentId = 4226937865
-pos = 0.0115929879,14.7594404,0.419324338
+persistentId = 3826618399
+pos = -0.028539544,14.9784145,0.543827415
 attPos = 0,0,0
-attPos0 = 0,-0.229999542,0.383587748
+attPos0 = 0,-0.230000496,0.509034514
 rot = 0,0,0,-1
 attRot = 0,0,0,-0.999999881
 attRot0 = 0,0,0,-1
@@ -579,7 +751,7 @@ mir = 1,1,1
 symMethod = Radial
 autostrutMode = Off
 rigidAttachment = False
-istg = 1
+istg = 0
 resPri = 0
 dstg = 1
 sidx = -1
@@ -590,7 +762,7 @@ sameVesselCollision = False
 modCost = 0
 modMass = 0
 modSize = 0,0,0
-attN = attachNode,bluedog.SurveyorOrbiter.Core_4292086502_0|6.85215773E-17|0_0|1.22464685E-16|-1_0|0|-0.125446796_0|1.22464685E-16|-1
+attN = attachNode,bluedog.Surveyor.Core_4292640932_0|6.85215773E-17|0_0|1.22464685E-16|-1_0|0|-0.125446796_0|1.22464685E-16|-1
 EVENTS
 {
 }
@@ -738,719 +910,12 @@ UPGRADESAPPLIED
 }
 PART
 {
-part = bluedog.Surveyor.Vernier_4292073936
-partName = Part
-persistentId = 3244974830
-pos = -0.37217164,14.7594404,0.359933347
-attPos = 0,0,0
-attPos0 = -0.383764654,-0.229999542,0.449643523
-rot = 0,0.707106829,0,0.707106829
-attRot = 0,0.707106709,0,0.707106709
-attRot0 = 0,0.707106829,0,0.707106829
-mir = 1,1,1
-symMethod = Radial
-autostrutMode = Off
-rigidAttachment = False
-istg = 0
-resPri = 0
-dstg = 1
-sidx = 0
-sqor = 0
-sepI = 1
-attm = 0
-sameVesselCollision = False
-modCost = 0
-modMass = 0
-modSize = 0,0,0
-sym = bluedog.Surveyor.Vernier_4292072986
-sym = bluedog.Surveyor.Vernier_4292072646
-attN = attachNode,bluedog.SurveyorOrbiter.Core_4292086502_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleSameVesselInteraction
-{
-actionGroup = None
-}
-SetSameVesselInteraction
-{
-actionGroup = None
-}
-RemoveSameVesselInteraction
-{
-actionGroup = None
-}
-AutostrutOff
-{
-actionGroup = None
-}
-AutostrutRoot
-{
-actionGroup = None
-}
-AutostrutHeaviest
-{
-actionGroup = None
-}
-AutostrutGrandparent
-{
-actionGroup = None
-}
-ResourcesEnableFlow
-{
-actionGroup = None
-active = False
-}
-ResourcesDisableFlow
-{
-actionGroup = None
-active = False
-}
-}
-PARTDATA
-{
-}
-MODULE
-{
-name = ModuleEnginesFX
-isEnabled = True
-independentThrottle = False
-independentThrottlePercentage = 0
-staged = False
-flameout = False
-EngineIgnited = False
-engineShutdown = False
-currentThrottle = 0
-thrustPercentage = 100
-manuallyOverridden = False
-includeinDVCalcs = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-OnAction
-{
-actionGroup = None
-}
-ShutdownAction
-{
-actionGroup = None
-}
-ActivateAction
-{
-actionGroup = None
-}
-ToggleThrottle
-{
-actionGroup = None
-}
-}
-AXISGROUPS
-{
-independentThrottlePercentage
-{
-axisGroup = None
-axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-axisSpeedMultiplier = 0
-axisInverted = None
-overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-}
-thrustPercentage
-{
-axisGroup = None
-axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-axisSpeedMultiplier = 0
-axisInverted = None
-overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleGimbal
-isEnabled = True
-gimbalLock = False
-gimbalLimiter = 100
-currentShowToggles = False
-enableYaw = True
-enablePitch = True
-enableRoll = True
-gimbalActive = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-}
-LockAction
-{
-actionGroup = None
-}
-FreeAction
-{
-actionGroup = None
-}
-TogglePitchAction
-{
-actionGroup = None
-}
-ToggleYawAction
-{
-actionGroup = None
-}
-ToggleRollAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleSurfaceFX
-isEnabled = True
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = FXModuleThrottleEffects
-isEnabled = True
-state = 0
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleColorChanger
-isEnabled = True
-animState = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-active = False
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-}
-PART
-{
-part = bluedog.Surveyor.Vernier_4292072986
-partName = Part
-persistentId = 4280182548
-pos = 0.592878044,14.7594404,0.0178179741
-attPos = 0,0,0
-attPos0 = 0.581285059,-0.229999542,0.10752815
-rot = 0,0.965925813,0,-0.258819103
-attRot = 0,0.707106709,0,0.707106709
-attRot0 = 0,0.965925813,0,-0.258819103
-mir = 1,1,1
-symMethod = Radial
-autostrutMode = Off
-rigidAttachment = False
-istg = 0
-resPri = 0
-dstg = 1
-sidx = 0
-sqor = 0
-sepI = 1
-attm = 0
-sameVesselCollision = False
-modCost = 0
-modMass = 0
-modSize = 0,0,0
-sym = bluedog.Surveyor.Vernier_4292072646
-sym = bluedog.Surveyor.Vernier_4292073936
-attN = attachNode,bluedog.SurveyorOrbiter.Core_4292086502_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleSameVesselInteraction
-{
-actionGroup = None
-}
-SetSameVesselInteraction
-{
-actionGroup = None
-}
-RemoveSameVesselInteraction
-{
-actionGroup = None
-}
-AutostrutOff
-{
-actionGroup = None
-}
-AutostrutRoot
-{
-actionGroup = None
-}
-AutostrutHeaviest
-{
-actionGroup = None
-}
-AutostrutGrandparent
-{
-actionGroup = None
-}
-ResourcesEnableFlow
-{
-actionGroup = None
-active = False
-}
-ResourcesDisableFlow
-{
-actionGroup = None
-active = False
-}
-}
-PARTDATA
-{
-}
-MODULE
-{
-name = ModuleEnginesFX
-isEnabled = True
-independentThrottle = False
-independentThrottlePercentage = 0
-staged = False
-flameout = False
-EngineIgnited = False
-engineShutdown = False
-currentThrottle = 0
-thrustPercentage = 100
-manuallyOverridden = False
-includeinDVCalcs = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-OnAction
-{
-actionGroup = None
-}
-ShutdownAction
-{
-actionGroup = None
-}
-ActivateAction
-{
-actionGroup = None
-}
-ToggleThrottle
-{
-actionGroup = None
-}
-}
-AXISGROUPS
-{
-independentThrottlePercentage
-{
-axisGroup = None
-axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-axisSpeedMultiplier = 0
-axisInverted = None
-}
-thrustPercentage
-{
-axisGroup = None
-axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-axisSpeedMultiplier = 0
-axisInverted = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleGimbal
-isEnabled = True
-gimbalLock = False
-gimbalLimiter = 100
-currentShowToggles = False
-enableYaw = True
-enablePitch = True
-enableRoll = True
-gimbalActive = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-}
-LockAction
-{
-actionGroup = None
-}
-FreeAction
-{
-actionGroup = None
-}
-TogglePitchAction
-{
-actionGroup = None
-}
-ToggleYawAction
-{
-actionGroup = None
-}
-ToggleRollAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleSurfaceFX
-isEnabled = True
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = FXModuleThrottleEffects
-isEnabled = True
-state = 0
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleColorChanger
-isEnabled = True
-animState = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-active = False
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-}
-PART
-{
-part = bluedog.Surveyor.Vernier_4292072646
-partName = Part
-persistentId = 4148123287
-pos = -0.185927421,14.7594404,-0.646881878
-attPos = 0,0,0
-attPos0 = -0.197520405,-0.229999542,-0.557171702
-rot = 0,0.258819014,0,-0.965925872
-attRot = 0,0.707106709,0,0.707106709
-attRot0 = 0,0.258819014,0,-0.965925872
-mir = 1,1,1
-symMethod = Radial
-autostrutMode = Off
-rigidAttachment = False
-istg = 0
-resPri = 0
-dstg = 1
-sidx = 0
-sqor = 0
-sepI = 1
-attm = 0
-sameVesselCollision = False
-modCost = 0
-modMass = 0
-modSize = 0,0,0
-sym = bluedog.Surveyor.Vernier_4292073936
-sym = bluedog.Surveyor.Vernier_4292072986
-attN = attachNode,bluedog.SurveyorOrbiter.Core_4292086502_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleSameVesselInteraction
-{
-actionGroup = None
-}
-SetSameVesselInteraction
-{
-actionGroup = None
-}
-RemoveSameVesselInteraction
-{
-actionGroup = None
-}
-AutostrutOff
-{
-actionGroup = None
-}
-AutostrutRoot
-{
-actionGroup = None
-}
-AutostrutHeaviest
-{
-actionGroup = None
-}
-AutostrutGrandparent
-{
-actionGroup = None
-}
-ResourcesEnableFlow
-{
-actionGroup = None
-active = False
-}
-ResourcesDisableFlow
-{
-actionGroup = None
-active = False
-}
-}
-PARTDATA
-{
-}
-MODULE
-{
-name = ModuleEnginesFX
-isEnabled = True
-independentThrottle = False
-independentThrottlePercentage = 0
-staged = False
-flameout = False
-EngineIgnited = False
-engineShutdown = False
-currentThrottle = 0
-thrustPercentage = 100
-manuallyOverridden = False
-includeinDVCalcs = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-OnAction
-{
-actionGroup = None
-}
-ShutdownAction
-{
-actionGroup = None
-}
-ActivateAction
-{
-actionGroup = None
-}
-ToggleThrottle
-{
-actionGroup = None
-}
-}
-AXISGROUPS
-{
-independentThrottlePercentage
-{
-axisGroup = None
-axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-axisSpeedMultiplier = 0
-axisInverted = None
-}
-thrustPercentage
-{
-axisGroup = None
-axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-axisSpeedMultiplier = 0
-axisInverted = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleGimbal
-isEnabled = True
-gimbalLock = False
-gimbalLimiter = 100
-currentShowToggles = False
-enableYaw = True
-enablePitch = True
-enableRoll = True
-gimbalActive = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-}
-LockAction
-{
-actionGroup = None
-}
-FreeAction
-{
-actionGroup = None
-}
-TogglePitchAction
-{
-actionGroup = None
-}
-ToggleYawAction
-{
-actionGroup = None
-}
-ToggleRollAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleSurfaceFX
-isEnabled = True
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = FXModuleThrottleEffects
-isEnabled = True
-state = 0
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleColorChanger
-isEnabled = True
-animState = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-active = False
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-}
-PART
-{
 part = bluedog.SurveyorOrbiter.Antenna_4291933692
 partName = Part
 persistentId = 2447534974
-pos = 0.0631255656,15.2124023,0.057388097
+pos = 0.0229930338,15.4313774,0.181891203
 attPos = 0,0,0
-attPos0 = 0.0515325814,0.222962379,0.147098273
+attPos0 = 0.0515325777,0.222962379,0.147098273
 rot = 0,0,0,1
 attRot = 0,0,0,1
 attRot0 = 0,0,0,1
@@ -1458,7 +923,7 @@ mir = 1,1,1
 symMethod = Radial
 autostrutMode = Off
 rigidAttachment = False
-istg = 1
+istg = 0
 resPri = 0
 dstg = 1
 sidx = -1
@@ -1469,7 +934,7 @@ sameVesselCollision = False
 modCost = 0
 modMass = 0
 modSize = 0,0,0
-attN = attachNode,bluedog.SurveyorOrbiter.Core_4292086502_-0.0515325814|-0.00607889891|-0.147098273_0|-1.00000012|-1.1920929E-07_-0.0515325814|-0.00607889891|-0.147098273_0|-1.00000012|-1.1920929E-07
+attN = attachNode,bluedog.Surveyor.Core_4292640932_-0.0515325814|-0.00607889891|-0.147098273_0|-1.00000012|-1.1920929E-07_-0.0515325814|-0.00607889891|-0.147098273_0|-1.00000012|-1.1920929E-07
 EVENTS
 {
 }
@@ -1572,23 +1037,901 @@ UPGRADESAPPLIED
 {
 }
 }
+MODULE
+{
+name = ModuleBdbRelayInfo
+isEnabled = True
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+}
+PART
+{
+part = bluedog.Surveyor.Omni_4292565276
+partName = Part
+persistentId = 1743093499
+pos = 0.456430703,15.2920475,0.314790636
+attPos = 0,0,0
+attPos0 = 0.484970242,0.0836324692,0.279997706
+rot = 0,-0.258819014,0,0.965925872
+attRot = 0,0,0,1
+attRot0 = 0,-0.258819014,0,0.965925872
+mir = 1,1,1
+symMethod = Radial
+autostrutMode = Off
+rigidAttachment = False
+istg = 0
+resPri = 0
+dstg = 1
+sidx = -1
+sqor = -1
+sepI = 1
+attm = 0
+sameVesselCollision = False
+modCost = 0
+modMass = 0
+modSize = 0,0,0
+attN = attachNode1,Null_0_-0.00759271672|-0.0637361631|-0.00438366318_-8.64267349E-07|0|1_-0.00759271672|-0.0637361631|-0.00438366318_-8.64267349E-07|0|1
+attN = attachNode2,Null_0_-0.000560046174|0.00424926635|0.000163235018_0.00521873217|0|-0.99998641_-0.000560046174|0.00424926635|0.000163235018_0.00521873217|0|-0.99998641
+attN = attachNode3,bluedog.Surveyor.Core_4292640932_0|-0.0251465775|0_-1.00000012|0|-1.1920929E-07_0|-0.0251465775|0_-1.00000012|0|-1.1920929E-07
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleSameVesselInteraction
+{
+actionGroup = None
+}
+SetSameVesselInteraction
+{
+actionGroup = None
+}
+RemoveSameVesselInteraction
+{
+actionGroup = None
+}
+AutostrutOff
+{
+actionGroup = None
+active = False
+}
+AutostrutRoot
+{
+actionGroup = None
+active = False
+}
+AutostrutHeaviest
+{
+actionGroup = None
+active = False
+}
+AutostrutGrandparent
+{
+actionGroup = None
+active = False
+}
+ResourcesEnableFlow
+{
+actionGroup = None
+active = False
+}
+ResourcesDisableFlow
+{
+actionGroup = None
+active = False
+}
+}
+PARTDATA
+{
+}
+MODULE
+{
+name = ModuleDeployableAntenna
+isEnabled = True
+currentRotation = (-0.707106829, 0, 0, 0.707106829)
+storedAnimationTime = 0
+storedAnimationSpeed = 0
+deployState = RETRACTED
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ExtendPanelsAction
+{
+actionGroup = None
+}
+ExtendAction
+{
+actionGroup = None
+}
+RetractAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleDataTransmitter
+isEnabled = True
+xmitIncomplete = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+StartTransmissionAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9PartSwitch
+isEnabled = True
+stagingEnabled = True
+moduleID = realnameMeshSwitchStyle
+currentSubtype = Orbiter
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleB9PartInfo
+isEnabled = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+}
+PART
+{
+part = bluedog.Surveyor.Vernier_4292072986
+partName = Part
+persistentId = 4280182548
+pos = -0.412304193,14.9784155,0.484436452
+attPos = 0,0,0
+attPos0 = -0.383764654,-0.229999542,0.449643523
+rot = 0,0.707106829,0,0.707106829
+attRot = 0,0.707106709,0,0.707106709
+attRot0 = 0,0.707106829,0,0.707106829
+mir = 1,1,1
+symMethod = Radial
+autostrutMode = Off
+rigidAttachment = False
+istg = 1
+resPri = 0
+dstg = 1
+sidx = 1
+sqor = 1
+sepI = 1
+attm = 0
+sameVesselCollision = False
+modCost = 0
+modMass = 0
+modSize = 0,0,0
+sym = bluedog.Surveyor.Vernier_4292618376
+sym = bluedog.Surveyor.Vernier_4292618038
+attN = attachNode,bluedog.Surveyor.Core_4292640932_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleSameVesselInteraction
+{
+actionGroup = None
+}
+SetSameVesselInteraction
+{
+actionGroup = None
+}
+RemoveSameVesselInteraction
+{
+actionGroup = None
+}
+AutostrutOff
+{
+actionGroup = None
+}
+AutostrutRoot
+{
+actionGroup = None
+}
+AutostrutHeaviest
+{
+actionGroup = None
+}
+AutostrutGrandparent
+{
+actionGroup = None
+}
+ResourcesEnableFlow
+{
+actionGroup = None
+active = False
+}
+ResourcesDisableFlow
+{
+actionGroup = None
+active = False
+}
+}
+PARTDATA
+{
+}
+MODULE
+{
+name = ModuleEnginesFX
+isEnabled = True
+independentThrottle = False
+independentThrottlePercentage = 0
+staged = False
+flameout = False
+EngineIgnited = False
+engineShutdown = False
+currentThrottle = 0
+thrustPercentage = 100
+manuallyOverridden = False
+includeinDVCalcs = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+OnAction
+{
+actionGroup = None
+}
+ShutdownAction
+{
+actionGroup = None
+}
+ActivateAction
+{
+actionGroup = None
+}
+ToggleThrottle
+{
+actionGroup = None
+}
+}
+AXISGROUPS
+{
+independentThrottlePercentage
+{
+axisGroup = None
+axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+axisSpeedMultiplier = 0
+axisInverted = None
+}
+thrustPercentage
+{
+axisGroup = None
+axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+axisSpeedMultiplier = 0
+axisInverted = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleGimbal
+isEnabled = True
+gimbalLock = False
+gimbalLimiter = 100
+currentShowToggles = False
+enableYaw = True
+enablePitch = True
+enableRoll = True
+gimbalActive = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+}
+LockAction
+{
+actionGroup = None
+}
+FreeAction
+{
+actionGroup = None
+}
+TogglePitchAction
+{
+actionGroup = None
+}
+ToggleYawAction
+{
+actionGroup = None
+}
+ToggleRollAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleSurfaceFX
+isEnabled = True
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = FXModuleThrottleEffects
+isEnabled = True
+state = 0
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleColorChanger
+isEnabled = True
+animState = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+active = False
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+}
+PART
+{
+part = bluedog.Surveyor.Vernier_4292618376
+partName = Part
+persistentId = 3788125038
+pos = 0.552745521,14.9784155,0.14232108
+attPos = 0,0,0
+attPos0 = 0.581285059,-0.229999542,0.10752815
+rot = 0,0.965925813,0,-0.258819103
+attRot = 0,0.707106709,0,0.707106709
+attRot0 = 0,0.965925813,0,-0.258819103
+mir = 1,1,1
+symMethod = Radial
+autostrutMode = Off
+rigidAttachment = False
+istg = 1
+resPri = 0
+dstg = 1
+sidx = 1
+sqor = 1
+sepI = 1
+attm = 0
+sameVesselCollision = False
+modCost = 0
+modMass = 0
+modSize = 0,0,0
+sym = bluedog.Surveyor.Vernier_4292618038
+sym = bluedog.Surveyor.Vernier_4292072986
+attN = attachNode,bluedog.Surveyor.Core_4292640932_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleSameVesselInteraction
+{
+actionGroup = None
+}
+SetSameVesselInteraction
+{
+actionGroup = None
+}
+RemoveSameVesselInteraction
+{
+actionGroup = None
+}
+AutostrutOff
+{
+actionGroup = None
+}
+AutostrutRoot
+{
+actionGroup = None
+}
+AutostrutHeaviest
+{
+actionGroup = None
+}
+AutostrutGrandparent
+{
+actionGroup = None
+}
+ResourcesEnableFlow
+{
+actionGroup = None
+active = False
+}
+ResourcesDisableFlow
+{
+actionGroup = None
+active = False
+}
+}
+PARTDATA
+{
+}
+MODULE
+{
+name = ModuleEnginesFX
+isEnabled = True
+independentThrottle = False
+independentThrottlePercentage = 0
+staged = False
+flameout = False
+EngineIgnited = False
+engineShutdown = False
+currentThrottle = 0
+thrustPercentage = 100
+manuallyOverridden = False
+includeinDVCalcs = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+OnAction
+{
+actionGroup = None
+}
+ShutdownAction
+{
+actionGroup = None
+}
+ActivateAction
+{
+actionGroup = None
+}
+ToggleThrottle
+{
+actionGroup = None
+}
+}
+AXISGROUPS
+{
+independentThrottlePercentage
+{
+axisGroup = None
+axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+axisSpeedMultiplier = 0
+axisInverted = None
+}
+thrustPercentage
+{
+axisGroup = None
+axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+axisSpeedMultiplier = 0
+axisInverted = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleGimbal
+isEnabled = True
+gimbalLock = False
+gimbalLimiter = 100
+currentShowToggles = False
+enableYaw = True
+enablePitch = True
+enableRoll = True
+gimbalActive = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+}
+LockAction
+{
+actionGroup = None
+}
+FreeAction
+{
+actionGroup = None
+}
+TogglePitchAction
+{
+actionGroup = None
+}
+ToggleYawAction
+{
+actionGroup = None
+}
+ToggleRollAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleSurfaceFX
+isEnabled = True
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = FXModuleThrottleEffects
+isEnabled = True
+state = 0
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleColorChanger
+isEnabled = True
+animState = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+active = False
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+}
+PART
+{
+part = bluedog.Surveyor.Vernier_4292618038
+partName = Part
+persistentId = 809210908
+pos = -0.226059943,14.9784155,-0.522378802
+attPos = 0,0,0
+attPos0 = -0.197520405,-0.229999542,-0.557171702
+rot = 0,0.258819014,0,-0.965925872
+attRot = 0,0.707106709,0,0.707106709
+attRot0 = 0,0.258819014,0,-0.965925872
+mir = 1,1,1
+symMethod = Radial
+autostrutMode = Off
+rigidAttachment = False
+istg = 1
+resPri = 0
+dstg = 1
+sidx = 1
+sqor = 1
+sepI = 1
+attm = 0
+sameVesselCollision = False
+modCost = 0
+modMass = 0
+modSize = 0,0,0
+sym = bluedog.Surveyor.Vernier_4292072986
+sym = bluedog.Surveyor.Vernier_4292618376
+attN = attachNode,bluedog.Surveyor.Core_4292640932_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07_0.0660556108|0|-9.53374029E-17_1|0|-1.1920929E-07
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleSameVesselInteraction
+{
+actionGroup = None
+}
+SetSameVesselInteraction
+{
+actionGroup = None
+}
+RemoveSameVesselInteraction
+{
+actionGroup = None
+}
+AutostrutOff
+{
+actionGroup = None
+}
+AutostrutRoot
+{
+actionGroup = None
+}
+AutostrutHeaviest
+{
+actionGroup = None
+}
+AutostrutGrandparent
+{
+actionGroup = None
+}
+ResourcesEnableFlow
+{
+actionGroup = None
+active = False
+}
+ResourcesDisableFlow
+{
+actionGroup = None
+active = False
+}
+}
+PARTDATA
+{
+}
+MODULE
+{
+name = ModuleEnginesFX
+isEnabled = True
+independentThrottle = False
+independentThrottlePercentage = 0
+staged = False
+flameout = False
+EngineIgnited = False
+engineShutdown = False
+currentThrottle = 0
+thrustPercentage = 100
+manuallyOverridden = False
+includeinDVCalcs = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+OnAction
+{
+actionGroup = None
+}
+ShutdownAction
+{
+actionGroup = None
+}
+ActivateAction
+{
+actionGroup = None
+}
+ToggleThrottle
+{
+actionGroup = None
+}
+}
+AXISGROUPS
+{
+independentThrottlePercentage
+{
+axisGroup = None
+axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+axisSpeedMultiplier = 0
+axisInverted = None
+}
+thrustPercentage
+{
+axisGroup = None
+axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+axisSpeedMultiplier = 0
+axisInverted = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleGimbal
+isEnabled = True
+gimbalLock = False
+gimbalLimiter = 100
+currentShowToggles = False
+enableYaw = True
+enablePitch = True
+enableRoll = True
+gimbalActive = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+}
+LockAction
+{
+actionGroup = None
+}
+FreeAction
+{
+actionGroup = None
+}
+TogglePitchAction
+{
+actionGroup = None
+}
+ToggleYawAction
+{
+actionGroup = None
+}
+ToggleRollAction
+{
+actionGroup = None
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleSurfaceFX
+isEnabled = True
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = FXModuleThrottleEffects
+isEnabled = True
+state = 0
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+}
+UPGRADESAPPLIED
+{
+}
+}
+MODULE
+{
+name = ModuleColorChanger
+isEnabled = True
+animState = False
+stagingEnabled = True
+EVENTS
+{
+}
+ACTIONS
+{
+ToggleAction
+{
+actionGroup = None
+active = False
+}
+}
+UPGRADESAPPLIED
+{
+}
+}
 }
 PART
 {
 part = bluedog.LunarOrbiter.Camera_4291974928
 partName = Part
 persistentId = 885932317
-pos = 0.0115929879,14.98944,0.000974692404
-attPos = 0,-0.161208153,-0.165328085
-attPos0 = 0,0.161208153,0.256012946
-rot = 0,1,0,-4.37113883E-08
-attRot = 2.42644429E-08,0.831779659,-0.555105746,-3.63582444E-08
-attRot0 = 0,1,0,-4.37113883E-08
+pos = -0.028539544,15.208415,0.124342725
+attPos = -1.86264515E-09,-0.120396614,-0.403753936
+attPos0 = 1.86264515E-09,0.120396614,0.493303746
+rot = 3.82137093E-15,-1,8.74227766E-08,4.37113883E-08
+attRot = -2.76998531E-08,-0.611820638,0.790996432,2.14253166E-08
+attRot0 = 3.82137093E-15,-1,8.74227766E-08,4.37113883E-08
 mir = 1,1,1
 symMethod = Radial
 autostrutMode = Off
 rigidAttachment = False
-istg = 1
+istg = 0
 resPri = 0
 dstg = 1
 sidx = -1
@@ -1599,7 +1942,7 @@ sameVesselCollision = False
 modCost = 0
 modMass = 0
 modSize = 0,0,0
-srfN = srfAttach,bluedog.SurveyorOrbiter.Core_4292086502,landerframe_COLLIDER_1,0|-0.208000004|0,0|-1|0,0|-0.208000004|0
+srfN = srfAttach,bluedog.Surveyor.Core_4292640932,landerframe_COLLIDER_1,0|-0.208000004|0,0|-1|0,0|-0.208000004|0
 EVENTS
 {
 }
@@ -1731,296 +2074,6 @@ ResetAction
 {
 actionGroup = None
 }
-}
-UPGRADESAPPLIED
-{
-}
-}
-}
-PART
-{
-part = bluedog.Surveyor.Adapter_4292172612
-partName = Part
-persistentId = 1274919483
-pos = 0.0115929879,14.488245,-0.089710176
-attPos = 0,0,0
-attPos0 = 0.0115929879,14.488245,-0.089710176
-rot = 0,0,0,1
-attRot = 0,0,0,1
-attRot0 = 0,0,0,1
-mir = 1,1,1
-symMethod = Radial
-autostrutMode = Off
-rigidAttachment = False
-istg = 1
-resPri = 0
-dstg = 0
-sidx = 0
-sqor = 1
-sepI = 1
-attm = 0
-sameVesselCollision = False
-modCost = 0
-modMass = 0
-modSize = 0,0,0
-link = bluedog.SurveyorOrbiter.Core_4292086502
-attN = top,bluedog.SurveyorOrbiter.Core_4292086502_0|0.248195097|0_0|1|0_0|0.248195097|0_0|1|0
-attN = bottom,Null_0_0|-0.155589998|0_0|-1|0_0|-0.155589998|0_0|-1|0
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleSameVesselInteraction
-{
-actionGroup = None
-}
-SetSameVesselInteraction
-{
-actionGroup = None
-}
-RemoveSameVesselInteraction
-{
-actionGroup = None
-}
-AutostrutOff
-{
-actionGroup = None
-}
-AutostrutRoot
-{
-actionGroup = None
-}
-AutostrutHeaviest
-{
-actionGroup = None
-}
-AutostrutGrandparent
-{
-actionGroup = None
-}
-ResourcesEnableFlow
-{
-actionGroup = None
-active = False
-}
-ResourcesDisableFlow
-{
-actionGroup = None
-active = False
-}
-}
-PARTDATA
-{
-}
-MODULE
-{
-name = ModuleDecouple
-isEnabled = True
-ejectionForcePercent = 100
-isDecoupled = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-DecoupleAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleToggleCrossfeed
-isEnabled = True
-crossfeedStatus = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleAction
-{
-actionGroup = None
-}
-EnableAction
-{
-actionGroup = None
-}
-DisableAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-}
-PART
-{
-part = bluedog.Surveyor.Omni_4292565276
-partName = Part
-persistentId = 1743093499
-pos = 0.496563226,15.0730724,0.19028753
-attPos = 0,0,0
-attPos0 = 0.484970242,0.0836324692,0.279997706
-rot = 0,-0.258819014,0,0.965925872
-attRot = 0,0,0,1
-attRot0 = 0,-0.258819014,0,0.965925872
-mir = 1,1,1
-symMethod = Radial
-autostrutMode = Off
-rigidAttachment = False
-istg = 1
-resPri = 0
-dstg = 1
-sidx = -1
-sqor = -1
-sepI = 1
-attm = 0
-sameVesselCollision = False
-modCost = 0
-modMass = 0
-modSize = 0,0,0
-attN = attachNode1,Null_0_-0.00759271672|-0.0637361631|-0.00438366318_-8.64267349E-07|0|1_-0.00759271672|-0.0637361631|-0.00438366318_-8.64267349E-07|0|1
-attN = attachNode2,Null_0_-0.000560046174|0.00424926635|0.000163235018_0.00521873217|0|-0.99998641_-0.000560046174|0.00424926635|0.000163235018_0.00521873217|0|-0.99998641
-attN = attachNode3,bluedog.SurveyorOrbiter.Core_4292086502_0|-0.0251465775|0_-1.00000012|0|-1.1920929E-07_0|-0.0251465775|0_-1.00000012|0|-1.1920929E-07
-EVENTS
-{
-}
-ACTIONS
-{
-ToggleSameVesselInteraction
-{
-actionGroup = None
-}
-SetSameVesselInteraction
-{
-actionGroup = None
-}
-RemoveSameVesselInteraction
-{
-actionGroup = None
-}
-AutostrutOff
-{
-actionGroup = None
-active = False
-}
-AutostrutRoot
-{
-actionGroup = None
-active = False
-}
-AutostrutHeaviest
-{
-actionGroup = None
-active = False
-}
-AutostrutGrandparent
-{
-actionGroup = None
-active = False
-}
-ResourcesEnableFlow
-{
-actionGroup = None
-active = False
-}
-ResourcesDisableFlow
-{
-actionGroup = None
-active = False
-}
-}
-PARTDATA
-{
-}
-MODULE
-{
-name = ModuleDeployableAntenna
-isEnabled = True
-currentRotation = (-0.707106829, 0, 0, 0.707106829)
-storedAnimationTime = 0
-storedAnimationSpeed = 0
-deployState = RETRACTED
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-ExtendPanelsAction
-{
-actionGroup = None
-}
-ExtendAction
-{
-actionGroup = None
-}
-RetractAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleDataTransmitter
-isEnabled = True
-xmitIncomplete = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
-StartTransmissionAction
-{
-actionGroup = None
-}
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleB9PartSwitch
-isEnabled = True
-stagingEnabled = True
-moduleID = realnameMeshSwitchStyle
-currentSubtype = Orbiter
-EVENTS
-{
-}
-ACTIONS
-{
-}
-UPGRADESAPPLIED
-{
-}
-}
-MODULE
-{
-name = ModuleB9PartInfo
-isEnabled = False
-stagingEnabled = True
-EVENTS
-{
-}
-ACTIONS
-{
 }
 UPGRADESAPPLIED
 {
